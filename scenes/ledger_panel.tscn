@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgkqk55qden81"]
+
+[ext_resource type="Script" path="res://scripts/ledger_panel.gd" id="1_6ty6e"]
+[ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
+
+[node name="LedgerPanel" type="MarginContainer" node_paths=PackedStringArray("transaction_inputs")]
+script = ExtResource("1_6ty6e")
+transaction_inputs = [NodePath("VBoxContainer/VBoxContainer/TransactionInput0"), NodePath("VBoxContainer/VBoxContainer/TransactionInput1"), NodePath("VBoxContainer/VBoxContainer/TransactionInput2")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LedgerLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ledger"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TransactionInput0" parent="VBoxContainer/VBoxContainer" instance=ExtResource("1_sx4ef")]
+layout_mode = 2
+transaction_name = "Art of Noise record"
+amount = 20.0
+
+[node name="TransactionInput1" parent="VBoxContainer/VBoxContainer" instance=ExtResource("1_sx4ef")]
+layout_mode = 2
+
+[node name="TransactionInput2" parent="VBoxContainer/VBoxContainer" instance=ExtResource("1_sx4ef")]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New transaction"

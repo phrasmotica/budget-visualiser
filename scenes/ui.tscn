@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://5eq1bvek10ef"]
+
+[ext_resource type="PackedScene" uid="uid://ccpu37idlsyu8" path="res://scenes/budget_panel.tscn" id="1_iffwd"]
+[ext_resource type="PackedScene" uid="uid://cgkqk55qden81" path="res://scenes/ledger_panel.tscn" id="1_tkijw"]
+
+[node name="UI" type="PanelContainer"]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Budget Visualiser"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BudgetPanel" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_iffwd")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LedgerPanel" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_tkijw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[connection signal="transactions_changed" from="MarginContainer/VBoxContainer/HBoxContainer/LedgerPanel" to="MarginContainer/VBoxContainer/HBoxContainer/BudgetPanel" method="_on_ledger_panel_transactions_changed"]

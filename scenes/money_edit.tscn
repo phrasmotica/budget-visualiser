@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2trii56cowr"]
+
+[ext_resource type="Script" path="res://scripts/money_edit.gd" id="1_6j2ht"]
+
+[node name="MoneyEdit" type="LineEdit"]
+custom_minimum_size = Vector2(150, 0)
+text = "£100.00"
+placeholder_text = "Amount"
+alignment = 2
+max_length = 20
+context_menu_enabled = false
+script = ExtResource("1_6j2ht")
+amount = 100.0
