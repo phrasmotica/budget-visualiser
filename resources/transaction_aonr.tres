@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Transaction" load_steps=2 format=3 uid="uid://clcr3qjndwoyn"]
+
+[ext_resource type="Script" path="res://scripts/transaction.gd" id="1_cu05p"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_cu05p")
+id = 3476233392
+name = "Art of Noise record"
+amount = 20.0

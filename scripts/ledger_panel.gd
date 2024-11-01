@@ -15,19 +15,10 @@ func _ready():
 		# TODO: collect the initial transactions in a more efficient way
 		ti.adjust()
 
-func handle_adjust_transaction(transaction_id: int, transaction_name: String, amount: float):
-	print("Transaction " + str(transaction_id) + " for " + transaction_name + " has amount " + str(amount))
+func handle_adjust_transaction(transaction: Transaction):
+	print("Transaction " + str(transaction.id) + " for " + transaction.name + " has amount " + str(transaction.amount))
 
-	if _transactions.has(transaction_id):
-		_transactions[transaction_id].name = transaction_name
-		_transactions[transaction_id].amount = amount
-	else:
-		var new_transaction := Transaction.new()
-		new_transaction.id = transaction_id
-		new_transaction.name = transaction_name
-		new_transaction.amount = amount
-
-		_transactions[transaction_id] = new_transaction
+	_transactions[transaction.id] = transaction
 
 	var transactions := _transactions.values()
 

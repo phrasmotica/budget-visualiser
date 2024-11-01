@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgkqk55qden81"]
+[gd_scene load_steps=7 format=3 uid="uid://cgkqk55qden81"]
 
 [ext_resource type="Script" path="res://scripts/ledger_panel.gd" id="1_6ty6e"]
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
+[ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
+
+[sub_resource type="Resource" id="Resource_n6j7p"]
+resource_local_to_scene = true
+script = ExtResource("3_22lym")
+id = 3476233392
+name = "Art of Noise record"
+amount = 20.0
+
+[sub_resource type="Resource" id="Resource_0w5g8"]
+script = ExtResource("3_22lym")
+id = 324166050
+name = ""
+amount = 0.0
+
+[sub_resource type="Resource" id="Resource_mkuuf"]
+script = ExtResource("3_22lym")
+id = 2076675952
+name = ""
+amount = 0.0
 
 [node name="LedgerPanel" type="MarginContainer" node_paths=PackedStringArray("transaction_inputs")]
 script = ExtResource("1_6ty6e")
@@ -24,14 +44,15 @@ size_flags_vertical = 3
 
 [node name="TransactionInput0" parent="VBoxContainer/VBoxContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
-transaction_name = "Art of Noise record"
-amount = 20.0
+transaction = SubResource("Resource_n6j7p")
 
 [node name="TransactionInput1" parent="VBoxContainer/VBoxContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
+transaction = SubResource("Resource_0w5g8")
 
 [node name="TransactionInput2" parent="VBoxContainer/VBoxContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
+transaction = SubResource("Resource_mkuuf")
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
