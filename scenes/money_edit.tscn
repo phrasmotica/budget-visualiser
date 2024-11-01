@@ -11,3 +11,7 @@ max_length = 20
 context_menu_enabled = false
 script = ExtResource("1_6j2ht")
 amount = 100.0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="text_submitted" from="." to="." method="_on_text_submitted"]

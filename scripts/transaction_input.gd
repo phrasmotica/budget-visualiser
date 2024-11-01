@@ -8,6 +8,8 @@ var transaction_name: String:
 	set(value):
 		transaction_name = value
 
+		print("transaction_name " + transaction_name)
+
 		if not prevent_callback:
 			update_name()
 
@@ -15,6 +17,8 @@ var transaction_name: String:
 var amount: float:
 	set(value):
 		amount = value
+
+		print("amount " + str(amount))
 
 		if not prevent_callback:
 			update_amount()
@@ -31,6 +35,9 @@ signal adjust_transaction(transaction_id: int, transaction_name: String, amount:
 
 func _ready():
 	_transaction_id = RandomNumberGenerator.new().randi()
+
+	update_name()
+	update_amount()
 
 func adjust():
 	adjust_transaction.emit(_transaction_id, transaction_name, amount)
@@ -49,9 +56,7 @@ func _on_name_edit_text_changed(new_text: String) -> void:
 	prevent_callback = false
 
 func _on_name_edit_text_submitted(new_text: String) -> void:
-	prevent_callback = true
 	transaction_name = new_text
-	prevent_callback = false
 
 	adjust()
 

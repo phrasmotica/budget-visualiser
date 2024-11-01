@@ -12,6 +12,9 @@ func _ready():
 	for ti: TransactionInput in transaction_inputs:
 		ti.adjust_transaction.connect(handle_adjust_transaction)
 
+		# TODO: collect the initial transactions in a more efficient way
+		ti.adjust()
+
 func handle_adjust_transaction(transaction_id: int, transaction_name: String, amount: float):
 	print("Transaction " + str(transaction_id) + " for " + transaction_name + " has amount " + str(amount))
 
