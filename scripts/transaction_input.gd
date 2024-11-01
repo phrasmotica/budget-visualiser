@@ -8,11 +8,22 @@ var transaction: Transaction:
 
 		handle_transaction_changed()
 
+@export
+var delete_mode: bool:
+	set(value):
+		delete_mode = value
+
+		amount_edit.visible = not delete_mode
+		delete_button.visible = delete_mode
+
 @onready
 var name_edit: LineEdit = %NameEdit
 
 @onready
 var amount_edit: MoneyEdit = %AmountEdit
+
+@onready
+var delete_button: Button = %DeleteButton
 
 var prevent_callback := false
 
