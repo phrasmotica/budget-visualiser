@@ -32,6 +32,7 @@ size_flags_vertical = 3
 
 [node name="BudgetPanel" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_iffwd")]
 layout_mode = 2
+spent = 20.0
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
