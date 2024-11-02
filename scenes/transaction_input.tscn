@@ -42,3 +42,4 @@ text = "X"
 [connection signal="text_changed" from="NameEdit" to="." method="_on_name_edit_text_changed"]
 [connection signal="text_submitted" from="NameEdit" to="." method="_on_name_edit_text_submitted"]
 [connection signal="amount_changed" from="AmountEdit" to="." method="_on_amount_edit_amount_changed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

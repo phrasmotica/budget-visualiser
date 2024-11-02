@@ -13,8 +13,7 @@ var delete_mode: bool:
 	set(value):
 		delete_mode = value
 
-		amount_edit.visible = not delete_mode
-		delete_button.visible = delete_mode
+		update_delete_mode()
 
 @onready
 var name_edit: LineEdit = %NameEdit
@@ -28,6 +27,7 @@ var delete_button: Button = %DeleteButton
 var prevent_callback := false
 
 signal adjust_transaction(transaction: Transaction)
+signal delete_transaction(transaction: Transaction)
 
 func _ready():
 	if not transaction:
@@ -38,6 +38,7 @@ func _ready():
 
 	update_name()
 	update_amount()
+	update_delete_mode()
 
 func adjust():
 	adjust_transaction.emit(transaction)
@@ -49,6 +50,13 @@ func update_name():
 func update_amount():
 	if amount_edit:
 		amount_edit.amount = transaction.amount if transaction else 0.0
+
+func update_delete_mode():
+	if amount_edit:
+		amount_edit.visible = not delete_mode
+
+	if delete_button:
+		delete_button.visible = delete_mode
 
 func handle_transaction_changed():
 	if not prevent_callback:
@@ -76,3 +84,6 @@ func _on_amount_edit_amount_changed(x: float) -> void:
 	prevent_callback = false
 
 	adjust()
+
+func _on_delete_button_pressed() -> void:
+	delete_transaction.emit(transaction)
