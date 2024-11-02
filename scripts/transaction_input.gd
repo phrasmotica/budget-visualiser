@@ -51,10 +51,11 @@ func update_amount():
 		amount_edit.amount = transaction.amount if transaction else 0.0
 
 func handle_transaction_changed():
-	update_name()
-	update_amount()
+	if not prevent_callback:
+		update_name()
+		update_amount()
 
-	adjust()
+		adjust()
 
 func _on_name_edit_text_changed(new_text: String) -> void:
 	prevent_callback = true
