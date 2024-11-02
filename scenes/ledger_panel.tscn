@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
 [ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
 
-[sub_resource type="Resource" id="Resource_1dyfo"]
+[sub_resource type="Resource" id="Resource_jf41f"]
 resource_local_to_scene = true
 script = ExtResource("3_22lym")
 id = 3476233392
@@ -64,7 +64,7 @@ size_flags_vertical = 3
 
 [node name="TransactionInput0" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
-transaction = SubResource("Resource_1dyfo")
+transaction = SubResource("Resource_jf41f")
 
 [node name="TransactionInput1" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
