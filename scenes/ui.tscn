@@ -38,6 +38,7 @@ spent = 20.0
 layout_mode = 2
 
 [node name="LedgerPanel" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_tkijw")]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 0
 

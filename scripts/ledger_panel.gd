@@ -18,6 +18,22 @@ func _ready():
 	for ti: TransactionInput in transaction_inputs:
 		connect_input(ti)
 
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	handle_input()
+
+func handle_input():
+	if Input.is_action_just_pressed("ledger_delete_mode"):
+		set_delete_mode(true)
+	elif Input.is_action_just_released("ledger_delete_mode"):
+		set_delete_mode(false)
+
+func set_delete_mode(is_delete_mode: bool):
+	for ti: TransactionInput in transaction_inputs:
+		ti.delete_mode = is_delete_mode
+
 func handle_adjust_transaction(transaction: Transaction) -> void:
 	print("Transaction " + str(transaction.id) + " for " + transaction.name + " has amount " + str(transaction.amount))
 
