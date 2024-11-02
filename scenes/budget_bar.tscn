@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh3r0bxn8f0k2"]
+
+[ext_resource type="Script" path="res://scripts/budget_bar.gd" id="1_50njm"]
+
+[node name="BudgetBar" type="VBoxContainer"]
+offset_right = 600.0
+offset_bottom = 80.0
+script = ExtResource("1_50njm")
+
+[node name="BarsContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RemainingBar" type="ColorRect" parent="BarsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 66.6667
+color = Color(0, 0.686638, 3.85046e-07, 1)
+
+[node name="SpentBar" type="ColorRect" parent="BarsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 33.3333
+color = Color(0, 0.686275, 1, 1)
+
+[node name="Labels" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RemainingLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Remaining: 67%"
+
+[node name="Spacer" type="Control" parent="Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpentLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Spent: 33%"

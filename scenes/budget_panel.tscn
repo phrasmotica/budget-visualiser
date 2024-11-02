@@ -1,14 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccpu37idlsyu8"]
+[gd_scene load_steps=4 format=3 uid="uid://ccpu37idlsyu8"]
 
 [ext_resource type="Script" path="res://scripts/budget_panel.gd" id="1_ppict"]
 [ext_resource type="PackedScene" uid="uid://bw2trii56cowr" path="res://scenes/money_edit.tscn" id="2_dx4u4"]
+[ext_resource type="PackedScene" uid="uid://bh3r0bxn8f0k2" path="res://scenes/budget_bar.tscn" id="3_2wvd3"]
 
 [node name="BudgetPanel" type="MarginContainer"]
 custom_minimum_size = Vector2(900, 600)
 size_flags_horizontal = 3
 script = ExtResource("1_ppict")
-total_budget = 3000.0
-spent = 1000.0
 
 [node name="PlaceholderLabel" type="Label" parent="."]
 visible = false
@@ -42,44 +41,9 @@ amount = 3000.0
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="BarsContainer" type="HBoxContainer" parent="VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="RemainingBar" type="ColorRect" parent="VBoxContainer/BarsContainer"]
+[node name="BudgetBar" parent="VBoxContainer" instance=ExtResource("3_2wvd3")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 66.6667
-color = Color(0, 0.686638, 3.85046e-07, 1)
-
-[node name="SpentBar" type="ColorRect" parent="VBoxContainer/BarsContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 33.3333
-color = Color(0, 0.686275, 1, 1)
-
-[node name="Labels" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="RemainingLabel" type="Label" parent="VBoxContainer/Labels"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Remaining: 67%"
-
-[node name="Spacer" type="Control" parent="VBoxContainer/Labels"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SpentLabel" type="Label" parent="VBoxContainer/Labels"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Spent: 33%"
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="amount_changed" from="VBoxContainer/HBoxContainer/TotalBudgetEdit" to="." method="_on_total_budget_edit_amount_changed"]
