@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
 [ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
 
-[sub_resource type="Resource" id="Resource_w2qce"]
+[sub_resource type="Resource" id="Resource_1dyfo"]
 resource_local_to_scene = true
 script = ExtResource("3_22lym")
 id = 3476233392
@@ -24,8 +24,10 @@ name = ""
 amount = 0.0
 
 [node name="LedgerPanel" type="MarginContainer" node_paths=PackedStringArray("transaction_inputs")]
+offset_right = 308.0
+offset_bottom = 424.0
 script = ExtResource("1_6ty6e")
-transaction_inputs = [NodePath("VBoxContainer/TransactionInputContainer/TransactionInput0"), NodePath("VBoxContainer/TransactionInputContainer/TransactionInput1"), NodePath("VBoxContainer/TransactionInputContainer/TransactionInput2")]
+transaction_inputs = [NodePath("VBoxContainer/ScrollContainer/TransactionInputContainer/TransactionInput0"), NodePath("VBoxContainer/ScrollContainer/TransactionInputContainer/TransactionInput1"), NodePath("VBoxContainer/ScrollContainer/TransactionInputContainer/TransactionInput2")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -38,20 +40,27 @@ text = "Ledger"
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="TransactionInputContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="TransactionInputContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TransactionInput0" parent="VBoxContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
+[node name="TransactionInput0" parent="VBoxContainer/ScrollContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
-transaction = SubResource("Resource_w2qce")
+transaction = SubResource("Resource_1dyfo")
 
-[node name="TransactionInput1" parent="VBoxContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
+[node name="TransactionInput1" parent="VBoxContainer/ScrollContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
 transaction = SubResource("Resource_0w5g8")
 
-[node name="TransactionInput2" parent="VBoxContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
+[node name="TransactionInput2" parent="VBoxContainer/ScrollContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
 transaction = SubResource("Resource_mkuuf")
 
