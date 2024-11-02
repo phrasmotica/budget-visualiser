@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://dnecyw3bhlpbj"]
+
+[resource]
+font_names = PackedStringArray("Sitka Text")

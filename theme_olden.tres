@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ytopcsueyvhq"]
+
+[ext_resource type="SystemFont" uid="uid://dnecyw3bhlpbj" path="res://font.tres" id="1_i0aut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edbb4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o75b8"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0185037, 0.182371, 0.0725084, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[resource]
+Button/fonts/font = ExtResource("1_i0aut")
+Label/fonts/font = ExtResource("1_i0aut")
+LineEdit/fonts/font = ExtResource("1_i0aut")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_edbb4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o75b8")
