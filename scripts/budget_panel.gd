@@ -6,7 +6,8 @@ var total_budget: float = 3000:
 	set(value):
 		total_budget = max(value, spent)
 
-		update_bars()
+		if budget_bar:
+			budget_bar.total_budget = total_budget
 
 		if Engine.is_editor_hint():
 			update_budget()
@@ -16,7 +17,8 @@ var spent: float = 1000:
 	set(value):
 		spent = value
 
-		update_bars()
+		if budget_bar:
+			budget_bar.spent = spent
 
 @onready
 var total_budget_edit: MoneyEdit = %TotalBudgetEdit
@@ -40,10 +42,6 @@ func _on_ledger_panel_transactions_changed(transactions: Array) -> void:
 
 	var remaining := total_budget - spent
 	print("There is " + str(remaining) + " left in the budget")
-
-func update_bars():
-	if budget_bar:
-		budget_bar.refresh(spent, total_budget)
 
 func sumf(accum: float, next: float):
 	return accum + next

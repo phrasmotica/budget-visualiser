@@ -1,6 +1,18 @@
 @tool
 class_name BudgetBar extends VBoxContainer
 
+@export
+var total_budget: float = 3000:
+	set(value):
+		total_budget = value
+		_refresh()
+
+@export
+var spent: float = 1000:
+	set(value):
+		spent = value
+		_refresh()
+
 @onready
 var remaining_bar: ColorRect = %RemainingBar
 
@@ -13,8 +25,8 @@ var remaining_label: Label = %RemainingLabel
 @onready
 var spent_label: Label = %SpentLabel
 
-func refresh(spent: float, total: float):
-	var spent_fraction := spent / total
+func _refresh():
+	var spent_fraction := spent / total_budget
 
 	if remaining_bar:
 		remaining_bar.size_flags_stretch_ratio = 100 * (1 - spent_fraction)
@@ -23,7 +35,7 @@ func refresh(spent: float, total: float):
 		spent_bar.size_flags_stretch_ratio = 100 * spent_fraction
 
 	# only display whole percentages in labels
-	var spent_ratio := roundi(100 * spent / total)
+	var spent_ratio := roundi(100 * spent / total_budget)
 
 	if remaining_label:
 		remaining_label.text = "Remaining: %d%%" % (100 - spent_ratio)
