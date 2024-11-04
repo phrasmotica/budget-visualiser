@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxj87hg6rotuw"]
+[gd_scene load_steps=4 format=3 uid="uid://cxj87hg6rotuw"]
 
 [ext_resource type="PackedScene" uid="uid://5eq1bvek10ef" path="res://scenes/ui.tscn" id="1_3x6bf"]
+[ext_resource type="Script" path="res://scripts/app.gd" id="1_y6tig"]
+[ext_resource type="Script" path="res://scripts/saver_loader.gd" id="2_b2ibe"]
 
 [node name="App" type="Node2D"]
+script = ExtResource("1_y6tig")
 
 [node name="UI" parent="." instance=ExtResource("1_3x6bf")]
+
+[node name="SaverLoader" type="Node" parent="."]
+script = ExtResource("2_b2ibe")
+
+[connection signal="app_open" from="." to="SaverLoader" method="_on_app_app_open"]
+[connection signal="app_quit" from="." to="UI" method="_on_app_app_quit"]
+[connection signal="created_save_data" from="UI" to="SaverLoader" method="_on_ui_created_save_data"]
+[connection signal="loaded_data" from="SaverLoader" to="UI" method="_on_saver_loader_loaded_data"]
