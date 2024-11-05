@@ -26,6 +26,10 @@ var total_budget_edit: MoneyEdit = %TotalBudgetEdit
 @onready
 var budget_bar: BudgetBar = %BudgetBar
 
+var _transactions_internal: Array[Transaction] = []
+
+signal budget_changed(budget: Budget)
+
 func _ready():
 	if not Engine.is_editor_hint():
 		spent = 0
@@ -37,11 +41,30 @@ func update_budget():
 func _on_total_budget_edit_amount_changed(amount: float) -> void:
 	total_budget = amount
 
+	broadcast()
+
 func _on_ledger_panel_transactions_changed(transactions: Array) -> void:
-	spent = transactions.map(func(t): return t.amount).reduce(sumf, 0)
+	_transactions_internal.clear()
+
+	for t in transactions:
+		_transactions_internal.append(t as Transaction)
+
+	spent = _transactions_internal.map(func(t): return t.amount).reduce(sumf, 0)
 
 	var remaining := total_budget - spent
 	print("There is " + str(remaining) + " left in the budget")
 
+	broadcast()
+
 func sumf(accum: float, next: float):
 	return accum + next
+
+func broadcast():
+	var b := Budget.new()
+
+	b.id = RandomNumberGenerator.new().randi()
+	b.name = "Test budget"
+	b.total_budget = total_budget
+	b.transactions = _transactions_internal
+
+	budget_changed.emit(b)
