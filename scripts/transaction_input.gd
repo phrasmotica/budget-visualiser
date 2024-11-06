@@ -6,7 +6,8 @@ var transaction: Transaction:
 	set(value):
 		transaction = value
 
-		handle_transaction_changed()
+		update_name()
+		update_amount()
 
 @export
 var delete_mode: bool:
@@ -31,6 +32,8 @@ func _ready():
 	if not transaction:
 		transaction = Transaction.new()
 		transaction.id = RandomNumberGenerator.new().randi()
+
+		adjust()
 
 	transaction.changed.connect(handle_transaction_changed)
 
