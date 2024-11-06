@@ -1,5 +1,5 @@
 @tool
-extends MarginContainer
+class_name LedgerPanel extends MarginContainer
 
 @export
 var transaction_inputs: Array[TransactionInput] = []
@@ -33,6 +33,13 @@ func handle_input():
 func set_delete_mode(is_delete_mode: bool):
 	for ti: TransactionInput in transaction_inputs:
 		ti.delete_mode = is_delete_mode
+
+func inject(transactions: Array[Transaction]):
+	for i in min(len(transactions), len(transaction_inputs)):
+		var t := transactions[i]
+		var ti := transaction_inputs[i]
+
+		ti.transaction = t
 
 func handle_adjust_transaction(transaction: Transaction) -> void:
 	print("Transaction " + str(transaction.id) + " for " + transaction.name + " has amount " + str(transaction.amount))

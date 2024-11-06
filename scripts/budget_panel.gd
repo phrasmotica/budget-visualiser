@@ -1,5 +1,5 @@
 @tool
-extends MarginContainer
+class_name BudgetPanel extends MarginContainer
 
 @export
 var total_budget: float = 3000:
@@ -26,6 +26,9 @@ var total_budget_edit: MoneyEdit = %TotalBudgetEdit
 @onready
 var budget_bar: BudgetBar = %BudgetBar
 
+@onready
+var ledger_panel: LedgerPanel = %LedgerPanel
+
 var _transactions_internal: Array[Transaction] = []
 
 signal budget_changed(budget: Budget)
@@ -33,6 +36,13 @@ signal budget_changed(budget: Budget)
 func _ready():
 	if not Engine.is_editor_hint():
 		spent = 0
+
+func inject(budget: Budget):
+	total_budget = budget.total_budget
+
+	overwrite_transactions(budget.transactions)
+
+	ledger_panel.inject(_transactions_internal)
 
 func update_budget():
 	if total_budget_edit:
@@ -43,16 +53,20 @@ func _on_total_budget_edit_amount_changed(amount: float) -> void:
 
 	broadcast()
 
-func _on_ledger_panel_transactions_changed(transactions: Array) -> void:
+func overwrite_transactions(transactions: Array) -> void:
 	_transactions_internal.clear()
 
 	for t in transactions:
+		print("Overwriting with %s %.2f" % [t.name, t.amount])
 		_transactions_internal.append(t as Transaction)
 
 	spent = _transactions_internal.map(func(t): return t.amount).reduce(sumf, 0)
 
 	var remaining := total_budget - spent
 	print("There is " + str(remaining) + " left in the budget")
+
+func _on_ledger_panel_transactions_changed(transactions: Array) -> void:
+	overwrite_transactions(transactions)
 
 	broadcast()
 

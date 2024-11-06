@@ -32,3 +32,9 @@ func _on_ui_created_save_data(data: SaveData) -> void:
     var success := save_data(data)
     if success:
         print("Saved data successfully!")
+
+func _on_ui_requested_load() -> void:
+    var data := load_data()
+
+    if data:
+        loaded_data.emit(data)
