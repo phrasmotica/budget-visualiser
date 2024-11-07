@@ -36,6 +36,7 @@ func _ready():
 
 func inject(budget: Budget):
 	total_budget = budget.total_budget
+	update_budget()
 
 	overwrite_transactions(budget.transactions)
 
