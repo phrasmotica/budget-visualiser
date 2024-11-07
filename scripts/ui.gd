@@ -4,6 +4,9 @@ extends PanelContainer
 @onready
 var budget_panel: BudgetPanel = %BudgetPanel
 
+@onready
+var ledger_panel: LedgerPanel = %LedgerPanel
+
 signal requested_load
 signal created_save_data(data: SaveData)
 
@@ -20,6 +23,7 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	budget.transactions = data.transactions
 
 	budget_panel.inject(budget)
+	ledger_panel.inject(budget.transactions)
 
 func _on_budget_panel_budget_changed(budget: Budget) -> void:
 	if Engine.is_editor_hint():

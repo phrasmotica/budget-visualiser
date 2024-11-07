@@ -26,9 +26,6 @@ var total_budget_edit: MoneyEdit = %TotalBudgetEdit
 @onready
 var budget_bar: BudgetBar = %BudgetBar
 
-@onready
-var ledger_panel: LedgerPanel = %LedgerPanel
-
 var _transactions_internal: Array[Transaction] = []
 
 signal budget_changed(budget: Budget)
@@ -41,8 +38,6 @@ func inject(budget: Budget):
 	total_budget = budget.total_budget
 
 	overwrite_transactions(budget.transactions)
-
-	ledger_panel.inject(_transactions_internal)
 
 func update_budget():
 	if total_budget_edit:
