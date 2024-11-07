@@ -38,7 +38,7 @@ func _refresh():
 	var spent_ratio := roundi(100 * spent / total_budget)
 
 	if remaining_label:
-		remaining_label.text = "Remaining: %d%%" % (100 - spent_ratio)
+		remaining_label.text = "£%.2f remaining (%d%%)" % [total_budget - spent, (100 - spent_ratio)]
 
 	if spent_label:
-		spent_label.text = "Spent: %d%%" % spent_ratio
+		spent_label.text = "£%.2f spent (%d%%)" % [spent, spent_ratio]

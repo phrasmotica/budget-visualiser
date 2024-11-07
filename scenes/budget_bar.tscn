@@ -6,8 +6,6 @@
 offset_right = 600.0
 offset_bottom = 80.0
 script = ExtResource("1_50njm")
-total_budget = null
-spent = null
 
 [node name="BarsContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(600, 80)
@@ -35,7 +33,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Remaining: 67%"
+text = "£2000.00 remaining (67%)"
 
 [node name="Spacer" type="Control" parent="Labels"]
 layout_mode = 2
@@ -45,4 +43,4 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Spent: 33%"
+text = "£1000.00 spent (33%)"
