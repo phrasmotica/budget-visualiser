@@ -14,6 +14,7 @@ script = ExtResource("2_b2ibe")
 
 [connection signal="app_open" from="." to="SaverLoader" method="_on_app_app_open"]
 [connection signal="app_quit" from="." to="UI" method="_on_app_app_quit"]
+[connection signal="app_ready" from="." to="UI" method="_on_app_app_ready"]
 [connection signal="created_save_data" from="UI" to="SaverLoader" method="_on_ui_created_save_data"]
 [connection signal="requested_load" from="UI" to="SaverLoader" method="_on_ui_requested_load"]
 [connection signal="loaded_data" from="SaverLoader" to="UI" method="_on_saver_loader_loaded_data"]

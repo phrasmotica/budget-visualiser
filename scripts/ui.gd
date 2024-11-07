@@ -8,9 +8,7 @@ signal requested_load
 signal created_save_data(data: SaveData)
 
 var _save_data: SaveData
-
-func _on_app_app_quit() -> void:
-	created_save_data.emit(_save_data)
+var _app_ready := false
 
 func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	_save_data = data
@@ -27,6 +25,10 @@ func _on_budget_panel_budget_changed(budget: Budget) -> void:
 	if Engine.is_editor_hint():
 		return
 
+	if not _app_ready:
+		print("App is not ready, preventing creation of save data.")
+		return
+
 	var data := SaveData.new()
 
 	data.id = budget.id
@@ -35,6 +37,13 @@ func _on_budget_panel_budget_changed(budget: Budget) -> void:
 	data.transactions = budget.transactions
 
 	created_save_data.emit(data)
+
+func _on_app_app_ready() -> void:
+	print("App is ready.")
+	_app_ready = true
+
+func _on_app_app_quit() -> void:
+	created_save_data.emit(_save_data)
 
 func _on_load_button_pressed() -> void:
 	requested_load.emit()
