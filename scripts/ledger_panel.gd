@@ -38,6 +38,7 @@ func inject(transactions: Array[Transaction]):
 	for ti in transaction_input_container.get_children():
 		transaction_input_container.remove_child(ti)
 
+	_transactions.clear()
 	transaction_inputs.clear()
 
 	for i in len(transactions):
@@ -45,6 +46,8 @@ func inject(transactions: Array[Transaction]):
 
 		var ti: TransactionInput = transaction_input_scene.instantiate()
 		ti.transaction = t
+
+		_transactions[t.id] = t
 
 		transaction_input_container.add_child(ti)
 		connect_input(ti)
