@@ -35,11 +35,19 @@ func set_delete_mode(is_delete_mode: bool):
 		ti.delete_mode = is_delete_mode
 
 func inject(transactions: Array[Transaction]):
-	for i in min(len(transactions), len(transaction_inputs)):
-		var t := transactions[i]
-		var ti := transaction_inputs[i]
+	for ti in transaction_input_container.get_children():
+		transaction_input_container.remove_child(ti)
 
+	transaction_inputs.clear()
+
+	for i in len(transactions):
+		var t := transactions[i]
+
+		var ti: TransactionInput = transaction_input_scene.instantiate()
 		ti.transaction = t
+
+		transaction_input_container.add_child(ti)
+		connect_input(ti)
 
 func handle_adjust_transaction(transaction: Transaction) -> void:
 	print("Transaction " + str(transaction.id) + " for " + transaction.name + " has amount " + str(transaction.amount))
