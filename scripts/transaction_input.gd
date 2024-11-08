@@ -29,20 +29,13 @@ signal adjust_transaction(transaction: Transaction)
 signal delete_transaction(transaction: Transaction)
 
 func _ready():
-	if not transaction:
-		transaction = Transaction.new()
-		transaction.id = randi()
-
-		adjust()
-
-	transaction.changed.connect(handle_transaction_changed)
-
 	update_name()
 	update_amount()
 	update_delete_mode()
 
 func adjust():
-	adjust_transaction.emit(transaction)
+	if transaction:
+		adjust_transaction.emit(transaction)
 
 func update_name():
 	if name_edit:
@@ -65,10 +58,23 @@ func handle_transaction_changed():
 
 	adjust()
 
+func ensure_transaction():
+	if not transaction:
+		transaction = Transaction.new()
+		transaction.id = randi()
+
+		transaction.changed.connect(handle_transaction_changed)
+
+		adjust()
+
 func _on_name_edit_text_changed(new_text: String) -> void:
+	ensure_transaction()
+
 	transaction.set_transaction_name(new_text, false)
 
 func _on_name_edit_text_submitted(new_text: String) -> void:
+	ensure_transaction()
+
 	transaction.set_transaction_name(new_text, true)
 
 	adjust()
@@ -77,6 +83,8 @@ func _on_name_edit_focus_exited() -> void:
 	adjust()
 
 func _on_amount_edit_amount_changed(x: float) -> void:
+	ensure_transaction()
+
 	transaction.amount = x
 
 	adjust()

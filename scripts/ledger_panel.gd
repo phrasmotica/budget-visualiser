@@ -81,7 +81,6 @@ func handle_delete_transaction(transaction: Transaction) -> void:
 
 func _on_new_transaction_button_pressed() -> void:
 	var ti: TransactionInput = transaction_input_scene.instantiate()
-	ti.transaction = null
 
 	transaction_input_container.add_child(ti)
 	transaction_inputs.append(ti)
