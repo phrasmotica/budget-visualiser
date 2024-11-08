@@ -50,6 +50,7 @@ func inject(transactions: Array[Transaction]):
 		_transactions[t.id] = t
 
 		transaction_input_container.add_child(ti)
+		transaction_inputs.append(ti)
 		connect_input(ti)
 
 func handle_adjust_transaction(transaction: Transaction) -> void:
@@ -80,8 +81,9 @@ func handle_delete_transaction(transaction: Transaction) -> void:
 
 func _on_new_transaction_button_pressed() -> void:
 	var ti: TransactionInput = transaction_input_scene.instantiate()
-	transaction_input_container.add_child(ti)
 
+	transaction_input_container.add_child(ti)
+	transaction_inputs.append(ti)
 	connect_input(ti)
 
 func connect_input(ti: TransactionInput):
