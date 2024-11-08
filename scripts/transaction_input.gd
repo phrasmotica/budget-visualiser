@@ -26,7 +26,7 @@ var amount_edit: MoneyEdit = %AmountEdit
 var delete_button: Button = %DeleteButton
 
 signal adjust_transaction(transaction: Transaction)
-signal delete_transaction(transaction: Transaction)
+signal delete_transaction(input: TransactionInput, transaction: Transaction)
 
 func _ready():
 	update_name()
@@ -94,4 +94,4 @@ func _on_amount_edit_amount_changed(x: float) -> void:
 	adjust()
 
 func _on_delete_button_pressed() -> void:
-	delete_transaction.emit(transaction)
+	delete_transaction.emit(self, transaction)

@@ -60,22 +60,15 @@ func handle_adjust_transaction(transaction: Transaction) -> void:
 
 	refresh()
 
-func handle_delete_transaction(transaction: Transaction) -> void:
-	print("Transaction " + str(transaction.id) + " for " + transaction.name + " deleted")
+func handle_delete_transaction(input: TransactionInput, transaction: Transaction) -> void:
+	if input:
+		transaction_inputs.erase(input)
+		transaction_input_container.remove_child(input)
+		input.queue_free()
 
-	var delete_idx := -1
-
-	for x in range(len(transaction_inputs)):
-		var ti = transaction_inputs[x]
-		if ti.transaction.id == transaction.id:
-			delete_idx = x
-			ti.queue_free()
-			break
-
-	if delete_idx >= 0:
-		transaction_inputs.remove_at(delete_idx)
-
-	_transactions.erase(transaction.id)
+	if transaction:
+		print("Transaction " + str(transaction.id) + " for " + transaction.name + " deleted")
+		_transactions.erase(transaction.id)
 
 	refresh()
 
