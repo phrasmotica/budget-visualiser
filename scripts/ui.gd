@@ -7,6 +7,9 @@ var budget_panel: BudgetPanel = %BudgetPanel
 @onready
 var ledger_panel: LedgerPanel = %LedgerPanel
 
+@onready
+var rename_modal: Control = %RenameModal
+
 signal requested_load
 signal created_save_data(data: SaveData)
 
@@ -26,6 +29,9 @@ func _ready():
 
 		window.size = small_window_size
 		window.move_to_center()
+
+		if rename_modal:
+			rename_modal.hide()
 
 func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	_save_data = data
@@ -68,3 +74,7 @@ func _on_load_button_pressed() -> void:
 
 func _on_save_button_pressed() -> void:
 	created_save_data.emit(_save_data)
+
+func _on_edit_button_pressed() -> void:
+	if rename_modal:
+		rename_modal.show()
