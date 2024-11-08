@@ -31,7 +31,7 @@ signal delete_transaction(transaction: Transaction)
 func _ready():
 	if not transaction:
 		transaction = Transaction.new()
-		transaction.id = RandomNumberGenerator.new().randi()
+		transaction.id = randi()
 
 		adjust()
 

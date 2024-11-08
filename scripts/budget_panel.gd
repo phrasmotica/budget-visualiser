@@ -72,7 +72,7 @@ func sumf(accum: float, next: float):
 func broadcast():
 	var b := Budget.new()
 
-	b.id = RandomNumberGenerator.new().randi()
+	b.id = randi()
 	b.name = "Test budget"
 	b.total_budget = total_budget
 	b.transactions = _transactions_internal
