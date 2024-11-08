@@ -67,6 +67,10 @@ func ensure_transaction():
 
 		adjust()
 
+func highlight():
+	if name_edit:
+		name_edit.grab_focus()
+
 func _on_name_edit_text_changed(new_text: String) -> void:
 	ensure_transaction()
 

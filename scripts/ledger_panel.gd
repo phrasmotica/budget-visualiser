@@ -86,6 +86,8 @@ func _on_new_transaction_button_pressed() -> void:
 	transaction_inputs.append(ti)
 	connect_input(ti)
 
+	ti.highlight()
+
 func connect_input(ti: TransactionInput):
 	ti.adjust_transaction.connect(handle_adjust_transaction)
 	ti.delete_transaction.connect(handle_delete_transaction)
