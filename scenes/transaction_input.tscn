@@ -1,21 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnf28374hirph"]
+[gd_scene load_steps=3 format=3 uid="uid://bnf28374hirph"]
 
 [ext_resource type="Script" path="res://scripts/transaction_input.gd" id="1_cqf2e"]
 [ext_resource type="PackedScene" uid="uid://bw2trii56cowr" path="res://scenes/money_edit.tscn" id="2_ar8de"]
-[ext_resource type="Script" path="res://scripts/transaction.gd" id="2_djjhi"]
-
-[sub_resource type="Resource" id="Resource_56w1f"]
-script = ExtResource("2_djjhi")
-id = 3717593088
-name = ""
-amount = 0.0
 
 [node name="TransactionInput" type="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 300.0
 offset_bottom = 31.0
 script = ExtResource("1_cqf2e")
-transaction = SubResource("Resource_56w1f")
 
 [node name="NameEdit" type="LineEdit" parent="."]
 unique_name_in_owner = true
