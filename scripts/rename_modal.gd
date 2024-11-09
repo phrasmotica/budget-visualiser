@@ -9,6 +9,7 @@ var save_button: Button = %SaveButton
 var _text_internal := ""
 
 signal name_submitted(new_name: String)
+signal modal_hidden
 
 func _ready():
 	refresh()
@@ -61,3 +62,5 @@ func _on_visibility_changed() -> void:
 		if name_edit:
 			name_edit.grab_focus()
 			name_edit.select_all()
+	else:
+		modal_hidden.emit()

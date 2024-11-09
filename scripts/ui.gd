@@ -79,6 +79,8 @@ func _on_edit_button_pressed() -> void:
 	if rename_modal:
 		rename_modal.show()
 
+	ledger_panel.prevent_input()
+
 func _on_rename_modal_name_submitted(new_name: String) -> void:
 	print("Renaming budget to " + new_name)
 
@@ -88,3 +90,6 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 
 	if rename_modal:
 		rename_modal.hide()
+
+func _on_rename_modal_modal_hidden() -> void:
+	ledger_panel.allow_input()

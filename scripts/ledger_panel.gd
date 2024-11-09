@@ -11,6 +11,7 @@ var transaction_input_container: VBoxContainer = %TransactionInputContainer
 var transaction_input_scene: PackedScene = load("res://scenes/transaction_input.tscn")
 
 var _transactions: Dictionary = {}
+var _prevent_input := false
 
 signal transactions_changed(transactions: Array[Transaction])
 
@@ -22,7 +23,8 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	handle_input()
+	if not _prevent_input:
+		handle_input()
 
 func handle_input():
 	if Input.is_action_just_pressed("ledger_delete_mode"):
@@ -94,3 +96,10 @@ func refresh() -> void:
 	print("Ledger contains " + str(len(transactions)) + " transaction(s)")
 
 	transactions_changed.emit(transactions)
+
+func prevent_input() -> void:
+	set_delete_mode(false)
+	_prevent_input = true
+
+func allow_input() -> void:
+	_prevent_input = false
