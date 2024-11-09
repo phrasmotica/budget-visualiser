@@ -2,6 +2,9 @@
 extends PanelContainer
 
 @onready
+var tab_container: TabContainer = %TabContainer
+
+@onready
 var budget_panel: BudgetPanel = %BudgetPanel
 
 @onready
@@ -36,6 +39,9 @@ func _ready():
 		if rename_modal:
 			rename_modal.hide()
 
+func set_budget_title(title: String):
+	tab_container.set_tab_title(0, title)
+
 func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	_save_data = data
 
@@ -44,6 +50,8 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	budget.name = data.name
 	budget.total_budget = data.total_budget
 	budget.transactions = data.transactions
+
+	set_budget_title(budget.name)
 
 	budget_panel.inject(budget)
 	ledger_panel.inject(budget.transactions)
@@ -93,6 +101,8 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 	print("Renaming budget to " + new_name)
 
 	_save_data.name = new_name
+
+	set_budget_title(new_name)
 
 	created_save_data.emit(_save_data)
 
