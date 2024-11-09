@@ -40,6 +40,7 @@ func adjust():
 func update_name():
 	if name_edit:
 		name_edit.text = transaction.name if transaction else ""
+		name_edit.caret_column = len(name_edit.text)
 
 func update_amount():
 	if amount_edit:
@@ -58,12 +59,17 @@ func handle_transaction_changed():
 
 	adjust()
 
-func ensure_transaction():
+func ensure_transaction(new_name := ""):
 	if not transaction:
+		print("Creating transaction with name " + new_name)
+
 		transaction = Transaction.new()
 		transaction.id = randi()
+		transaction.name = new_name
 
 		transaction.changed.connect(handle_transaction_changed)
+
+		update_name()
 
 		adjust()
 
@@ -72,16 +78,14 @@ func highlight():
 		name_edit.grab_focus()
 
 func _on_name_edit_text_changed(new_text: String) -> void:
-	ensure_transaction()
+	ensure_transaction(new_text)
 
 	transaction.set_transaction_name(new_text, false)
 
 func _on_name_edit_text_submitted(new_text: String) -> void:
-	ensure_transaction()
+	ensure_transaction(new_text)
 
 	transaction.set_transaction_name(new_text, true)
-
-	adjust()
 
 func _on_name_edit_focus_exited() -> void:
 	# TODO: only adjust if the current text is different to before
