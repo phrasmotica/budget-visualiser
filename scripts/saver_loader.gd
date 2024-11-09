@@ -7,7 +7,7 @@ signal loaded_data(data: SaveData)
 func save_data(data: SaveData) -> bool:
     ResourceSaver.save(data, SAVE_FILE)
 
-    print("Saved budget data to " + SAVE_FILE)
+    print("Saved " + data.name + " budget data to " + SAVE_FILE)
 
     return true
 

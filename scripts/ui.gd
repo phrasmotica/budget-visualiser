@@ -54,7 +54,8 @@ func _on_budget_panel_budget_changed(budget: Budget) -> void:
 		print("App is not ready, preventing creation of save data.")
 		return
 
-	_save_data = SaveData.new()
+	if not _save_data:
+		_save_data = SaveData.new()
 
 	_save_data.id = budget.id
 	_save_data.total_budget = budget.total_budget
