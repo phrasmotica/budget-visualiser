@@ -84,6 +84,7 @@ func _on_name_edit_text_submitted(new_text: String) -> void:
 	adjust()
 
 func _on_name_edit_focus_exited() -> void:
+	# TODO: only adjust if the current text is different to before
 	adjust()
 
 func _on_amount_edit_amount_changed(x: float) -> void:
