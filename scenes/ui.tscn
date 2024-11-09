@@ -71,13 +71,14 @@ layout_mode = 2
 
 [node name="ModalLayer" type="CanvasLayer" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="ModalLayer"]
+[node name="RenameModalContainer" type="CenterContainer" parent="ModalLayer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 
-[node name="RenameModal" parent="ModalLayer/CenterContainer" instance=ExtResource("4_rr6x4")]
+[node name="RenameModal" parent="ModalLayer/RenameModalContainer" instance=ExtResource("4_rr6x4")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -86,5 +87,5 @@ layout_mode = 2
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/HBoxContainer/BudgetPanel" to="." method="_on_budget_panel_budget_changed"]
 [connection signal="transactions_changed" from="MarginContainer/VBoxContainer/HBoxContainer/LedgerPanel" to="MarginContainer/VBoxContainer/HBoxContainer/BudgetPanel" method="_on_ledger_panel_transactions_changed"]
-[connection signal="modal_hidden" from="ModalLayer/CenterContainer/RenameModal" to="." method="_on_rename_modal_modal_hidden"]
-[connection signal="name_submitted" from="ModalLayer/CenterContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]
+[connection signal="modal_hidden" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_modal_hidden"]
+[connection signal="name_submitted" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]

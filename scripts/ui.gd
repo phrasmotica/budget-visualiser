@@ -8,6 +8,9 @@ var budget_panel: BudgetPanel = %BudgetPanel
 var ledger_panel: LedgerPanel = %LedgerPanel
 
 @onready
+var rename_modal_container: Container = %RenameModalContainer
+
+@onready
 var rename_modal: Control = %RenameModal
 
 signal requested_load
@@ -77,6 +80,10 @@ func _on_save_button_pressed() -> void:
 	created_save_data.emit(_save_data)
 
 func _on_edit_button_pressed() -> void:
+	if rename_modal_container:
+		rename_modal_container.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# TODO: implement this via showing/hiding the container node instead
 	if rename_modal:
 		rename_modal.show()
 
@@ -93,4 +100,7 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 		rename_modal.hide()
 
 func _on_rename_modal_modal_hidden() -> void:
+	if rename_modal_container:
+		rename_modal_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	ledger_panel.allow_input()
