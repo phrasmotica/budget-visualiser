@@ -70,11 +70,13 @@ func sumf(accum: float, next: float):
 	return accum + next
 
 func broadcast():
+	# TODO: don't generate a new budget object and ID every time we broadcast
 	var b := Budget.new()
-
 	b.id = randi()
-	b.name = "Test budget"
+
 	b.total_budget = total_budget
 	b.transactions = _transactions_internal
+
+	# budget name is set elsewhere
 
 	budget_changed.emit(b)

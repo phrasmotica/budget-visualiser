@@ -44,6 +44,7 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 
 	budget_panel.inject(budget)
 	ledger_panel.inject(budget.transactions)
+	rename_modal.inject(budget)
 
 func _on_budget_panel_budget_changed(budget: Budget) -> void:
 	if Engine.is_editor_hint():
@@ -56,7 +57,6 @@ func _on_budget_panel_budget_changed(budget: Budget) -> void:
 	_save_data = SaveData.new()
 
 	_save_data.id = budget.id
-	_save_data.name = budget.name
 	_save_data.total_budget = budget.total_budget
 	_save_data.transactions = budget.transactions
 
@@ -78,3 +78,13 @@ func _on_save_button_pressed() -> void:
 func _on_edit_button_pressed() -> void:
 	if rename_modal:
 		rename_modal.show()
+
+func _on_rename_modal_name_submitted(new_name: String) -> void:
+	print("Renaming budget to " + new_name)
+
+	_save_data.name = new_name
+
+	created_save_data.emit(_save_data)
+
+	if rename_modal:
+		rename_modal.hide()

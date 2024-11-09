@@ -86,3 +86,4 @@ layout_mode = 2
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/HBoxContainer/BudgetPanel" to="." method="_on_budget_panel_budget_changed"]
 [connection signal="transactions_changed" from="MarginContainer/VBoxContainer/HBoxContainer/LedgerPanel" to="MarginContainer/VBoxContainer/HBoxContainer/BudgetPanel" method="_on_ledger_panel_transactions_changed"]
+[connection signal="name_submitted" from="ModalLayer/CenterContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]
