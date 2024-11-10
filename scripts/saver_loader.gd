@@ -1,6 +1,5 @@
 extends Node
 
-const SAVE_FILE: String = "user://savedata.tres"
 const SAVE_FILE_FORMAT: String = "user://budget-%d.tres"
 
 signal loaded_data(data: SaveData)
@@ -14,13 +13,24 @@ func save_data(data: SaveData) -> bool:
     return true
 
 func load_data() -> SaveData:
-    if not FileAccess.file_exists(SAVE_FILE):
+    var files := DirAccess.get_files_at("user://")
+
+    var file_name := ""
+
+    # TODO: allow the user to choose which budget to load, rather than always
+    # loading the first one
+    for f in files:
+        if f.begins_with("budget-"):
+            file_name = f
+            break
+
+    if len(file_name) <= 0:
         print("No saved data to load!")
         return null
 
-    var data: SaveData = ResourceLoader.load(SAVE_FILE)
+    var data: SaveData = ResourceLoader.load("user://" + file_name)
 
-    print("Loaded saved budget data from " + SAVE_FILE)
+    print("Loaded " + data.name + " budget data from " + file_name)
 
     return data
 
