@@ -82,7 +82,6 @@ func _on_app_app_quit() -> void:
 	created_save_data.emit(_save_data)
 
 func _on_load_button_pressed() -> void:
-	# TODO: find out why this is not loading transactions into the ledger
 	requested_load.emit()
 
 func _on_save_button_pressed() -> void:
