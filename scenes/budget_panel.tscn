@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bh3r0bxn8f0k2" path="res://scenes/budget_bar.tscn" id="3_2wvd3"]
 
 [node name="BudgetPanel" type="MarginContainer"]
-custom_minimum_size = Vector2(900, 600)
+custom_minimum_size = Vector2(800, 500)
 size_flags_horizontal = 3
 script = ExtResource("1_ppict")
 

@@ -30,6 +30,9 @@ func _on_focus_entered() -> void:
 	select_all()
 
 func _on_focus_exited() -> void:
+	if not text.is_valid_float():
+		return
+
 	amount = text.to_float()
 
 	amount_changed.emit(amount)

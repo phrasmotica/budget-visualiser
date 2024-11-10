@@ -6,7 +6,8 @@ var transaction: Transaction:
 	set(value):
 		transaction = value
 
-		handle_transaction_changed()
+		update_name()
+		update_amount()
 
 @export
 var delete_mode: bool:
@@ -25,25 +26,21 @@ var amount_edit: MoneyEdit = %AmountEdit
 var delete_button: Button = %DeleteButton
 
 signal adjust_transaction(transaction: Transaction)
-signal delete_transaction(transaction: Transaction)
+signal delete_transaction(input: TransactionInput, transaction: Transaction)
 
 func _ready():
-	if not transaction:
-		transaction = Transaction.new()
-		transaction.id = RandomNumberGenerator.new().randi()
-
-	transaction.changed.connect(handle_transaction_changed)
-
 	update_name()
 	update_amount()
 	update_delete_mode()
 
 func adjust():
-	adjust_transaction.emit(transaction)
+	if transaction:
+		adjust_transaction.emit(transaction)
 
 func update_name():
 	if name_edit:
 		name_edit.text = transaction.name if transaction else ""
+		name_edit.caret_column = len(name_edit.text)
 
 func update_amount():
 	if amount_edit:
@@ -62,21 +59,44 @@ func handle_transaction_changed():
 
 	adjust()
 
+func ensure_transaction(new_name := ""):
+	if not transaction:
+		print("Creating transaction with name " + new_name)
+
+		transaction = Transaction.new()
+		transaction.id = randi()
+		transaction.name = new_name
+
+		transaction.changed.connect(handle_transaction_changed)
+
+		update_name()
+
+		adjust()
+
+func highlight():
+	if name_edit:
+		name_edit.grab_focus()
+
 func _on_name_edit_text_changed(new_text: String) -> void:
+	ensure_transaction(new_text)
+
 	transaction.set_transaction_name(new_text, false)
 
 func _on_name_edit_text_submitted(new_text: String) -> void:
+	ensure_transaction(new_text)
+
 	transaction.set_transaction_name(new_text, true)
 
-	adjust()
-
 func _on_name_edit_focus_exited() -> void:
+	# TODO: only adjust if the current text is different to before
 	adjust()
 
 func _on_amount_edit_amount_changed(x: float) -> void:
+	ensure_transaction()
+
 	transaction.amount = x
 
 	adjust()
 
 func _on_delete_button_pressed() -> void:
-	delete_transaction.emit(transaction)
+	delete_transaction.emit(self, transaction)
