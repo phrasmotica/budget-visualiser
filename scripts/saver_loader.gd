@@ -1,13 +1,15 @@
 extends Node
 
 const SAVE_FILE: String = "user://savedata.tres"
+const SAVE_FILE_FORMAT: String = "user://budget-%d.tres"
 
 signal loaded_data(data: SaveData)
 
 func save_data(data: SaveData) -> bool:
-    ResourceSaver.save(data, SAVE_FILE)
+    var file_name = SAVE_FILE_FORMAT % data.id
+    ResourceSaver.save(data, file_name)
 
-    print("Saved " + data.name + " budget data to " + SAVE_FILE)
+    print("Saved " + data.name + " budget data to " + file_name)
 
     return true
 
