@@ -26,6 +26,7 @@ var total_budget_edit: MoneyEdit = %TotalBudgetEdit
 @onready
 var budget_bar: BudgetBar = %BudgetBar
 
+var _budget_internal: Budget
 var _transactions_internal: Array[Transaction] = []
 
 signal budget_changed(budget: Budget)
@@ -35,6 +36,8 @@ func _ready():
 		spent = 0
 
 func inject(budget: Budget):
+	_budget_internal = budget
+
 	total_budget = budget.total_budget
 	update_budget()
 
@@ -70,13 +73,13 @@ func sumf(accum: float, next: float):
 	return accum + next
 
 func broadcast():
-	# TODO: don't generate a new budget object and ID every time we broadcast
-	var b := Budget.new()
-	b.id = randi()
+	if not _budget_internal:
+		_budget_internal = Budget.new()
+		_budget_internal.id = randi()
 
-	b.total_budget = total_budget
-	b.transactions = _transactions_internal
+	_budget_internal.total_budget = total_budget
+	_budget_internal.transactions = _transactions_internal
 
 	# budget name is set elsewhere
 
-	budget_changed.emit(b)
+	budget_changed.emit(_budget_internal)
