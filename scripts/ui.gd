@@ -11,6 +11,9 @@ var budget_panel: BudgetPanel = %BudgetPanel
 var ledger_panel: LedgerPanel = %LedgerPanel
 
 @onready
+var bills_panel: LedgerPanel = %BillsPanel
+
+@onready
 var rename_modal_container: Container = %RenameModalContainer
 
 @onready
@@ -27,8 +30,8 @@ func _ready():
 		var screen_size := DisplayServer.screen_get_size()
 		var small_window_size := screen_size * 3 / 4
 
-		# display at 16:9 regardless of screen's aspect ratio
-		var small_window_height := small_window_size.x * 9.0 / 16
+		# display at 16:10 regardless of screen's aspect ratio
+		var small_window_height := small_window_size.x * 5.0 / 8
 		small_window_size.y = int(small_window_height)
 
 		var window := get_window()
@@ -50,11 +53,13 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	budget.name = data.name
 	budget.total_budget = data.total_budget
 	budget.transactions = data.transactions
+	budget.bills = data.bills
 
 	set_budget_title(budget.name)
 
 	budget_panel.inject(budget)
 	ledger_panel.inject(budget.transactions)
+	bills_panel.inject(budget.bills)
 	rename_modal.inject(budget)
 
 func _on_budget_panel_budget_changed(budget: Budget) -> void:
@@ -71,6 +76,7 @@ func _on_budget_panel_budget_changed(budget: Budget) -> void:
 	_save_data.id = budget.id
 	_save_data.total_budget = budget.total_budget
 	_save_data.transactions = budget.transactions
+	_save_data.bills = budget.bills
 
 	created_save_data.emit(_save_data)
 
@@ -96,6 +102,7 @@ func _on_edit_button_pressed() -> void:
 		rename_modal.show()
 
 	ledger_panel.prevent_input()
+	bills_panel.prevent_input()
 
 func _on_rename_modal_name_submitted(new_name: String) -> void:
 	print("Renaming budget to " + new_name)
@@ -114,3 +121,4 @@ func _on_rename_modal_modal_hidden() -> void:
 		rename_modal_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	ledger_panel.allow_input()
+	bills_panel.allow_input()

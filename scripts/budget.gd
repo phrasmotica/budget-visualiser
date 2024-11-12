@@ -19,6 +19,13 @@ var transactions: Array[Transaction] = []:
         handle_property_change_from_editor()
 
 @export
+var bills: Array[Transaction] = []:
+    set(value):
+        bills = value
+
+        handle_property_change_from_editor()
+
+@export
 var total_budget: float = 0:
     set(value):
         total_budget = value

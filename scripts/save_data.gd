@@ -11,3 +11,6 @@ var total_budget: float = 0
 
 @export
 var transactions: Array[Transaction] = []
+
+@export
+var bills: Array[Transaction] = []

@@ -6,6 +6,9 @@
 offset_right = 600.0
 offset_bottom = 80.0
 script = ExtResource("1_50njm")
+spent = 500.0
+underspent_colour = Color(0, 0.686275, 1, 1)
+overspent_colour = Color(1, 0, 0, 1)
 
 [node name="BarsContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(600, 80)
@@ -16,15 +19,22 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 66.6667
+size_flags_stretch_ratio = 50.0
 color = Color(0, 0.686638, 3.85046e-07, 1)
 
 [node name="SpentBar" type="ColorRect" parent="BarsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 33.3333
+size_flags_stretch_ratio = 16.6667
 color = Color(0, 0.686275, 1, 1)
+
+[node name="BillsBar" type="ColorRect" parent="BarsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 33.3333
+color = Color(1, 1, 0, 1)
 
 [node name="Labels" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -33,7 +43,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "£2000.00 remaining (67%)"
+text = "£1500.00 remaining (50%)"
 
 [node name="Spacer" type="Control" parent="Labels"]
 layout_mode = 2
@@ -43,4 +53,4 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "£1000.00 spent (33%)"
+text = "£1500.00 spent (50%)"

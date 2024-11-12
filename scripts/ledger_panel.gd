@@ -2,7 +2,27 @@
 class_name LedgerPanel extends MarginContainer
 
 @export
+var title := "Ledger":
+	set(value):
+		title = value
+
+		update_title()
+
+@export
+var colour_hint: Color:
+	set(value):
+		colour_hint = value
+
+		update_colour_hint()
+
+@export
 var transaction_inputs: Array[TransactionInput] = []
+
+@onready
+var title_label: Label = %TitleLabel
+
+@onready
+var colour_hint_rect: ColorRect = %ColourHintRect
 
 @onready
 var transaction_input_container: VBoxContainer = %TransactionInputContainer
@@ -16,6 +36,9 @@ var _prevent_input := false
 signal transactions_changed(transactions: Array[Transaction])
 
 func _ready():
+	update_title()
+	update_colour_hint()
+
 	for ti: TransactionInput in transaction_inputs:
 		connect_input(ti)
 
@@ -54,6 +77,14 @@ func inject(transactions: Array[Transaction]):
 		transaction_input_container.add_child(ti)
 		transaction_inputs.append(ti)
 		connect_input(ti)
+
+func update_title():
+	if title_label:
+		title_label.text = title
+
+func update_colour_hint():
+	if colour_hint_rect:
+		colour_hint_rect.color = colour_hint
 
 func handle_adjust_transaction(transaction: Transaction) -> void:
 	print("Transaction " + str(transaction.id) + " for " + transaction.name + " has amount " + str(transaction.amount))

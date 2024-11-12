@@ -13,12 +13,20 @@ var total_budget: float = 3000:
 			update_budget()
 
 @export
-var spent: float = 1000:
+var spent: float = 0:
 	set(value):
 		spent = value
 
 		if budget_bar:
 			budget_bar.spent = spent
+
+@export
+var bills_spent: float = 1000:
+	set(value):
+		bills_spent = value
+
+		if budget_bar:
+			budget_bar.bills_spent = bills_spent
 
 @onready
 var total_budget_edit: MoneyEdit = %TotalBudgetEdit
@@ -28,6 +36,7 @@ var budget_bar: BudgetBar = %BudgetBar
 
 var _budget_internal: Budget
 var _transactions_internal: Array[Transaction] = []
+var _bills_internal: Array[Transaction] = []
 
 signal budget_changed(budget: Budget)
 
@@ -64,8 +73,25 @@ func overwrite_transactions(transactions: Array) -> void:
 	var remaining := total_budget - spent
 	print("There is " + str(remaining) + " left in the budget")
 
+func overwrite_bills(bills: Array) -> void:
+	_bills_internal.clear()
+
+	for b in bills:
+		print("Overwriting with %s %.2f" % [b.name, b.amount])
+		_bills_internal.append(b as Transaction)
+
+	bills_spent = _bills_internal.map(func(t): return t.amount).reduce(sumf, 0)
+
+	var remaining := total_budget - spent - bills_spent
+	print("There is " + str(remaining) + " left in the budget")
+
 func _on_ledger_panel_transactions_changed(transactions: Array) -> void:
 	overwrite_transactions(transactions)
+
+	broadcast()
+
+func _on_bills_panel_transactions_changed(transactions: Array) -> void:
+	overwrite_bills(transactions)
 
 	broadcast()
 
@@ -79,6 +105,7 @@ func broadcast():
 
 	_budget_internal.total_budget = total_budget
 	_budget_internal.transactions = _transactions_internal
+	_budget_internal.bills = _bills_internal
 
 	# budget name is set elsewhere
 
