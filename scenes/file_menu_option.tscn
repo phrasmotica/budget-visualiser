@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://crimg3ende341"]
+
+[ext_resource type="Texture2D" uid="uid://dcbjprxcc0j6g" path="res://assets/sprites/files.png" id="1_ljgo2"]
+[ext_resource type="Script" path="res://scripts/file_menu_option.gd" id="2_vjsj1"]
+
+[node name="FileMenuOption" type="TextureRect"]
+custom_minimum_size = Vector2(100, 100)
+texture = ExtResource("1_ljgo2")
+expand_mode = 2
+script = ExtResource("2_vjsj1")

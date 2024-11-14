@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 
 func handle_input():
 	if Input.is_action_just_pressed("ui_cancel"):
-		close_modal()
+		modal_hidden.emit()
 
 func submit(new_name: String):
 	if len(new_name) <= 0:
@@ -31,9 +31,6 @@ func submit(new_name: String):
 	print("Submitting budget name " + new_name)
 
 	name_submitted.emit(new_name)
-
-func close_modal():
-	hide()
 
 func refresh():
 	if save_button:
@@ -52,7 +49,7 @@ func _on_name_edit_text_submitted(new_text: String) -> void:
 	submit(new_text)
 
 func _on_cancel_button_pressed() -> void:
-	close_modal()
+	modal_hidden.emit()
 
 func _on_save_button_pressed() -> void:
 	submit(name_edit.text)
@@ -62,5 +59,3 @@ func _on_visibility_changed() -> void:
 		if name_edit:
 			name_edit.grab_focus()
 			name_edit.select_all()
-	else:
-		modal_hidden.emit()

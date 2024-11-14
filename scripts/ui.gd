@@ -5,13 +5,7 @@ extends PanelContainer
 var tab_container: TabContainer = %TabContainer
 
 @onready
-var budget_panel: BudgetPanel = %BudgetPanel
-
-@onready
-var ledger_panel: LedgerPanel = %LedgerPanel
-
-@onready
-var bills_panel: LedgerPanel = %BillsPanel
+var budget_container: BudgetContainer = %BudgetContainer
 
 @onready
 var rename_modal_container: Container = %RenameModalContainer
@@ -19,8 +13,13 @@ var rename_modal_container: Container = %RenameModalContainer
 @onready
 var rename_modal: Control = %RenameModal
 
+@onready
+var file_menu_container: Container = %FileMenuContainer
+
 signal requested_load
 signal created_save_data(data: SaveData)
+signal modal_shown
+signal modal_hidden
 
 var _save_data: SaveData
 var _app_ready := false
@@ -39,8 +38,11 @@ func _ready():
 		window.size = small_window_size
 		window.move_to_center()
 
-		if rename_modal:
-			rename_modal.hide()
+		if rename_modal_container:
+			rename_modal_container.hide()
+
+		if file_menu_container:
+			file_menu_container.hide()
 
 func set_budget_title(title: String):
 	tab_container.set_tab_title(0, title)
@@ -57,12 +59,10 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 
 	set_budget_title(budget.name)
 
-	budget_panel.inject(budget)
-	ledger_panel.inject(budget.transactions)
-	bills_panel.inject(budget.bills)
+	budget_container.inject(budget)
 	rename_modal.inject(budget)
 
-func _on_budget_panel_budget_changed(budget: Budget) -> void:
+func _on_budget_container_budget_changed(budget: Budget) -> void:
 	if Engine.is_editor_hint():
 		return
 
@@ -95,14 +95,10 @@ func _on_save_button_pressed() -> void:
 
 func _on_edit_button_pressed() -> void:
 	if rename_modal_container:
-		rename_modal_container.mouse_filter = Control.MOUSE_FILTER_STOP
+		rename_modal_container.show()
 
-	# TODO: implement this via showing/hiding the container node instead
-	if rename_modal:
-		rename_modal.show()
-
-	ledger_panel.prevent_input()
-	bills_panel.prevent_input()
+	budget_container.prevent_input()
+	modal_shown.emit()
 
 func _on_rename_modal_name_submitted(new_name: String) -> void:
 	print("Renaming budget to " + new_name)
@@ -113,12 +109,23 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 
 	created_save_data.emit(_save_data)
 
-	if rename_modal:
-		rename_modal.hide()
+	if rename_modal_container:
+		rename_modal_container.hide()
+
+	budget_container.allow_input()
+	modal_hidden.emit()
 
 func _on_rename_modal_modal_hidden() -> void:
-	if rename_modal_container:
-		rename_modal_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	rename_modal_container.hide()
 
-	ledger_panel.allow_input()
-	bills_panel.allow_input()
+	budget_container.allow_input()
+	modal_hidden.emit()
+
+func _on_file_menu_hold_to_show_handler_activated() -> void:
+	budget_container.prevent_input()
+
+func _on_file_menu_hold_to_show_handler_deactivated() -> void:
+	budget_container.allow_input()
+
+func _on_budget_manager_created_new_budget(budget: Budget) -> void:
+	print("Created new budget ID=%d" % budget.id)

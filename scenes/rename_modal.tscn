@@ -1,17 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgdeqr1qdbinj"]
+[gd_scene load_steps=3 format=3 uid="uid://dgdeqr1qdbinj"]
 
 [ext_resource type="Script" path="res://scripts/rename_modal.gd" id="1_3xtd5"]
+[ext_resource type="Theme" uid="uid://gho3l34xmwce" path="res://themes/theme_default.tres" id="1_hwphd"]
 
 [node name="RenameModal" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
+theme = ExtResource("1_hwphd")
 script = ExtResource("1_3xtd5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme = ExtResource("1_hwphd")
+theme_type_variation = &"MenuMargins"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

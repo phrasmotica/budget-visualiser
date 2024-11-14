@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://5eq1bvek10ef"]
+[gd_scene load_steps=9 format=3 uid="uid://5eq1bvek10ef"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_5131p"]
-[ext_resource type="PackedScene" uid="uid://ccpu37idlsyu8" path="res://scenes/budget_panel.tscn" id="1_iffwd"]
-[ext_resource type="PackedScene" uid="uid://cgkqk55qden81" path="res://scenes/ledger_panel.tscn" id="1_tkijw"]
+[ext_resource type="PackedScene" uid="uid://bl67pmumsstv4" path="res://scenes/budget_manager.tscn" id="2_l7a7o"]
+[ext_resource type="PackedScene" uid="uid://c8636n1ymhc22" path="res://scenes/budget_container.tscn" id="3_612qx"]
+[ext_resource type="Script" path="res://scripts/hold_to_show_handler.gd" id="3_mp87e"]
 [ext_resource type="PackedScene" uid="uid://dgdeqr1qdbinj" path="res://scenes/rename_modal.tscn" id="4_rr6x4"]
+[ext_resource type="PackedScene" uid="uid://bgmkiacpl2puo" path="res://scenes/file_menu.tscn" id="5_e440t"]
+[ext_resource type="PackedScene" uid="uid://8q1uq48mpi7u" path="res://scenes/hold_to_show_handler.tscn" id="6_apiio"]
+[ext_resource type="PackedScene" uid="uid://c3l41x5rhwvjq" path="res://scenes/file_menu_handler.tscn" id="8_1i7fs"]
 
 [node name="UI" type="PanelContainer"]
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 800.0
 script = ExtResource("1_5131p")
+
+[node name="BudgetManager" parent="." instance=ExtResource("2_l7a7o")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -59,59 +65,53 @@ size_flags_vertical = 3
 theme_override_constants/side_margin = 0
 current_tab = 0
 
-[node name="BudgetContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-metadata/_tab_index = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/BudgetContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BudgetPanel" parent="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer" instance=ExtResource("1_iffwd")]
+[node name="BudgetContainer" parent="MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("3_612qx")]
 unique_name_in_owner = true
 layout_mode = 2
-spent = 20.0
-
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="LedgerPanel" parent="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_tkijw")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-colour_hint = Color(0, 0.686275, 1, 1)
-
-[node name="BillsPanel" parent="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_tkijw")]
-unique_name_in_owner = true
-layout_mode = 2
-title = "Bills"
-colour_hint = Color(1, 1, 0, 1)
 
 [node name="ModalLayer" type="CanvasLayer" parent="."]
 
 [node name="RenameModalContainer" type="CenterContainer" parent="ModalLayer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1280, 720)
+custom_minimum_size = Vector2(1280, 800)
 offset_right = 1280.0
 offset_bottom = 720.0
-mouse_filter = 2
+mouse_filter = 0
 
 [node name="RenameModal" parent="ModalLayer/RenameModalContainer" instance=ExtResource("4_rr6x4")]
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="FileMenuContainer" type="CenterContainer" parent="ModalLayer"]
+unique_name_in_owner = true
+offset_right = 1280.0
+offset_bottom = 800.0
+mouse_filter = 0
+
+[node name="HoldToShowHandler" parent="ModalLayer/FileMenuContainer" node_paths=PackedStringArray("control_to_show") instance=ExtResource("6_apiio")]
+script = ExtResource("3_mp87e")
+input = &"modify_mode"
+control_to_show = NodePath("..")
+
+[node name="FileMenu" parent="ModalLayer/FileMenuContainer" instance=ExtResource("5_e440t")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FileMenuHandler" parent="ModalLayer/FileMenuContainer/FileMenu" node_paths=PackedStringArray("file_menu") instance=ExtResource("8_1i7fs")]
+unique_name_in_owner = true
+file_menu = NodePath("..")
+
+[connection signal="modal_hidden" from="." to="ModalLayer/FileMenuContainer/HoldToShowHandler" method="_on_ui_modal_hidden"]
+[connection signal="modal_shown" from="." to="ModalLayer/FileMenuContainer/HoldToShowHandler" method="_on_ui_modal_shown"]
+[connection signal="created_new_budget" from="BudgetManager" to="." method="_on_budget_manager_created_new_budget"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/EditButton" to="." method="_on_edit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/BudgetPanel" to="." method="_on_budget_panel_budget_changed"]
-[connection signal="transactions_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/VBoxContainer/LedgerPanel" to="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/BudgetPanel" method="_on_ledger_panel_transactions_changed"]
-[connection signal="transactions_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/VBoxContainer/BillsPanel" to="MarginContainer/VBoxContainer/TabContainer/BudgetContainer/HBoxContainer/BudgetPanel" method="_on_bills_panel_transactions_changed"]
+[connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer" to="." method="_on_budget_container_budget_changed"]
 [connection signal="modal_hidden" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_modal_hidden"]
 [connection signal="name_submitted" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]
+[connection signal="activated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="." method="_on_file_menu_hold_to_show_handler_activated"]
+[connection signal="activated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="ModalLayer/FileMenuContainer/FileMenu/FileMenuHandler" method="_on_hold_to_show_handler_activated"]
+[connection signal="deactivated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="." method="_on_file_menu_hold_to_show_handler_deactivated"]
+[connection signal="deactivated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="ModalLayer/FileMenuContainer/FileMenu/FileMenuHandler" method="_on_hold_to_show_handler_deactivated"]
+[connection signal="new_budget" from="ModalLayer/FileMenuContainer/FileMenu/FileMenuHandler" to="BudgetManager" method="_on_file_menu_handler_new_budget"]

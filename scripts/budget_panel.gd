@@ -51,6 +51,7 @@ func inject(budget: Budget):
 	update_budget()
 
 	overwrite_transactions(budget.transactions)
+	overwrite_bills(budget.bills)
 
 func update_budget():
 	if total_budget_edit:

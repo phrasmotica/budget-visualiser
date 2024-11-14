@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://gho3l34xmwce"]
+
+[resource]
+MenuMargins/base_type = &"MarginContainer"
+MenuMargins/constants/margin_bottom = 10
+MenuMargins/constants/margin_left = 10
+MenuMargins/constants/margin_right = 10
+MenuMargins/constants/margin_top = 10

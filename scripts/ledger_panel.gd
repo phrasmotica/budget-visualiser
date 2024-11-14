@@ -50,9 +50,9 @@ func _process(_delta: float) -> void:
 		handle_input()
 
 func handle_input():
-	if Input.is_action_just_pressed("ledger_delete_mode"):
+	if Input.is_action_just_pressed("modify_mode"):
 		set_delete_mode(true)
-	elif Input.is_action_just_released("ledger_delete_mode"):
+	elif Input.is_action_just_released("modify_mode"):
 		set_delete_mode(false)
 
 func set_delete_mode(is_delete_mode: bool):
