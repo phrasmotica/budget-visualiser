@@ -18,6 +18,13 @@ var amount: float = 0:
 
         handle_property_change_from_editor()
 
+@export
+var disabled := false:
+    set(value):
+        disabled = value
+
+        handle_property_change_from_editor()
+
 func handle_property_change_from_editor() -> void:
     if Engine.is_editor_hint():
         emit_changed()

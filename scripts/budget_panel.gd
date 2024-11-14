@@ -69,7 +69,8 @@ func overwrite_transactions(transactions: Array) -> void:
 		print("Overwriting with %s %.2f" % [t.name, t.amount])
 		_transactions_internal.append(t as Transaction)
 
-	spent = _transactions_internal.map(func(t): return t.amount).reduce(sumf, 0)
+	var enabled_transactions := _transactions_internal.filter(transaction_is_enabled)
+	spent = enabled_transactions.map(func(t): return t.amount).reduce(sumf, 0)
 
 	var remaining := total_budget - spent
 	print("There is " + str(remaining) + " left in the budget")
@@ -81,7 +82,8 @@ func overwrite_bills(bills: Array) -> void:
 		print("Overwriting with %s %.2f" % [b.name, b.amount])
 		_bills_internal.append(b as Transaction)
 
-	bills_spent = _bills_internal.map(func(t): return t.amount).reduce(sumf, 0)
+	var enabled_bills := _bills_internal.filter(transaction_is_enabled)
+	bills_spent = enabled_bills.map(func(t): return t.amount).reduce(sumf, 0)
 
 	var remaining := total_budget - spent - bills_spent
 	print("There is " + str(remaining) + " left in the budget")
@@ -95,6 +97,9 @@ func _on_bills_panel_transactions_changed(transactions: Array) -> void:
 	overwrite_bills(transactions)
 
 	broadcast()
+
+func transaction_is_enabled(t: Transaction):
+	return not t.disabled
 
 func sumf(accum: float, next: float):
 	return accum + next
