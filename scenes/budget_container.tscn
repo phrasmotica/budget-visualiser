@@ -40,5 +40,7 @@ title = "Bills"
 colour_hint = Color(1, 1, 0, 1)
 
 [connection signal="budget_changed" from="HBoxContainer/BudgetPanel" to="." method="_on_budget_panel_budget_changed"]
+[connection signal="class_enabled" from="HBoxContainer/VBoxContainer/LedgerPanel" to="HBoxContainer/BudgetPanel" method="_on_ledger_panel_class_enabled"]
 [connection signal="transactions_changed" from="HBoxContainer/VBoxContainer/LedgerPanel" to="HBoxContainer/BudgetPanel" method="_on_ledger_panel_transactions_changed"]
+[connection signal="class_enabled" from="HBoxContainer/VBoxContainer/BillsPanel" to="HBoxContainer/BudgetPanel" method="_on_bills_panel_class_enabled"]
 [connection signal="transactions_changed" from="HBoxContainer/VBoxContainer/BillsPanel" to="HBoxContainer/BudgetPanel" method="_on_bills_panel_transactions_changed"]

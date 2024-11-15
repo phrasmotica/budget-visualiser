@@ -14,8 +14,8 @@ signal budget_changed(budget: Budget)
 
 func inject(budget: Budget):
 	budget_panel.inject(budget)
-	ledger_panel.inject(budget.transactions)
-	bills_panel.inject(budget.bills)
+	ledger_panel.inject(budget.transactions, budget.transactions_disabled)
+	bills_panel.inject(budget.bills, budget.bills_disabled)
 
 func prevent_input():
 	ledger_panel.prevent_input()

@@ -6,8 +6,7 @@ var total_budget: float = 3000:
 	set(value):
 		total_budget = max(value, spent)
 
-		if budget_bar:
-			budget_bar.total_budget = total_budget
+		update_bar()
 
 		if Engine.is_editor_hint():
 			update_budget()
@@ -17,16 +16,14 @@ var spent: float = 0:
 	set(value):
 		spent = value
 
-		if budget_bar:
-			budget_bar.spent = spent
+		update_bar()
 
 @export
 var bills_spent: float = 1000:
 	set(value):
 		bills_spent = value
 
-		if budget_bar:
-			budget_bar.bills_spent = bills_spent
+		update_bar()
 
 @onready
 var total_budget_edit: MoneyEdit = %TotalBudgetEdit
@@ -57,6 +54,15 @@ func update_budget():
 	if total_budget_edit:
 		total_budget_edit.amount = total_budget
 
+func update_bar():
+	if not _budget_internal:
+		return
+
+	if budget_bar:
+		budget_bar.total_budget = total_budget
+		budget_bar.spent = 0.0 if _budget_internal.transactions_disabled else spent
+		budget_bar.bills_spent = 0.0 if _budget_internal.bills_disabled else bills_spent
+
 func _on_total_budget_edit_amount_changed(amount: float) -> void:
 	total_budget = amount
 
@@ -72,8 +78,7 @@ func overwrite_transactions(transactions: Array) -> void:
 	var enabled_transactions := _transactions_internal.filter(transaction_is_enabled)
 	spent = enabled_transactions.map(func(t): return t.amount).reduce(sumf, 0)
 
-	var remaining := total_budget - spent
-	print("There is " + str(remaining) + " left in the budget")
+	recompute()
 
 func overwrite_bills(bills: Array) -> void:
 	_bills_internal.clear()
@@ -85,12 +90,25 @@ func overwrite_bills(bills: Array) -> void:
 	var enabled_bills := _bills_internal.filter(transaction_is_enabled)
 	bills_spent = enabled_bills.map(func(t): return t.amount).reduce(sumf, 0)
 
-	var remaining := total_budget - spent - bills_spent
-	print("There is " + str(remaining) + " left in the budget")
+	recompute()
+
+func _on_ledger_panel_class_enabled(enabled: bool) -> void:
+	_budget_internal.transactions_disabled = not enabled
+
+	recompute()
+	update_bar()
+	broadcast()
 
 func _on_ledger_panel_transactions_changed(transactions: Array) -> void:
 	overwrite_transactions(transactions)
 
+	broadcast()
+
+func _on_bills_panel_class_enabled(enabled: bool) -> void:
+	_budget_internal.bills_disabled = not enabled
+
+	recompute()
+	update_bar()
 	broadcast()
 
 func _on_bills_panel_transactions_changed(transactions: Array) -> void:
@@ -103,6 +121,17 @@ func transaction_is_enabled(t: Transaction):
 
 func sumf(accum: float, next: float):
 	return accum + next
+
+func recompute():
+	var remaining := total_budget
+
+	if not _budget_internal.transactions_disabled:
+		remaining -= spent
+
+	if not _budget_internal.bills_disabled:
+		remaining -= bills_spent
+
+	print("There is " + str(remaining) + " left in the budget")
 
 func broadcast():
 	if not _budget_internal:

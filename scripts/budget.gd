@@ -19,9 +19,23 @@ var transactions: Array[Transaction] = []:
         handle_property_change_from_editor()
 
 @export
+var transactions_disabled := false:
+    set(value):
+        transactions_disabled = value
+
+        handle_property_change_from_editor()
+
+@export
 var bills: Array[Transaction] = []:
     set(value):
         bills = value
+
+        handle_property_change_from_editor()
+
+@export
+var bills_disabled := false:
+    set(value):
+        bills_disabled = value
 
         handle_property_change_from_editor()
 
