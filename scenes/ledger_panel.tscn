@@ -118,5 +118,6 @@ layout_mode = 2
 text = "+"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/CheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="VBoxContainer/NewTransactionButton" to="." method="_on_new_transaction_button_pressed"]

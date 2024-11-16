@@ -160,5 +160,19 @@ func allow_input() -> void:
 func _on_edit_button_pressed() -> void:
 	delete_mode = not delete_mode
 
+func _on_delete_button_pressed() -> void:
+	transaction_inputs.clear()
+
+	for n in transaction_input_container.get_children():
+		transaction_input_container.remove_child(n)
+		n.queue_free()
+
+	print("Clearing " + str(_transactions.size()) + " transaction(s) from ledger")
+	_transactions.clear()
+
+	refresh()
+
+	delete_mode = false
+
 func _on_check_box_pressed() -> void:
 	class_enabled.emit(check_box.button_pressed)
