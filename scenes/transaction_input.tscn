@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnf28374hirph"]
+[gd_scene load_steps=5 format=3 uid="uid://bnf28374hirph"]
 
 [ext_resource type="Script" path="res://scripts/transaction_input.gd" id="1_cqf2e"]
+[ext_resource type="Theme" uid="uid://gho3l34xmwce" path="res://themes/theme_default.tres" id="1_s4qvn"]
 [ext_resource type="PackedScene" uid="uid://bw2trii56cowr" path="res://scenes/money_edit.tscn" id="2_ar8de"]
+[ext_resource type="PackedScene" uid="uid://ciumafdorrhly" path="res://scenes/delete_button.tscn" id="4_gq3op"]
 
 [node name="TransactionInput" type="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 300.0
 offset_bottom = 31.0
+theme = ExtResource("1_s4qvn")
 script = ExtResource("1_cqf2e")
 
 [node name="NameEdit" type="LineEdit" parent="."]
@@ -23,20 +26,24 @@ layout_mode = 2
 text = "£0.00"
 amount = 0.0
 
-[node name="DeleteButton" type="Button" parent="."]
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="DeleteButton" parent="ButtonContainer" instance=ExtResource("4_gq3op")]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "X"
 
-[node name="CheckBox" type="CheckBox" parent="."]
+[node name="CheckBox" type="CheckBox" parent="ButtonContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+button_pressed = true
 
 [connection signal="focus_exited" from="NameEdit" to="." method="_on_name_edit_focus_exited"]
 [connection signal="text_changed" from="NameEdit" to="." method="_on_name_edit_text_changed"]
 [connection signal="text_submitted" from="NameEdit" to="." method="_on_name_edit_text_submitted"]
 [connection signal="amount_changed" from="AmountEdit" to="." method="_on_amount_edit_amount_changed"]
-[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
-[connection signal="pressed" from="CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="ButtonContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/CheckBox" to="." method="_on_check_box_pressed"]

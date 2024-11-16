@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
 [ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
 
-[sub_resource type="Resource" id="Resource_ud787"]
+[sub_resource type="Resource" id="Resource_qaaxv"]
 resource_local_to_scene = true
 script = ExtResource("3_22lym")
 id = 3476233392
@@ -17,14 +17,14 @@ script = ExtResource("3_22lym")
 id = 324166050
 name = ""
 amount = 0.0
-disabled = null
+disabled = false
 
 [sub_resource type="Resource" id="Resource_mkuuf"]
 script = ExtResource("3_22lym")
 id = 2076675952
 name = ""
 amount = 0.0
-disabled = null
+disabled = false
 
 [node name="LedgerPanel" type="MarginContainer" node_paths=PackedStringArray("transaction_inputs")]
 offset_right = 318.0
@@ -84,7 +84,7 @@ size_flags_vertical = 3
 
 [node name="TransactionInput0" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
-transaction = SubResource("Resource_ud787")
+transaction = SubResource("Resource_qaaxv")
 
 [node name="TransactionInput1" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
