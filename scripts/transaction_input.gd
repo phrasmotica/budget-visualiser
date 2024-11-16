@@ -58,7 +58,7 @@ func update_delete_mode():
 		delete_button.visible = delete_mode
 
 func update_checkbox():
-	check_box.button_pressed = not transaction.disabled
+	check_box.button_pressed = not transaction.disabled if transaction else true
 
 func handle_transaction_changed():
 	update_name()

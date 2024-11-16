@@ -43,7 +43,7 @@ var transaction_input_scene: PackedScene = load("res://scenes/transaction_input.
 var _transactions: Dictionary = {}
 var _prevent_input := false
 
-signal class_enabled(enabled: bool) # TODO: connect this in budget container scene
+signal class_enabled(enabled: bool)
 signal transactions_changed(transactions: Array[Transaction])
 
 func _ready():

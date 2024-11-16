@@ -8,7 +8,6 @@
 custom_minimum_size = Vector2(800, 500)
 size_flags_horizontal = 3
 script = ExtResource("1_ppict")
-spent = 1000.0
 
 [node name="PlaceholderLabel" type="Label" parent="."]
 visible = false

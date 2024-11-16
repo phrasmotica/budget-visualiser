@@ -55,3 +55,26 @@ func set_budget_name(new_name: String, emit: bool) -> void:
 
     if emit:
         emit_changed()
+
+func get_remaining() -> float:
+    return total_budget - get_spent() - get_bills_spent()
+
+func get_spent() -> float:
+    if transactions_disabled:
+        return 0.0
+
+    var enabled_transactions := transactions.filter(transaction_is_enabled)
+    return enabled_transactions.map(func(t): return t.amount).reduce(sumf, 0)
+
+func get_bills_spent() -> float:
+    if bills_disabled:
+        return 0.0
+
+    var enabled_bills := bills.filter(transaction_is_enabled)
+    return enabled_bills.map(func(t): return t.amount).reduce(sumf, 0)
+
+func transaction_is_enabled(t: Transaction):
+    return not t.disabled
+
+func sumf(accum: float, next: float):
+    return accum + next

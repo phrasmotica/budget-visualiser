@@ -2,6 +2,9 @@
 class_name BudgetContainer extends MarginContainer
 
 @onready
+var budget_holder: BudgetHolder = %BudgetHolder
+
+@onready
 var budget_panel: BudgetPanel = %BudgetPanel
 
 @onready
@@ -13,9 +16,7 @@ var bills_panel: LedgerPanel = %BillsPanel
 signal budget_changed(budget: Budget)
 
 func inject(budget: Budget):
-	budget_panel.inject(budget)
-	ledger_panel.inject(budget.transactions, budget.transactions_disabled)
-	bills_panel.inject(budget.bills, budget.bills_disabled)
+	budget_holder.inject(budget)
 
 func prevent_input():
 	ledger_panel.prevent_input()
@@ -25,5 +26,5 @@ func allow_input():
 	ledger_panel.allow_input()
 	bills_panel.allow_input()
 
-func _on_budget_panel_budget_changed(budget: Budget) -> void:
+func _on_budget_holder_budget_changed(budget: Budget) -> void:
 	budget_changed.emit(budget)
