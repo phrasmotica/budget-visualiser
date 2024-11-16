@@ -10,6 +10,9 @@ var existing_budgets_container: ScrollContainer = %ExistingBudgetsContainer
 var existing_budgets_list: VBoxContainer = %ExistingBudgetsList
 
 @onready
+var modal_buttons: ModalButtons = %ModalButtons
+
+@onready
 var budget_list_item_scene: PackedScene = preload("res://scenes/budget_list_item.tscn")
 
 signal load_requested(file_name: String)
@@ -35,6 +38,8 @@ func refresh() -> void:
 
 	refresh_file_names()
 	refresh_list_items()
+
+	modal_buttons.confirm_disabled = _selected_idx < 0
 
 func refresh_file_names() -> void:
 	_list_items.clear()
@@ -71,10 +76,25 @@ func refresh_list_items():
 func handle_list_item_pressed(idx: int) -> void:
 	_selected_idx = idx
 
-	refresh_list_items()
+	refresh()
+
+func handle_cancel() -> void:
+	_selected_idx = -1
+
+	refresh()
+
+	modal_hidden.emit()
 
 func _on_modal_input_handler_cancelled() -> void:
-	modal_hidden.emit()
+	handle_cancel()
 
 func _on_modal_buttons_cancelled() -> void:
-	modal_hidden.emit()
+	handle_cancel()
+
+func _on_modal_buttons_confirmed() -> void:
+	if _selected_idx < 0:
+		print("No existing budget is selected!")
+		return
+
+	var file_name := _file_names_internal[_selected_idx]
+	load_requested.emit(file_name)

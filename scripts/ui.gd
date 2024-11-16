@@ -94,6 +94,9 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	budget_container.inject(budget)
 	rename_modal.inject(budget)
 
+	if load_modal_container:
+		load_modal_container.hide()
+
 	refresh_current_budget()
 
 func _on_budget_container_budget_changed(budget: Budget) -> void:
@@ -170,6 +173,11 @@ func _on_rename_modal_modal_hidden() -> void:
 
 	budget_container.allow_input()
 	modal_hidden.emit()
+
+func _on_load_modal_load_requested(file_name: String) -> void:
+	print("Loading budget from " + file_name)
+
+	requested_load.emit(file_name)
 
 func _on_load_modal_modal_hidden() -> void:
 	load_modal_container.hide()
