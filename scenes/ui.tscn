@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://5eq1bvek10ef"]
+[gd_scene load_steps=10 format=3 uid="uid://5eq1bvek10ef"]
 
 [ext_resource type="Script" uid="uid://bg8boktdbm7kc" path="res://scripts/ui.gd" id="1_5131p"]
 [ext_resource type="PackedScene" uid="uid://bl67pmumsstv4" path="res://scenes/budget_manager.tscn" id="2_l7a7o"]
 [ext_resource type="PackedScene" uid="uid://c8636n1ymhc22" path="res://scenes/budget_container.tscn" id="3_612qx"]
 [ext_resource type="Script" uid="uid://drffebxd5pbdd" path="res://scripts/hold_to_show_handler.gd" id="3_mp87e"]
 [ext_resource type="PackedScene" uid="uid://dgdeqr1qdbinj" path="res://scenes/rename_modal.tscn" id="4_rr6x4"]
+[ext_resource type="PackedScene" uid="uid://44wd706cy6gf" path="res://scenes/load_modal.tscn" id="5_3qrek"]
 [ext_resource type="PackedScene" uid="uid://bgmkiacpl2puo" path="res://scenes/file_menu.tscn" id="5_e440t"]
 [ext_resource type="PackedScene" uid="uid://8q1uq48mpi7u" path="res://scenes/hold_to_show_handler.tscn" id="6_apiio"]
 [ext_resource type="PackedScene" uid="uid://c3l41x5rhwvjq" path="res://scenes/file_menu_handler.tscn" id="8_1i7fs"]
@@ -82,6 +83,14 @@ mouse_filter = 0
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="LoadModalContainer" type="CenterContainer" parent="ModalLayer"]
+unique_name_in_owner = true
+offset_right = 1280.0
+offset_bottom = 800.0
+
+[node name="LoadModal" parent="ModalLayer/LoadModalContainer" instance=ExtResource("5_3qrek")]
+layout_mode = 2
+
 [node name="FileMenuContainer" type="CenterContainer" parent="ModalLayer"]
 unique_name_in_owner = true
 offset_right = 1280.0
@@ -112,6 +121,7 @@ file_menu = NodePath("..")
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer" to="." method="_on_budget_container_budget_changed"]
 [connection signal="modal_hidden" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_modal_hidden"]
 [connection signal="name_submitted" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]
+[connection signal="modal_hidden" from="ModalLayer/LoadModalContainer/LoadModal" to="." method="_on_load_modal_modal_hidden"]
 [connection signal="activated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="." method="_on_file_menu_hold_to_show_handler_activated"]
 [connection signal="activated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="ModalLayer/FileMenuContainer/FileMenu/FileMenuHandler" method="_on_hold_to_show_handler_activated"]
 [connection signal="deactivated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="." method="_on_file_menu_hold_to_show_handler_deactivated"]
