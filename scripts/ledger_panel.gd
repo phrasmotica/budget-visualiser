@@ -16,6 +16,13 @@ var colour_hint: Color:
 		update_colour_hint()
 
 @export
+var delete_mode := false:
+	set(value):
+		delete_mode = value
+
+		update_mode()
+
+@export
 var transactions_disabled := false:
 	set(value):
 		transactions_disabled = value
@@ -32,6 +39,9 @@ var title_label: Label = %TitleLabel
 var colour_hint_rect: ColorRect = %ColourHintRect
 
 @onready
+var delete_button: Button = %DeleteButton
+
+@onready
 var check_box: Button = %CheckBox
 
 @onready
@@ -41,7 +51,6 @@ var transaction_input_container: VBoxContainer = %TransactionInputContainer
 var transaction_input_scene: PackedScene = load("res://scenes/transaction_input.tscn")
 
 var _transactions: Dictionary = {}
-var _is_delete_mode := false
 var _prevent_input := false
 
 signal class_enabled(enabled: bool)
@@ -55,13 +64,15 @@ func _ready():
 	for ti: TransactionInput in transaction_inputs:
 		connect_input(ti)
 
-func set_delete_mode(is_delete_mode: bool):
-	_is_delete_mode = is_delete_mode
+func update_mode():
+	if delete_button:
+		delete_button.visible = delete_mode
 
-	check_box.disabled = _is_delete_mode
+	if check_box:
+		check_box.visible = not delete_mode
 
 	for ti: TransactionInput in transaction_inputs:
-		ti.delete_mode = _is_delete_mode
+		ti.delete_mode = delete_mode
 
 func inject(transactions: Array[Transaction], disabled: bool):
 	transactions_disabled = disabled
@@ -95,6 +106,9 @@ func update_colour_hint():
 func update_checkbox():
 	if check_box:
 		check_box.button_pressed = not transactions_disabled
+
+	for ti: TransactionInput in transaction_inputs:
+		ti.disabled_mode = transactions_disabled
 
 func handle_adjust_transaction(transaction: Transaction) -> void:
 	print("Transaction " + str(transaction.id) + " for " + transaction.name + " has amount " + str(transaction.amount))
@@ -137,14 +151,14 @@ func refresh() -> void:
 	transactions_changed.emit(transactions)
 
 func prevent_input() -> void:
-	set_delete_mode(false)
+	delete_mode = false
 	_prevent_input = true
 
 func allow_input() -> void:
 	_prevent_input = false
 
 func _on_edit_button_pressed() -> void:
-	set_delete_mode(not _is_delete_mode)
+	delete_mode = not delete_mode
 
 func _on_check_box_pressed() -> void:
 	class_enabled.emit(check_box.button_pressed)
