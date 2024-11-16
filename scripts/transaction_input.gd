@@ -14,14 +14,14 @@ var delete_mode: bool:
 	set(value):
 		delete_mode = value
 
-		update_delete_mode()
+		update_mode()
 
 @export
 var disabled_mode: bool:
 	set(value):
 		disabled_mode = value
 
-		update_disabled()
+		update_mode()
 
 @onready
 var name_edit: LineEdit = %NameEdit
@@ -41,7 +41,7 @@ signal delete_transaction(input: TransactionInput, transaction: Transaction)
 func _ready():
 	update_name()
 	update_amount()
-	update_delete_mode()
+	update_mode()
 	update_checkbox()
 
 func adjust():
@@ -57,27 +57,18 @@ func update_amount():
 	if amount_edit:
 		amount_edit.amount = transaction.amount if transaction else 0.0
 
-func update_delete_mode():
+func update_mode():
 	if name_edit:
-		name_edit.editable = not delete_mode
+		name_edit.editable = not (delete_mode or disabled_mode)
 
 	if amount_edit:
-		amount_edit.editable = not delete_mode
+		amount_edit.editable = not (delete_mode or disabled_mode)
 
 	if delete_button:
-		delete_button.visible = delete_mode
+		delete_button.visible = delete_mode and not disabled_mode
 
 	if check_box:
-		check_box.visible = not delete_mode
-
-func update_disabled():
-	if name_edit:
-		name_edit.editable = not disabled_mode
-
-	if amount_edit:
-		amount_edit.editable = not disabled_mode
-
-	if check_box:
+		check_box.visible = not delete_mode or disabled_mode
 		check_box.disabled = disabled_mode
 
 func update_checkbox():
