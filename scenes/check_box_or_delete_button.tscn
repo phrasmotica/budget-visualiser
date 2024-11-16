@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ciumafdorrhly" path="res://scenes/delete_button.tscn" id="1_tjopt"]
 
 [node name="CheckBoxOrDeleteButton" type="HBoxContainer"]
-custom_minimum_size = Vector2(24, 0)
+custom_minimum_size = Vector2(32, 32)
 alignment = 1
 script = ExtResource("1_khfk5")
 

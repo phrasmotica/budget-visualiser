@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciumafdorrhly"]
+[gd_scene load_steps=5 format=3 uid="uid://ciumafdorrhly"]
 
 [ext_resource type="Theme" uid="uid://gho3l34xmwce" path="res://themes/theme_default.tres" id="1_n7sy5"]
+[ext_resource type="Texture2D" uid="uid://cg8yd2s8ipaw2" path="res://assets/sprites/trash-can.png" id="2_5oxcg"]
+[ext_resource type="Texture2D" uid="uid://id8qmj6thcd2" path="res://assets/sprites/trash-can-pressed.png" id="3_lqqm4"]
+[ext_resource type="Texture2D" uid="uid://cjjesqv30voxi" path="res://assets/sprites/trash-can-hover.png" id="4_g5804"]
 
-[node name="DeleteButton" type="Button"]
-custom_minimum_size = Vector2(24, 0)
+[node name="DeleteButton" type="TextureButton"]
+custom_minimum_size = Vector2(32, 32)
 offset_right = 24.0
 offset_bottom = 31.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_n7sy5")
 theme_type_variation = &"DeleteButton"
-text = "X"
+texture_normal = ExtResource("2_5oxcg")
+texture_pressed = ExtResource("3_lqqm4")
+texture_hover = ExtResource("4_g5804")
+ignore_texture_size = true
+stretch_mode = 0

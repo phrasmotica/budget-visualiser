@@ -23,7 +23,7 @@ var disabled_mode := false:
 		update_mode()
 
 @onready
-var delete_button: Button = %DeleteButton
+var delete_button: TextureButton = %DeleteButton
 
 @onready
 var check_box: Button = %CheckBox
