@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjvhfudnkbtgy"]
+
+[ext_resource type="Script" path="res://scripts/modal_buttons.gd" id="1_vfjdk"]
+
+[node name="ModalButtons" type="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+script = ExtResource("1_vfjdk")
+confirm_text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="ConfirmButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Confirm"
+
+[connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]
