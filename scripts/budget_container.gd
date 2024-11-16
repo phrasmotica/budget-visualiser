@@ -26,5 +26,8 @@ func allow_input():
 	ledger_panel.allow_input()
 	bills_panel.allow_input()
 
+func get_budget_id() -> int:
+	return budget_holder.get_budget_id()
+
 func _on_budget_holder_budget_changed(budget: Budget) -> void:
 	budget_changed.emit(budget)

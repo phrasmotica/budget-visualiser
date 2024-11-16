@@ -107,6 +107,8 @@ file_menu = NodePath("..")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/EditButton" to="." method="_on_edit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="tab_changed" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="tab_selected" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_selected"]
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer" to="." method="_on_budget_container_budget_changed"]
 [connection signal="modal_hidden" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_modal_hidden"]
 [connection signal="name_submitted" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]
