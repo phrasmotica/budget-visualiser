@@ -4,15 +4,12 @@ extends PanelContainer
 var name_edit: LineEdit = %NameEdit
 
 @onready
-var save_button: Button = %SaveButton
+var modal_buttons: ModalButtons = %ModalButtons
 
 var _text_internal := ""
 
 signal name_submitted(new_name: String)
 signal modal_hidden
-
-func _ready():
-	refresh()
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -33,8 +30,8 @@ func submit(new_name: String):
 	name_submitted.emit(new_name)
 
 func refresh():
-	if save_button:
-		save_button.disabled = len(_text_internal) <= 0
+	if modal_buttons:
+		modal_buttons.confirm_disabled = _text_internal.length() <= 0
 
 func inject(budget: Budget):
 	if name_edit:
@@ -48,10 +45,10 @@ func _on_name_edit_text_changed(new_text: String) -> void:
 func _on_name_edit_text_submitted(new_text: String) -> void:
 	submit(new_text)
 
-func _on_cancel_button_pressed() -> void:
+func _on_modal_buttons_cancelled() -> void:
 	modal_hidden.emit()
 
-func _on_save_button_pressed() -> void:
+func _on_modal_buttons_confirmed() -> void:
 	submit(name_edit.text)
 
 func _on_visibility_changed() -> void:
