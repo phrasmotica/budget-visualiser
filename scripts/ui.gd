@@ -14,6 +14,9 @@ var rename_modal_container: Container = %RenameModalContainer
 var load_modal_container: Container = %LoadModalContainer
 
 @onready
+var load_modal: LoadModal = %LoadModal
+
+@onready
 var rename_modal: Control = %RenameModal
 
 @onready
@@ -22,6 +25,7 @@ var file_menu_container: Container = %FileMenuContainer
 @onready
 var budget_container_scene: PackedScene = preload("res://scenes/budget_container.tscn")
 
+signal existing_data_requested
 signal requested_load
 signal created_save_data(data: SaveData, is_new: bool)
 signal modal_shown
@@ -71,6 +75,9 @@ func convert_to_save_data(budget: Budget) -> SaveData:
 
 func get_save_data(id: int) -> SaveData:
 	return _save_data_map[id] if _save_data_map.has(id) else null
+
+func _on_saver_loader_existing_data_read(file_names: Array[String]) -> void:
+	load_modal.inject(file_names)
 
 func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	_save_data_map[data.id] = data
@@ -122,6 +129,7 @@ func _on_app_app_quit() -> void:
 func _on_load_button_pressed() -> void:
 	if load_modal_container:
 		load_modal_container.show()
+		existing_data_requested.emit()
 
 	budget_container.prevent_input()
 	modal_shown.emit()

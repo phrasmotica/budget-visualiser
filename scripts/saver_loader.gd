@@ -1,8 +1,20 @@
-extends Node
+class_name SaverLoader extends Node
 
 const SAVE_FILE_FORMAT: String = "user://budget-%d.tres"
 
+signal existing_data_read(file_names: Array[String])
 signal loaded_data(data: SaveData)
+
+func get_existing_budgets() -> Array[String]:
+    var files := DirAccess.get_files_at("user://")
+
+    var budget_files: Array[String] = []
+
+    for f in files:
+        if f.begins_with("budget-"):
+            budget_files.append(f)
+
+    return budget_files
 
 func save_data(data: SaveData) -> bool:
     var file_name = SAVE_FILE_FORMAT % data.id
@@ -57,3 +69,7 @@ func _on_ui_requested_load() -> void:
 
     if data:
         loaded_data.emit(data)
+
+func _on_ui_existing_data_requested() -> void:
+    var file_names := get_existing_budgets()
+    existing_data_read.emit(file_names)
