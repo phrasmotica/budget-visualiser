@@ -48,8 +48,6 @@ func _on_ui_created_save_data(data: SaveData, is_new: bool) -> void:
     if is_new:
         print("Opening new save data " + data.name)
 
-        # TODO: create new tab for the new budget
-
 func _on_ui_requested_load() -> void:
     var data := load_data()
 

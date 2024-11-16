@@ -39,6 +39,9 @@ func overwrite_bills(bills: Array) -> void:
 		print("Overwriting with %s %.2f" % [b.name, b.amount])
 		_budget_internal.bills.append(b as Transaction)
 
+func get_budget_id() -> int:
+	return _budget_internal.id if _budget_internal else -1
+
 func _on_budget_panel_total_budget_changed(amount: float) -> void:
 	ensure_budget()
 
