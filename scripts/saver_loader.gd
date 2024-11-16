@@ -24,7 +24,20 @@ func save_data(data: SaveData) -> bool:
 
     return true
 
-func load_data() -> SaveData:
+func load_data(file_name: String) -> SaveData:
+    var path := "user://" + file_name
+
+    if not FileAccess.file_exists(path):
+        print("Budget file %s does not exist!" % file_name)
+        return null
+
+    var data: SaveData = ResourceLoader.load(path)
+
+    print("Loaded " + data.name + " budget data from " + file_name)
+
+    return data
+
+func _on_app_app_open() -> void:
     var files := DirAccess.get_files_at("user://")
 
     var budget_files: Array[String] = []
@@ -40,18 +53,9 @@ func load_data() -> SaveData:
 
     if budget_files.size() <= 0:
         print("No saved data to load!")
-        return null
+        return
 
-    # TODO: allow the user to choose which budget to load, rather than always
-    # loading the most recently modified one
-    var data: SaveData = ResourceLoader.load("user://" + budget_files[0])
-
-    print("Loaded " + data.name + " budget data from " + budget_files[0])
-
-    return data
-
-func _on_app_app_open() -> void:
-    var data := load_data()
+    var data := load_data(budget_files[0])
 
     if data:
         loaded_data.emit(data)
@@ -64,8 +68,8 @@ func _on_ui_created_save_data(data: SaveData, is_new: bool) -> void:
     if is_new:
         print("Opening new save data " + data.name)
 
-func _on_ui_requested_load() -> void:
-    var data := load_data()
+func _on_ui_requested_load(file_name: String) -> void:
+    var data := load_data(file_name)
 
     if data:
         loaded_data.emit(data)

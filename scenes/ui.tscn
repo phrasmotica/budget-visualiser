@@ -122,6 +122,7 @@ file_menu = NodePath("..")
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer" to="." method="_on_budget_container_budget_changed"]
 [connection signal="modal_hidden" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_modal_hidden"]
 [connection signal="name_submitted" from="ModalLayer/RenameModalContainer/RenameModal" to="." method="_on_rename_modal_name_submitted"]
+[connection signal="load_requested" from="ModalLayer/LoadModalContainer/LoadModal" to="." method="_on_load_modal_load_requested"]
 [connection signal="modal_hidden" from="ModalLayer/LoadModalContainer/LoadModal" to="." method="_on_load_modal_modal_hidden"]
 [connection signal="activated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="." method="_on_file_menu_hold_to_show_handler_activated"]
 [connection signal="activated" from="ModalLayer/FileMenuContainer/HoldToShowHandler" to="ModalLayer/FileMenuContainer/FileMenu/FileMenuHandler" method="_on_hold_to_show_handler_activated"]

@@ -75,9 +75,10 @@ text = "Budget5"
 layout_mode = 2
 
 [node name="ModalButtons" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_jsvud")]
+unique_name_in_owner = true
 layout_mode = 2
 confirm_text = "Load"
-confirm_disabled = true
 
 [connection signal="cancelled" from="ModalInputHandler" to="." method="_on_modal_input_handler_cancelled"]
 [connection signal="cancelled" from="MarginContainer/VBoxContainer/ModalButtons" to="." method="_on_modal_buttons_cancelled"]
+[connection signal="confirmed" from="MarginContainer/VBoxContainer/ModalButtons" to="." method="_on_modal_buttons_confirmed"]
