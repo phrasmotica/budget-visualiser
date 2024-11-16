@@ -15,22 +15,26 @@ func save_data(data: SaveData) -> bool:
 func load_data() -> SaveData:
     var files := DirAccess.get_files_at("user://")
 
-    var file_name := ""
+    var budget_files: Array[String] = []
 
-    # TODO: allow the user to choose which budget to load, rather than always
-    # loading the first one
     for f in files:
         if f.begins_with("budget-"):
-            file_name = f
-            break
+            budget_files.append(f)
 
-    if len(file_name) <= 0:
+    budget_files.sort_custom(
+        func(s: String, t: String):
+            return FileAccess.get_modified_time("user://" + s) > FileAccess.get_modified_time("user://" + t)
+    )
+
+    if budget_files.size() <= 0:
         print("No saved data to load!")
         return null
 
-    var data: SaveData = ResourceLoader.load("user://" + file_name)
+    # TODO: allow the user to choose which budget to load, rather than always
+    # loading the most recently modified one
+    var data: SaveData = ResourceLoader.load("user://" + budget_files[0])
 
-    print("Loaded " + data.name + " budget data from " + file_name)
+    print("Loaded " + data.name + " budget data from " + budget_files[0])
 
     return data
 
