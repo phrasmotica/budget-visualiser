@@ -30,10 +30,7 @@ var name_edit: LineEdit = %NameEdit
 var amount_edit: MoneyEdit = %AmountEdit
 
 @onready
-var delete_button: Button = %DeleteButton
-
-@onready
-var check_box: Button = %CheckBox
+var check_box_or_delete_button: CheckBoxOrDeleteButton = %CheckBoxOrDeleteButton
 
 signal adjust_transaction(transaction: Transaction)
 signal delete_transaction(input: TransactionInput, transaction: Transaction)
@@ -64,15 +61,12 @@ func update_mode():
 	if amount_edit:
 		amount_edit.editable = not (delete_mode or disabled_mode)
 
-	if delete_button:
-		delete_button.visible = delete_mode and not disabled_mode
-
-	if check_box:
-		check_box.visible = not delete_mode or disabled_mode
-		check_box.disabled = disabled_mode
+	if check_box_or_delete_button:
+		check_box_or_delete_button.delete_mode = delete_mode
+		check_box_or_delete_button.disabled_mode = disabled_mode
 
 func update_checkbox():
-	check_box.button_pressed = not transaction.disabled if transaction else true
+	check_box_or_delete_button.checked = not transaction.disabled if transaction else true
 
 func handle_transaction_changed():
 	update_name()
@@ -120,12 +114,12 @@ func _on_amount_edit_amount_changed(x: float) -> void:
 
 	adjust()
 
-func _on_delete_button_pressed() -> void:
-	delete_transaction.emit(self, transaction)
-
-func _on_check_box_pressed() -> void:
+func _on_check_box_or_delete_button_check_box_pressed(checked: bool) -> void:
 	ensure_transaction()
 
-	transaction.disabled = not check_box.button_pressed
+	transaction.disabled = not checked
 
 	adjust()
+
+func _on_check_box_or_delete_button_delete_button_pressed() -> void:
+	delete_transaction.emit(self, transaction)
