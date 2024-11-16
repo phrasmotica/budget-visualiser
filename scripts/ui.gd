@@ -17,7 +17,7 @@ var rename_modal: Control = %RenameModal
 var file_menu_container: Container = %FileMenuContainer
 
 signal requested_load
-signal created_save_data(data: SaveData)
+signal created_save_data(data: SaveData, is_new: bool)
 signal modal_shown
 signal modal_hidden
 
@@ -46,6 +46,17 @@ func _ready():
 
 func set_budget_title(title: String):
 	tab_container.set_tab_title(0, title)
+
+func convert_to_save_data(budget: Budget) -> SaveData:
+	var save_data := SaveData.new()
+
+	save_data.id = budget.id
+	save_data.name = budget.name
+	save_data.total_budget = budget.total_budget
+	save_data.transactions = budget.transactions
+	save_data.bills = budget.bills
+
+	return save_data
 
 func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	_save_data = data
@@ -78,20 +89,20 @@ func _on_budget_container_budget_changed(budget: Budget) -> void:
 	_save_data.transactions = budget.transactions
 	_save_data.bills = budget.bills
 
-	created_save_data.emit(_save_data)
+	created_save_data.emit(_save_data, false)
 
 func _on_app_app_ready() -> void:
 	print("App is ready.")
 	_app_ready = true
 
 func _on_app_app_quit() -> void:
-	created_save_data.emit(_save_data)
+	created_save_data.emit(_save_data, false)
 
 func _on_load_button_pressed() -> void:
 	requested_load.emit()
 
 func _on_save_button_pressed() -> void:
-	created_save_data.emit(_save_data)
+	created_save_data.emit(_save_data, false)
 
 func _on_edit_button_pressed() -> void:
 	if rename_modal_container:
@@ -107,7 +118,7 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 
 	set_budget_title(new_name)
 
-	created_save_data.emit(_save_data)
+	created_save_data.emit(_save_data, false)
 
 	if rename_modal_container:
 		rename_modal_container.hide()
@@ -129,3 +140,6 @@ func _on_file_menu_hold_to_show_handler_deactivated() -> void:
 
 func _on_budget_manager_created_new_budget(budget: Budget) -> void:
 	print("Created new budget ID=%d" % budget.id)
+
+	var new_save_data := convert_to_save_data(budget)
+	created_save_data.emit(new_save_data, true)

@@ -40,10 +40,15 @@ func _on_app_app_open() -> void:
     if data:
         loaded_data.emit(data)
 
-func _on_ui_created_save_data(data: SaveData) -> void:
+func _on_ui_created_save_data(data: SaveData, is_new: bool) -> void:
     var success := save_data(data)
     if success:
         print("Saved data successfully!")
+
+    if is_new:
+        print("Opening new save data " + data.name)
+
+        # TODO: create new tab for the new budget
 
 func _on_ui_requested_load() -> void:
     var data := load_data()
