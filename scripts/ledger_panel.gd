@@ -39,10 +39,7 @@ var title_label: Label = %TitleLabel
 var colour_hint_rect: ColorRect = %ColourHintRect
 
 @onready
-var delete_button: Button = %DeleteButton
-
-@onready
-var check_box: Button = %CheckBox
+var check_box_or_delete_button: CheckBoxOrDeleteButton = %CheckBoxOrDeleteButton
 
 @onready
 var transaction_input_container: VBoxContainer = %TransactionInputContainer
@@ -65,11 +62,8 @@ func _ready():
 		connect_input(ti)
 
 func update_mode():
-	if delete_button:
-		delete_button.visible = delete_mode
-
-	if check_box:
-		check_box.visible = not delete_mode
+	if check_box_or_delete_button:
+		check_box_or_delete_button.delete_mode = delete_mode
 
 	for ti: TransactionInput in transaction_inputs:
 		ti.delete_mode = delete_mode
@@ -104,8 +98,8 @@ func update_colour_hint():
 		colour_hint_rect.color = colour_hint
 
 func update_checkbox():
-	if check_box:
-		check_box.button_pressed = not transactions_disabled
+	if check_box_or_delete_button:
+		check_box_or_delete_button.checked = not transactions_disabled
 
 	for ti: TransactionInput in transaction_inputs:
 		ti.disabled_mode = transactions_disabled
@@ -160,7 +154,12 @@ func allow_input() -> void:
 func _on_edit_button_pressed() -> void:
 	delete_mode = not delete_mode
 
-func _on_delete_button_pressed() -> void:
+func _on_check_box_or_delete_button_check_box_pressed(checked: bool) -> void:
+	transactions_disabled = not checked
+
+	class_enabled.emit(checked)
+
+func _on_check_box_or_delete_button_delete_button_pressed() -> void:
 	transaction_inputs.clear()
 
 	for n in transaction_input_container.get_children():
@@ -173,6 +172,3 @@ func _on_delete_button_pressed() -> void:
 	refresh()
 
 	delete_mode = false
-
-func _on_check_box_pressed() -> void:
-	class_enabled.emit(check_box.button_pressed)

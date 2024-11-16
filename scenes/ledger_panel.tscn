@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
 [ext_resource type="PackedScene" uid="uid://dxylfnxxxaj4o" path="res://scenes/edit_button.tscn" id="2_6o8t7"]
 [ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
-[ext_resource type="PackedScene" uid="uid://ciumafdorrhly" path="res://scenes/delete_button.tscn" id="3_053ks"]
+[ext_resource type="PackedScene" uid="uid://4ryyc41mgaw2" path="res://scenes/check_box_or_delete_button.tscn" id="3_226gf"]
 
-[sub_resource type="Resource" id="Resource_dwnbv"]
+[sub_resource type="Resource" id="Resource_rryy3"]
 resource_local_to_scene = true
 script = ExtResource("3_22lym")
 id = 3476233392
@@ -59,20 +59,10 @@ color = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(34, 32)
 layout_mode = 2
 
-[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(24, 0)
-layout_mode = 2
-alignment = 1
-
-[node name="DeleteButton" parent="VBoxContainer/HBoxContainer/ButtonContainer" instance=ExtResource("3_053ks")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer/ButtonContainer"]
+[node name="CheckBoxOrDeleteButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_226gf")]
 unique_name_in_owner = true
 layout_mode = 2
-button_pressed = true
+checked = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -100,7 +90,7 @@ size_flags_vertical = 3
 
 [node name="TransactionInput0" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
-transaction = SubResource("Resource_dwnbv")
+transaction = SubResource("Resource_rryy3")
 
 [node name="TransactionInput1" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
@@ -118,6 +108,6 @@ layout_mode = 2
 text = "+"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="check_box_pressed" from="VBoxContainer/HBoxContainer/CheckBoxOrDeleteButton" to="." method="_on_check_box_or_delete_button_check_box_pressed"]
+[connection signal="delete_button_pressed" from="VBoxContainer/HBoxContainer/CheckBoxOrDeleteButton" to="." method="_on_check_box_or_delete_button_delete_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/NewTransactionButton" to="." method="_on_new_transaction_button_pressed"]
