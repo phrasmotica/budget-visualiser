@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgdeqr1qdbinj"]
+[gd_scene load_steps=5 format=3 uid="uid://dgdeqr1qdbinj"]
 
 [ext_resource type="Script" uid="uid://u3cvea85oj0v" path="res://scripts/rename_modal.gd" id="1_3xtd5"]
 [ext_resource type="Theme" uid="uid://gho3l34xmwce" path="res://themes/theme_default.tres" id="1_hwphd"]
 [ext_resource type="PackedScene" uid="uid://cjvhfudnkbtgy" path="res://scenes/modal_buttons.tscn" id="3_ru3v1"]
+[ext_resource type="PackedScene" uid="uid://cwtf271msygn4" path="res://scenes/modal_input_handler.tscn" id="3_s17os"]
 
 [node name="RenameModal" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
 theme = ExtResource("1_hwphd")
 script = ExtResource("1_3xtd5")
+
+[node name="ModalInputHandler" parent="." instance=ExtResource("3_s17os")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -31,6 +34,7 @@ layout_mode = 2
 confirm_text = "Save"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="cancelled" from="ModalInputHandler" to="." method="_on_modal_input_handler_cancelled"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/NameEdit" to="." method="_on_name_edit_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/VBoxContainer/NameEdit" to="." method="_on_name_edit_text_submitted"]
 [connection signal="cancelled" from="MarginContainer/VBoxContainer/ModalButtons" to="." method="_on_modal_buttons_cancelled"]
