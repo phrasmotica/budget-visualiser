@@ -11,6 +11,9 @@ var budget_container: BudgetContainer = %BudgetContainer
 var rename_modal_container: Container = %RenameModalContainer
 
 @onready
+var load_modal_container: Container = %LoadModalContainer
+
+@onready
 var rename_modal: Control = %RenameModal
 
 @onready
@@ -45,6 +48,9 @@ func _ready():
 
 		if rename_modal_container:
 			rename_modal_container.hide()
+
+		if load_modal_container:
+			load_modal_container.hide()
 
 		if file_menu_container:
 			file_menu_container.hide()
@@ -114,7 +120,11 @@ func _on_app_app_quit() -> void:
 		created_save_data.emit(data, false)
 
 func _on_load_button_pressed() -> void:
-	requested_load.emit()
+	if load_modal_container:
+		load_modal_container.show()
+
+	budget_container.prevent_input()
+	modal_shown.emit()
 
 func _on_save_button_pressed() -> void:
 	var data := get_save_data(_current_budget_id)
@@ -149,6 +159,12 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 
 func _on_rename_modal_modal_hidden() -> void:
 	rename_modal_container.hide()
+
+	budget_container.allow_input()
+	modal_hidden.emit()
+
+func _on_load_modal_modal_hidden() -> void:
+	load_modal_container.hide()
 
 	budget_container.allow_input()
 	modal_hidden.emit()

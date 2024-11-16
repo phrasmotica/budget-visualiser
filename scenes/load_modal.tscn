@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://44wd706cy6gf"]
+
+[ext_resource type="Script" path="res://scripts/load_modal.gd" id="1_0uke6"]
+[ext_resource type="Theme" uid="uid://gho3l34xmwce" path="res://themes/theme_default.tres" id="2_lj341"]
+[ext_resource type="PackedScene" uid="uid://cwtf271msygn4" path="res://scenes/modal_input_handler.tscn" id="2_n7bmv"]
+[ext_resource type="PackedScene" uid="uid://cxq2xqf5veksd" path="res://scenes/warning_label.tscn" id="3_igm24"]
+[ext_resource type="PackedScene" uid="uid://cjvhfudnkbtgy" path="res://scenes/modal_buttons.tscn" id="3_jsvud"]
+
+[node name="LoadModal" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 300.0
+offset_bottom = 51.0
+script = ExtResource("1_0uke6")
+
+[node name="ModalInputHandler" parent="." instance=ExtResource("2_n7bmv")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_lj341")
+theme_type_variation = &"MenuMargins"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Budget"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NoExistingBudgetsWarning" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_igm24")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29219, 0.29219, 0.29219, 1)
+
+[node name="ExistingBudgetsList" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ModalButtons" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_jsvud")]
+layout_mode = 2
+confirm_text = "Load"
+confirm_disabled = true
+
+[connection signal="cancelled" from="ModalInputHandler" to="." method="_on_modal_input_handler_cancelled"]
+[connection signal="cancelled" from="MarginContainer/VBoxContainer/ModalButtons" to="." method="_on_modal_buttons_cancelled"]
