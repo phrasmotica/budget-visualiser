@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://w62q3001oofy"]
+
+[node name="BudgetListItem" type="Button"]
+custom_minimum_size = Vector2(150, 0)
+mouse_default_cursor_shape = 2
+toggle_mode = true
+text = "The Cure"
+alignment = 0
