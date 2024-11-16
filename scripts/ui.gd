@@ -81,6 +81,8 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	budget_container.inject(budget)
 	rename_modal.inject(budget)
 
+	refresh_current_budget()
+
 func _on_budget_container_budget_changed(budget: Budget) -> void:
 	handle_budget_changed(budget)
 
