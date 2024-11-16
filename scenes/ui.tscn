@@ -89,6 +89,7 @@ offset_right = 1280.0
 offset_bottom = 800.0
 
 [node name="LoadModal" parent="ModalLayer/LoadModalContainer" instance=ExtResource("5_3qrek")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="FileMenuContainer" type="CenterContainer" parent="ModalLayer"]
