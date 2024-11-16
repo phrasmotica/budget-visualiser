@@ -90,7 +90,7 @@ mouse_filter = 0
 
 [node name="HoldToShowHandler" parent="ModalLayer/FileMenuContainer" node_paths=PackedStringArray("control_to_show") instance=ExtResource("6_apiio")]
 script = ExtResource("3_mp87e")
-input = &"modify_mode"
+input = &"file_menu_show"
 control_to_show = NodePath("..")
 
 [node name="FileMenu" parent="ModalLayer/FileMenuContainer" instance=ExtResource("5_e440t")]
