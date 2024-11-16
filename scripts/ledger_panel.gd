@@ -41,6 +41,7 @@ var transaction_input_container: VBoxContainer = %TransactionInputContainer
 var transaction_input_scene: PackedScene = load("res://scenes/transaction_input.tscn")
 
 var _transactions: Dictionary = {}
+var _is_delete_mode := false
 var _prevent_input := false
 
 signal class_enabled(enabled: bool)
@@ -54,22 +55,13 @@ func _ready():
 	for ti: TransactionInput in transaction_inputs:
 		connect_input(ti)
 
-func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		return
-
-	if not _prevent_input:
-		handle_input()
-
-func handle_input():
-	if Input.is_action_just_pressed("modify_mode"):
-		set_delete_mode(true)
-	elif Input.is_action_just_released("modify_mode"):
-		set_delete_mode(false)
-
 func set_delete_mode(is_delete_mode: bool):
+	_is_delete_mode = is_delete_mode
+
+	check_box.disabled = _is_delete_mode
+
 	for ti: TransactionInput in transaction_inputs:
-		ti.delete_mode = is_delete_mode
+		ti.delete_mode = _is_delete_mode
 
 func inject(transactions: Array[Transaction], disabled: bool):
 	transactions_disabled = disabled
@@ -150,6 +142,9 @@ func prevent_input() -> void:
 
 func allow_input() -> void:
 	_prevent_input = false
+
+func _on_edit_button_pressed() -> void:
+	set_delete_mode(not _is_delete_mode)
 
 func _on_check_box_pressed() -> void:
 	class_enabled.emit(check_box.button_pressed)

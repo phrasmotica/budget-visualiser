@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgkqk55qden81"]
+[gd_scene load_steps=8 format=3 uid="uid://cgkqk55qden81"]
 
 [ext_resource type="Script" path="res://scripts/ledger_panel.gd" id="1_6ty6e"]
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
+[ext_resource type="PackedScene" uid="uid://dxylfnxxxaj4o" path="res://scenes/edit_button.tscn" id="2_6o8t7"]
 [ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
 
-[sub_resource type="Resource" id="Resource_qaaxv"]
+[sub_resource type="Resource" id="Resource_mj1f8"]
 resource_local_to_scene = true
 script = ExtResource("3_22lym")
 id = 3476233392
@@ -52,6 +53,10 @@ custom_minimum_size = Vector2(34, 0)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
+[node name="EditButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_6o8t7")]
+custom_minimum_size = Vector2(34, 32)
+layout_mode = 2
+
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -84,7 +89,7 @@ size_flags_vertical = 3
 
 [node name="TransactionInput0" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
-transaction = SubResource("Resource_qaaxv")
+transaction = SubResource("Resource_mj1f8")
 
 [node name="TransactionInput1" parent="VBoxContainer/ScrollContainer/MarginContainer/TransactionInputContainer" instance=ExtResource("1_sx4ef")]
 layout_mode = 2
@@ -101,5 +106,6 @@ layout_mode = 2
 layout_mode = 2
 text = "+"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/EditButton" to="." method="_on_edit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="VBoxContainer/NewTransactionButton" to="." method="_on_new_transaction_button_pressed"]
