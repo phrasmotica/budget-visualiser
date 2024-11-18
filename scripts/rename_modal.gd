@@ -23,9 +23,12 @@ func refresh():
 	if modal_buttons:
 		modal_buttons.confirm_disabled = _text_internal.length() <= 0
 
-func inject(budget: Budget):
+func inject(budget: Budget) -> void:
+	inject_name(budget.name)
+
+func inject_name(budget_name: String) -> void:
 	if name_edit:
-		name_edit.text = budget.name
+		name_edit.text = budget_name
 
 func _on_modal_input_handler_cancelled() -> void:
 	modal_hidden.emit()
