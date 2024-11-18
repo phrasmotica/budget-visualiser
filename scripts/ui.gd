@@ -101,6 +101,9 @@ func open_in_new_tab(budget: Budget) -> void:
 
 	refresh_current_budget()
 
+	if load_modal_container:
+		load_modal_container.hide()
+
 func _on_saver_loader_existing_data_read(file_names: Array[String]) -> void:
 	load_modal.inject(file_names)
 
