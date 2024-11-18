@@ -226,4 +226,10 @@ func refresh_current_budget() -> void:
 	var selected_budget_container: BudgetContainer = tab_container.get_child(_current_tab_id)
 	_current_budget_id = selected_budget_container.get_budget_id()
 
+	if _current_budget_id >= 0:
+		var save_data := get_save_data(_current_budget_id)
+		rename_modal.inject_name(save_data.name)
+	else:
+		_current_budget_id = -1
+
 	print("Current budget ID=%d" % _current_budget_id)
