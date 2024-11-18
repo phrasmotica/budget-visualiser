@@ -5,9 +5,6 @@ extends PanelContainer
 var tab_container: TabContainer = %TabContainer
 
 @onready
-var budget_container: BudgetContainer = %BudgetContainer
-
-@onready
 var rename_modal_container: Container = %RenameModalContainer
 
 @onready
@@ -21,6 +18,9 @@ var rename_modal: Control = %RenameModal
 
 @onready
 var file_menu_container: Container = %FileMenuContainer
+
+@onready
+var file_menu_hold_to_show_handler: HoldToShowHandler = %FileMenuHoldToShowHandler
 
 @onready
 var budget_container_scene: PackedScene = preload("res://scenes/budget_container.tscn")
@@ -50,6 +50,10 @@ func _ready():
 		window.size = small_window_size
 		window.move_to_center()
 
+		for c in tab_container.get_children():
+			tab_container.remove_child(c)
+			c.queue_free()
+
 		if rename_modal_container:
 			rename_modal_container.hide()
 
@@ -76,6 +80,27 @@ func convert_to_save_data(budget: Budget) -> SaveData:
 func get_save_data(id: int) -> SaveData:
 	return _save_data_map[id] if _save_data_map.has(id) else null
 
+func open_in_new_tab(budget: Budget) -> void:
+	var new_container: BudgetContainer = budget_container_scene.instantiate()
+	new_container.budget_changed.connect(handle_budget_changed)
+
+	modal_shown.connect(new_container.prevent_input)
+	modal_hidden.connect(new_container.allow_input)
+
+	file_menu_hold_to_show_handler.activated.connect(new_container.prevent_input)
+	file_menu_hold_to_show_handler.deactivated.connect(new_container.allow_input)
+
+	tab_container.add_child(new_container)
+
+	var idx := tab_container.get_child_count() - 1
+	tab_container.current_tab = idx
+	tab_container.set_tab_title(idx, budget.name)
+
+	new_container.inject(budget)
+	rename_modal.inject(budget)
+
+	refresh_current_budget()
+
 func _on_saver_loader_existing_data_read(file_names: Array[String]) -> void:
 	load_modal.inject(file_names)
 
@@ -89,15 +114,7 @@ func _on_saver_loader_loaded_data(data: SaveData) -> void:
 	budget.transactions = data.transactions
 	budget.bills = data.bills
 
-	set_budget_title(budget.name)
-
-	budget_container.inject(budget)
-	rename_modal.inject(budget)
-
-	if load_modal_container:
-		load_modal_container.hide()
-
-	refresh_current_budget()
+	open_in_new_tab(budget)
 
 func _on_budget_container_budget_changed(budget: Budget) -> void:
 	handle_budget_changed(budget)
@@ -134,7 +151,6 @@ func _on_load_button_pressed() -> void:
 		load_modal_container.show()
 		existing_data_requested.emit()
 
-	budget_container.prevent_input()
 	modal_shown.emit()
 
 func _on_save_button_pressed() -> void:
@@ -146,7 +162,6 @@ func _on_edit_button_pressed() -> void:
 	if rename_modal_container:
 		rename_modal_container.show()
 
-	budget_container.prevent_input()
 	modal_shown.emit()
 
 func _on_rename_modal_name_submitted(new_name: String) -> void:
@@ -165,13 +180,11 @@ func _on_rename_modal_name_submitted(new_name: String) -> void:
 	if rename_modal_container:
 		rename_modal_container.hide()
 
-	budget_container.allow_input()
 	modal_hidden.emit()
 
 func _on_rename_modal_modal_hidden() -> void:
 	rename_modal_container.hide()
 
-	budget_container.allow_input()
 	modal_hidden.emit()
 
 func _on_load_modal_load_requested(file_name: String) -> void:
@@ -182,14 +195,7 @@ func _on_load_modal_load_requested(file_name: String) -> void:
 func _on_load_modal_modal_hidden() -> void:
 	load_modal_container.hide()
 
-	budget_container.allow_input()
 	modal_hidden.emit()
-
-func _on_file_menu_hold_to_show_handler_activated() -> void:
-	budget_container.prevent_input()
-
-func _on_file_menu_hold_to_show_handler_deactivated() -> void:
-	budget_container.allow_input()
 
 func _on_budget_manager_created_new_budget(budget: Budget) -> void:
 	print("Created new budget ID=%d" % budget.id)
@@ -199,19 +205,7 @@ func _on_budget_manager_created_new_budget(budget: Budget) -> void:
 
 	_save_data_map[budget.id] = new_save_data
 
-	var new_container: BudgetContainer = budget_container_scene.instantiate()
-	new_container.budget_changed.connect(handle_budget_changed)
-
-	tab_container.add_child(new_container)
-
-	var idx := tab_container.get_child_count() - 1
-	tab_container.current_tab = idx
-	tab_container.set_tab_title(idx, new_save_data.name)
-
-	new_container.inject(budget)
-	rename_modal.inject(budget)
-
-	refresh_current_budget()
+	open_in_new_tab(budget)
 
 func _on_tab_container_tab_selected(tab: int) -> void:
 	_current_tab_id = tab
