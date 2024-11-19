@@ -42,6 +42,9 @@ var colour_hint_rect: ColorRect = %ColourHintRect
 var check_box_or_delete_button: CheckBoxOrDeleteButton = %CheckBoxOrDeleteButton
 
 @onready
+var scroll_container: ScrollContainer = %ScrollContainer
+
+@onready
 var transaction_input_container: VBoxContainer = %TransactionInputContainer
 
 @onready
@@ -132,6 +135,14 @@ func _on_new_transaction_button_pressed() -> void:
 
 	ti.adjust()
 	ti.highlight()
+
+	get_tree().process_frame.connect(
+		func():
+			var scroll_bar := scroll_container.get_v_scroll_bar()
+			var max_scroll := scroll_bar.max_value
+
+			scroll_container.scroll_vertical = int(max_scroll)
+	, CONNECT_ONE_SHOT)
 
 func connect_input(ti: TransactionInput):
 	ti.adjust_transaction.connect(handle_adjust_transaction)
