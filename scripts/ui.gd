@@ -2,6 +2,9 @@
 extends PanelContainer
 
 @onready
+var close_button: Button = %CloseButton
+
+@onready
 var tab_container: TabContainer = %TabContainer
 
 @onready
@@ -167,6 +170,11 @@ func _on_edit_button_pressed() -> void:
 
 	modal_shown.emit()
 
+func _on_close_button_pressed() -> void:
+	# TODO: close the active tab. Make sure current changes are saved
+	# and that the budget is removed from the save data map
+	print("Closing budget")
+
 func _on_rename_modal_name_submitted(new_name: String) -> void:
 	if not _save_data_map.has(_current_budget_id):
 		print("Can't rename non-existent budget ID=%d" % _current_budget_id)
@@ -222,6 +230,9 @@ func _on_tab_container_tab_changed(tab: int) -> void:
 
 	refresh_current_budget()
 
+func _on_tab_container_child_entered_tree(_node: Node) -> void:
+	refresh_buttons()
+
 func refresh_current_budget() -> void:
 	var selected_budget_container: BudgetContainer = tab_container.get_child(_current_tab_id)
 	_current_budget_id = selected_budget_container.get_budget_id()
@@ -233,3 +244,7 @@ func refresh_current_budget() -> void:
 		_current_budget_id = -1
 
 	print("Current budget ID=%d" % _current_budget_id)
+
+func refresh_buttons() -> void:
+	if close_button:
+		close_button.disabled = _save_data_map.size() <= 1

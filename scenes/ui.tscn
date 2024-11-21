@@ -56,6 +56,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Save"
 
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Close"
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -117,6 +124,8 @@ file_menu = NodePath("..")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/EditButton" to="." method="_on_edit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="child_entered_tree" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_child_entered_tree"]
 [connection signal="tab_changed" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="tab_selected" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_selected"]
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer" to="." method="_on_budget_container_budget_changed"]
