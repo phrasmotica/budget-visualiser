@@ -9,6 +9,11 @@ var budget_bar: BudgetBar = %BudgetBar
 
 signal total_budget_changed(amount: float)
 
+# TODO: allow copying bills from another budget
+
+# TODO: allow inserting another budget as a "ghost" transaction. Click through
+# to view it, its amount should auto-update when that budget changes, etc.
+
 func inject(budget: Budget):
 	update_budget(budget)
 	update_bar(budget)
