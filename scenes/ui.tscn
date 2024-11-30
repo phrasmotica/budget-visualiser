@@ -116,6 +116,7 @@ unique_name_in_owner = true
 script = ExtResource("3_mp87e")
 input = &"file_menu_show"
 control_to_show = NodePath("..")
+disabled = true
 
 [node name="FileMenu" parent="ModalLayer/FileMenuContainer" instance=ExtResource("5_e440t")]
 unique_name_in_owner = true
