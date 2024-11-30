@@ -34,7 +34,7 @@ signal created_save_data(data: SaveData, is_new: bool)
 signal modal_shown
 signal modal_hidden
 
-var _save_data_map := {}
+var _save_data_map := SaveDataMap.new()
 var _current_tab_id := -1
 var _current_budget_id := -1
 var _app_ready := false
@@ -80,9 +80,6 @@ func convert_to_save_data(budget: Budget) -> SaveData:
 
 	return save_data
 
-func get_save_data(id: int) -> SaveData:
-	return _save_data_map[id] if _save_data_map.has(id) else null
-
 func open_in_new_tab(budget: Budget) -> void:
 	var new_container: BudgetContainer = budget_container_scene.instantiate()
 	new_container.budget_changed.connect(handle_budget_changed)
@@ -111,7 +108,7 @@ func _on_saver_loader_existing_data_read(file_names: Array[String]) -> void:
 	load_modal.inject(file_names)
 
 func _on_saver_loader_loaded_data(data: SaveData) -> void:
-	_save_data_map[data.id] = data
+	_save_data_map.add_record(data)
 
 	var budget := Budget.new()
 	budget.id = data.id
@@ -133,22 +130,20 @@ func handle_budget_changed(budget: Budget) -> void:
 		print("App is not ready, preventing creation of save data.")
 		return
 
-	if not _save_data_map.has(budget.id):
-		_save_data_map[budget.id] = SaveData.new()
+	var save_data_record := _save_data_map.get_or_add_record(budget.id)
 
-	_save_data_map[budget.id].id = budget.id
-	_save_data_map[budget.id].total_budget = budget.total_budget
-	_save_data_map[budget.id].transactions = budget.transactions
-	_save_data_map[budget.id].bills = budget.bills
+	save_data_record.total_budget = budget.total_budget
+	save_data_record.transactions = budget.transactions
+	save_data_record.bills = budget.bills
 
-	created_save_data.emit(get_save_data(budget.id), false)
+	created_save_data.emit(save_data_record, false)
 
 func _on_app_app_ready() -> void:
 	print("App is ready.")
 	_app_ready = true
 
 func _on_app_app_quit() -> void:
-	var data := get_save_data(_current_budget_id)
+	var data := _save_data_map.get_record(_current_budget_id)
 	if data:
 		created_save_data.emit(data, false)
 
@@ -160,7 +155,7 @@ func _on_load_button_pressed() -> void:
 	modal_shown.emit()
 
 func _on_save_button_pressed() -> void:
-	var data := get_save_data(_current_budget_id)
+	var data := _save_data_map.get_record(_current_budget_id)
 	if data:
 		created_save_data.emit(data, false)
 
@@ -173,23 +168,21 @@ func _on_edit_button_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	print("Closing budget ID=%d" % _current_budget_id)
 
-	_save_data_map.erase(_current_budget_id)
+	_save_data_map.delete_record(_current_budget_id)
 
 	var current_tab := tab_container.get_child(tab_container.current_tab)
 	tab_container.remove_child(current_tab)
 
 func _on_rename_modal_name_submitted(new_name: String) -> void:
-	if not _save_data_map.has(_current_budget_id):
-		print("Can't rename non-existent budget ID=%d" % _current_budget_id)
+	print("Renaming budget ID=%d to %s" % [_current_budget_id, new_name])
+
+	var new_save_data := _save_data_map.rename(_current_budget_id, new_name)
+	if not new_save_data:
 		return
-
-	print("Renaming budget to " + new_name)
-
-	_save_data_map[_current_budget_id].name = new_name
 
 	set_budget_title(new_name)
 
-	created_save_data.emit(get_save_data(_current_budget_id), false)
+	created_save_data.emit(new_save_data, false)
 
 	if rename_modal_container:
 		rename_modal_container.hide()
@@ -217,7 +210,7 @@ func _on_budget_manager_created_new_budget(budget: Budget) -> void:
 	var new_save_data := convert_to_save_data(budget)
 	created_save_data.emit(new_save_data, true)
 
-	_save_data_map[budget.id] = new_save_data
+	_save_data_map.add_record(new_save_data)
 
 	open_in_new_tab(budget)
 
@@ -240,8 +233,8 @@ func refresh_current_budget() -> void:
 	var selected_budget_container: BudgetContainer = tab_container.get_child(_current_tab_id)
 	_current_budget_id = selected_budget_container.get_budget_id()
 
-	if _current_budget_id >= 0:
-		var save_data := get_save_data(_current_budget_id)
+	var save_data := _save_data_map.get_record(_current_budget_id)
+	if save_data:
 		rename_modal.inject_name(save_data.name)
 	else:
 		_current_budget_id = -1
