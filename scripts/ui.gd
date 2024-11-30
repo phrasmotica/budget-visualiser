@@ -171,9 +171,12 @@ func _on_edit_button_pressed() -> void:
 	modal_shown.emit()
 
 func _on_close_button_pressed() -> void:
-	# TODO: close the active tab. Make sure current changes are saved
-	# and that the budget is removed from the save data map
-	print("Closing budget")
+	print("Closing budget ID=%d" % _current_budget_id)
+
+	_save_data_map.erase(_current_budget_id)
+
+	var current_tab := tab_container.get_child(tab_container.current_tab)
+	tab_container.remove_child(current_tab)
 
 func _on_rename_modal_name_submitted(new_name: String) -> void:
 	if not _save_data_map.has(_current_budget_id):
