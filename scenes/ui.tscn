@@ -127,6 +127,7 @@ file_menu = NodePath("..")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="child_entered_tree" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_child_entered_tree"]
+[connection signal="child_exiting_tree" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_child_exiting_tree"]
 [connection signal="tab_changed" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="tab_selected" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_tab_container_tab_selected"]
 [connection signal="budget_changed" from="MarginContainer/VBoxContainer/TabContainer/BudgetContainer" to="." method="_on_budget_container_budget_changed"]
