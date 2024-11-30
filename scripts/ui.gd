@@ -229,6 +229,9 @@ func _on_tab_container_tab_changed(tab: int) -> void:
 func _on_tab_container_child_entered_tree(_node: Node) -> void:
 	refresh_buttons()
 
+func _on_tab_container_child_exiting_tree(_node: Node) -> void:
+	refresh_buttons()
+
 func refresh_current_budget() -> void:
 	var selected_budget_container: BudgetContainer = tab_container.get_child(_current_tab_id)
 	_current_budget_id = selected_budget_container.get_budget_id()
