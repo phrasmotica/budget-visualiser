@@ -38,6 +38,12 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
 text = "Budget Visualiser"
 
+[node name="NewButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "New"
+
 [node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -122,6 +128,7 @@ file_menu = NodePath("..")
 [connection signal="modal_hidden" from="." to="ModalLayer/FileMenuContainer/FileMenuHoldToShowHandler" method="_on_ui_modal_hidden"]
 [connection signal="modal_shown" from="." to="ModalLayer/FileMenuContainer/FileMenuHoldToShowHandler" method="_on_ui_modal_shown"]
 [connection signal="created_new_budget" from="BudgetManager" to="." method="_on_budget_manager_created_new_budget"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/NewButton" to="BudgetManager" method="_on_new_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/EditButton" to="." method="_on_edit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/SaveButton" to="." method="_on_save_button_pressed"]
