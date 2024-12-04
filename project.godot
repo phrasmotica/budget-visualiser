@@ -36,3 +36,7 @@ file_menu_cancel={
 "deadzone": 0.5,
 "events": []
 }
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
