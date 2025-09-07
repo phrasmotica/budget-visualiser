@@ -1,0 +1,8 @@
+[gd_scene load_steps=0 format=3 uid="uid://cxq2xqf5veksd"]
+
+[node name="WarningLabel" type="Label"]
+custom_minimum_size = Vector2(100, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "There are no existing budgets to load!"
+horizontal_alignment = 1
+autowrap_mode = 2
