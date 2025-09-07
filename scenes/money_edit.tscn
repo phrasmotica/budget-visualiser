@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bw2trii56cowr"]
 
-[ext_resource type="Script" path="res://scripts/money_edit.gd" id="1_6j2ht"]
+[ext_resource type="Script" uid="uid://c0lamhty32acw" path="res://scripts/money_edit.gd" id="1_6j2ht"]
 
 [node name="MoneyEdit" type="LineEdit"]
 custom_minimum_size = Vector2(150, 0)

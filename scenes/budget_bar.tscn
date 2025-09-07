@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bh3r0bxn8f0k2"]
 
-[ext_resource type="Script" path="res://scripts/budget_bar.gd" id="1_50njm"]
+[ext_resource type="Script" uid="uid://bbn8efi2ljbnp" path="res://scripts/budget_bar.gd" id="1_50njm"]
 
 [node name="BudgetBar" type="VBoxContainer"]
 offset_right = 600.0

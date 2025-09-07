@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccpu37idlsyu8"]
 
-[ext_resource type="Script" path="res://scripts/budget_panel.gd" id="1_ppict"]
+[ext_resource type="Script" uid="uid://kluvhlik5fyc" path="res://scripts/budget_panel.gd" id="1_ppict"]
 [ext_resource type="PackedScene" uid="uid://bw2trii56cowr" path="res://scenes/money_edit.tscn" id="2_dx4u4"]
 [ext_resource type="PackedScene" uid="uid://bh3r0bxn8f0k2" path="res://scenes/budget_bar.tscn" id="3_2wvd3"]
 

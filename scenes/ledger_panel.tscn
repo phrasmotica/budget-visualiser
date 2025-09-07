@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgkqk55qden81"]
 
-[ext_resource type="Script" path="res://scripts/ledger_panel.gd" id="1_6ty6e"]
+[ext_resource type="Script" uid="uid://clgxfuag6pet6" path="res://scripts/ledger_panel.gd" id="1_6ty6e"]
 [ext_resource type="PackedScene" uid="uid://bnf28374hirph" path="res://scenes/transaction_input.tscn" id="1_sx4ef"]
 [ext_resource type="PackedScene" uid="uid://dxylfnxxxaj4o" path="res://scenes/edit_button.tscn" id="2_6o8t7"]
-[ext_resource type="Script" path="res://scripts/transaction.gd" id="3_22lym"]
+[ext_resource type="Script" uid="uid://ghyk1fxap504" path="res://scripts/transaction.gd" id="3_22lym"]
 [ext_resource type="PackedScene" uid="uid://4ryyc41mgaw2" path="res://scenes/check_box_or_delete_button.tscn" id="3_226gf"]
 
 [sub_resource type="Resource" id="Resource_rryy3"]

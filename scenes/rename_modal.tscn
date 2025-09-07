@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgdeqr1qdbinj"]
 
-[ext_resource type="Script" path="res://scripts/rename_modal.gd" id="1_3xtd5"]
+[ext_resource type="Script" uid="uid://u3cvea85oj0v" path="res://scripts/rename_modal.gd" id="1_3xtd5"]
 [ext_resource type="Theme" uid="uid://gho3l34xmwce" path="res://themes/theme_default.tres" id="1_hwphd"]
 
 [node name="RenameModal" type="PanelContainer"]
