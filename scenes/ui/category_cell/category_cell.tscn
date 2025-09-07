@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpby7se4jfjdu"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_oxtu4"]
+[ext_resource type="Script" uid="uid://bwvawsuxn3h6x" path="res://scenes/ui/category_cell/category_cell.gd" id="2_oxtu4"]
+
+[node name="CategoryCell" type="PanelContainer"]
+custom_minimum_size = Vector2(240, 60)
+offset_right = 168.0
+offset_bottom = 56.0
+theme = ExtResource("1_oxtu4")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("2_oxtu4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "£0.00"
