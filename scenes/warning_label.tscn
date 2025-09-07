@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cxq2xqf5veksd"]
+[gd_scene load_steps=0 format=3 uid="uid://cxq2xqf5veksd"]
 
 [node name="WarningLabel" type="Label"]
 custom_minimum_size = Vector2(100, 0)

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://w62q3001oofy"]
+[gd_scene load_steps=0 format=3 uid="uid://w62q3001oofy"]
 
 [node name="BudgetListItem" type="Button"]
 custom_minimum_size = Vector2(150, 0)

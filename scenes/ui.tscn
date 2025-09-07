@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c8636n1ymhc22" path="res://scenes/budget_container.tscn" id="3_612qx"]
 [ext_resource type="Script" uid="uid://drffebxd5pbdd" path="res://scripts/hold_to_show_handler.gd" id="3_mp87e"]
 [ext_resource type="PackedScene" uid="uid://dgdeqr1qdbinj" path="res://scenes/rename_modal.tscn" id="4_rr6x4"]
-[ext_resource type="PackedScene" path="res://scenes/load_modal.tscn" id="5_3qrek"]
+[ext_resource type="PackedScene" uid="uid://44wd706cy6gf" path="res://scenes/load_modal.tscn" id="5_3qrek"]
 [ext_resource type="PackedScene" uid="uid://bgmkiacpl2puo" path="res://scenes/file_menu.tscn" id="5_e440t"]
 [ext_resource type="PackedScene" uid="uid://8q1uq48mpi7u" path="res://scenes/hold_to_show_handler.tscn" id="6_apiio"]
 [ext_resource type="PackedScene" uid="uid://c3l41x5rhwvjq" path="res://scenes/file_menu_handler.tscn" id="8_1i7fs"]
