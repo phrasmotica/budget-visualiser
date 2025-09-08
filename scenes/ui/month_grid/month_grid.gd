@@ -9,7 +9,11 @@ var cell_manager: CellManager = %CellManager
 var _state_factory := MonthGridStateFactory.new()
 var _current_state: MonthGridState = null
 
+var _index_tracker: IndexTracker = null
+
 func _ready() -> void:
+	_index_tracker = IndexTracker.new(cell_manager.count() - 1)
+
 	switch_state(MonthGrid.State.IDLE)
 
 func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
@@ -21,7 +25,8 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 	_current_state.setup(
 		self,
 		state_data,
-		cell_manager)
+		cell_manager,
+		_index_tracker)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "MonthGridStateMachine: %s" % str(state)
