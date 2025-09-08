@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd4umilpafiy8"]
+
+[ext_resource type="Script" uid="uid://qrkbfg7khqsf" path="res://scenes/ui/month_grid/month_grid.gd" id="1_dlr66"]
+[ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="1_span3"]
+
+[node name="MonthGrid" type="VBoxContainer"]
+theme_override_constants/separation = 4
+script = ExtResource("1_dlr66")
+
+[node name="CategoryCell0" parent="." instance=ExtResource("1_span3")]
+layout_mode = 2
+
+[node name="CategoryCell1" parent="." instance=ExtResource("1_span3")]
+layout_mode = 2
+
+[node name="CategoryCell2" parent="." instance=ExtResource("1_span3")]
+layout_mode = 2
