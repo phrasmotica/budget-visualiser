@@ -11,5 +11,10 @@ func highlight(index: int) -> void:
 		else:
 			cells[i].unhighlight()
 
+func dim(index: int) -> void:
+	for i in cells.size():
+		if i == index:
+			cells[i].dim()
+
 func count() -> int:
 	return cells.size()

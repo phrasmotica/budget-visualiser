@@ -6,6 +6,7 @@ func _init() -> void:
 	states = {
 		CategoryCell.State.IDLE: CategoryCellStateIdle,
 		CategoryCell.State.HIGHLIGHTED: CategoryCellStateHighlighted,
+		CategoryCell.State.DIMMED: CategoryCellStateDimmed,
 		CategoryCell.State.EDITING: CategoryCellStateEditing,
 	}
 

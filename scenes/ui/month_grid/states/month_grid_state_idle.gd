@@ -6,10 +6,8 @@ func _enter_tree() -> void:
 
 	_month_grid.theme_type_variation = "IdleMonthGridContainer"
 
-	for c in _cell_manager.cells:
-		# TODO: keep the appropriate cell highlighted, but in a much dimmer
-		# shade than the highlighted cell in the highlighted month...
-		c.unhighlight()
+	if _cell_manager.count() > 0:
+		_cell_manager.dim(_index_tracker.current())
 
 func highlight() -> void:
 	transition_state(MonthGrid.State.HIGHLIGHTED)

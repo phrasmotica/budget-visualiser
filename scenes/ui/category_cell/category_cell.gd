@@ -1,7 +1,7 @@
 class_name CategoryCell
 extends PanelContainer
 
-enum State { IDLE, HIGHLIGHTED, EDITING }
+enum State { IDLE, HIGHLIGHTED, DIMMED, EDITING }
 
 var _state_factory := CategoryCellStateFactory.new()
 var _current_state: CategoryCellState = null
@@ -23,6 +23,10 @@ func switch_state(state: State, state_data := CategoryCellStateData.new()) -> vo
 	_current_state.name = "CategoryCellStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func dim() -> void:
+	if _current_state:
+		_current_state.dim()
 
 func highlight() -> void:
 	if _current_state:
