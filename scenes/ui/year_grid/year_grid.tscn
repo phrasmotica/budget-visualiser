@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgrdp05co1rny"]
+
+[ext_resource type="Script" uid="uid://bkbtpnfcdua17" path="res://scenes/ui/year_grid/year_grid.gd" id="1_ranu4"]
+[ext_resource type="PackedScene" uid="uid://bd4umilpafiy8" path="res://scenes/ui/month_grid/month_grid.tscn" id="1_u3l1x"]
+
+[node name="YearGrid" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 4
+script = ExtResource("1_ranu4")
+
+[node name="MonthGrid0" parent="." instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+
+[node name="MonthGrid1" parent="." instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+
+[node name="MonthGrid2" parent="." instance=ExtResource("1_u3l1x")]
+layout_mode = 2
