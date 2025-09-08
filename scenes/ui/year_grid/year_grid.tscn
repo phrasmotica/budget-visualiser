@@ -13,13 +13,24 @@ script = ExtResource("1_ranu4")
 [node name="MonthGridManager" type="Node" parent="." node_paths=PackedStringArray("month_grids")]
 unique_name_in_owner = true
 script = ExtResource("2_dllf6")
-month_grids = [NodePath("../MonthGrid0"), NodePath("../MonthGrid1"), NodePath("../MonthGrid2")]
+month_grids = [NodePath("../MonthGrid0"), NodePath("../MonthGrid1"), NodePath("../MonthGrid2"), NodePath("../MonthGrid3"), NodePath("../MonthGrid4")]
 
 [node name="MonthGrid0" parent="." instance=ExtResource("1_u3l1x")]
 layout_mode = 2
+month_name = "January"
 
 [node name="MonthGrid1" parent="." instance=ExtResource("1_u3l1x")]
 layout_mode = 2
+month_name = "February"
 
 [node name="MonthGrid2" parent="." instance=ExtResource("1_u3l1x")]
 layout_mode = 2
+month_name = "March"
+
+[node name="MonthGrid3" parent="." instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "April"
+
+[node name="MonthGrid4" parent="." instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "May"

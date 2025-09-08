@@ -1,23 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd4umilpafiy8"]
+[gd_scene load_steps=6 format=3 uid="uid://bd4umilpafiy8"]
 
 [ext_resource type="Script" uid="uid://qrkbfg7khqsf" path="res://scenes/ui/month_grid/month_grid.gd" id="1_dlr66"]
 [ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="1_span3"]
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_uecel"]
 [ext_resource type="Script" uid="uid://crklagwp0hrog" path="res://scenes/ui/month_grid/cell_manager.gd" id="2_pii7b"]
+[ext_resource type="Script" uid="uid://fno8s3re3acm" path="res://scenes/ui/month_grid/month_grid_appearance.gd" id="3_k6d5u"]
 
-[node name="MonthGrid" type="VBoxContainer"]
-theme_override_constants/separation = 4
+[node name="MonthGrid" type="PanelContainer"]
+offset_right = 240.0
+offset_bottom = 352.0
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdleMonthGridContainer"
 script = ExtResource("1_dlr66")
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("name_label")]
+unique_name_in_owner = true
+script = ExtResource("3_k6d5u")
+name_label = NodePath("../MarginContainer/VBoxContainer/NameLabel")
 
 [node name="CellManager" type="Node" parent="." node_paths=PackedStringArray("cells")]
 unique_name_in_owner = true
 script = ExtResource("2_pii7b")
-cells = [NodePath("../CategoryCell0"), NodePath("../CategoryCell1"), NodePath("../CategoryCell2")]
+cells = [NodePath("../MarginContainer/VBoxContainer/VBoxContainer/CategoryCell0"), NodePath("../MarginContainer/VBoxContainer/VBoxContainer/CategoryCell1"), NodePath("../MarginContainer/VBoxContainer/VBoxContainer/CategoryCell2"), NodePath("../MarginContainer/VBoxContainer/VBoxContainer/CategoryCell3"), NodePath("../MarginContainer/VBoxContainer/VBoxContainer/CategoryCell4")]
 
-[node name="CategoryCell0" parent="." instance=ExtResource("1_span3")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "January"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CategoryCell0" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell1" parent="." instance=ExtResource("1_span3")]
+[node name="CategoryCell1" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell2" parent="." instance=ExtResource("1_span3")]
+[node name="CategoryCell2" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_span3")]
+layout_mode = 2
+
+[node name="CategoryCell3" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_span3")]
+layout_mode = 2
+
+[node name="CategoryCell4" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_span3")]
 layout_mode = 2

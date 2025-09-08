@@ -4,6 +4,8 @@ extends MonthGridState
 func _enter_tree() -> void:
 	print("%s is now highlighted" % _month_grid.name)
 
+	_month_grid.theme_type_variation = "HighlightedMonthGridContainer"
+
 	if _cell_manager.count() > 0:
 		_cell_manager.highlight(_index_tracker.current())
 
