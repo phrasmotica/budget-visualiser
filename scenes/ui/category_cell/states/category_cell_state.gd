@@ -18,3 +18,6 @@ func transition_state(
 	state_data := CategoryCellStateData.new(),
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
+
+func highlight() -> void:
+	pass

@@ -23,3 +23,7 @@ func switch_state(state: State, state_data := CategoryCellStateData.new()) -> vo
 	_current_state.name = "CategoryCellStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func highlight() -> void:
+	if _current_state:
+		_current_state.highlight()
