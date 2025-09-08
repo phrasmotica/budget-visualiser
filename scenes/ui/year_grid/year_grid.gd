@@ -3,11 +3,14 @@ extends HBoxContainer
 
 enum State { DISABLED, IDLE }
 
+@onready
+var month_grid_manager: MonthGridManager = %MonthGridManager
+
 var _state_factory := YearGridStateFactory.new()
 var _current_state: YearGridState = null
 
 func _ready() -> void:
-	switch_state(YearGrid.State.DISABLED)
+	switch_state(State.IDLE)
 
 func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 	if _current_state != null:
@@ -17,7 +20,8 @@ func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 
 	_current_state.setup(
 		self,
-		state_data)
+		state_data,
+		month_grid_manager)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "YearGridStateMachine: %s" % str(state)

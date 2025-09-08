@@ -27,3 +27,7 @@ func switch_state(state: State, state_data := CategoryCellStateData.new()) -> vo
 func highlight() -> void:
 	if _current_state:
 		_current_state.highlight()
+
+func unhighlight() -> void:
+	if _current_state:
+		_current_state.unhighlight()

@@ -21,3 +21,6 @@ func transition_state(
 
 func highlight() -> void:
 	pass
+
+func unhighlight() -> void:
+	pass

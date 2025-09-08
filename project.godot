@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CellEvents="*res://scenes/autoloads/cell_events.gd"
+GridInput="*res://scenes/autoloads/grid_input.gd"
 SignalHelper="*res://scenes/autoloads/signal_helper.gd"
 
 [display]

@@ -27,3 +27,11 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 	_current_state.name = "MonthGridStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func highlight() -> void:
+	if _current_state:
+		_current_state.highlight()
+
+func unhighlight() -> void:
+	if _current_state:
+		_current_state.unhighlight()

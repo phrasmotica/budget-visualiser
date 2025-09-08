@@ -21,3 +21,9 @@ func transition_state(
 	state_data := MonthGridStateData.new(),
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
+
+func highlight() -> void:
+	pass
+
+func unhighlight() -> void:
+	pass

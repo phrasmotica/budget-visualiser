@@ -4,4 +4,8 @@ extends MonthGridState
 func _enter_tree() -> void:
 	print("%s is now idle" % _month_grid.name)
 
-	CellEvents.emit_cell_group_created(_cell_manager.cells)
+	for c in _cell_manager.cells:
+		c.unhighlight()
+
+func highlight() -> void:
+	transition_state(MonthGrid.State.HIGHLIGHTED)
