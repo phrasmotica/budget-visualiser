@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd4umilpafiy8"]
+[gd_scene load_steps=4 format=3 uid="uid://bd4umilpafiy8"]
 
 [ext_resource type="Script" uid="uid://qrkbfg7khqsf" path="res://scenes/ui/month_grid/month_grid.gd" id="1_dlr66"]
 [ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="1_span3"]
+[ext_resource type="Script" uid="uid://crklagwp0hrog" path="res://scenes/ui/month_grid/cell_manager.gd" id="2_pii7b"]
 
 [node name="MonthGrid" type="VBoxContainer"]
 theme_override_constants/separation = 4
 script = ExtResource("1_dlr66")
+
+[node name="CellManager" type="Node" parent="." node_paths=PackedStringArray("cells")]
+unique_name_in_owner = true
+script = ExtResource("2_pii7b")
+cells = [NodePath("../CategoryCell0"), NodePath("../CategoryCell1"), NodePath("../CategoryCell2")]
 
 [node name="CategoryCell0" parent="." instance=ExtResource("1_span3")]
 layout_mode = 2

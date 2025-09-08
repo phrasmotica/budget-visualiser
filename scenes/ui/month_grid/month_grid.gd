@@ -3,6 +3,9 @@ extends Control
 
 enum State { IDLE, HIGHLIGHTED, EDITING }
 
+@onready
+var cell_manager: CellManager = %CellManager
+
 var _state_factory := MonthGridStateFactory.new()
 var _current_state: MonthGridState = null
 
@@ -17,7 +20,8 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 
 	_current_state.setup(
 		self,
-		state_data)
+		state_data,
+		cell_manager)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "MonthGridStateMachine: %s" % str(state)
