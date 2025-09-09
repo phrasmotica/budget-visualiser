@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtev33c4yaaub"]
+[gd_scene load_steps=4 format=3 uid="uid://dtev33c4yaaub"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_jiehw"]
 [ext_resource type="Script" uid="uid://2tbp6iu4tifq" path="res://scenes/ui/amount_edit/amount_edit.gd" id="2_julqq"]
+[ext_resource type="Script" uid="uid://r6nkyiqqalqy" path="res://scenes/ui/amount_edit/amount_edit_appearance.gd" id="3_ywxus"]
 
 [node name="AmountEdit" type="PanelContainer"]
 theme = ExtResource("1_jiehw")
+theme_type_variation = &"IdleAmountEditContainer"
 script = ExtResource("2_julqq")
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("amount_label")]
+unique_name_in_owner = true
+script = ExtResource("3_ywxus")
+amount_label = NodePath("../MarginContainer/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

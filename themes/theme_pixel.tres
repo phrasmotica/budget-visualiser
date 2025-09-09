@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c1ktlawkckrai"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c1ktlawkckrai"]
 
 [ext_resource type="FontFile" uid="uid://c6otstnbhgawy" path="res://assets/fonts/PixelOperator8.ttf" id="1_muggs"]
 
@@ -7,6 +7,11 @@ bg_color = Color(0.406303, 0.447843, 0.624222, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptva7"]
 bg_color = Color(0.2, 0, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5dxd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 16
+border_color = Color(0.6, 0, 0.6, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc6h1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,6 +23,9 @@ border_color = Color(0.8, 0.8, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muggs"]
 bg_color = Color(0.6, 0, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s26k0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6d5u"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -36,10 +44,14 @@ AmountEntryModalContainer/base_type = &"PanelContainer"
 AmountEntryModalContainer/styles/panel = SubResource("StyleBoxFlat_5twxo")
 DimmedCategoryCellContainer/base_type = &"PanelContainer"
 DimmedCategoryCellContainer/styles/panel = SubResource("StyleBoxFlat_ptva7")
+HighlightedAmountEditContainer/base_type = &"PanelContainer"
+HighlightedAmountEditContainer/styles/panel = SubResource("StyleBoxFlat_l5dxd")
 HighlightedMonthGridContainer/base_type = &"PanelContainer"
 HighlightedMonthGridContainer/styles/panel = SubResource("StyleBoxFlat_fc6h1")
 HighlightedPanelContainer/base_type = &"PanelContainer"
 HighlightedPanelContainer/styles/panel = SubResource("StyleBoxFlat_muggs")
+IdleAmountEditContainer/base_type = &"PanelContainer"
+IdleAmountEditContainer/styles/panel = SubResource("StyleBoxFlat_s26k0")
 IdleMonthGridContainer/base_type = &"PanelContainer"
 IdleMonthGridContainer/styles/panel = SubResource("StyleBoxFlat_k6d5u")
 IdlePanelContainer/base_type = &"PanelContainer"

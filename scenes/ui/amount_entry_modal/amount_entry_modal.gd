@@ -3,11 +3,14 @@ extends PanelContainer
 
 enum State { HIDDEN, SHOWN }
 
+@onready
+var appearance: AmountEntryModalAppearance = %Appearance
+
 var _state_factory := AmountEntryModalStateFactory.new()
 var _current_state: AmountEntryModalState = null
 
 func _ready() -> void:
-	switch_state(AmountEntryModal.State.HIDDEN)
+	switch_state(AmountEntryModal.State.SHOWN)
 
 func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -> void:
 	if _current_state != null:
@@ -17,7 +20,8 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 
 	_current_state.setup(
 		self,
-		state_data)
+		state_data,
+		appearance)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "AmountEntryModalStateMachine: %s" % str(state)
