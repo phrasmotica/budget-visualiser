@@ -6,7 +6,5 @@ func _enter_tree() -> void:
 
 	_amount_edit.theme_type_variation = "IdleAmountEditContainer"
 
-	_appearance.set_amount(0)
-
 func enable() -> void:
 	transition_state(AmountEdit.State.HIGHLIGHTED)

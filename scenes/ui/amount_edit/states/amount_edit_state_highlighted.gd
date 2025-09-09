@@ -1,7 +1,6 @@
 class_name AmountEditStateHighlighted
 extends AmountEditState
 
-var _amount := 0
 var _is_bulk := false
 
 func _enter_tree() -> void:
@@ -27,14 +26,14 @@ func _process(_delta: float) -> void:
 		_is_bulk = false
 
 func _on_move_up() -> void:
-	_amount = mini(99, _amount + _get_change_amount())
+	var new_amount := _amount_tracker.add(_get_change_amount())
 
-	_appearance.set_amount(_amount)
+	_appearance.set_amount(new_amount)
 
 func _on_move_down() -> void:
-	_amount = maxi(0, _amount - _get_change_amount())
+	var new_amount := _amount_tracker.subtract(_get_change_amount())
 
-	_appearance.set_amount(_amount)
+	_appearance.set_amount(new_amount)
 
 func _get_change_amount() -> int:
 	return 10 if _is_bulk else 1
