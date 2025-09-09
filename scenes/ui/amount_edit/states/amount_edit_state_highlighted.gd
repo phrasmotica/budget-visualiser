@@ -41,3 +41,6 @@ func _get_change_amount() -> int:
 
 func disable() -> void:
 	transition_state(AmountEdit.State.IDLE)
+
+func is_enabled() -> bool:
+	return true

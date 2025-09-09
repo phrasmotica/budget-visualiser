@@ -35,3 +35,6 @@ func enable() -> void:
 func disable() -> void:
 	if _current_state:
 		_current_state.disable()
+
+func is_enabled() -> bool:
+	return _current_state and _current_state.is_enabled()

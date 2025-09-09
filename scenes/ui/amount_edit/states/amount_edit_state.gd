@@ -27,3 +27,6 @@ func enable() -> void:
 
 func disable() -> void:
 	pass
+
+func is_enabled() -> bool:
+	return false
