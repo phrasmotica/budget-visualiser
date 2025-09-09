@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtev33c4yaaub"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_jiehw"]
-[ext_resource type="Script" path="res://scenes/ui/amount_edit/amount_edit.gd" id="2_julqq"]
+[ext_resource type="Script" uid="uid://2tbp6iu4tifq" path="res://scenes/ui/amount_edit/amount_edit.gd" id="2_julqq"]
 
 [node name="AmountEdit" type="PanelContainer"]
 theme = ExtResource("1_jiehw")
