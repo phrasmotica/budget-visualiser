@@ -31,3 +31,11 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 	_current_state.name = "AmountEntryModalStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func enable() -> void:
+	if _current_state:
+		_current_state.enable()
+
+func disable() -> void:
+	if _current_state:
+		_current_state.disable()

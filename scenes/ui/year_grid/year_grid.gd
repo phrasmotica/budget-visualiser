@@ -6,6 +6,9 @@ enum State { DISABLED, IDLE }
 @onready
 var month_grid_manager: MonthGridManager = %MonthGridManager
 
+@onready
+var amount_entry_modal: AmountEntryModal = %AmountEntryModal
+
 var _state_factory := YearGridStateFactory.new()
 var _current_state: YearGridState = null
 
@@ -26,6 +29,7 @@ func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 		self,
 		state_data,
 		month_grid_manager,
+		amount_entry_modal,
 		_index_tracker)
 
 	_current_state.state_transition_requested.connect(switch_state)

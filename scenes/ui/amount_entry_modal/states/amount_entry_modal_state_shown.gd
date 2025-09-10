@@ -4,6 +4,8 @@ extends AmountEntryModalState
 func _enter_tree() -> void:
 	print("%s is now shown" % _amount_entry_modal.name)
 
+	_amount_entry_modal.show()
+
 	_appearance.for_shown()
 
 func _process(_delta: float) -> void:
@@ -20,4 +22,10 @@ func _finish() -> void:
 
 	AmountEvents.emit_entry_finished(final_amount)
 
+	_to_hidden()
+
+func _to_hidden() -> void:
 	transition_state(AmountEntryModal.State.HIDDEN)
+
+func disable() -> void:
+	_to_hidden()

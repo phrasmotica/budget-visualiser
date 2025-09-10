@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgrdp05co1rny"]
+[gd_scene load_steps=5 format=3 uid="uid://cgrdp05co1rny"]
 
 [ext_resource type="Script" uid="uid://bkbtpnfcdua17" path="res://scenes/ui/year_grid/year_grid.gd" id="1_ranu4"]
 [ext_resource type="PackedScene" uid="uid://bd4umilpafiy8" path="res://scenes/ui/month_grid/month_grid.tscn" id="1_u3l1x"]
 [ext_resource type="Script" uid="uid://coftjs0d1j04x" path="res://scenes/ui/year_grid/month_grid_manager.gd" id="2_dllf6"]
+[ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_qje5h"]
 
 [node name="YearGrid" type="HBoxContainer"]
 offset_right = 40.0
@@ -34,3 +35,16 @@ month_name = "April"
 [node name="MonthGrid4" parent="." instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "May"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AmountEntryModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("4_qje5h")]
+unique_name_in_owner = true
+layout_mode = 2
