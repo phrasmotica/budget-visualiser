@@ -30,6 +30,6 @@ func _on_move_left() -> void:
 	_month_grid_manager.highlight(_index_tracker.previous())
 
 func _show_modal() -> void:
-	_amount_entry_modal.enable()
+	_amount_entry_modal.enable(0.0)
 
 	transition_state(YearGrid.State.DISABLED)

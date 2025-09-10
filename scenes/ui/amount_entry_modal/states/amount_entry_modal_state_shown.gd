@@ -8,12 +8,22 @@ func _enter_tree() -> void:
 
 	_appearance.for_shown()
 
+	var amount := _state_data.get_amount()
+	_set_amount(amount)
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
 		_appearance.switch_amount_edits()
 
 	if Input.is_action_just_released("ui_accept"):
 		_finish()
+
+func _set_amount(amount: float) -> void:
+	var major_amount := int(amount)
+	_totaller.set_major(major_amount)
+
+	var minor_amount := int(100 * (amount - int(amount)))
+	_totaller.set_minor(minor_amount)
 
 func _finish() -> void:
 	var final_amount := _totaller.compute_total()

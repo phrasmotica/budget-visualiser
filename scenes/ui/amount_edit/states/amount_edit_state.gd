@@ -33,3 +33,7 @@ func disable() -> void:
 
 func is_enabled() -> bool:
 	return false
+
+func set_amount(amount: int) -> void:
+	var new_amount := _amount_tracker.set_current(amount)
+	_appearance.set_amount(new_amount)

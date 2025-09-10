@@ -32,9 +32,9 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 
 	call_deferred("add_child", _current_state)
 
-func enable() -> void:
+func enable(amount: float) -> void:
 	if _current_state:
-		_current_state.enable()
+		_current_state.enable(amount)
 
 func disable() -> void:
 	if _current_state:

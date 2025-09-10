@@ -25,7 +25,7 @@ func transition_state(
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
 
-func enable() -> void:
+func enable(_amount: float) -> void:
 	pass
 
 func disable() -> void:

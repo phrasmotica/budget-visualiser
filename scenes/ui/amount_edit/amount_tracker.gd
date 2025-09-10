@@ -12,10 +12,14 @@ func _init(minimum: int, maximum: int) -> void:
 func current() -> int:
 	return _current
 
+func set_current(amount: int) -> int:
+	_current = clampi(amount, _minimum, _maximum)
+	return _current
+
 func add(change: int) -> int:
-	_current = mini(99, _current + change)
+	_current = mini(_maximum, _current + change)
 	return _current
 
 func subtract(change: int) -> int:
-	_current = maxi(0, _current - change)
+	_current = maxi(_minimum, _current - change)
 	return _current

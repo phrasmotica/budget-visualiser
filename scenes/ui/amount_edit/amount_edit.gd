@@ -47,5 +47,9 @@ func disable() -> void:
 func is_enabled() -> bool:
 	return _current_state and _current_state.is_enabled()
 
+func set_amount(amount: int) -> void:
+	if _current_state:
+		_current_state.set_amount(amount)
+
 func get_current_value() -> int:
 	return _amount_tracker.current()
