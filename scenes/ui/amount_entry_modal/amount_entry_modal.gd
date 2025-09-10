@@ -6,6 +6,9 @@ enum State { HIDDEN, SHOWN }
 @onready
 var appearance: AmountEntryModalAppearance = %Appearance
 
+@onready
+var totaller: AmountTotaller = %Totaller
+
 var _state_factory := AmountEntryModalStateFactory.new()
 var _current_state: AmountEntryModalState = null
 
@@ -21,7 +24,8 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 	_current_state.setup(
 		self,
 		state_data,
-		appearance)
+		appearance,
+		totaller)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "AmountEntryModalStateMachine: %s" % str(state)

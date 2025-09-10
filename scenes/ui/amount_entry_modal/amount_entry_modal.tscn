@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw7xjnqey7y0y"]
+[gd_scene load_steps=6 format=3 uid="uid://dw7xjnqey7y0y"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_wumc0"]
 [ext_resource type="PackedScene" uid="uid://dtev33c4yaaub" path="res://scenes/ui/amount_edit/amount_edit.tscn" id="2_8gaj6"]
 [ext_resource type="Script" uid="uid://v2v0n4dsl33v" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.gd" id="2_218fl"]
 [ext_resource type="Script" uid="uid://b3ek0xt6yv316" path="res://scenes/ui/amount_entry_modal/amount_entry_modal_appearance.gd" id="2_dmink"]
+[ext_resource type="Script" uid="uid://cyfb673un1meg" path="res://scenes/ui/amount_entry_modal/amount_totaller.gd" id="4_ljdbp"]
 
 [node name="AmountEntryModal" type="PanelContainer"]
 custom_minimum_size = Vector2(1080, 600)
@@ -16,6 +17,12 @@ script = ExtResource("2_218fl")
 [node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("edit_major", "edit_minor")]
 unique_name_in_owner = true
 script = ExtResource("2_dmink")
+edit_major = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMajor")
+edit_minor = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMinor")
+
+[node name="Totaller" type="Node" parent="." node_paths=PackedStringArray("edit_major", "edit_minor")]
+unique_name_in_owner = true
+script = ExtResource("4_ljdbp")
 edit_major = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMajor")
 edit_minor = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMinor")
 

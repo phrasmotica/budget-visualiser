@@ -46,3 +46,6 @@ func disable() -> void:
 
 func is_enabled() -> bool:
 	return _current_state and _current_state.is_enabled()
+
+func get_current_value() -> int:
+	return _amount_tracker.current()

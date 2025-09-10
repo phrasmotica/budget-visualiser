@@ -9,6 +9,9 @@ func _init(minimum: int, maximum: int) -> void:
 	_minimum = minimum
 	_maximum = maximum
 
+func current() -> int:
+	return _current
+
 func add(change: int) -> int:
 	_current = mini(99, _current + change)
 	return _current
