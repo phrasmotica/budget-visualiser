@@ -15,6 +15,11 @@ func pause() -> void:
 	for i in month_grids.size():
 		month_grids[i].unhighlight()
 
+func inject_amount(amount: float) -> void:
+	for m in month_grids:
+		if m.is_highlighted():
+			m.inject_amount(amount)
+
 func _refresh() -> void:
 	for i in month_grids.size():
 		if i == _highlighted_index:

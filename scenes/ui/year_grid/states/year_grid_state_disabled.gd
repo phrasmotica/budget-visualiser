@@ -11,5 +11,8 @@ func _enter_tree() -> void:
 		_on_entry_finished
 	)
 
-func _on_entry_finished(_amount: float) -> void:
-	transition_state(YearGrid.State.IDLE)
+func _on_entry_finished(amount: float) -> void:
+	var state_data := YearGridStateData.build() \
+		.with_entered_amount(amount)
+
+	transition_state(YearGrid.State.IDLE, state_data)

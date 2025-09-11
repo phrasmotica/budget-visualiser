@@ -27,3 +27,9 @@ func _on_move_up() -> void:
 
 func unhighlight() -> void:
 	transition_state(MonthGrid.State.IDLE)
+
+func inject_amount(amount: float) -> void:
+	_cell_manager.inject_amount(amount)
+
+func is_highlighted() -> bool:
+	return true

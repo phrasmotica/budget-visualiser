@@ -11,3 +11,9 @@ func dim() -> void:
 
 func unhighlight() -> void:
 	transition_state(CategoryCell.State.IDLE)
+
+func inject_amount(amount: float) -> void:
+	_appearance.set_amount(amount)
+
+func is_highlighted() -> bool:
+	return true

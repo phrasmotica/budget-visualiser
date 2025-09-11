@@ -60,3 +60,10 @@ func highlight() -> void:
 func unhighlight() -> void:
 	if _current_state:
 		_current_state.unhighlight()
+
+func inject_amount(amount: float) -> void:
+	if _current_state:
+		_current_state.inject_amount(amount)
+
+func is_highlighted() -> bool:
+	return _current_state and _current_state.is_highlighted()

@@ -9,6 +9,8 @@ func _enter_tree() -> void:
 
 	_amount_entry_modal.disable()
 
+	SignalHelper.once_next_frame(_inject_entered_amount)
+
 	SignalHelper.persist(
 		GridInput.move_right,
 		_on_move_right
@@ -18,6 +20,10 @@ func _enter_tree() -> void:
 		GridInput.move_left,
 		_on_move_left
 	)
+
+func _inject_entered_amount() -> void:
+	var entered_amount := _state_data.get_entered_amount()
+	_month_grid_manager.inject_amount(entered_amount)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):

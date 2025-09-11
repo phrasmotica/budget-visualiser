@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpby7se4jfjdu"]
+[gd_scene load_steps=4 format=3 uid="uid://bpby7se4jfjdu"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_oxtu4"]
 [ext_resource type="Script" uid="uid://bwvawsuxn3h6x" path="res://scenes/ui/category_cell/category_cell.gd" id="2_oxtu4"]
+[ext_resource type="Script" uid="uid://c8awvrsvil2m3" path="res://scenes/ui/category_cell/category_cell_appearance.gd" id="3_03w0u"]
 
 [node name="CategoryCell" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 60)
@@ -10,6 +11,11 @@ offset_bottom = 56.0
 theme = ExtResource("1_oxtu4")
 theme_type_variation = &"IdlePanelContainer"
 script = ExtResource("2_oxtu4")
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("amount_label")]
+unique_name_in_owner = true
+script = ExtResource("3_03w0u")
+amount_label = NodePath("../MarginContainer/VBoxContainer/AmountLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -27,7 +33,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="AmountLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "£0.00"

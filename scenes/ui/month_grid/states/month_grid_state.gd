@@ -30,3 +30,9 @@ func highlight() -> void:
 
 func unhighlight() -> void:
 	pass
+
+func inject_amount(_amount: float) -> void:
+	pass
+
+func is_highlighted() -> bool:
+	return false
