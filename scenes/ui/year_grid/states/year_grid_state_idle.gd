@@ -23,6 +23,11 @@ func _enter_tree() -> void:
 		_on_move_left
 	)
 
+	SignalHelper.persist(
+		_month_grid_manager.highlighted_grid_changed,
+		_on_highlighted_grid_changed
+	)
+
 func _inject_entered_amount() -> void:
 	var entered_amount := _state_data.get_entered_amount()
 	_month_grid_manager.inject_amount(entered_amount)
@@ -36,6 +41,10 @@ func _on_move_right() -> void:
 
 func _on_move_left() -> void:
 	_month_grid_manager.highlight(_index_tracker.previous())
+
+func _on_highlighted_grid_changed(grid: MonthGrid) -> void:
+	# TODO: don't change the scroll if the grid is already fully on screen
+	_year_grid.scroll_horizontal = int(grid.position.x)
 
 func _show_modal() -> void:
 	_amount_entry_modal.enable(0.0)

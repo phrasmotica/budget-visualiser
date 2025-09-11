@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://fno8s3re3acm" path="res://scenes/ui/month_grid/month_grid_appearance.gd" id="3_k6d5u"]
 
 [node name="MonthGrid" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 0)
 offset_right = 240.0
 offset_bottom = 352.0
 theme = ExtResource("1_uecel")

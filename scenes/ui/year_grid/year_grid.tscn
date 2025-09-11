@@ -17,7 +17,7 @@ theme_override_constants/separation = 4
 [node name="MonthGridManager" type="Node" parent="HBoxContainer" node_paths=PackedStringArray("month_grids")]
 unique_name_in_owner = true
 script = ExtResource("2_dllf6")
-month_grids = [NodePath("../MonthGrid0"), NodePath("../MonthGrid1"), NodePath("../MonthGrid2"), NodePath("../MonthGrid3"), NodePath("../MonthGrid4")]
+month_grids = [NodePath("../MonthGrid0"), NodePath("../MonthGrid1"), NodePath("../MonthGrid2"), NodePath("../MonthGrid3"), NodePath("../MonthGrid4"), NodePath("../MonthGrid5"), NodePath("../MonthGrid6"), NodePath("../MonthGrid7"), NodePath("../MonthGrid8"), NodePath("../MonthGrid9"), NodePath("../MonthGrid10"), NodePath("../MonthGrid11")]
 
 [node name="MonthGrid0" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
@@ -38,6 +38,34 @@ month_name = "April"
 [node name="MonthGrid4" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "May"
+
+[node name="MonthGrid5" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "June"
+
+[node name="MonthGrid6" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "July"
+
+[node name="MonthGrid7" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "August"
+
+[node name="MonthGrid8" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "September"
+
+[node name="MonthGrid9" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "October"
+
+[node name="MonthGrid10" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "November"
+
+[node name="MonthGrid11" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month_name = "December"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
