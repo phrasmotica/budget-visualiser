@@ -1,5 +1,5 @@
 class_name YearGrid
-extends HBoxContainer
+extends ScrollContainer
 
 enum State { DISABLED, IDLE }
 

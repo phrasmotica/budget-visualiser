@@ -5,34 +5,37 @@
 [ext_resource type="Script" uid="uid://coftjs0d1j04x" path="res://scenes/ui/year_grid/month_grid_manager.gd" id="2_dllf6"]
 [ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_qje5h"]
 
-[node name="YearGrid" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 4
+[node name="YearGrid" type="ScrollContainer"]
+custom_minimum_size = Vector2(1280, 380)
+vertical_scroll_mode = 0
 script = ExtResource("1_ranu4")
 
-[node name="MonthGridManager" type="Node" parent="." node_paths=PackedStringArray("month_grids")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MonthGridManager" type="Node" parent="HBoxContainer" node_paths=PackedStringArray("month_grids")]
 unique_name_in_owner = true
 script = ExtResource("2_dllf6")
 month_grids = [NodePath("../MonthGrid0"), NodePath("../MonthGrid1"), NodePath("../MonthGrid2"), NodePath("../MonthGrid3"), NodePath("../MonthGrid4")]
 
-[node name="MonthGrid0" parent="." instance=ExtResource("1_u3l1x")]
+[node name="MonthGrid0" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "January"
 
-[node name="MonthGrid1" parent="." instance=ExtResource("1_u3l1x")]
+[node name="MonthGrid1" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "February"
 
-[node name="MonthGrid2" parent="." instance=ExtResource("1_u3l1x")]
+[node name="MonthGrid2" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "March"
 
-[node name="MonthGrid3" parent="." instance=ExtResource("1_u3l1x")]
+[node name="MonthGrid3" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "April"
 
-[node name="MonthGrid4" parent="." instance=ExtResource("1_u3l1x")]
+[node name="MonthGrid4" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month_name = "May"
 
@@ -44,6 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="AmountEntryModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("4_qje5h")]
 unique_name_in_owner = true

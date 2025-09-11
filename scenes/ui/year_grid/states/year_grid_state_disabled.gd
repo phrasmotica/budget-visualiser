@@ -4,6 +4,8 @@ extends YearGridState
 func _enter_tree() -> void:
 	print("%s is now disabled" % _year_grid.name)
 
+	_year_grid.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+
 	_month_grid_manager.pause()
 
 	SignalHelper.once(

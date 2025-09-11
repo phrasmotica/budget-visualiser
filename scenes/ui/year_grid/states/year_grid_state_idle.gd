@@ -4,6 +4,8 @@ extends YearGridState
 func _enter_tree() -> void:
 	print("%s is now idle" % _year_grid.name)
 
+	_year_grid.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+
 	if _month_grid_manager.count() > 0:
 		_month_grid_manager.highlight(_index_tracker.current())
 
