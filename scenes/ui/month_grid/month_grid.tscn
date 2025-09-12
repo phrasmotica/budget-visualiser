@@ -8,11 +8,12 @@
 
 [node name="MonthGrid" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
-offset_right = 240.0
-offset_bottom = 352.0
+offset_right = 264.0
+offset_bottom = 380.0
 theme = ExtResource("1_uecel")
 theme_type_variation = &"IdleMonthGridContainer"
 script = ExtResource("1_dlr66")
+month_name = "January"
 
 [node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("name_label")]
 unique_name_in_owner = true
