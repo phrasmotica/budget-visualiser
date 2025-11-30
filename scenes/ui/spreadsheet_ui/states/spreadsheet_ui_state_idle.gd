@@ -17,6 +17,11 @@ func _enter_tree() -> void:
 		_on_transaction_added
 	)
 
+	SignalHelper.persist(
+		BudgetProvider.budget_changed,
+		_on_budget_changed
+	)
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_cancel"):
 		_add_transaction()
@@ -34,6 +39,17 @@ func _on_transaction_added(transaction: BudgetTransaction) -> void:
 		transaction.category.name,
 		transaction.amount,
 	])
+
+	var month_debug := BudgetProvider.get_month_debug()
+	var budget_data := BudgetProvider.get_budget_data()
+
+	print("%s Total: £%.2f" % [
+		month_debug.name,
+		budget_data.compute_month_expenditure(month_debug)
+	])
+
+func _on_budget_changed(data: BudgetData) -> void:
+	print("Grand Total: £%.2f" % data.compute_total_expenditure())
 
 func _add_transaction() -> void:
 	# [1.0, 5.0]

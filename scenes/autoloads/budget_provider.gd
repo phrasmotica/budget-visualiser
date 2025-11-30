@@ -23,6 +23,9 @@ signal transaction_added(transaction: BudgetTransaction)
 func set_budget_data(data: BudgetData) -> void:
 	_data = data
 
+func get_budget_data() -> BudgetData:
+	return _data
+
 func add_transaction(
 	category: BudgetCategory,
 	month: BudgetMonth,
@@ -36,4 +39,10 @@ func add_transaction(
 func add_transaction_debug(
 	amount: float,
 ) -> void:
-	add_transaction(BUDGET_CATEGORIES.pick_random(), BUDGET_MONTHS[0], amount)
+	add_transaction(
+		BUDGET_CATEGORIES.pick_random(),
+		BUDGET_MONTHS.pick_random(),
+		amount)
+
+func get_month_debug() -> BudgetMonth:
+	return BUDGET_MONTHS[0]
