@@ -3,6 +3,12 @@ extends Node
 
 enum State { IDLE, DISABLED }
 
+@onready
+var year_grid: YearGrid = %YearGrid
+
+@onready
+var amount_entry_modal: AmountEntryModal = %AmountEntryModal
+
 var _state_factory := SpreadsheetUIStateFactory.new()
 var _current_state: SpreadsheetUIState = null
 
@@ -17,7 +23,9 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 
 	_current_state.setup(
 		self,
-		state_data)
+		state_data,
+		year_grid,
+		amount_entry_modal)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "SpreadsheetUIStateMachine: %s" % str(state)

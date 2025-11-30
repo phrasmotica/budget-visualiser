@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpgey7qxb48kd"]
+[gd_scene load_steps=5 format=3 uid="uid://bpgey7qxb48kd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_5jsgs"]
+[ext_resource type="Script" uid="uid://tw42pkh8j46o" path="res://scenes/ui/spreadsheet_ui/spreadsheet_ui.gd" id="2_ic03t"]
 [ext_resource type="PackedScene" uid="uid://cgrdp05co1rny" path="res://scenes/ui/year_grid/year_grid.tscn" id="2_wovv7"]
+[ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_ic03t"]
 
 [node name="SpreadsheetUI" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_5jsgs")
+script = ExtResource("2_ic03t")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1280, 0)
@@ -17,49 +20,49 @@ layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+[node name="CategoryPanel" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="CategoryHeaderLabel" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="CategoryHeaderLabel" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Category"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="CategoryLabels" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CategoryPanel"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="CategoryLabel0" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="CategoryLabel0" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Groceries"
 vertical_alignment = 1
 
-[node name="CategoryLabel1" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="CategoryLabel1" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Transport"
 vertical_alignment = 1
 
-[node name="CategoryLabel2" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="CategoryLabel2" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Drinks out"
 vertical_alignment = 1
 
-[node name="CategoryLabel3" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="CategoryLabel3" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Meals out"
 vertical_alignment = 1
 
-[node name="CategoryLabel4" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="CategoryLabel4" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -67,5 +70,20 @@ text = "Pool"
 vertical_alignment = 1
 
 [node name="YearGrid" parent="HBoxContainer" instance=ExtResource("2_wovv7")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AmountEntryModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("4_ic03t")]
+unique_name_in_owner = true
+layout_mode = 2
