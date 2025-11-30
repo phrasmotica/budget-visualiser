@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://tx800w7ep5ms"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_wlvcg"]
+
+[resource]
+script = ExtResource("1_wlvcg")
+order = 4
+name = "Pool"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
