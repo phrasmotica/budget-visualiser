@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GridInput="*res://scenes/autoloads/grid_input.gd"
 SignalHelper="*res://scenes/autoloads/signal_helper.gd"
 AmountEvents="*res://scenes/autoloads/amount_events.gd"
+BudgetProvider="*res://scenes/autoloads/budget_provider.gd"
 
 [display]
 
