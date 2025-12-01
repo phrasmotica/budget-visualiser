@@ -11,6 +11,13 @@ var title := "":
 
 		_refresh()
 
+@export
+var sub_header := "":
+	set(value):
+		sub_header = value
+
+		_refresh()
+
 @onready
 var appearance: AmountEntryModalAppearance = %Appearance
 
@@ -21,6 +28,8 @@ var _state_factory := AmountEntryModalStateFactory.new()
 var _current_state: AmountEntryModalState = null
 
 func _ready() -> void:
+	_refresh()
+
 	if Engine.is_editor_hint():
 		return
 
@@ -46,10 +55,11 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 func _refresh() -> void:
 	if appearance:
 		appearance.set_title(title)
+		appearance.set_sub_header(sub_header)
 
-func enable(amount: float) -> void:
+func enable(category: BudgetCategory, month: BudgetMonth, amount: float) -> void:
 	if _current_state:
-		_current_state.enable(amount)
+		_current_state.enable(category, month, amount)
 
 func disable() -> void:
 	if _current_state:

@@ -6,6 +6,7 @@ func _enter_tree() -> void:
 
 	_amount_entry_modal.show()
 
+	_appearance.set_sub_header(_state_data.get_sub_header())
 	_appearance.for_shown()
 
 	var amount := _state_data.get_amount()

@@ -14,11 +14,13 @@ theme = ExtResource("1_wumc0")
 theme_type_variation = &"AmountEntryModalContainer"
 script = ExtResource("2_218fl")
 title = "Edit Amount"
+metadata/_edit_horizontal_guides_ = [300.0]
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("header_label", "edit_major", "edit_minor")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("header_label", "sub_header_label", "edit_major", "edit_minor")]
 unique_name_in_owner = true
 script = ExtResource("2_dmink")
 header_label = NodePath("../MarginContainer/VBoxContainer/HeaderLabel")
+sub_header_label = NodePath("../MarginContainer/VBoxContainer/SubHeaderLabel")
 edit_major = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMajor")
 edit_minor = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMinor")
 
@@ -37,6 +39,7 @@ theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="HeaderLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -45,7 +48,16 @@ text = "Edit Amount"
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 128)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="SubHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
