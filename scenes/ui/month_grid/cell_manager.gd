@@ -40,3 +40,10 @@ func is_for_category(transaction: BudgetTransaction, index: int) -> bool:
 
 func count() -> int:
 	return cells.size()
+
+func get_highlighted_category() -> BudgetCategory:
+	for i in cells.size():
+		if cells[i].is_highlighted():
+			return BudgetProvider.get_category(i)
+
+	return null

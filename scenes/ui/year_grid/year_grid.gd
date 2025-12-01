@@ -41,6 +41,12 @@ func disable() -> void:
 	if _current_state:
 		_current_state.disable()
 
+func get_highlighted_category() -> BudgetCategory:
+	return month_grid_manager.get_highlighted_category()
+
+func get_highlighted_month() -> BudgetMonth:
+	return month_grid_manager.get_highlighted_month()
+
 func inject_amount(amount: float) -> void:
 	if _current_state:
 		_current_state.inject_amount(amount)

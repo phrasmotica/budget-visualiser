@@ -38,3 +38,17 @@ func _refresh() -> void:
 
 func count() -> int:
 	return month_grids.size()
+
+func get_highlighted_category() -> BudgetCategory:
+	for m in month_grids:
+		if m.is_highlighted():
+			return m.get_highlighted_category()
+
+	return null
+
+func get_highlighted_month() -> BudgetMonth:
+	for m in month_grids:
+		if m.is_highlighted():
+			return m.month
+
+	return null

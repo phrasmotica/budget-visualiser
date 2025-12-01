@@ -10,8 +10,6 @@ func _enter_tree() -> void:
 
 	SignalHelper.once_next_frame(_inject_entered_amount)
 
-	BudgetProvider.set_budget_data(BudgetData.new())
-
 	SignalHelper.persist(
 		BudgetProvider.transaction_added,
 		_on_transaction_added
@@ -23,15 +21,16 @@ func _enter_tree() -> void:
 	)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_cancel"):
-		_add_transaction()
-
-	# if Input.is_action_just_released("ui_accept"):
-	# 	_show_modal()
+	if Input.is_action_just_released("ui_accept"):
+		_show_modal()
 
 func _inject_entered_amount() -> void:
 	var entered_amount := _state_data.get_entered_amount()
-	_year_grid.inject_amount(entered_amount)
+	if entered_amount > 0.0:
+		var category := _year_grid.get_highlighted_category()
+		var month := _year_grid.get_highlighted_month()
+
+		BudgetProvider.add_transaction(category, month, entered_amount)
 
 func _on_transaction_added(transaction: BudgetTransaction) -> void:
 	print("New transaction: %s %s, £%.2f" % [
@@ -40,24 +39,18 @@ func _on_transaction_added(transaction: BudgetTransaction) -> void:
 		transaction.amount,
 	])
 
-	var month_debug := BudgetProvider.get_month_debug()
+	var month := transaction.month
 	var budget_data := BudgetProvider.get_budget_data()
 
 	print("%s Total: £%.2f" % [
-		month_debug.name,
-		budget_data.compute_month_expenditure(month_debug)
+		month.name,
+		budget_data.compute_month_expenditure(month)
 	])
 
 func _on_budget_changed(data: BudgetData) -> void:
 	print("Grand Total: £%.2f" % data.compute_total_expenditure())
 
 	_year_grid.update_budget(data)
-
-func _add_transaction() -> void:
-	# [1.0, 5.0]
-	var amount := 4.0 * randf() + 1.0
-
-	BudgetProvider.add_transaction_debug(amount)
 
 func _show_modal() -> void:
 	_amount_entry_modal.enable(0.0)

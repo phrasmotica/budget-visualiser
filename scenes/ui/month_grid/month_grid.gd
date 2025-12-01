@@ -71,3 +71,6 @@ func inject_budget(data: BudgetData) -> void:
 
 func is_highlighted() -> bool:
 	return _current_state and _current_state.is_highlighted()
+
+func get_highlighted_category() -> BudgetCategory:
+	return cell_manager.get_highlighted_category()

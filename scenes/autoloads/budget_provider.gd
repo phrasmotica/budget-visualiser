@@ -39,21 +39,16 @@ func add_transaction(
 	month: BudgetMonth,
 	amount: float,
 ) -> void:
-	var new_transaction = _data.add_transaction(category, month, amount)
+	var new_transaction := _data.add_transaction(category, month, amount)
 	transaction_added.emit(new_transaction)
 
 	budget_changed.emit(_data)
-
-func add_transaction_debug(
-	amount: float,
-) -> void:
-	add_transaction(
-		BUDGET_CATEGORIES.pick_random(),
-		BUDGET_MONTHS.pick_random(),
-		amount)
 
 func get_month_debug() -> BudgetMonth:
 	return BUDGET_MONTHS[0]
 
 func get_category_index(category: BudgetCategory) -> int:
 	return BUDGET_CATEGORIES.find(category)
+
+func get_category(index: int) -> BudgetCategory:
+	return BUDGET_CATEGORIES[index]

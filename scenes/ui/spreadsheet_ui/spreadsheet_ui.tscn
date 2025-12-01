@@ -87,3 +87,4 @@ mouse_filter = 2
 [node name="AmountEntryModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("4_ic03t")]
 unique_name_in_owner = true
 layout_mode = 2
+title = "Add Transaction"
