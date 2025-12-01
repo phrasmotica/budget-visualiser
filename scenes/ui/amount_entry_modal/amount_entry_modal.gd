@@ -1,7 +1,15 @@
+@tool
 class_name AmountEntryModal
 extends PanelContainer
 
 enum State { HIDDEN, SHOWN }
+
+@export
+var title := "":
+	set(value):
+		title = value
+
+		_refresh()
 
 @onready
 var appearance: AmountEntryModalAppearance = %Appearance
@@ -13,6 +21,9 @@ var _state_factory := AmountEntryModalStateFactory.new()
 var _current_state: AmountEntryModalState = null
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	switch_state(AmountEntryModal.State.SHOWN)
 
 func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -> void:
@@ -31,6 +42,10 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 	_current_state.name = "AmountEntryModalStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func _refresh() -> void:
+	if appearance:
+		appearance.set_title(title)
 
 func enable(amount: float) -> void:
 	if _current_state:

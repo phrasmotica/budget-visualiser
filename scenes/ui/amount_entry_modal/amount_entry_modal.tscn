@@ -13,10 +13,12 @@ offset_bottom = 40.0
 theme = ExtResource("1_wumc0")
 theme_type_variation = &"AmountEntryModalContainer"
 script = ExtResource("2_218fl")
+title = "Edit Amount"
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("edit_major", "edit_minor")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("header_label", "edit_major", "edit_minor")]
 unique_name_in_owner = true
 script = ExtResource("2_dmink")
+header_label = NodePath("../MarginContainer/VBoxContainer/HeaderLabel")
 edit_major = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMajor")
 edit_minor = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/AmountEditMinor")
 

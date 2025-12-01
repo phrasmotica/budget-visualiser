@@ -1,11 +1,19 @@
+@tool
 class_name AmountEntryModalAppearance
 extends Node
+
+@export
+var header_label: Label
 
 @export
 var edit_major: AmountEdit
 
 @export
 var edit_minor: AmountEdit
+
+func set_title(title: String) -> void:
+	if header_label:
+		header_label.text = title
 
 func for_shown() -> void:
 	if edit_major:
