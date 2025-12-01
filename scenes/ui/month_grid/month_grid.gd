@@ -5,9 +5,9 @@ extends PanelContainer
 enum State { IDLE, HIGHLIGHTED, EDITING }
 
 @export
-var month_name := "":
+var month: BudgetMonth:
 	set(value):
-		month_name = value
+		month = value
 
 		_refresh()
 
@@ -51,7 +51,7 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 
 func _refresh() -> void:
 	if appearance:
-		appearance.set_month_name(month_name)
+		appearance.set_month_name(month.name if month else "")
 
 func highlight() -> void:
 	if _current_state:
