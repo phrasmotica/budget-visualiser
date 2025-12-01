@@ -6,5 +6,8 @@ func _enter_tree() -> void:
 
 	_category_cell.theme_type_variation = "DimmedCategoryCellContainer"
 
+func undim() -> void:
+	transition_state(CategoryCell.State.IDLE)
+
 func highlight() -> void:
 	transition_state(CategoryCell.State.HIGHLIGHTED)

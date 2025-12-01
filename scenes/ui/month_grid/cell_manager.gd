@@ -15,6 +15,8 @@ func dim(index: int) -> void:
 	for i in cells.size():
 		if i == index:
 			cells[i].dim()
+		else:
+			cells[i].undim()
 
 func inject_amount(amount: float) -> void:
 	print("Injecting %.2f into cell manager" % amount)

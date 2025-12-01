@@ -32,6 +32,10 @@ func dim() -> void:
 	if _current_state:
 		_current_state.dim()
 
+func undim() -> void:
+	if _current_state:
+		_current_state.undim()
+
 func highlight() -> void:
 	if _current_state:
 		_current_state.highlight()

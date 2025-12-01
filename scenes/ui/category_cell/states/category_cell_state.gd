@@ -25,6 +25,9 @@ func transition_state(
 func dim() -> void:
 	pass
 
+func undim() -> void:
+	pass
+
 func highlight() -> void:
 	pass
 
