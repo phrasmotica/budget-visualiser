@@ -65,5 +65,9 @@ func inject_amount(amount: float) -> void:
 	if _current_state:
 		_current_state.inject_amount(amount)
 
+func inject_budget(data: BudgetData) -> void:
+	if _current_state:
+		_current_state.inject_budget(data)
+
 func is_highlighted() -> bool:
 	return _current_state and _current_state.is_highlighted()

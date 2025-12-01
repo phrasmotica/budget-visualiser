@@ -51,6 +51,8 @@ func _on_transaction_added(transaction: BudgetTransaction) -> void:
 func _on_budget_changed(data: BudgetData) -> void:
 	print("Grand Total: £%.2f" % data.compute_total_expenditure())
 
+	_year_grid.update_budget(data)
+
 func _add_transaction() -> void:
 	# [1.0, 5.0]
 	var amount := 4.0 * randf() + 1.0

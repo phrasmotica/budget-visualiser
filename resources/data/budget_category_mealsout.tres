@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_laf4y")
-order = 3
 name = "Meals out"
 metadata/_custom_type_script = "uid://pmgx6lpiycua"

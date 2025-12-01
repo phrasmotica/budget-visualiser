@@ -34,5 +34,9 @@ func unhighlight() -> void:
 func inject_amount(_amount: float) -> void:
 	pass
 
+func inject_budget(data: BudgetData) -> void:
+	var relevant_transactions := data.get_transactions_for_month(_month_grid.month)
+	_cell_manager.inject_transactions(relevant_transactions)
+
 func is_highlighted() -> bool:
 	return false

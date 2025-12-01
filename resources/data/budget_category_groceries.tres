@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_6316y")
-order = 0
 name = "Groceries"
 metadata/_custom_type_script = "uid://pmgx6lpiycua"

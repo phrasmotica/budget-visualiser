@@ -54,3 +54,6 @@ func add_transaction_debug(
 
 func get_month_debug() -> BudgetMonth:
 	return BUDGET_MONTHS[0]
+
+func get_category_index(category: BudgetCategory) -> int:
+	return BUDGET_CATEGORIES.find(category)

@@ -19,10 +19,14 @@ func add_transaction(
 
 	return transaction
 
+func get_transactions_for_month(month: BudgetMonth) -> Array[BudgetTransaction]:
+	return all_transactions \
+		.filter(func(t: BudgetTransaction): return t.month == month)
+
 func compute_category_expenditure(
 	category: BudgetCategory,
 ) -> float:
-	var transactions = all_transactions \
+	var transactions := all_transactions \
 		.filter(func(t: BudgetTransaction): return t.category == category)
 
 	return _add_amounts(transactions)
@@ -30,9 +34,7 @@ func compute_category_expenditure(
 func compute_month_expenditure(
 	month: BudgetMonth,
 ) -> float:
-	var transactions = all_transactions \
-		.filter(func(t: BudgetTransaction): return t.month == month)
-
+	var transactions := get_transactions_for_month(month)
 	return _add_amounts(transactions)
 
 func compute_total_expenditure() -> float:

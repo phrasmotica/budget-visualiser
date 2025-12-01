@@ -25,6 +25,10 @@ func inject_amount(amount: float) -> void:
 		if m.is_highlighted():
 			m.inject_amount(amount)
 
+func inject_budget(data: BudgetData) -> void:
+	for m in month_grids:
+		m.inject_budget(data)
+
 func _refresh() -> void:
 	for i in month_grids.size():
 		if i == _highlighted_index:

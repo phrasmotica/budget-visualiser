@@ -24,5 +24,19 @@ func inject_amount(amount: float) -> void:
 			print("Injecting %.2f into cell %s" % [amount, c.name])
 			c.inject_amount(amount)
 
+func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
+	for i in cells.size():
+		var cell := cells[i]
+
+		var transaction_total: float = transactions \
+			.filter(func(t: BudgetTransaction): return is_for_category(t, i)) \
+			.map(func(t: BudgetTransaction): return t.amount) \
+			.reduce(Math.sum, 0.0)
+
+		cell.inject_amount(transaction_total)
+
+func is_for_category(transaction: BudgetTransaction, index: int) -> bool:
+	return BudgetProvider.get_category_index(transaction.category) == index
+
 func count() -> int:
 	return cells.size()

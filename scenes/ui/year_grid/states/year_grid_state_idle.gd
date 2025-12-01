@@ -30,6 +30,9 @@ func disable() -> void:
 func inject_amount(amount: float) -> void:
 	_month_grid_manager.inject_amount(amount)
 
+func update_budget(data: BudgetData) -> void:
+	_month_grid_manager.inject_budget(data)
+
 func _on_move_right() -> void:
 	_month_grid_manager.highlight(_index_tracker.next())
 

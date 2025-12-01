@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_b6lai")
-order = 1
 name = "Transport"
 metadata/_custom_type_script = "uid://pmgx6lpiycua"
