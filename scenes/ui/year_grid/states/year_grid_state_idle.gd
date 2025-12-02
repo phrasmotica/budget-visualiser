@@ -40,5 +40,17 @@ func _on_move_left() -> void:
 	_month_grid_manager.highlight(_index_tracker.previous())
 
 func _on_highlighted_grid_changed(grid: MonthGrid) -> void:
-	# TODO: don't change the scroll if the grid is already fully on screen
-	_year_grid.scroll_horizontal = int(grid.position.x)
+	var left := int(grid.position.x)
+	var right := left + int(grid.size.x)
+
+	if _year_grid.scroll_horizontal <= left and _year_grid.scroll_horizontal + _year_grid.size.x >= right:
+		return
+
+	# TODO: improve this scrolling behaviour further
+	var scroll_amount_left := left - _year_grid.scroll_horizontal
+	var scroll_amount_right := right - _year_grid.scroll_horizontal
+
+	if scroll_amount_left < scroll_amount_right:
+		_year_grid.scroll_horizontal = left
+	else:
+		_year_grid.scroll_horizontal = right
