@@ -2,6 +2,7 @@
 class_name MonthGrid
 extends PanelContainer
 
+# TODO: add a disable state, for when the amount entry modal is visible
 enum State { IDLE, HIGHLIGHTED, EDITING }
 
 @export
