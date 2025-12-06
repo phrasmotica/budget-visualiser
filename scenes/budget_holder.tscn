@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr5btfwv7x0yw"]
-
-[ext_resource type="Script" uid="uid://cpnkaiojv300f" path="res://scripts/budget_holder.gd" id="1_1cae2"]
-
-[node name="BudgetHolder" type="Node"]
-script = ExtResource("1_1cae2")
