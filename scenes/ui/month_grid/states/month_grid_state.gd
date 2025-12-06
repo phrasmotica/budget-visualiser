@@ -25,6 +25,12 @@ func transition_state(
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
 
+func enable() -> void:
+	pass
+
+func disable() -> void:
+	pass
+
 func highlight() -> void:
 	pass
 

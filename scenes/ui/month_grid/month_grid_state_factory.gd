@@ -4,6 +4,7 @@ var states: Dictionary
 
 func _init() -> void:
 	states = {
+		MonthGrid.State.DISABLED: MonthGridStateDisabled,
 		MonthGrid.State.IDLE: MonthGridStateIdle,
 		MonthGrid.State.HIGHLIGHTED: MonthGridStateHighlighted,
 		MonthGrid.State.EDITING: MonthGridStateEditing,

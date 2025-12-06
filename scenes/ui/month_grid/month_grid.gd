@@ -2,8 +2,7 @@
 class_name MonthGrid
 extends PanelContainer
 
-# TODO: add a disable state, for when the amount entry modal is visible
-enum State { IDLE, HIGHLIGHTED, EDITING }
+enum State { DISABLED, IDLE, HIGHLIGHTED, EDITING }
 
 @export
 var month: BudgetMonth:
@@ -31,7 +30,7 @@ func _ready() -> void:
 
 	_index_tracker = IndexTracker.new(cell_manager.count() - 1)
 
-	switch_state(MonthGrid.State.IDLE)
+	switch_state(MonthGrid.State.DISABLED)
 
 func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 	if _current_state != null:
@@ -53,6 +52,14 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 func _refresh() -> void:
 	if appearance:
 		appearance.set_month_name(month.name if month else "")
+
+func enable() -> void:
+	if _current_state:
+		_current_state.enable()
+
+func disable() -> void:
+	if _current_state:
+		_current_state.disable()
 
 func highlight() -> void:
 	if _current_state:

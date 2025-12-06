@@ -25,5 +25,8 @@ func _on_move_down() -> void:
 func _on_move_up() -> void:
 	_cell_manager.dim(_index_tracker.previous())
 
+func disable() -> void:
+	transition_state(MonthGrid.State.DISABLED)
+
 func highlight() -> void:
 	transition_state(MonthGrid.State.HIGHLIGHTED)
