@@ -32,19 +32,18 @@ theme_override_constants/margin_bottom = 8
 script = ExtResource("1_ranu4")
 months = Array[ExtResource("3_he182")]([ExtResource("4_yduip"), ExtResource("5_2j0vn"), ExtResource("6_0q5te"), ExtResource("7_m1uua"), ExtResource("8_m770f"), ExtResource("9_1gj08"), ExtResource("10_pjleq"), ExtResource("11_setqv"), ExtResource("12_qt48i"), ExtResource("13_syrwd"), ExtResource("14_5x2wj"), ExtResource("15_vok08")])
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("month_grid_manager", "headers_parent", "grid_parent", "h_scroll_container", "v_scroll_container", "category_scroll_container")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("h_scroll_container", "v_scroll_container", "category_scroll_container")]
 unique_name_in_owner = true
 script = ExtResource("2_1gj08")
-month_grid_manager = NodePath("../MonthGridManager")
-headers_parent = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels")
-grid_parent = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids")
 h_scroll_container = NodePath("../HBoxContainer/HScrollContainer")
 v_scroll_container = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer")
 category_scroll_container = NodePath("../HBoxContainer/VBoxContainer/CategoryScrollContainer")
 
-[node name="MonthGridManager" type="Node" parent="." node_paths=PackedStringArray("month_grids")]
+[node name="MonthGridManager" type="Node" parent="." node_paths=PackedStringArray("headers_parent", "grid_parent", "month_grids")]
 unique_name_in_owner = true
 script = ExtResource("2_dllf6")
+headers_parent = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels")
+grid_parent = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids")
 month_grids = [NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid0"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid1"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid2"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid3"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid4"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid5"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid6"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid7"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid8"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid9"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid10"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid11")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

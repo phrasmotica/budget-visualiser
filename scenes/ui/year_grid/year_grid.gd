@@ -54,9 +54,9 @@ func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 	call_deferred("add_child", _current_state)
 
 func _refresh() -> void:
-	if appearance:
-		appearance.refresh_headers(self, months)
-		appearance.refresh_grids(self, months)
+	if month_grid_manager:
+		month_grid_manager.refresh_headers(self, months)
+		month_grid_manager.refresh_grids(self, months)
 
 func enable() -> void:
 	if _current_state:

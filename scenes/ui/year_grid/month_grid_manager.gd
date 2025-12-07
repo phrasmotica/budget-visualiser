@@ -1,5 +1,12 @@
+@tool
 class_name MonthGridManager
 extends Node
+
+@export
+var headers_parent: HBoxContainer
+
+@export
+var grid_parent: HBoxContainer
 
 @export
 var month_grids: Array[MonthGrid] = []:
@@ -16,6 +23,58 @@ var _highlighted_index := -1
 
 signal highlighted_grid_changed(grid: MonthGrid)
 signal highlighted_cell_changed(cell: CategoryCell, is_up: bool)
+
+func refresh_headers(label_owner: Control, months: Array[BudgetMonth]) -> void:
+	var month_count := months.size()
+	var child_count := headers_parent.get_child_count()
+
+	for i in month_count:
+		var label: Label
+
+		if i >= child_count:
+			label = MonthGridFactory.create_label(i)
+
+			headers_parent.add_child(label)
+			label.owner = label_owner
+		else:
+			label = headers_parent.get_child(i)
+
+		var new_text := "<Month%d>" % i
+
+		var month := months[i]
+		if month:
+			new_text = month.name
+
+		label.text = new_text
+
+	while headers_parent.get_child_count() > month_count:
+		var child := headers_parent.get_child(month_count)
+		headers_parent.remove_child(child)
+
+func refresh_grids(grid_owner: Control, months: Array[BudgetMonth]) -> void:
+	var month_count := months.size()
+	var child_count := grid_parent.get_child_count()
+
+	month_grids.clear()
+
+	for i in month_count:
+		var grid: MonthGrid
+
+		if i >= child_count:
+			grid = MonthGridFactory.create_grid(i)
+
+			grid_parent.add_child(grid)
+			grid.owner = grid_owner
+		else:
+			grid = grid_parent.get_child(i)
+
+		grid.month = months[i]
+
+		month_grids.append(grid)
+
+	while grid_parent.get_child_count() > month_count:
+		var child := grid_parent.get_child(month_count)
+		grid_parent.remove_child(child)
 
 func highlight(index: int) -> MonthGrid:
 	if index < 0 or index > month_grids.size() - 1:
