@@ -32,6 +32,8 @@ var _current_state: MonthGridState = null
 
 var _index_tracker: IndexTracker = null
 
+signal highlighted_cell_changed(cell: CategoryCell, is_up: bool)
+
 func _ready() -> void:
 	_refresh()
 
@@ -62,6 +64,9 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 func _refresh() -> void:
 	if appearance:
 		appearance.refresh_cells(self, categories)
+
+func emit_highlighted_cell_changed(cell: CategoryCell, is_up: bool) -> void:
+	highlighted_cell_changed.emit(cell, is_up)
 
 func enable() -> void:
 	if _current_state:

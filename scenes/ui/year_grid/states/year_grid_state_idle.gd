@@ -1,9 +1,6 @@
 class_name YearGridStateIdle
 extends YearGridState
 
-var _needs_to_scroll_left := false
-var _needs_to_scroll_right := false
-
 func _enter_tree() -> void:
 	print("%s is now idle" % _year_grid.name)
 
@@ -22,6 +19,11 @@ func _enter_tree() -> void:
 		_on_move_left
 	)
 
+	SignalHelper.persist(
+		_month_grid_manager.highlighted_cell_changed,
+		_on_highlighted_cell_changed
+	)
+
 func disable() -> void:
 	transition_state(YearGrid.State.DISABLED)
 
@@ -32,11 +34,15 @@ func update_budget(data: BudgetData) -> void:
 	_month_grid_manager.inject_budget(data)
 
 func _on_move_right() -> void:
-	_needs_to_scroll_right = true
 	var new_grid := _month_grid_manager.highlight(_index_tracker.next())
 	_appearance.scroll_right_to_highlighted_grid(new_grid)
 
 func _on_move_left() -> void:
-	_needs_to_scroll_left = true
 	var new_grid := _month_grid_manager.highlight(_index_tracker.previous())
 	_appearance.scroll_left_to_highlighted_grid(new_grid)
+
+func _on_highlighted_cell_changed(cell: CategoryCell, is_up: bool) -> void:
+	if is_up:
+		_appearance.scroll_up_to_highlighted_cell(cell)
+	else:
+		_appearance.scroll_down_to_highlighted_cell(cell)

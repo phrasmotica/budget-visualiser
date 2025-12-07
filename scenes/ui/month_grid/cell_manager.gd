@@ -5,12 +5,22 @@ extends Node
 @export
 var cells: Array[CategoryCell] = []
 
-func highlight(index: int) -> void:
+var _highlighted_index := -1
+
+func highlight(index: int) -> CategoryCell:
+	if index < 0 or index > cells.size() - 1:
+		print("Cannot highlight CategoryCell at invalid index %d!" % index)
+		return
+
+	_highlighted_index = index
+
 	for i in cells.size():
-		if i == index:
+		if i == _highlighted_index:
 			cells[i].highlight()
 		else:
 			cells[i].unhighlight()
+
+	return cells[_highlighted_index]
 
 func dim(index: int) -> void:
 	for i in cells.size():

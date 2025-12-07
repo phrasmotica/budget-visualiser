@@ -2,11 +2,20 @@ class_name MonthGridManager
 extends Node
 
 @export
-var month_grids: Array[MonthGrid] = []
+var month_grids: Array[MonthGrid] = []:
+	set(value):
+		month_grids = value
+
+		for g in month_grids:
+			SignalHelper.chain(
+				g.highlighted_cell_changed,
+				highlighted_cell_changed
+			)
 
 var _highlighted_index := -1
 
 signal highlighted_grid_changed(grid: MonthGrid)
+signal highlighted_cell_changed(cell: CategoryCell, is_up: bool)
 
 func highlight(index: int) -> MonthGrid:
 	if index < 0 or index > month_grids.size() - 1:

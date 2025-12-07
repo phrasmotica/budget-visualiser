@@ -20,10 +20,12 @@ func _enter_tree() -> void:
 	)
 
 func _on_move_down() -> void:
-	_cell_manager.highlight(_index_tracker.next())
+	var new_cell := _cell_manager.highlight(_index_tracker.next())
+	_emit_highlighted_cell_changed(new_cell, false)
 
 func _on_move_up() -> void:
-	_cell_manager.highlight(_index_tracker.previous())
+	var new_cell := _cell_manager.highlight(_index_tracker.previous())
+	_emit_highlighted_cell_changed(new_cell, true)
 
 func unhighlight() -> void:
 	transition_state(MonthGrid.State.IDLE)
