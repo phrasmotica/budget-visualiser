@@ -20,7 +20,7 @@ func _enter_tree() -> void:
 	)
 
 	SignalHelper.persist(
-		_month_grid_manager.highlighted_cell_changed,
+		MonthGridEvents.cell_highlighted,
 		_on_highlighted_cell_changed
 	)
 

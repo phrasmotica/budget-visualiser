@@ -25,10 +25,6 @@ func transition_state(
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
 
-# TODO: put these signals on a global bus...
-func _emit_highlighted_cell_changed(cell: CategoryCell, is_up: bool) -> void:
-	_month_grid.emit_highlighted_cell_changed(cell, is_up)
-
 func enable() -> void:
 	pass
 
