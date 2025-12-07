@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://c1u8kdi2dxm0d"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_0ubm6"]
+
+[resource]
+script = ExtResource("1_0ubm6")
+name = "Skincare"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"

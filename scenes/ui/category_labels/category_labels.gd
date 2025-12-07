@@ -9,6 +9,9 @@ var categories: Array[BudgetCategory] = []:
 	set(value):
 		categories = value
 
+		for c in categories:
+			SignalHelper.on_changed(c, _refresh)
+
 		call_deferred("_refresh")
 
 func _refresh() -> void:
