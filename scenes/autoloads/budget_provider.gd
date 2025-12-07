@@ -6,6 +6,20 @@ const BUDGET_CATEGORIES: Array[BudgetCategory] = [
 	preload("res://resources/data/budget_categories/budget_category_drinksout.tres"),
 	preload("res://resources/data/budget_categories/budget_category_mealsout.tres"),
 	preload("res://resources/data/budget_categories/budget_category_pool.tres"),
+	preload("res://resources/data/budget_categories/budget_category_takeawaymeals.tres"),
+	preload("res://resources/data/budget_categories/budget_category_cashwithdrawal.tres"),
+	preload("res://resources/data/budget_categories/budget_category_clothes.tres"),
+	preload("res://resources/data/budget_categories/budget_category_skincare.tres"),
+	preload("res://resources/data/budget_categories/budget_category_mimsy.tres"),
+	preload("res://resources/data/budget_categories/budget_category_decoration.tres"),
+	preload("res://resources/data/budget_categories/budget_category_gifts.tres"),
+	preload("res://resources/data/budget_categories/budget_category_booksstationery.tres"),
+	preload("res://resources/data/budget_categories/budget_category_videogames.tres"),
+	preload("res://resources/data/budget_categories/budget_category_software.tres"),
+	preload("res://resources/data/budget_categories/budget_category_hardware.tres"),
+	preload("res://resources/data/budget_categories/budget_category_magicthegathering.tres"),
+	preload("res://resources/data/budget_categories/budget_category_knex.tres"),
+	preload("res://resources/data/budget_categories/budget_category_ikea.tres"),
 ]
 
 const BUDGET_MONTHS: Array[BudgetMonth] = [
