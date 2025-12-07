@@ -52,3 +52,6 @@ func get_category_index(category: BudgetCategory) -> int:
 
 func get_category(index: int) -> BudgetCategory:
 	return BUDGET_CATEGORIES[index]
+
+func get_amount(category: BudgetCategory, month: BudgetMonth) -> float:
+	return _data.compute_category_expenditure_in_month(category, month)

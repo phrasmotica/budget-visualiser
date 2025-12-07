@@ -57,9 +57,14 @@ func _refresh() -> void:
 		appearance.set_title(title)
 		appearance.set_sub_header(sub_header)
 
-func enable(category: BudgetCategory, month: BudgetMonth, amount: float) -> void:
+func enable(
+	category: BudgetCategory,
+	month: BudgetMonth,
+	amount: float,
+	starting_amount: float,
+) -> void:
 	if _current_state:
-		_current_state.enable(category, month, amount)
+		_current_state.enable(category, month, amount, starting_amount)
 
 func disable() -> void:
 	if _current_state:

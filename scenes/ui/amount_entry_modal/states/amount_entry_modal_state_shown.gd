@@ -7,10 +7,13 @@ func _enter_tree() -> void:
 	_amount_entry_modal.show()
 
 	_appearance.set_sub_header(_state_data.get_sub_header())
+	_appearance.set_caption(_state_data.get_caption())
 	_appearance.for_shown()
 
 	var amount := _state_data.get_amount()
 	_set_amount(amount)
+
+	# TODO: update the caption whenever the amount in the AmountEdits changes...
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):

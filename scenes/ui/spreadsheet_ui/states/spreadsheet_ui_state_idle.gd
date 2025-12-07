@@ -55,7 +55,8 @@ func _on_budget_changed(data: BudgetData) -> void:
 func _show_modal() -> void:
 	var category := _year_grid.get_highlighted_category()
 	var month := _year_grid.get_highlighted_month()
+	var starting_amount := BudgetProvider.get_amount(category, month)
 
-	_amount_entry_modal.enable(category, month, 0.0)
+	_amount_entry_modal.enable(category, month, 0.0, starting_amount)
 
 	transition_state(SpreadsheetUI.State.DISABLED)

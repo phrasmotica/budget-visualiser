@@ -31,6 +31,16 @@ func compute_category_expenditure(
 
 	return _add_amounts(transactions)
 
+func compute_category_expenditure_in_month(
+	category: BudgetCategory,
+	month: BudgetMonth,
+) -> float:
+	var transactions := all_transactions \
+		.filter(func(t: BudgetTransaction): return t.category == category) \
+		.filter(func(t: BudgetTransaction): return t.month == month)
+
+	return _add_amounts(transactions)
+
 func compute_month_expenditure(
 	month: BudgetMonth,
 ) -> float:

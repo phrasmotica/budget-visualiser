@@ -9,6 +9,9 @@ var header_label: Label
 var sub_header_label: Label
 
 @export
+var caption_label: Label
+
+@export
 var edit_major: AmountEdit
 
 @export
@@ -21,6 +24,10 @@ func set_title(title: String) -> void:
 func set_sub_header(sub_header: String) -> void:
 	if sub_header_label:
 		sub_header_label.text = sub_header
+
+func set_caption(caption: String) -> void:
+	if caption_label:
+		caption_label.text = caption
 
 func for_shown() -> void:
 	if edit_major:
