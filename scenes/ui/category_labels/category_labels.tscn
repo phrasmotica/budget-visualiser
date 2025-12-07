@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://b7hv0uybnneau" path="res://resources/data/budget_categories/budget_category_ikea.tres" id="22_n6h0v"]
 
 [node name="CategoryLabels" type="VBoxContainer"]
+offset_right = 492.0
+offset_bottom = 1212.0
 theme = ExtResource("1_edbqv")
 theme_override_constants/separation = 4
 script = ExtResource("1_rdhsv")

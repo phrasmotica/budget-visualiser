@@ -77,6 +77,8 @@ func refresh_grids(grid_owner: Control, months: Array[BudgetMonth]) -> void:
 		else:
 			grid = grid_parent.get_child(i)
 
+		grid.month = months[i]
+
 		if month_grid_manager:
 			month_grid_manager.month_grids.append(grid)
 
