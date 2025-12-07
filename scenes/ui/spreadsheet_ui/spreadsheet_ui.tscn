@@ -54,3 +54,4 @@ unique_name_in_owner = true
 layout_mode = 2
 title = "Add Transaction"
 sub_header = "<category> - <month>"
+caption = "<old amount> -> <new amount>"

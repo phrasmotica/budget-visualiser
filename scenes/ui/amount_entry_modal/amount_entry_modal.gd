@@ -18,6 +18,13 @@ var sub_header := "":
 
 		_refresh()
 
+@export
+var caption := "":
+	set(value):
+		caption = value
+
+		_refresh()
+
 @onready
 var appearance: AmountEntryModalAppearance = %Appearance
 
@@ -56,6 +63,7 @@ func _refresh() -> void:
 	if appearance:
 		appearance.set_title(title)
 		appearance.set_sub_header(sub_header)
+		appearance.set_caption(caption)
 
 func enable(
 	category: BudgetCategory,
