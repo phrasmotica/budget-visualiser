@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgrdp05co1rny"]
+[gd_scene load_steps=15 format=3 uid="uid://cgrdp05co1rny"]
 
 [ext_resource type="Script" uid="uid://bkbtpnfcdua17" path="res://scenes/ui/year_grid/year_grid.gd" id="1_ranu4"]
 [ext_resource type="PackedScene" uid="uid://bd4umilpafiy8" path="res://scenes/ui/month_grid/month_grid.tscn" id="1_u3l1x"]
 [ext_resource type="Script" uid="uid://coftjs0d1j04x" path="res://scenes/ui/year_grid/month_grid_manager.gd" id="2_dllf6"]
-[ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="4_ypf0h"]
 [ext_resource type="Resource" uid="uid://qvr7cuttu404" path="res://resources/data/budget_months/budget_month_feb.tres" id="5_2j0vn"]
 [ext_resource type="Resource" uid="uid://v5v24koklu5j" path="res://resources/data/budget_months/budget_month_mar.tres" id="6_0q5te"]
 [ext_resource type="Resource" uid="uid://c5h1qd3k6hox6" path="res://resources/data/budget_months/budget_month_apr.tres" id="7_m1uua"]
@@ -32,7 +31,6 @@ month_grids = [NodePath("../MonthGrid0"), NodePath("../MonthGrid1"), NodePath(".
 
 [node name="MonthGrid0" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
-month = ExtResource("4_ypf0h")
 
 [node name="MonthGrid1" parent="HBoxContainer" instance=ExtResource("1_u3l1x")]
 layout_mode = 2

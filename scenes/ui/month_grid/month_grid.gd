@@ -11,6 +11,16 @@ var month: BudgetMonth:
 
 		_refresh()
 
+@export
+var categories: Array[BudgetCategory] = []:
+	set(value):
+		categories = value
+
+		for c in categories:
+			SignalHelper.on_changed(c, _refresh)
+
+		call_deferred("_refresh")
+
 @onready
 var appearance: MonthGridAppearance = %Appearance
 
@@ -52,6 +62,7 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 func _refresh() -> void:
 	if appearance:
 		appearance.set_month_name(month.name if month else "")
+		appearance.refresh_cells(self, categories)
 
 func enable() -> void:
 	if _current_state:
