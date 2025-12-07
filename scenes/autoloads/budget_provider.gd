@@ -1,26 +1,26 @@
 extends Node
 
 const BUDGET_CATEGORIES: Array[BudgetCategory] = [
-	preload("res://resources/data/budget_category_groceries.tres"),
-	preload("res://resources/data/budget_category_transport.tres"),
-	preload("res://resources/data/budget_category_drinksout.tres"),
-	preload("res://resources/data/budget_category_mealsout.tres"),
-	preload("res://resources/data/budget_category_pool.tres"),
+	preload("res://resources/data/budget_categories/budget_category_groceries.tres"),
+	preload("res://resources/data/budget_categories/budget_category_transport.tres"),
+	preload("res://resources/data/budget_categories/budget_category_drinksout.tres"),
+	preload("res://resources/data/budget_categories/budget_category_mealsout.tres"),
+	preload("res://resources/data/budget_categories/budget_category_pool.tres"),
 ]
 
 const BUDGET_MONTHS: Array[BudgetMonth] = [
-	preload("res://resources/data/budget_month_jan.tres"),
-	preload("res://resources/data/budget_month_feb.tres"),
-	preload("res://resources/data/budget_month_mar.tres"),
-	preload("res://resources/data/budget_month_apr.tres"),
-	preload("res://resources/data/budget_month_may.tres"),
-	preload("res://resources/data/budget_month_jun.tres"),
-	preload("res://resources/data/budget_month_jul.tres"),
-	preload("res://resources/data/budget_month_aug.tres"),
-	preload("res://resources/data/budget_month_sep.tres"),
-	preload("res://resources/data/budget_month_oct.tres"),
-	preload("res://resources/data/budget_month_nov.tres"),
-	preload("res://resources/data/budget_month_dec.tres"),
+	preload("res://resources/data/budget_months/budget_month_jan.tres"),
+	preload("res://resources/data/budget_months/budget_month_feb.tres"),
+	preload("res://resources/data/budget_months/budget_month_mar.tres"),
+	preload("res://resources/data/budget_months/budget_month_apr.tres"),
+	preload("res://resources/data/budget_months/budget_month_may.tres"),
+	preload("res://resources/data/budget_months/budget_month_jun.tres"),
+	preload("res://resources/data/budget_months/budget_month_jul.tres"),
+	preload("res://resources/data/budget_months/budget_month_aug.tres"),
+	preload("res://resources/data/budget_months/budget_month_sep.tres"),
+	preload("res://resources/data/budget_months/budget_month_oct.tres"),
+	preload("res://resources/data/budget_months/budget_month_nov.tres"),
+	preload("res://resources/data/budget_months/budget_month_dec.tres"),
 ]
 
 var _data: BudgetData = null

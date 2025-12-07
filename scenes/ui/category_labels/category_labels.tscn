@@ -3,11 +3,11 @@
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_edbqv"]
 [ext_resource type="Script" uid="uid://bjidctukxq5lj" path="res://scenes/ui/category_labels/category_labels.gd" id="1_rdhsv"]
 [ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="3_jfxu6"]
-[ext_resource type="Resource" uid="uid://mydbxfrjyixf" path="res://resources/data/budget_category_groceries.tres" id="4_vdi0m"]
-[ext_resource type="Resource" uid="uid://dphmgn3glf5f3" path="res://resources/data/budget_category_transport.tres" id="5_veft2"]
-[ext_resource type="Resource" uid="uid://ntgiryw8yhiq" path="res://resources/data/budget_category_drinksout.tres" id="6_q5ikp"]
-[ext_resource type="Resource" uid="uid://b7du18hkdt45" path="res://resources/data/budget_category_mealsout.tres" id="7_xlm65"]
-[ext_resource type="Resource" uid="uid://tx800w7ep5ms" path="res://resources/data/budget_category_pool.tres" id="8_83r7t"]
+[ext_resource type="Resource" uid="uid://mydbxfrjyixf" path="res://resources/data/budget_categories/budget_category_groceries.tres" id="4_vdi0m"]
+[ext_resource type="Resource" uid="uid://dphmgn3glf5f3" path="res://resources/data/budget_categories/budget_category_transport.tres" id="5_veft2"]
+[ext_resource type="Resource" uid="uid://ntgiryw8yhiq" path="res://resources/data/budget_categories/budget_category_drinksout.tres" id="6_q5ikp"]
+[ext_resource type="Resource" uid="uid://b7du18hkdt45" path="res://resources/data/budget_categories/budget_category_mealsout.tres" id="7_xlm65"]
+[ext_resource type="Resource" uid="uid://tx800w7ep5ms" path="res://resources/data/budget_categories/budget_category_pool.tres" id="8_83r7t"]
 
 [node name="CategoryLabels" type="VBoxContainer"]
 theme = ExtResource("1_edbqv")
