@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8hyfp1xf5k3r"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_edbqv"]
+[ext_resource type="Script" uid="uid://bjidctukxq5lj" path="res://scenes/ui/category_labels/category_labels.gd" id="1_rdhsv"]
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="3_jfxu6"]
+[ext_resource type="Resource" uid="uid://mydbxfrjyixf" path="res://resources/data/budget_category_groceries.tres" id="4_vdi0m"]
+[ext_resource type="Resource" uid="uid://dphmgn3glf5f3" path="res://resources/data/budget_category_transport.tres" id="5_veft2"]
+[ext_resource type="Resource" uid="uid://ntgiryw8yhiq" path="res://resources/data/budget_category_drinksout.tres" id="6_q5ikp"]
+[ext_resource type="Resource" uid="uid://b7du18hkdt45" path="res://resources/data/budget_category_mealsout.tres" id="7_xlm65"]
+[ext_resource type="Resource" uid="uid://tx800w7ep5ms" path="res://resources/data/budget_category_pool.tres" id="8_83r7t"]
+
+[node name="CategoryLabels" type="VBoxContainer"]
+theme = ExtResource("1_edbqv")
+theme_override_constants/separation = 4
+script = ExtResource("1_rdhsv")
+categories = Array[ExtResource("3_jfxu6")]([ExtResource("4_vdi0m"), ExtResource("5_veft2"), ExtResource("6_q5ikp"), ExtResource("7_xlm65"), ExtResource("8_83r7t")])
+
+[node name="CategoryLabel0" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Groceries"
+vertical_alignment = 1
+
+[node name="CategoryLabel1" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Transport"
+vertical_alignment = 1
+
+[node name="CategoryLabel2" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Drinks out"
+vertical_alignment = 1
+
+[node name="CategoryLabel3" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Meals out"
+vertical_alignment = 1
+
+[node name="CategoryLabel4" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pool"
+vertical_alignment = 1

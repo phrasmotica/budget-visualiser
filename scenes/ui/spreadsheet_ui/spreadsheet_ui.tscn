@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpgey7qxb48kd"]
+[gd_scene load_steps=6 format=3 uid="uid://bpgey7qxb48kd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_5jsgs"]
 [ext_resource type="Script" uid="uid://tw42pkh8j46o" path="res://scenes/ui/spreadsheet_ui/spreadsheet_ui.gd" id="2_ic03t"]
 [ext_resource type="PackedScene" uid="uid://cgrdp05co1rny" path="res://scenes/ui/year_grid/year_grid.tscn" id="2_wovv7"]
+[ext_resource type="PackedScene" uid="uid://b8hyfp1xf5k3r" path="res://scenes/ui/category_labels/category_labels.tscn" id="3_abri7"]
 [ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_ic03t"]
 
 [node name="SpreadsheetUI" type="PanelContainer"]
@@ -30,44 +31,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Category"
 
-[node name="CategoryLabels" type="VBoxContainer" parent="HBoxContainer/MarginContainer/CategoryPanel"]
+[node name="CategoryLabels" parent="HBoxContainer/MarginContainer/CategoryPanel" instance=ExtResource("3_abri7")]
 layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="CategoryLabel0" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Groceries"
-vertical_alignment = 1
-
-[node name="CategoryLabel1" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Transport"
-vertical_alignment = 1
-
-[node name="CategoryLabel2" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Drinks out"
-vertical_alignment = 1
-
-[node name="CategoryLabel3" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Meals out"
-vertical_alignment = 1
-
-[node name="CategoryLabel4" type="Label" parent="HBoxContainer/MarginContainer/CategoryPanel/CategoryLabels"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Pool"
-vertical_alignment = 1
 
 [node name="YearGrid" parent="HBoxContainer" instance=ExtResource("2_wovv7")]
 unique_name_in_owner = true
