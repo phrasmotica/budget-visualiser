@@ -1,7 +1,21 @@
+@tool
 class_name YearGrid
-extends ScrollContainer
+extends MarginContainer
 
 enum State { DISABLED, IDLE }
+
+@export
+var months: Array[BudgetMonth] = []:
+	set(value):
+		months = value
+
+		for m in months:
+			SignalHelper.on_changed(m, _refresh)
+
+		_refresh()
+
+@onready
+var appearance: YearGridAppearance = %Appearance
 
 @onready
 var month_grid_manager: MonthGridManager = %MonthGridManager
@@ -12,6 +26,11 @@ var _current_state: YearGridState = null
 var _index_tracker: IndexTracker = null
 
 func _ready() -> void:
+	_refresh()
+
+	if Engine.is_editor_hint():
+		return
+
 	_index_tracker = IndexTracker.new(month_grid_manager.count() - 1)
 
 	switch_state(State.IDLE)
@@ -25,6 +44,7 @@ func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 	_current_state.setup(
 		self,
 		state_data,
+		appearance,
 		month_grid_manager,
 		_index_tracker)
 
@@ -32,6 +52,11 @@ func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 	_current_state.name = "YearGridStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func _refresh() -> void:
+	if appearance:
+		appearance.refresh_headers(self, months)
+		appearance.refresh_grids(self, months)
 
 func enable() -> void:
 	if _current_state:

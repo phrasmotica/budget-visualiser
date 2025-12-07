@@ -8,7 +8,7 @@ var _highlighted_index := -1
 
 signal highlighted_grid_changed(grid: MonthGrid)
 
-func highlight(index: int) -> void:
+func highlight(index: int) -> MonthGrid:
 	if index < 0 or index > month_grids.size() - 1:
 		print("Cannot highlight MonthGrid at invalid index %d!" % index)
 		return
@@ -24,6 +24,8 @@ func highlight(index: int) -> void:
 			month_grids[i].unhighlight()
 
 	highlighted_grid_changed.emit(month_grids[index])
+
+	return month_grids[index]
 
 func pause() -> void:
 	for i in month_grids.size():

@@ -61,7 +61,6 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 
 func _refresh() -> void:
 	if appearance:
-		appearance.set_month_name(month.name if month else "")
 		appearance.refresh_cells(self, categories)
 
 func enable() -> void:

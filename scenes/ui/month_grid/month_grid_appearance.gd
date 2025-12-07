@@ -8,14 +8,7 @@ const CELL_SCENE := preload("res://scenes/ui/category_cell/category_cell.tscn")
 var cell_manager: CellManager
 
 @export
-var name_label: Label
-
-@export
 var cell_parent: VBoxContainer
-
-func set_month_name(month_name: String) -> void:
-	if name_label:
-		name_label.text = month_name
 
 func refresh_cells(cell_owner: Control, categories: Array[BudgetCategory]) -> void:
 	var category_count := categories.size()
