@@ -30,10 +30,14 @@ func _on_move_up() -> void:
 
 	_appearance.set_amount(new_amount)
 
+	_emit_amount_changed(new_amount)
+
 func _on_move_down() -> void:
 	var new_amount := _amount_tracker.subtract(_get_change_amount())
 
 	_appearance.set_amount(new_amount)
+
+	_emit_amount_changed(new_amount)
 
 func _get_change_amount() -> int:
 	return 10 if _is_bulk else 1

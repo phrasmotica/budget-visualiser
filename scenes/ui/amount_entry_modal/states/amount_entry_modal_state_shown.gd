@@ -7,13 +7,27 @@ func _enter_tree() -> void:
 	_amount_entry_modal.show()
 
 	_appearance.set_sub_header(_state_data.get_sub_header())
-	_appearance.set_caption(_state_data.get_caption())
 	_appearance.for_shown()
+
+	SignalHelper.persist(
+		_totaller.total_changed,
+		_on_total_changed
+	)
 
 	var amount := _state_data.get_amount()
 	_set_amount(amount)
 
-	# TODO: update the caption whenever the amount in the AmountEdits changes...
+	var starting_amount := _state_data.get_starting_amount()
+	set_amounts_caption(starting_amount, starting_amount)
+
+func _on_total_changed(total: float) -> void:
+	var starting_amount := _state_data.get_starting_amount()
+	var preview_amount := starting_amount + total
+
+	set_amounts_caption(starting_amount, preview_amount)
+
+func set_amounts_caption(starting_amount: float, preview_amount: float) -> void:
+	_appearance.set_caption("%.2f -> %.2f" % [starting_amount, preview_amount])
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):

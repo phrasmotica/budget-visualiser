@@ -14,7 +14,7 @@ func enable(
 ) -> void:
 	var state_data := AmountEntryModalStateData.build() \
 		.with_sub_header("%s - %s" % [category.name, month.name]) \
-		.with_caption("%.2f -> %.2f" % [starting_amount, starting_amount]) \
-		.with_amount(amount)
+		.with_amount(amount) \
+		.with_starting_amount(starting_amount)
 
 	transition_state(AmountEntryModal.State.SHOWN, state_data)

@@ -14,6 +14,8 @@ var _current_state: AmountEditState = null
 
 var _amount_tracker: AmountTracker = null
 
+signal amount_changed(amount: int)
+
 func _ready() -> void:
 	_amount_tracker = AmountTracker.new(AMOUNT_MINIMUM, AMOUNT_MAXIMUM)
 
@@ -35,6 +37,9 @@ func switch_state(state: State, state_data := AmountEditStateData.new()) -> void
 	_current_state.name = "AmountEditStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func emit_amount_changed(amount: float) -> void:
+	amount_changed.emit(amount)
 
 func enable() -> void:
 	if _current_state:

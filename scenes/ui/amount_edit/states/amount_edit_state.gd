@@ -25,6 +25,9 @@ func transition_state(
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
 
+func _emit_amount_changed(amount: int) -> void:
+	_amount_edit.emit_amount_changed(amount)
+
 func enable() -> void:
 	pass
 
