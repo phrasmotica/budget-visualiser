@@ -7,9 +7,17 @@ func _enter_tree() -> void:
 	_year_grid.disable()
 
 	SignalHelper.once(
+		AmountEvents.entry_cancelled,
+		_on_entry_cancelled
+	)
+
+	SignalHelper.once(
 		AmountEvents.entry_finished,
 		_on_entry_finished
 	)
+
+func _on_entry_cancelled() -> void:
+	transition_state(SpreadsheetUI.State.IDLE)
 
 func _on_entry_finished(amount: float) -> void:
 	var state_data := SpreadsheetUIStateData.build() \
