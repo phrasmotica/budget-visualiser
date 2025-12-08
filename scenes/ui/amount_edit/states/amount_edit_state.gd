@@ -39,4 +39,6 @@ func is_enabled() -> bool:
 
 func set_amount(amount: int) -> void:
 	var new_amount := _amount_tracker.set_current(amount)
-	_appearance.set_amount(new_amount)
+	var pad_count := len(str(_amount_tracker.get_maximum()))
+
+	_appearance.set_amount(new_amount, pad_count)

@@ -12,6 +12,9 @@ func _init(minimum: int, maximum: int) -> void:
 func current() -> int:
 	return _current
 
+func get_maximum() -> int:
+	return _maximum
+
 func set_current(amount: int) -> int:
 	_current = clampi(amount, _minimum, _maximum)
 	return _current

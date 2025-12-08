@@ -27,15 +27,17 @@ func _process(_delta: float) -> void:
 
 func _on_move_up() -> void:
 	var new_amount := _amount_tracker.add(_get_change_amount())
+	var pad_count := len(str(_amount_tracker.get_maximum()))
 
-	_appearance.set_amount(new_amount)
+	_appearance.set_amount(new_amount, pad_count)
 
 	_emit_amount_changed(new_amount)
 
 func _on_move_down() -> void:
 	var new_amount := _amount_tracker.subtract(_get_change_amount())
+	var pad_count := len(str(_amount_tracker.get_maximum()))
 
-	_appearance.set_amount(new_amount)
+	_appearance.set_amount(new_amount, pad_count)
 
 	_emit_amount_changed(new_amount)
 
