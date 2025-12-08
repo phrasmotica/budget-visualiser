@@ -58,6 +58,8 @@ func add_transaction(
 
 	budget_changed.emit(_data)
 
+	SaverLoader.save_budget_data(_data)
+
 func get_month_debug() -> BudgetMonth:
 	return BUDGET_MONTHS[0]
 

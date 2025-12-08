@@ -20,6 +20,8 @@ func _enter_tree() -> void:
 		_on_budget_changed
 	)
 
+	_year_grid.update_budget(BudgetProvider.get_budget_data())
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		_show_modal()

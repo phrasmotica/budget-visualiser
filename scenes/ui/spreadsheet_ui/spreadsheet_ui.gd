@@ -13,7 +13,7 @@ var _state_factory := SpreadsheetUIStateFactory.new()
 var _current_state: SpreadsheetUIState = null
 
 func _ready() -> void:
-	BudgetProvider.set_budget_data(BudgetData.new())
+	BudgetManager.load_or_create()
 
 	switch_state(SpreadsheetUI.State.IDLE)
 
