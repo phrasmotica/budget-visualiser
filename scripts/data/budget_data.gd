@@ -2,6 +2,12 @@ class_name BudgetData
 extends Resource
 
 @export
+var id := -1
+
+@export
+var name := ""
+
+@export
 var all_transactions: Array[BudgetTransaction] = []
 
 func add_transaction(
