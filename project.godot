@@ -35,6 +35,8 @@ SignalHelper="*res://scenes/autoloads/signal_helper.gd"
 AmountEvents="*res://scenes/autoloads/amount_events.gd"
 BudgetProvider="*res://scenes/autoloads/budget_provider.gd"
 MonthGridEvents="*res://scenes/autoloads/month_grid_events.gd"
+BudgetManager="*res://scenes/autoloads/budget_manager.gd"
+SaverLoader="*res://scenes/autoloads/saver_loader.gd"
 
 [display]
 
