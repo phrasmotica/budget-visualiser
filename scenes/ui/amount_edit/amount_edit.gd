@@ -2,9 +2,11 @@ class_name AmountEdit
 extends PanelContainer
 
 const AMOUNT_MINIMUM := 0
-const AMOUNT_MAXIMUM := 99
 
 enum State { IDLE, HIGHLIGHTED }
+
+@export_range(10, 999)
+var amount_maximum := 99
 
 @onready
 var appearance: AmountEditAppearance = %Appearance
@@ -17,7 +19,7 @@ var _amount_tracker: AmountTracker = null
 signal amount_changed(amount: int)
 
 func _ready() -> void:
-	_amount_tracker = AmountTracker.new(AMOUNT_MINIMUM, AMOUNT_MAXIMUM)
+	_amount_tracker = AmountTracker.new(AMOUNT_MINIMUM, amount_maximum)
 
 	switch_state(AmountEdit.State.IDLE)
 
