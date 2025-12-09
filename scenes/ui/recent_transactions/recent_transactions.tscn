@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgj8ahx4yu8su"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_tfjwn"]
+[ext_resource type="Script" uid="uid://bugjoi5qro4la" path="res://scenes/ui/recent_transactions/recent_transactions.gd" id="2_8farb"]
+
+[node name="RecentTransactions" type="VBoxContainer"]
+size_flags_horizontal = 3
+theme = ExtResource("1_tfjwn")
+theme_override_constants/separation = 0
+script = ExtResource("2_8farb")
+
+[node name="HeaderLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Recents"
+
+[node name="Spacer" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="TransactionLabels" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="TransactionLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10.00"
+
+[node name="Label2" type="Label" parent="TransactionLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "20.00"
+
+[node name="Label3" type="Label" parent="TransactionLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "30.00"
+
+[node name="Label4" type="Label" parent="TransactionLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "40.00"
+
+[node name="Label5" type="Label" parent="TransactionLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "50.00"
+
+[node name="Spacer2" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="MoreLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_font_sizes/font_size = 32
+text = "+6 more"
