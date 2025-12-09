@@ -7,17 +7,20 @@ var _amount_entry_modal: AmountEntryModal = null
 var _state_data: AmountEntryModalStateData = null
 var _appearance: AmountEntryModalAppearance = null
 var _totaller: AmountTotaller = null
+var _recent_transactions: RecentTransactions = null
 
 func setup(
 	amount_entry_modal: AmountEntryModal,
 	state_data: AmountEntryModalStateData,
 	appearance: AmountEntryModalAppearance,
 	totaller: AmountTotaller,
+	recent_transactions: RecentTransactions,
 ) -> void:
 	_amount_entry_modal = amount_entry_modal
 	_state_data = state_data
 	_appearance = appearance
 	_totaller = totaller
+	_recent_transactions = recent_transactions
 
 func transition_state(
 	new_state: AmountEntryModal.State,

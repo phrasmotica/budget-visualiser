@@ -1,11 +1,27 @@
 class_name AmountEntryModalStateData
 
+var _category: BudgetCategory
+var _month: BudgetMonth
 var _sub_header := ""
 var _amount := 0.0
 var _starting_amount := 0.0
 
 static func build() -> AmountEntryModalStateData:
 	return AmountEntryModalStateData.new()
+
+func with_category(category: BudgetCategory) -> AmountEntryModalStateData:
+	_category = category
+	return self
+
+func get_category() -> BudgetCategory:
+	return _category
+
+func with_month(month: BudgetMonth) -> AmountEntryModalStateData:
+	_month = month
+	return self
+
+func get_month() -> BudgetMonth:
+	return _month
 
 func with_sub_header(sub_header: String) -> AmountEntryModalStateData:
 	_sub_header = sub_header

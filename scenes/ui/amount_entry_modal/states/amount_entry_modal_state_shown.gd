@@ -4,6 +4,10 @@ extends AmountEntryModalState
 func _enter_tree() -> void:
 	print("%s is now shown" % _amount_entry_modal.name)
 
+	_recent_transactions.category = _state_data.get_category()
+	_recent_transactions.month = _state_data.get_month()
+	_recent_transactions.reload()
+
 	_amount_entry_modal.show()
 
 	_appearance.set_sub_header(_state_data.get_sub_header())

@@ -31,6 +31,9 @@ var appearance: AmountEntryModalAppearance = %Appearance
 @onready
 var totaller: AmountTotaller = %Totaller
 
+@onready
+var recent_transactions: RecentTransactions = %RecentTransactions
+
 var _state_factory := AmountEntryModalStateFactory.new()
 var _current_state: AmountEntryModalState = null
 
@@ -52,7 +55,8 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 		self,
 		state_data,
 		appearance,
-		totaller)
+		totaller,
+		recent_transactions)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "AmountEntryModalStateMachine: %s" % str(state)
