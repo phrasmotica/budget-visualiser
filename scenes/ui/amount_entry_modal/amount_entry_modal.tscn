@@ -41,9 +41,14 @@ theme_override_constants/margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="RecentTransactions" parent="MarginContainer/HBoxContainer" instance=ExtResource("5_waxe7")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
 [node name="AmountEntryControls" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
