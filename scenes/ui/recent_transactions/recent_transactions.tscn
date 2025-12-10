@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgj8ahx4yu8su"]
+[gd_scene load_steps=4 format=3 uid="uid://cgj8ahx4yu8su"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_tfjwn"]
 [ext_resource type="Script" uid="uid://bugjoi5qro4la" path="res://scenes/ui/recent_transactions/recent_transactions.gd" id="2_8farb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8farb"]
+line_spacing = 8.0
+font_size = 32
 
 [node name="RecentTransactions" type="VBoxContainer"]
 size_flags_horizontal = 3
@@ -18,35 +22,15 @@ text = "Recents"
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="TransactionLabels" type="VBoxContainer" parent="."]
-visible = false
+[node name="TransactionsLabel" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Label" type="Label" parent="TransactionLabels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "10.00"
-
-[node name="Label2" type="Label" parent="TransactionLabels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "20.00"
-
-[node name="Label3" type="Label" parent="TransactionLabels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "30.00"
-
-[node name="Label4" type="Label" parent="TransactionLabels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "40.00"
-
-[node name="Label5" type="Label" parent="TransactionLabels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "50.00"
+text = "10.00
+20.00
+30.00
+40.00
+50.00"
+label_settings = SubResource("LabelSettings_8farb")
 
 [node name="Spacer2" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 8)
