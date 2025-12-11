@@ -15,7 +15,6 @@ func enable(
 	var state_data := AmountEntryModalStateData.build() \
 		.with_category(category) \
 		.with_month(month) \
-		.with_sub_header("%s - %s" % [category.name, month.name]) \
 		.with_amount(amount) \
 		.with_starting_amount(starting_amount)
 

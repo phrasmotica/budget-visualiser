@@ -4,13 +4,18 @@ extends AmountEntryModalState
 func _enter_tree() -> void:
 	print("%s is now shown" % _amount_entry_modal.name)
 
-	_recent_transactions.category = _state_data.get_category()
-	_recent_transactions.month = _state_data.get_month()
+	var category = _state_data.get_category()
+	var month = _state_data.get_month()
+
+	_recent_transactions.category = category
+	_recent_transactions.month = month
 	_recent_transactions.reload()
 
 	_amount_entry_modal.show()
 
-	_appearance.set_sub_header(_state_data.get_sub_header())
+	if category and month:
+		_appearance.set_sub_header("%s - %s" % [category.name, month.name])
+
 	_appearance.for_shown()
 
 	SignalHelper.persist(
