@@ -36,7 +36,11 @@ func _on_total_changed(total: float) -> void:
 	set_amounts_caption(starting_amount, preview_amount)
 
 func set_amounts_caption(starting_amount: float, preview_amount: float) -> void:
-	_appearance.set_caption("%.2f -> %.2f" % [starting_amount, preview_amount])
+	var caption := Strings.curr_map(
+		"%s -> %s",
+		[starting_amount, preview_amount])
+
+	_appearance.set_caption(caption)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
@@ -65,7 +69,7 @@ func _cancel() -> void:
 func _finish() -> void:
 	var final_amount := _totaller.compute_total()
 
-	print("Final amount: %.2f" % final_amount)
+	print("Final amount: %s" % Strings.curr(final_amount))
 
 	AmountEvents.emit_entry_finished(final_amount)
 

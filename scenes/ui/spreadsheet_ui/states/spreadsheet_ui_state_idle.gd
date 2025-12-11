@@ -35,22 +35,22 @@ func _inject_entered_amount() -> void:
 		BudgetProvider.add_transaction(category, month, entered_amount)
 
 func _on_transaction_added(transaction: BudgetTransaction) -> void:
-	print("New transaction: %s %s, £%.2f" % [
+	print("New transaction: %s %s, %s" % [
 		transaction.month.name,
 		transaction.category.name,
-		transaction.amount,
+		Strings.curr(transaction.amount),
 	])
 
 	var month := transaction.month
 	var budget_data := BudgetProvider.get_budget_data()
 
-	print("%s Total: £%.2f" % [
+	print("%s Total: %s" % [
 		month.name,
-		budget_data.compute_month_expenditure(month)
+		Strings.curr(budget_data.compute_month_expenditure(month))
 	])
 
 func _on_budget_changed(data: BudgetData) -> void:
-	print("Grand Total: £%.2f" % data.compute_total_expenditure())
+	print("Grand Total: %s" % Strings.curr(data.compute_total_expenditure()))
 
 	_year_grid.update_budget(data)
 

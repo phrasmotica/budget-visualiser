@@ -49,7 +49,7 @@ func reload() -> void:
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.reduce(Math.sum, 0.0)
 
-	total_label.text = "%.2f" % total_amount
+	total_label.text = Strings.curr(total_amount)
 
 func _get_transactions() -> Array[BudgetTransaction]:
 	var budget_data := BudgetProvider.get_budget_data()
@@ -68,5 +68,5 @@ func _compute_transactions_text(transactions: Array[BudgetTransaction]) -> Strin
 	return recent_transactions \
 		.slice(0, visible_count) \
 		.map(func(t: BudgetTransaction): return t.amount) \
-		.map(func(f: float): return "%.2f" % f) \
+		.map(Strings.curr) \
 		.reduce(Strings.join("\n"))

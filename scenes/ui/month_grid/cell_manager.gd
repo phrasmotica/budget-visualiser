@@ -30,11 +30,13 @@ func dim(index: int) -> void:
 			cells[i].undim()
 
 func inject_amount(amount: float) -> void:
-	print("Injecting %.2f into cell manager" % amount)
+	var currency := Strings.curr(amount)
+
+	print("Injecting %s into cell manager" % currency)
 
 	for c in cells:
 		if c.is_highlighted():
-			print("Injecting %.2f into cell %s" % [amount, c.name])
+			print("Injecting %s into cell %s" % [currency, c.name])
 			c.inject_amount(amount)
 
 func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
