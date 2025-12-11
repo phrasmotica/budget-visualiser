@@ -6,7 +6,7 @@ var _is_bulk := false
 func _enter_tree() -> void:
 	print("%s is now highlighted" % _amount_edit.name)
 
-	_amount_edit.theme_type_variation = "HighlightedAmountEditContainer"
+	_appearance.for_highlighted()
 
 	SignalHelper.persist(
 		GridInput.move_up,

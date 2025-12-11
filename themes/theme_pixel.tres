@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c1ktlawkckrai"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c1ktlawkckrai"]
 
 [ext_resource type="FontFile" uid="uid://c6otstnbhgawy" path="res://assets/fonts/PixelOperator8.ttf" id="1_muggs"]
 
@@ -7,6 +7,8 @@ bg_color = Color(0.406303, 0.447843, 0.624222, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptva7"]
 bg_color = Color(0.2, 0, 0.2, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muggs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5dxd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -46,6 +48,8 @@ AmountEntryModalContainer/base_type = &"PanelContainer"
 AmountEntryModalContainer/styles/panel = SubResource("StyleBoxFlat_5twxo")
 DimmedCategoryCellContainer/base_type = &"PanelContainer"
 DimmedCategoryCellContainer/styles/panel = SubResource("StyleBoxFlat_ptva7")
+EmptyPanelContainer/base_type = &"PanelContainer"
+EmptyPanelContainer/styles/panel = SubResource("StyleBoxEmpty_muggs")
 HighlightedAmountEditContainer/base_type = &"PanelContainer"
 HighlightedAmountEditContainer/styles/panel = SubResource("StyleBoxFlat_l5dxd")
 HighlightedMonthGridContainer/base_type = &"PanelContainer"

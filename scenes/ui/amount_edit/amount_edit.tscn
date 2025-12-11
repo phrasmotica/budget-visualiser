@@ -6,19 +6,34 @@
 
 [node name="AmountEdit" type="PanelContainer"]
 theme = ExtResource("1_jiehw")
-theme_type_variation = &"IdleAmountEditContainer"
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("2_julqq")
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("amount_label")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("symbol_label", "amount_label", "highlight_panel")]
 unique_name_in_owner = true
 script = ExtResource("3_ywxus")
-amount_label = NodePath("../MarginContainer/Label")
+symbol_label = NodePath("../MarginContainer/HBoxContainer/SymbolLabel")
+amount_label = NodePath("../MarginContainer/HBoxContainer/PanelContainer/AmountLabel")
+highlight_panel = NodePath("../MarginContainer/HBoxContainer/PanelContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 32
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SymbolLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 128
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"IdleAmountEditContainer"
+
+[node name="AmountLabel" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
 text = "00"

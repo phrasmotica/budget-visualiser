@@ -13,6 +13,13 @@ var amount_maximum := 99:
 
 		_refresh()
 
+@export
+var currency_symbol := "":
+	set(value):
+		currency_symbol = value.substr(0, 1)
+
+		_refresh()
+
 @onready
 var appearance: AmountEditAppearance = %Appearance
 
@@ -52,6 +59,8 @@ func _refresh() -> void:
 	_amount_tracker = AmountTracker.new(AMOUNT_MINIMUM, amount_maximum)
 
 	if appearance:
+		appearance.set_currency_symbol(currency_symbol)
+
 		var pad_count := len(str(amount_maximum))
 		appearance.set_amount(0, pad_count)
 
