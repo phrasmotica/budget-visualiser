@@ -62,9 +62,10 @@ func _compute_transactions_text(transactions: Array[BudgetTransaction]) -> Strin
 	if transactions.size() <= 0:
 		return ""
 
-	# TODO: take the last N transactions, instead of the first N...
+	var recent_transactions := transactions.slice(0)
+	recent_transactions.reverse()
 
-	return transactions \
+	return recent_transactions \
 		.slice(0, visible_count) \
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.map(func(f: float): return "%.2f" % f) \
