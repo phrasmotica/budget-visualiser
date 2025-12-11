@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BudgetMonth" load_steps=2 format=3 uid="uid://dr7qnss7g8t0e"]
+
+[ext_resource type="Script" uid="uid://dm00e0p8wnpul" path="res://scripts/data/budget_month.gd" id="1_mk6uf"]
+
+[resource]
+script = ExtResource("1_mk6uf")
+order = 7
+name = "August"
+metadata/_custom_type_script = "uid://dm00e0p8wnpul"

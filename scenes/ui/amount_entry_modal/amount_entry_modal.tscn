@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw7xjnqey7y0y"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_wumc0"]
+[ext_resource type="PackedScene" uid="uid://dtev33c4yaaub" path="res://scenes/ui/amount_edit/amount_edit.tscn" id="2_8gaj6"]
+[ext_resource type="Script" uid="uid://v2v0n4dsl33v" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.gd" id="2_218fl"]
+[ext_resource type="Script" uid="uid://b3ek0xt6yv316" path="res://scenes/ui/amount_entry_modal/amount_entry_modal_appearance.gd" id="2_dmink"]
+[ext_resource type="Script" uid="uid://cyfb673un1meg" path="res://scenes/ui/amount_entry_modal/amount_totaller.gd" id="4_ljdbp"]
+[ext_resource type="PackedScene" uid="uid://cgj8ahx4yu8su" path="res://scenes/ui/recent_transactions/recent_transactions.tscn" id="5_waxe7"]
+
+[node name="AmountEntryModal" type="PanelContainer"]
+custom_minimum_size = Vector2(1080, 600)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_wumc0")
+theme_type_variation = &"AmountEntryModalContainer"
+script = ExtResource("2_218fl")
+title = "Edit Amount"
+metadata/_edit_horizontal_guides_ = [300.0]
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("header_label", "sub_header_label", "caption_label", "edit_major", "edit_minor")]
+unique_name_in_owner = true
+script = ExtResource("2_dmink")
+header_label = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/HeaderLabel")
+sub_header_label = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/SubHeaderLabel")
+caption_label = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/CaptionLabel")
+edit_major = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer/AmountEditMajor")
+edit_minor = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer/AmountEditMinor")
+
+[node name="Totaller" type="Node" parent="." node_paths=PackedStringArray("edit_major", "edit_minor")]
+unique_name_in_owner = true
+script = ExtResource("4_ljdbp")
+edit_major = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer/AmountEditMajor")
+edit_minor = NodePath("../MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer/AmountEditMinor")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RecentTransactions" parent="MarginContainer/HBoxContainer" instance=ExtResource("5_waxe7")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="AmountEntryControls" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderLabel" type="Label" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Edit Amount"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="SubHeaderLabel" type="Label" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AmountEditMajor" parent="MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer" instance=ExtResource("2_8gaj6")]
+layout_mode = 2
+amount_maximum = 999
+currency_symbol = "£"
+
+[node name="SeparatorLabel" type="Label" parent="MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "."
+
+[node name="AmountEditMinor" parent="MarginContainer/HBoxContainer/AmountEntryControls/HBoxContainer" instance=ExtResource("2_8gaj6")]
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CaptionLabel" type="Label" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1

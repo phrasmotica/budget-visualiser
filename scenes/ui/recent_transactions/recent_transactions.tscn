@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgj8ahx4yu8su"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_tfjwn"]
+[ext_resource type="Script" uid="uid://bugjoi5qro4la" path="res://scenes/ui/recent_transactions/recent_transactions.gd" id="2_8farb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8farb"]
+line_spacing = 8.0
+font_size = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8farb"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
+
+[node name="RecentTransactions" type="VBoxContainer"]
+size_flags_horizontal = 3
+theme = ExtResource("1_tfjwn")
+theme_override_constants/separation = 0
+script = ExtResource("2_8farb")
+
+[node name="HeaderLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Recents"
+
+[node name="Spacer" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="NoneLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_font_sizes/font_size = 32
+text = "None!"
+
+[node name="Ledger" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TransactionsLabel" type="Label" parent="Ledger"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10.00
+20.00
+30.00
+40.00
+50.00"
+label_settings = SubResource("LabelSettings_8farb")
+
+[node name="MoreSection" type="VBoxContainer" parent="Ledger"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Spacer" type="Control" parent="Ledger/MoreSection"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="MoreLabel" type="Label" parent="Ledger/MoreSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_font_sizes/font_size = 32
+text = "+6 more"
+
+[node name="Underline" type="HSeparator" parent="Ledger"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_8farb")
+
+[node name="Spacer" type="Control" parent="Ledger"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="Ledger"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "150.00"

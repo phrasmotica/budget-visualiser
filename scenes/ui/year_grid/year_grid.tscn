@@ -1,0 +1,211 @@
+[gd_scene load_steps=20 format=3 uid="uid://cgrdp05co1rny"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_m770f"]
+[ext_resource type="Script" uid="uid://bkbtpnfcdua17" path="res://scenes/ui/year_grid/year_grid.gd" id="1_ranu4"]
+[ext_resource type="PackedScene" uid="uid://bd4umilpafiy8" path="res://scenes/ui/month_grid/month_grid.tscn" id="1_u3l1x"]
+[ext_resource type="Script" uid="uid://bdh57gta8ooey" path="res://scenes/ui/year_grid/year_grid_appearance.gd" id="2_1gj08"]
+[ext_resource type="Script" uid="uid://coftjs0d1j04x" path="res://scenes/ui/year_grid/month_grid_manager.gd" id="2_dllf6"]
+[ext_resource type="Script" uid="uid://dm00e0p8wnpul" path="res://scripts/data/budget_month.gd" id="3_he182"]
+[ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="4_yduip"]
+[ext_resource type="Resource" uid="uid://qvr7cuttu404" path="res://resources/data/budget_months/budget_month_feb.tres" id="5_2j0vn"]
+[ext_resource type="PackedScene" uid="uid://b8hyfp1xf5k3r" path="res://scenes/ui/category_labels/category_labels.tscn" id="5_b6wnc"]
+[ext_resource type="Resource" uid="uid://v5v24koklu5j" path="res://resources/data/budget_months/budget_month_mar.tres" id="6_0q5te"]
+[ext_resource type="Resource" uid="uid://c5h1qd3k6hox6" path="res://resources/data/budget_months/budget_month_apr.tres" id="7_m1uua"]
+[ext_resource type="Resource" uid="uid://dxsok8u6esmy2" path="res://resources/data/budget_months/budget_month_may.tres" id="8_m770f"]
+[ext_resource type="Resource" uid="uid://cc4jk6f8cjfeb" path="res://resources/data/budget_months/budget_month_jun.tres" id="9_1gj08"]
+[ext_resource type="Resource" uid="uid://dwjdchwtwsdi6" path="res://resources/data/budget_months/budget_month_jul.tres" id="10_pjleq"]
+[ext_resource type="Resource" uid="uid://dr7qnss7g8t0e" path="res://resources/data/budget_months/budget_month_aug.tres" id="11_setqv"]
+[ext_resource type="Resource" uid="uid://b8owodqa2wj8p" path="res://resources/data/budget_months/budget_month_sep.tres" id="12_qt48i"]
+[ext_resource type="Resource" uid="uid://bgy17jfatlgyl" path="res://resources/data/budget_months/budget_month_oct.tres" id="13_syrwd"]
+[ext_resource type="Resource" uid="uid://fe6vu50qqaui" path="res://resources/data/budget_months/budget_month_nov.tres" id="14_5x2wj"]
+[ext_resource type="Resource" uid="uid://2xpy25djlv8s" path="res://resources/data/budget_months/budget_month_dec.tres" id="15_vok08"]
+
+[node name="YearGrid" type="MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+offset_right = 1280.0
+offset_bottom = 808.0
+theme = ExtResource("1_m770f")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_ranu4")
+months = Array[ExtResource("3_he182")]([ExtResource("4_yduip"), ExtResource("5_2j0vn"), ExtResource("6_0q5te"), ExtResource("7_m1uua"), ExtResource("8_m770f"), ExtResource("9_1gj08"), ExtResource("10_pjleq"), ExtResource("11_setqv"), ExtResource("12_qt48i"), ExtResource("13_syrwd"), ExtResource("14_5x2wj"), ExtResource("15_vok08")])
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("h_scroll_container", "v_scroll_container", "category_scroll_container")]
+unique_name_in_owner = true
+script = ExtResource("2_1gj08")
+h_scroll_container = NodePath("../HBoxContainer/HScrollContainer")
+v_scroll_container = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer")
+category_scroll_container = NodePath("../HBoxContainer/VBoxContainer/CategoryScrollContainer")
+
+[node name="MonthGridManager" type="Node" parent="." node_paths=PackedStringArray("headers_parent", "grid_parent", "month_grids")]
+unique_name_in_owner = true
+script = ExtResource("2_dllf6")
+headers_parent = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels")
+grid_parent = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids")
+month_grids = [NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid0"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid1"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid2"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid3"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid4"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid5"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid6"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid7"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid8"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid9"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid10"), NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids/MonthGrid11")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CategoryHeaderLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Category"
+
+[node name="CategoryScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 756)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="CategoryLabels" parent="HBoxContainer/VBoxContainer/CategoryScrollContainer" instance=ExtResource("5_b6wnc")]
+layout_mode = 2
+
+[node name="HScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_m770f")
+
+[node name="HeaderLabels" type="HBoxContainer" parent="HBoxContainer/HScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MonthNameLabel0" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "January"
+
+[node name="MonthNameLabel1" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "February"
+
+[node name="MonthNameLabel2" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "March"
+
+[node name="MonthNameLabel3" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "April"
+
+[node name="MonthNameLabel4" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "May"
+
+[node name="MonthNameLabel5" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "June"
+
+[node name="MonthNameLabel6" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "July"
+
+[node name="MonthNameLabel7" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "August"
+
+[node name="MonthNameLabel8" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "September"
+
+[node name="MonthNameLabel9" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "October"
+
+[node name="MonthNameLabel10" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "November"
+
+[node name="MonthNameLabel11" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "December"
+
+[node name="VScrollContainer" type="ScrollContainer" parent="HBoxContainer/HScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MonthGrids" type="HBoxContainer" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MonthGrid0" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+
+[node name="MonthGrid1" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("5_2j0vn")
+
+[node name="MonthGrid2" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("6_0q5te")
+
+[node name="MonthGrid3" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("7_m1uua")
+
+[node name="MonthGrid4" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("8_m770f")
+
+[node name="MonthGrid5" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("9_1gj08")
+
+[node name="MonthGrid6" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("10_pjleq")
+
+[node name="MonthGrid7" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("11_setqv")
+
+[node name="MonthGrid8" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("12_qt48i")
+
+[node name="MonthGrid9" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("13_syrwd")
+
+[node name="MonthGrid10" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("14_5x2wj")
+
+[node name="MonthGrid11" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
+layout_mode = 2
+month = ExtResource("15_vok08")
