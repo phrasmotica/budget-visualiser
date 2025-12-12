@@ -1,3 +1,4 @@
+@tool
 class_name TransactionLister
 extends VBoxContainer
 
@@ -7,6 +8,9 @@ var _state_factory := TransactionListerStateFactory.new()
 var _current_state: TransactionListerState = null
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	switch_state(TransactionLister.State.DISABLED)
 
 func switch_state(state: State, state_data := TransactionListerStateData.new()) -> void:
