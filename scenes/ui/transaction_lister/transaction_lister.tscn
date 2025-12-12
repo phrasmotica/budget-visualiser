@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm2wjwnlao4hi"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_2yo14"]
+[ext_resource type="Script" uid="uid://cppgc0u1f1wkc" path="res://scenes/ui/transaction_lister/transaction_lister.gd" id="2_codm3"]
+[ext_resource type="PackedScene" uid="uid://b7p5a2v2vnked" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.tscn" id="2_jfgyy"]
+[ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_rdwny"]
+
+[sub_resource type="Resource" id="Resource_codm3"]
+script = ExtResource("3_rdwny")
+amount = 20.0
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_ahp7n"]
+script = ExtResource("3_rdwny")
+amount = 30.0
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_rdwny"]
+script = ExtResource("3_rdwny")
+amount = 40.0
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_wq4qt"]
+script = ExtResource("3_rdwny")
+amount = 50.0
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[node name="TransactionLister" type="VBoxContainer"]
+theme = ExtResource("1_2yo14")
+theme_override_constants/separation = 0
+script = ExtResource("2_codm3")
+
+[node name="HeaderLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Transactions"
+
+[node name="Spacer" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="NoneLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_font_sizes/font_size = 32
+text = "None!"
+
+[node name="Ledger" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TransactionSelectPanel0" parent="Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+
+[node name="TransactionSelectPanel1" parent="Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_codm3")
+
+[node name="TransactionSelectPanel2" parent="Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_ahp7n")
+
+[node name="TransactionSelectPanel3" parent="Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_rdwny")
+
+[node name="TransactionSelectPanel4" parent="Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_wq4qt")
