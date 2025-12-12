@@ -1,3 +1,4 @@
+@tool
 class_name BudgetTransaction
 extends Resource
 
@@ -8,4 +9,8 @@ var category: BudgetCategory
 var month: BudgetMonth
 
 @export
-var amount := 0.0
+var amount := 0.0:
+	set(value):
+		amount = value
+
+		emit_changed()
