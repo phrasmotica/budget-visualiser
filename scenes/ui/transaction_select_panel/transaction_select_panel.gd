@@ -46,3 +46,11 @@ func _refresh() -> void:
 	if label:
 		var amount := transaction.amount if transaction else 0.0
 		label.text = Strings.curr(amount)
+
+func highlight() -> void:
+	if _current_state:
+		_current_state.highlight()
+
+func unhighlight() -> void:
+	if _current_state:
+		_current_state.unhighlight()

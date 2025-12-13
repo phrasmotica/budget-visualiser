@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm2wjwnlao4hi"]
+[gd_scene load_steps=10 format=3 uid="uid://cm2wjwnlao4hi"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_2yo14"]
 [ext_resource type="Script" uid="uid://cppgc0u1f1wkc" path="res://scenes/ui/transaction_lister/transaction_lister.gd" id="2_codm3"]
 [ext_resource type="PackedScene" uid="uid://b7p5a2v2vnked" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.tscn" id="2_jfgyy"]
+[ext_resource type="Script" uid="uid://cwtns6o3g58pt" path="res://scenes/ui/transaction_lister/transaction_panel_manager.gd" id="3_ahp7n"]
 [ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_rdwny"]
 
 [sub_resource type="Resource" id="Resource_codm3"]
@@ -29,6 +30,11 @@ metadata/_custom_type_script = "uid://bici6q1crcvjm"
 theme = ExtResource("1_2yo14")
 theme_override_constants/separation = 0
 script = ExtResource("2_codm3")
+
+[node name="TransactionPanelManager" type="Node" parent="." node_paths=PackedStringArray("select_panels")]
+unique_name_in_owner = true
+script = ExtResource("3_ahp7n")
+select_panels = [NodePath("../Ledger/TransactionSelectPanel0"), NodePath("../Ledger/TransactionSelectPanel1"), NodePath("../Ledger/TransactionSelectPanel2"), NodePath("../Ledger/TransactionSelectPanel3"), NodePath("../Ledger/TransactionSelectPanel4")]
 
 [node name="HeaderLabel" type="Label" parent="."]
 layout_mode = 2
