@@ -7,9 +7,6 @@ func _enter_tree() -> void:
 	if _transaction_panel_manager.count() > 0:
 		_transaction_panel_manager.highlight(_index_tracker.current())
 
-	# TODO: use the space bar to toggle the selected one for inclusion/removal
-	# of the selected panel's transaction...
-
 	SignalHelper.persist(
 		GridInput.move_down,
 		_on_move_down
@@ -25,3 +22,7 @@ func _on_move_down() -> void:
 
 func _on_move_up() -> void:
 	_transaction_panel_manager.highlight(_index_tracker.previous())
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_released("ui_accept"):
+		_transaction_panel_manager.toggle_current()

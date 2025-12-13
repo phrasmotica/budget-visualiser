@@ -9,7 +9,8 @@ script = ExtResource("3_gweyu")
 amount = 10.0
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
-[sub_resource type="LabelSettings" id="LabelSettings_jfgyy"]
+[sub_resource type="LabelSettings" id="LabelSettings_gweyu"]
+resource_local_to_scene = true
 line_spacing = 8.0
 font_size = 32
 
@@ -35,6 +36,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "£10.00"
-label_settings = SubResource("LabelSettings_jfgyy")
+label_settings = SubResource("LabelSettings_gweyu")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -54,3 +54,11 @@ func highlight() -> void:
 func unhighlight() -> void:
 	if _current_state:
 		_current_state.unhighlight()
+
+func dim() -> void:
+	if label:
+		label.label_settings.font_color = Color.DIM_GRAY
+
+func undim() -> void:
+	if label:
+		label.label_settings.font_color = Color.WHITE
