@@ -7,7 +7,7 @@ func _enter_tree() -> void:
 	if _transaction_panel_manager.count() > 0:
 		_transaction_panel_manager.highlight(_index_tracker.current())
 
-	_finished_button.unhighlight()
+	_appearance.for_enabled()
 
 	SignalHelper.persist(
 		GridInput.move_down,
@@ -32,17 +32,22 @@ func _enter_tree() -> void:
 func _on_move_down() -> void:
 	if _index_tracker.is_last():
 		transition_state(TransactionLister.State.FINISHING)
-	else:
-		_transaction_panel_manager.highlight(_index_tracker.next())
+		return
+
+	var new_panel := _transaction_panel_manager.highlight(_index_tracker.next())
+	_appearance.scroll_down_to_highlighted_panel(new_panel)
 
 func _on_move_bottom() -> void:
-	_transaction_panel_manager.highlight(_index_tracker.last())
+	var new_panel := _transaction_panel_manager.highlight(_index_tracker.last())
+	_appearance.scroll_down_to_highlighted_panel(new_panel)
 
 func _on_move_up() -> void:
-	_transaction_panel_manager.highlight(_index_tracker.previous())
+	var new_panel := _transaction_panel_manager.highlight(_index_tracker.previous())
+	_appearance.scroll_up_to_highlighted_panel(new_panel)
 
 func _on_move_top() -> void:
-	_transaction_panel_manager.highlight(_index_tracker.first())
+	var new_panel := _transaction_panel_manager.highlight(_index_tracker.first())
+	_appearance.scroll_up_to_highlighted_panel(new_panel)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cm2wjwnlao4hi"]
+[gd_scene load_steps=13 format=3 uid="uid://cm2wjwnlao4hi"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_2yo14"]
 [ext_resource type="Script" uid="uid://cppgc0u1f1wkc" path="res://scenes/ui/transaction_lister/transaction_lister.gd" id="2_codm3"]
 [ext_resource type="PackedScene" uid="uid://b7p5a2v2vnked" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.tscn" id="2_jfgyy"]
 [ext_resource type="Script" uid="uid://cwtns6o3g58pt" path="res://scenes/ui/transaction_lister/transaction_panel_manager.gd" id="3_ahp7n"]
+[ext_resource type="Script" uid="uid://px3yy4c7eu5c" path="res://scenes/ui/transaction_lister/transaction_lister_appearance.gd" id="3_klfdr"]
 [ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_rdwny"]
 [ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="4_wq4qt"]
 
@@ -38,10 +39,16 @@ theme = ExtResource("1_2yo14")
 theme_override_constants/separation = 0
 script = ExtResource("2_codm3")
 
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("scroll_container", "finished_button")]
+unique_name_in_owner = true
+script = ExtResource("3_klfdr")
+scroll_container = NodePath("../ScrollContainer")
+finished_button = NodePath("../FinishedButton")
+
 [node name="TransactionPanelManager" type="Node" parent="." node_paths=PackedStringArray("select_panels")]
 unique_name_in_owner = true
 script = ExtResource("3_ahp7n")
-select_panels = [NodePath("../Ledger/TransactionSelectPanel0"), NodePath("../Ledger/TransactionSelectPanel1"), NodePath("../Ledger/TransactionSelectPanel2"), NodePath("../Ledger/TransactionSelectPanel3"), NodePath("../Ledger/TransactionSelectPanel4")]
+select_panels = [NodePath("../ScrollContainer/Ledger/TransactionSelectPanel0"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel1"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel2"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel3"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel4")]
 
 [node name="HeaderLabel" type="Label" parent="."]
 layout_mode = 2
@@ -60,27 +67,34 @@ theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 theme_override_font_sizes/font_size = 32
 text = "None!"
 
-[node name="Ledger" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Ledger" type="VBoxContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="TransactionSelectPanel0" parent="Ledger" instance=ExtResource("2_jfgyy")]
+[node name="TransactionSelectPanel0" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 
-[node name="TransactionSelectPanel1" parent="Ledger" instance=ExtResource("2_jfgyy")]
+[node name="TransactionSelectPanel1" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 transaction = SubResource("Resource_codm3")
 
-[node name="TransactionSelectPanel2" parent="Ledger" instance=ExtResource("2_jfgyy")]
+[node name="TransactionSelectPanel2" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 transaction = SubResource("Resource_ahp7n")
 
-[node name="TransactionSelectPanel3" parent="Ledger" instance=ExtResource("2_jfgyy")]
+[node name="TransactionSelectPanel3" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 transaction = SubResource("Resource_rdwny")
 
-[node name="TransactionSelectPanel4" parent="Ledger" instance=ExtResource("2_jfgyy")]
+[node name="TransactionSelectPanel4" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 transaction = SubResource("Resource_wq4qt")
 

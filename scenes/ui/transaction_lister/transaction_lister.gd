@@ -5,6 +5,9 @@ extends VBoxContainer
 enum State { DISABLED, ENABLED, FINISHING }
 
 @onready
+var appearance: TransactionListerAppearance = %Appearance
+
+@onready
 var transaction_panel_manager: TransactionPanelManager = %TransactionPanelManager
 
 @onready
@@ -32,6 +35,7 @@ func switch_state(state: State, state_data := TransactionListerStateData.new()) 
 	_current_state.setup(
 		self,
 		state_data,
+		appearance,
 		transaction_panel_manager,
 		finished_button,
 		_index_tracker)

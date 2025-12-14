@@ -5,7 +5,8 @@ func _enter_tree() -> void:
 	print("%s is now finishing" % _transaction_lister.name)
 
 	_transaction_panel_manager.unhighlight()
-	_finished_button.highlight()
+
+	_appearance.for_finishing()
 
 	SignalHelper.persist(
 		GridInput.move_up,
