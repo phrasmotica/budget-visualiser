@@ -43,10 +43,12 @@ theme = ExtResource("1_2yo14")
 theme_override_constants/separation = 0
 script = ExtResource("2_codm3")
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("scroll_container", "finished_button")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("panel_manager", "scroll_container", "panel_parent", "finished_button")]
 unique_name_in_owner = true
 script = ExtResource("3_klfdr")
+panel_manager = NodePath("../TransactionPanelManager")
 scroll_container = NodePath("../ScrollContainer")
+panel_parent = NodePath("../ScrollContainer/Ledger")
 finished_button = NodePath("../FinishedButton")
 
 [node name="TransactionPanelManager" type="Node" parent="." node_paths=PackedStringArray("select_panels")]

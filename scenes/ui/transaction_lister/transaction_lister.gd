@@ -4,6 +4,16 @@ extends VBoxContainer
 
 enum State { DISABLED, ENABLED, FINISHING }
 
+@export
+var transactions: Array[BudgetTransaction] = []:
+	set(value):
+		transactions = value
+
+		for t in transactions:
+			SignalHelper.on_changed(t, _refresh)
+
+		_refresh()
+
 @onready
 var appearance: TransactionListerAppearance = %Appearance
 
@@ -44,3 +54,7 @@ func switch_state(state: State, state_data := TransactionListerStateData.new()) 
 	_current_state.name = "TransactionListerStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func _refresh() -> void:
+	if appearance:
+		appearance.refresh_panels(self, transactions)
