@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c1ktlawkckrai"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://c1ktlawkckrai"]
 
 [ext_resource type="FontFile" uid="uid://c6otstnbhgawy" path="res://assets/fonts/PixelOperator8.ttf" id="1_muggs"]
 
@@ -15,6 +15,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 16
 border_color = Color(0.6, 0, 0.6, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7liu"]
+bg_color = Color(0.6, 0, 0.6, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc6h1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 4
@@ -30,6 +33,9 @@ bg_color = Color(0.6, 0, 0.6, 1)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 16
 border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tlo8"]
+bg_color = Color(0.143521, 0.258029, 0.212678, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6d5u"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -52,12 +58,16 @@ EmptyPanelContainer/base_type = &"PanelContainer"
 EmptyPanelContainer/styles/panel = SubResource("StyleBoxEmpty_muggs")
 HighlightedAmountEditContainer/base_type = &"PanelContainer"
 HighlightedAmountEditContainer/styles/panel = SubResource("StyleBoxFlat_l5dxd")
+HighlightedButtonPanel/base_type = &"PanelContainer"
+HighlightedButtonPanel/styles/panel = SubResource("StyleBoxFlat_p7liu")
 HighlightedMonthGridContainer/base_type = &"PanelContainer"
 HighlightedMonthGridContainer/styles/panel = SubResource("StyleBoxFlat_fc6h1")
 HighlightedPanelContainer/base_type = &"PanelContainer"
 HighlightedPanelContainer/styles/panel = SubResource("StyleBoxFlat_muggs")
 IdleAmountEditContainer/base_type = &"PanelContainer"
 IdleAmountEditContainer/styles/panel = SubResource("StyleBoxFlat_s26k0")
+IdleButtonPanel/base_type = &"PanelContainer"
+IdleButtonPanel/styles/panel = SubResource("StyleBoxFlat_7tlo8")
 IdleMonthGridContainer/base_type = &"PanelContainer"
 IdleMonthGridContainer/styles/panel = SubResource("StyleBoxFlat_k6d5u")
 IdlePanelContainer/base_type = &"PanelContainer"
