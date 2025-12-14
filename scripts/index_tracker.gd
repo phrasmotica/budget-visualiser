@@ -18,3 +18,11 @@ func previous() -> int:
 
 func current() -> int:
 	return _current
+
+func last() -> int:
+	_current = _maximum
+	return _current
+
+func first() -> int:
+	_current = 0
+	return _current

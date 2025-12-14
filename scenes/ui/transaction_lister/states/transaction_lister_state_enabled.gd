@@ -13,15 +13,31 @@ func _enter_tree() -> void:
 	)
 
 	SignalHelper.persist(
+		GridInput.move_bottom,
+		_on_move_bottom
+	)
+
+	SignalHelper.persist(
 		GridInput.move_up,
 		_on_move_up
+	)
+
+	SignalHelper.persist(
+		GridInput.move_top,
+		_on_move_top
 	)
 
 func _on_move_down() -> void:
 	_transaction_panel_manager.highlight(_index_tracker.next())
 
+func _on_move_bottom() -> void:
+	_transaction_panel_manager.highlight(_index_tracker.last())
+
 func _on_move_up() -> void:
 	_transaction_panel_manager.highlight(_index_tracker.previous())
+
+func _on_move_top() -> void:
+	_transaction_panel_manager.highlight(_index_tracker.first())
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
