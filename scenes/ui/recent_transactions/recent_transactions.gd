@@ -26,6 +26,12 @@ var more_section: VBoxContainer = %MoreSection
 var more_label: Label = %MoreLabel
 
 @onready
+var hidden_section: VBoxContainer = %HiddenSection
+
+@onready
+var hidden_label: Label = %HiddenLabel
+
+@onready
 var total_label: Label = %TotalLabel
 
 func _ready() -> void:
@@ -45,7 +51,16 @@ func reload() -> void:
 
 	more_section.visible = more_count > 0
 
+	var hidden_count := transactions \
+		.filter(func(t: BudgetTransaction): return not t.hidden) \
+		.size()
+
+	hidden_label.text = "+%d hidden" % hidden_count
+
+	hidden_section.visible = hidden_count > 0
+
 	var total_amount: float = transactions \
+		.filter(func(t: BudgetTransaction): return not t.hidden) \
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.reduce(Math.sum, 0.0)
 
@@ -67,6 +82,7 @@ func _compute_transactions_text(transactions: Array[BudgetTransaction]) -> Strin
 
 	return recent_transactions \
 		.slice(0, visible_count) \
+		.filter(func(t: BudgetTransaction): return not t.hidden) \
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.map(Strings.curr) \
 		.reduce(Strings.join("\n"))

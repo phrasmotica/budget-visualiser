@@ -63,5 +63,6 @@ func compute_total_expenditure() -> float:
 
 func _add_amounts(transactions: Array[BudgetTransaction]) -> float:
 	return transactions \
+		.filter(func(t: BudgetTransaction): return not t.hidden) \
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.reduce(Math.sum, 0.0)
