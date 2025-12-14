@@ -26,3 +26,6 @@ func last() -> int:
 func first() -> int:
 	_current = 0
 	return _current
+
+func is_last() -> bool:
+	return _current == _maximum

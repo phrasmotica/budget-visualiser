@@ -7,6 +7,8 @@ func _enter_tree() -> void:
 	if _transaction_panel_manager.count() > 0:
 		_transaction_panel_manager.highlight(_index_tracker.current())
 
+	_finished_button.unhighlight()
+
 	SignalHelper.persist(
 		GridInput.move_down,
 		_on_move_down
@@ -28,7 +30,10 @@ func _enter_tree() -> void:
 	)
 
 func _on_move_down() -> void:
-	_transaction_panel_manager.highlight(_index_tracker.next())
+	if _index_tracker.is_last():
+		transition_state(TransactionLister.State.FINISHING)
+	else:
+		_transaction_panel_manager.highlight(_index_tracker.next())
 
 func _on_move_bottom() -> void:
 	_transaction_panel_manager.highlight(_index_tracker.last())

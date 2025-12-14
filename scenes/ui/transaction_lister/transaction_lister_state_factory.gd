@@ -6,6 +6,7 @@ func _init() -> void:
 	states = {
 		TransactionLister.State.DISABLED: TransactionListerStateDisabled,
 		TransactionLister.State.ENABLED: TransactionListerStateEnabled,
+		TransactionLister.State.FINISHING: TransactionListerStateFinishing,
 	}
 
 func get_fresh_state(state: TransactionLister.State) -> TransactionListerState:

@@ -26,6 +26,9 @@ func highlight(index: int) -> TransactionSelectPanel:
 
 	return select_panels[_highlighted_index]
 
+func unhighlight() -> void:
+	select_panels[_highlighted_index].unhighlight()
+
 func toggle_current() -> bool:
 	var new_inclusion := not _inclusion_mask[_highlighted_index]
 

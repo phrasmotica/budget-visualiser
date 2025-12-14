@@ -2,7 +2,7 @@
 class_name TransactionLister
 extends VBoxContainer
 
-enum State { DISABLED, ENABLED }
+enum State { DISABLED, ENABLED, FINISHING }
 
 @onready
 var transaction_panel_manager: TransactionPanelManager = %TransactionPanelManager
