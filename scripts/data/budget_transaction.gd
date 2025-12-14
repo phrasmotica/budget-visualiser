@@ -14,3 +14,10 @@ var amount := 0.0:
 		amount = value
 
 		emit_changed()
+
+@export
+var hidden := false:
+	set(value):
+		hidden = value
+
+		emit_changed()

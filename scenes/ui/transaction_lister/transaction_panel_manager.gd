@@ -5,11 +5,6 @@ extends Node
 var select_panels: Array[TransactionSelectPanel] = []
 
 var _highlighted_index := -1
-var _inclusion_mask: Array[bool] = []
-
-func _ready() -> void:
-	for s in select_panels:
-		_inclusion_mask.append(true)
 
 func highlight(index: int) -> TransactionSelectPanel:
 	if index < 0 or index > select_panels.size() - 1:
@@ -30,18 +25,13 @@ func unhighlight() -> void:
 	select_panels[_highlighted_index].unhighlight()
 
 func toggle_current() -> bool:
-	var new_inclusion := not _inclusion_mask[_highlighted_index]
+	var new_hidden := not select_panels[_highlighted_index].transaction.hidden
 
-	print("Transaction %d included: %s" % [_highlighted_index, new_inclusion])
+	print("Transaction %d hidden: %s" % [_highlighted_index, new_hidden])
 
-	_inclusion_mask[_highlighted_index] = new_inclusion
+	select_panels[_highlighted_index].transaction.hidden = new_hidden
 
-	if new_inclusion:
-		select_panels[_highlighted_index].undim()
-	else:
-		select_panels[_highlighted_index].dim()
-
-	return new_inclusion
+	return new_hidden
 
 func count() -> int:
 	return select_panels.size()

@@ -44,8 +44,15 @@ func switch_state(state: State, state_data := TransactionSelectPanelStateData.ne
 
 func _refresh() -> void:
 	if label:
-		var amount := transaction.amount if transaction else 0.0
-		label.text = Strings.curr(amount)
+		if transaction:
+			label.text = Strings.curr(transaction.amount)
+		else:
+			label.text = "???"
+
+		if transaction and not transaction.hidden:
+			label.label_settings.font_color = Color.WHITE
+		else:
+			label.label_settings.font_color = Color.DIM_GRAY
 
 func highlight() -> void:
 	if _current_state:
@@ -54,11 +61,3 @@ func highlight() -> void:
 func unhighlight() -> void:
 	if _current_state:
 		_current_state.unhighlight()
-
-func dim() -> void:
-	if label:
-		label.label_settings.font_color = Color.DIM_GRAY
-
-func undim() -> void:
-	if label:
-		label.label_settings.font_color = Color.WHITE
