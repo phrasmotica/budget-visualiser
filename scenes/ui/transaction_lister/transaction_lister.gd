@@ -7,6 +7,9 @@ enum State { DISABLED, ENABLED }
 @onready
 var transaction_panel_manager: TransactionPanelManager = %TransactionPanelManager
 
+@onready
+var finished_button: ButtonPanel = %FinishedButton
+
 var _state_factory := TransactionListerStateFactory.new()
 var _current_state: TransactionListerState = null
 
@@ -30,6 +33,7 @@ func switch_state(state: State, state_data := TransactionListerStateData.new()) 
 		self,
 		state_data,
 		transaction_panel_manager,
+		finished_button,
 		_index_tracker)
 
 	_current_state.state_transition_requested.connect(switch_state)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm2wjwnlao4hi"]
+[gd_scene load_steps=12 format=3 uid="uid://cm2wjwnlao4hi"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_2yo14"]
 [ext_resource type="Script" uid="uid://cppgc0u1f1wkc" path="res://scenes/ui/transaction_lister/transaction_lister.gd" id="2_codm3"]
 [ext_resource type="PackedScene" uid="uid://b7p5a2v2vnked" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.tscn" id="2_jfgyy"]
 [ext_resource type="Script" uid="uid://cwtns6o3g58pt" path="res://scenes/ui/transaction_lister/transaction_panel_manager.gd" id="3_ahp7n"]
 [ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_rdwny"]
+[ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="4_wq4qt"]
 
 [sub_resource type="Resource" id="Resource_codm3"]
 script = ExtResource("3_rdwny")
@@ -25,6 +26,12 @@ metadata/_custom_type_script = "uid://bici6q1crcvjm"
 script = ExtResource("3_rdwny")
 amount = 50.0
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wq4qt"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
 
 [node name="TransactionLister" type="VBoxContainer"]
 theme = ExtResource("1_2yo14")
@@ -76,3 +83,13 @@ transaction = SubResource("Resource_rdwny")
 [node name="TransactionSelectPanel4" parent="Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 transaction = SubResource("Resource_wq4qt")
+
+[node name="Underline" type="HSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_wq4qt")
+
+[node name="FinishedButton" parent="." instance=ExtResource("4_wq4qt")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Finished"
