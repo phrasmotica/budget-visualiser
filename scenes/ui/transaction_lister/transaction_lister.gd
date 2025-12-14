@@ -29,6 +29,8 @@ var _current_state: TransactionListerState = null
 var _index_tracker: IndexTracker = null
 
 func _ready() -> void:
+	_refresh()
+
 	if Engine.is_editor_hint():
 		return
 
