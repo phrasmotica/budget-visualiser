@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://c1ktlawkckrai"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://c1ktlawkckrai"]
 
 [ext_resource type="FontFile" uid="uid://c6otstnbhgawy" path="res://assets/fonts/PixelOperator8.ttf" id="1_muggs"]
 
@@ -48,6 +48,9 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk2ga"]
 bg_color = Color(0.143521, 0.258029, 0.212678, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arcea"]
+bg_color = Color(0.638871, 0.356112, 0.465726, 1)
+
 [resource]
 default_font = ExtResource("1_muggs")
 AmountEntryModalContainer/base_type = &"PanelContainer"
@@ -72,3 +75,5 @@ IdleMonthGridContainer/base_type = &"PanelContainer"
 IdleMonthGridContainer/styles/panel = SubResource("StyleBoxFlat_k6d5u")
 IdlePanelContainer/base_type = &"PanelContainer"
 IdlePanelContainer/styles/panel = SubResource("StyleBoxFlat_vk2ga")
+TransactionListerModalContainer/base_type = &"PanelContainer"
+TransactionListerModalContainer/styles/panel = SubResource("StyleBoxFlat_arcea")
