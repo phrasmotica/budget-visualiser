@@ -36,11 +36,6 @@ func for_shown() -> void:
 	if edit_minor:
 		edit_minor.disable()
 
-func switch_modes() -> void:
-	# TODO: switch between new transaction edit more (default) and existing
-	# transaction edit mode...
-	pass
-
 func switch_amount_edits() -> void:
 	if edit_major.is_enabled():
 		edit_major.disable()

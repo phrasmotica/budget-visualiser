@@ -43,9 +43,6 @@ func set_amounts_caption(starting_amount: float, preview_amount: float) -> void:
 	_appearance.set_caption(caption)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_focus_next"):
-		_appearance.switch_modes()
-
 	if _should_switch_edits():
 		_appearance.switch_amount_edits()
 
