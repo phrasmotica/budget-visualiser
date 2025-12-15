@@ -4,7 +4,9 @@ param(
 	[string[]] $InitialStates = @("Disabled", "Enabled"),
 
 	[ValidateSet("Node", "Node2D", "Control")]
-	[string] $BaseType = "Node"
+	[string] $BaseType = "Node",
+
+	[switch] $Tool = $false
 )
 
 function PascalToSnake([string] $Value) {
@@ -35,7 +37,13 @@ function CreateBaseFile([string] $BaseDir) {
 
 	$stateEnumStr = $stateNamesUpper -join ", "
 
-	$baseLines = [IO.File]::ReadAllLines(".\templates\state_machine_base.gdtemplate")
+	$templateFile = ".\templates\state_machine_base.gdtemplate"
+
+	if ($Tool) {
+		$templateFile = ".\templates\state_machine_base_tool.gdtemplate"
+	}
+
+	$baseLines = [IO.File]::ReadAllLines($templateFile)
 
 	$transformedBaseLines = $baseLines | % {
 		$_ `
