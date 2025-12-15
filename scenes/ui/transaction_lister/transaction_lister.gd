@@ -34,7 +34,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	switch_state(TransactionLister.State.ENABLED)
+	switch_state(TransactionLister.State.DISABLED)
 
 func switch_state(state: State, state_data := TransactionListerStateData.new()) -> void:
 	if _current_state != null:
@@ -62,3 +62,11 @@ func _refresh() -> void:
 
 	if appearance:
 		appearance.refresh_panels(self, transactions)
+
+func enable() -> void:
+	if _current_state:
+		_current_state.enable()
+
+func disable() -> void:
+	if _current_state:
+		_current_state.disable()

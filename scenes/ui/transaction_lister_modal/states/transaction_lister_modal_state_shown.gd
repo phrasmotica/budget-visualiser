@@ -6,8 +6,15 @@ func _enter_tree() -> void:
 
 	_transaction_lister_modal.show()
 
+	var transactions := _state_data.get_transactions()
+
+	_transaction_lister.transactions = transactions
+	_transaction_lister.enable()
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_cancel"):
+		_transaction_lister.disable()
+
 		TransactionListerEvents.emit_entry_cancelled()
 
 		_to_hidden()

@@ -52,3 +52,6 @@ func _on_move_top() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		_transaction_panel_manager.toggle_current()
+
+func disable() -> void:
+	transition_state(TransactionLister.State.DISABLED)

@@ -23,3 +23,6 @@ func _on_move_up() -> void:
 
 func _on_finished() -> void:
 	print("Finished toggling transactions")
+
+func disable() -> void:
+	transition_state(TransactionLister.State.DISABLED)

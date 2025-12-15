@@ -68,6 +68,14 @@ func _show_modal() -> void:
 	transition_state(SpreadsheetUI.State.DISABLED)
 
 func _show_transaction_lister_modal() -> void:
-	_transaction_lister_modal.enable()
+	var category := _year_grid.get_highlighted_category()
+	var month := _year_grid.get_highlighted_month()
+
+	var budget_data := BudgetProvider.get_budget_data()
+	var transactions := budget_data.get_transactions_for_category_and_month(
+		category,
+		month)
+
+	_transaction_lister_modal.enable(transactions)
 
 	transition_state(SpreadsheetUI.State.DISABLED)

@@ -30,3 +30,9 @@ func transition_state(
 	state_data := TransactionListerStateData.new(),
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
+
+func enable() -> void:
+	pass
+
+func disable() -> void:
+	pass
