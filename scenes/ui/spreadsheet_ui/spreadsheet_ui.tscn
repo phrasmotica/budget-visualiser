@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpgey7qxb48kd"]
+[gd_scene load_steps=6 format=3 uid="uid://bpgey7qxb48kd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_5jsgs"]
 [ext_resource type="Script" uid="uid://tw42pkh8j46o" path="res://scenes/ui/spreadsheet_ui/spreadsheet_ui.gd" id="2_ic03t"]
 [ext_resource type="PackedScene" uid="uid://cgrdp05co1rny" path="res://scenes/ui/year_grid/year_grid.tscn" id="2_wovv7"]
 [ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_ic03t"]
+[ext_resource type="PackedScene" uid="uid://se6hbk6dpl1j" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.tscn" id="5_abri7"]
 
 [node name="SpreadsheetUI" type="PanelContainer"]
 offset_right = 1280.0
@@ -32,3 +33,7 @@ layout_mode = 2
 title = "Add Transaction"
 sub_header = "<category> - <month>"
 caption = "<old amount> -> <new amount>"
+
+[node name="TransactionListerModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("5_abri7")]
+unique_name_in_owner = true
+layout_mode = 2

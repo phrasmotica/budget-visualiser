@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://ym2dnnvuxdqk" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.gd" id="2_r45r2"]
 
 [node name="TransactionListerModal" type="PanelContainer"]
+custom_minimum_size = Vector2(1080, 600)
 theme = ExtResource("1_u7juv")
 theme_type_variation = &"TransactionListerModalContainer"
 script = ExtResource("2_r45r2")

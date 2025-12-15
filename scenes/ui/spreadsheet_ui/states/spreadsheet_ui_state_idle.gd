@@ -7,6 +7,7 @@ func _enter_tree() -> void:
 	_year_grid.enable()
 
 	_amount_entry_modal.disable()
+	_transaction_lister_modal.disable()
 
 	SignalHelper.once_next_frame(_inject_entered_amount)
 
@@ -25,6 +26,9 @@ func _enter_tree() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		_show_modal()
+
+	if Input.is_action_just_released("show_transaction_lister"):
+		_show_transaction_lister_modal()
 
 func _inject_entered_amount() -> void:
 	var entered_amount := _state_data.get_entered_amount()
@@ -60,5 +64,10 @@ func _show_modal() -> void:
 	var starting_amount := BudgetProvider.get_amount(category, month)
 
 	_amount_entry_modal.enable(category, month, 0.0, starting_amount)
+
+	transition_state(SpreadsheetUI.State.DISABLED)
+
+func _show_transaction_lister_modal() -> void:
+	_transaction_lister_modal.enable()
 
 	transition_state(SpreadsheetUI.State.DISABLED)

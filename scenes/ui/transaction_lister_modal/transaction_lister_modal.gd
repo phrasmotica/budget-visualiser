@@ -32,3 +32,11 @@ func switch_state(state: State, state_data := TransactionListerModalStateData.ne
 
 func _refresh() -> void:
 	pass
+
+func enable() -> void:
+	if _current_state:
+		_current_state.enable()
+
+func disable() -> void:
+	if _current_state:
+		_current_state.disable()
