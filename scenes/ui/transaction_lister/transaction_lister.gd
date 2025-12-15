@@ -34,8 +34,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	_index_tracker = IndexTracker.new(transaction_panel_manager.count() - 1)
-
 	switch_state(TransactionLister.State.ENABLED)
 
 func switch_state(state: State, state_data := TransactionListerStateData.new()) -> void:
@@ -58,5 +56,9 @@ func switch_state(state: State, state_data := TransactionListerStateData.new()) 
 	call_deferred("add_child", _current_state)
 
 func _refresh() -> void:
+	_index_tracker = IndexTracker.new(
+		transactions.size() - 1,
+		"TransactionListerIndexTracker")
+
 	if appearance:
 		appearance.refresh_panels(self, transactions)

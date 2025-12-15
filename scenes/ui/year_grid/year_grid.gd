@@ -31,7 +31,9 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	_index_tracker = IndexTracker.new(month_grid_manager.count() - 1)
+	_index_tracker = IndexTracker.new(
+		month_grid_manager.count() - 1,
+		"YearGridIndexTracker")
 
 	switch_state(State.IDLE)
 
