@@ -16,6 +16,12 @@ var transaction: BudgetTransaction:
 @onready
 var label: Label = %Label
 
+@onready
+var unhidden_icon: TextureRect = %UnhiddenIcon
+
+@onready
+var hidden_icon: TextureRect = %HiddenIcon
+
 var _state_factory := TransactionSelectPanelStateFactory.new()
 var _current_state: TransactionSelectPanelState = null
 
@@ -53,6 +59,12 @@ func _refresh() -> void:
 			label.label_settings.font_color = Color.WHITE
 		else:
 			label.label_settings.font_color = Color.DIM_GRAY
+
+	if unhidden_icon:
+		unhidden_icon.visible = transaction and not transaction.hidden
+
+	if hidden_icon:
+		hidden_icon.visible = transaction and transaction.hidden
 
 func highlight() -> void:
 	if _current_state:
