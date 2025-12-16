@@ -57,23 +57,6 @@ unique_name_in_owner = true
 script = ExtResource("3_ahp7n")
 select_panels = [NodePath("../ScrollContainer/Ledger/TransactionSelectPanel0"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel1"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel2"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel3"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel4")]
 
-[node name="HeaderLabel" type="Label" parent="."]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Transactions"
-
-[node name="Spacer" type="Control" parent="."]
-custom_minimum_size = Vector2(0, 16)
-layout_mode = 2
-
-[node name="NoneLabel" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
-theme_override_font_sizes/font_size = 32
-text = "None!"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
