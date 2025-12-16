@@ -8,14 +8,14 @@ func _enter_tree() -> void:
 	_modal_buttons.activate()
 
 	SignalHelper.persist(
-		_modal_buttons.finished,
-		_on_finished
+		_modal_buttons.cancelled,
+		_cancel
 	)
 
-func _on_finished() -> void:
-	print("Finished toggling transactions")
-
-	_finish()
+	SignalHelper.persist(
+		_modal_buttons.confirmed,
+		_finish
+	)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
@@ -26,14 +26,23 @@ func _process(_delta: float) -> void:
 		transition_state(TransactionListerModal.State.ACTING, state_data)
 
 	if Input.is_action_just_released("ui_cancel"):
-		print("Cancelled toggling transactions")
-
-		_finish()
+		_cancel()
 
 func disable() -> void:
 	_to_hidden()
 
+func _cancel() -> void:
+	print("Cancelled toggling transactions")
+
+	_transaction_lister.disable()
+
+	TransactionListerEvents.emit_entry_cancelled()
+
+	_to_hidden()
+
 func _finish() -> void:
+	print("Finished toggling transactions")
+
 	_transaction_lister.disable()
 
 	TransactionListerEvents.emit_entry_cancelled()
