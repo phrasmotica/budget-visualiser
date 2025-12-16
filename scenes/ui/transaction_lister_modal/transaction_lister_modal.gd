@@ -8,7 +8,7 @@ enum State { HIDDEN, ACTING, FINISHING }
 var transaction_lister: TransactionLister = %TransactionLister
 
 @onready
-var finished_button: ButtonPanel = %FinishedButton
+var modal_buttons: ModalButtons = %ModalButtons
 
 var _state_factory := TransactionListerModalStateFactory.new()
 var _current_state: TransactionListerModalState = null
@@ -31,7 +31,7 @@ func switch_state(state: State, state_data := TransactionListerModalStateData.ne
 		self,
 		state_data,
 		transaction_lister,
-		finished_button)
+		modal_buttons)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "TransactionListerModalStateMachine: %s" % str(state)

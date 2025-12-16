@@ -4,8 +4,13 @@ extends VBoxContainer
 
 enum State { IDLE, ACTIVE }
 
+@onready
+var finished_button: ButtonPanel = %FinishedButton
+
 var _state_factory := ModalButtonsStateFactory.new()
 var _current_state: ModalButtonsState = null
+
+signal finished
 
 func _ready() -> void:
 	_refresh()
@@ -23,7 +28,8 @@ func switch_state(state: State, state_data := ModalButtonsStateData.new()) -> vo
 
 	_current_state.setup(
 		self,
-		state_data)
+		state_data,
+		finished_button)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "ModalButtonsStateMachine: %s" % str(state)
@@ -32,3 +38,14 @@ func switch_state(state: State, state_data := ModalButtonsStateData.new()) -> vo
 
 func _refresh() -> void:
 	pass
+
+func emit_finished() -> void:
+	finished.emit()
+
+func activate() -> void:
+	if _current_state:
+		_current_state.activate()
+
+func deactivate() -> void:
+	if _current_state:
+		_current_state.deactivate()

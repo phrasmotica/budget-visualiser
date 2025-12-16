@@ -5,10 +5,10 @@ func _enter_tree() -> void:
 	print("%s is now finishing" % _transaction_lister_modal.name)
 
 	_transaction_lister.disable()
-	_finished_button.highlight()
+	_modal_buttons.activate()
 
 	SignalHelper.persist(
-		_finished_button.pressed,
+		_modal_buttons.finished,
 		_on_finished
 	)
 
@@ -19,8 +19,6 @@ func _on_finished() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
-		_finished_button.unhighlight()
-
 		var state_data := TransactionListerModalStateData \
 			.build() \
 			.with_skip_transactions()

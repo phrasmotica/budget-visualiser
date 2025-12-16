@@ -6,7 +6,7 @@ func _enter_tree() -> void:
 
 	_transaction_lister_modal.show()
 
-	_finished_button.unhighlight()
+	_modal_buttons.deactivate()
 
 	if not _state_data.get_skip_transactions():
 		_transaction_lister.transactions = _state_data.get_transactions()

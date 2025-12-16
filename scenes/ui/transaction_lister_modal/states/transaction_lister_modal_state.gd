@@ -6,18 +6,18 @@ signal state_transition_requested(new_state: TransactionListerModal.State, state
 var _transaction_lister_modal: TransactionListerModal = null
 var _state_data: TransactionListerModalStateData = null
 var _transaction_lister: TransactionLister = null
-var _finished_button: ButtonPanel = null
+var _modal_buttons: ModalButtons = null
 
 func setup(
 	transaction_lister_modal: TransactionListerModal,
 	state_data: TransactionListerModalStateData,
 	transaction_lister: TransactionLister,
-	finished_button: ButtonPanel,
+	modal_buttons: ModalButtons,
 ) -> void:
 	_transaction_lister_modal = transaction_lister_modal
 	_state_data = state_data
 	_transaction_lister = transaction_lister
-	_finished_button = finished_button
+	_modal_buttons = modal_buttons
 
 func transition_state(
 	new_state: TransactionListerModal.State,

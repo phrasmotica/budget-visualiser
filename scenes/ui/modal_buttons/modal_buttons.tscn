@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6h7rxf6201g2"]
 
 [ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="1_byhr5"]
-[ext_resource type="Script" path="res://scenes/ui/modal_buttons/modal_buttons.gd" id="1_moy06"]
+[ext_resource type="Script" uid="uid://dv350gpo6ed61" path="res://scenes/ui/modal_buttons/modal_buttons.gd" id="1_moy06"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_byhr5"]
 color = Color(1, 1, 1, 1)
