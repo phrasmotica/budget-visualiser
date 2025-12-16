@@ -28,6 +28,8 @@ var _current_state: TransactionListerState = null
 
 var _index_tracker: IndexTracker = null
 
+signal finished
+
 func _ready() -> void:
 	_refresh()
 
@@ -62,6 +64,9 @@ func _refresh() -> void:
 
 	if appearance:
 		appearance.refresh_panels(self, transactions)
+
+func emit_finished() -> void:
+	finished.emit()
 
 func enable() -> void:
 	if _current_state:
