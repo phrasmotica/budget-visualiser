@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6h7rxf6201g2"]
+
+[ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="1_byhr5"]
+[ext_resource type="Script" path="res://scenes/ui/modal_buttons/modal_buttons.gd" id="1_moy06"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_byhr5"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
+
+[node name="ModalButtons" type="VBoxContainer"]
+offset_right = 300.0
+offset_bottom = 48.0
+theme_override_constants/separation = 0
+script = ExtResource("1_moy06")
+
+[node name="Underline" type="HSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_byhr5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="FinishedButton" parent="HBoxContainer" instance=ExtResource("1_byhr5")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Finished"

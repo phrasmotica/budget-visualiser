@@ -1,0 +1,20 @@
+class_name ModalButtonsState
+extends Node
+
+signal state_transition_requested(new_state: ModalButtons.State, state_data: ModalButtonsStateData)
+
+var _modal_buttons: ModalButtons = null
+var _state_data: ModalButtonsStateData = null
+
+func setup(
+	modal_buttons: ModalButtons,
+	state_data: ModalButtonsStateData,
+) -> void:
+	_modal_buttons = modal_buttons
+	_state_data = state_data
+
+func transition_state(
+	new_state: ModalButtons.State,
+	state_data := ModalButtonsStateData.new(),
+) -> void:
+	state_transition_requested.emit(new_state, state_data)
