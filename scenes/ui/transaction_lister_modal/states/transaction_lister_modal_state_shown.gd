@@ -6,28 +6,28 @@ func _enter_tree() -> void:
 
 	_transaction_lister_modal.show()
 
-	var transactions := _state_data.get_transactions()
+	_finished_button.unhighlight()
 
-	_transaction_lister.transactions = transactions
+	if not _state_data.get_skip_transactions():
+		_transaction_lister.transactions = _state_data.get_transactions()
+
 	_transaction_lister.enable()
 
-	# TODO: move the "Finished" button outside of the lister, and into the modal
-	SignalHelper.persist(
-		_transaction_lister.finished,
-		_on_finished
-	)
-
-func _on_finished() -> void:
-	_finish()
-
 func _process(_delta: float) -> void:
+	if Input.is_action_just_released("ui_focus_next"):
+		_transaction_lister.disable()
+
+		transition_state(TransactionListerModal.State.FINISHING)
+
 	if Input.is_action_just_released("ui_cancel"):
-		_finish()
+		_cancel()
 
 func disable() -> void:
 	_to_hidden()
 
-func _finish() -> void:
+func _cancel() -> void:
+	print("Cancelled toggling transactions")
+
 	_transaction_lister.disable()
 
 	TransactionListerEvents.emit_entry_cancelled()

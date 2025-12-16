@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://se6hbk6dpl1j"]
+[gd_scene load_steps=6 format=3 uid="uid://se6hbk6dpl1j"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_u7juv"]
 [ext_resource type="PackedScene" uid="uid://cm2wjwnlao4hi" path="res://scenes/ui/transaction_lister/transaction_lister.tscn" id="2_3pmge"]
 [ext_resource type="Script" uid="uid://ym2dnnvuxdqk" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.gd" id="2_r45r2"]
+[ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="4_jbjwa"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jbjwa"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 4
 
 [node name="TransactionListerModal" type="PanelContainer"]
 custom_minimum_size = Vector2(1080, 600)
@@ -17,6 +24,25 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="TransactionLister" parent="MarginContainer" instance=ExtResource("2_3pmge")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TransactionLister" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_3pmge")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Underline" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_jbjwa")
+
+[node name="ModalButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FinishedButton" parent="MarginContainer/VBoxContainer/ModalButtons" instance=ExtResource("4_jbjwa")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Finished"

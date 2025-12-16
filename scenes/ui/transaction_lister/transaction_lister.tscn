@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm2wjwnlao4hi"]
+[gd_scene load_steps=12 format=3 uid="uid://cm2wjwnlao4hi"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_2yo14"]
 [ext_resource type="Script" uid="uid://cppgc0u1f1wkc" path="res://scenes/ui/transaction_lister/transaction_lister.gd" id="2_codm3"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cwtns6o3g58pt" path="res://scenes/ui/transaction_lister/transaction_panel_manager.gd" id="3_ahp7n"]
 [ext_resource type="Script" uid="uid://px3yy4c7eu5c" path="res://scenes/ui/transaction_lister/transaction_lister_appearance.gd" id="3_klfdr"]
 [ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_rdwny"]
-[ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="4_wq4qt"]
 
 [sub_resource type="Resource" id="Resource_6rihh"]
 script = ExtResource("3_rdwny")
@@ -38,25 +37,20 @@ amount = 50.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_wq4qt"]
-color = Color(1, 1, 1, 1)
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 4
-
 [node name="TransactionLister" type="VBoxContainer"]
+offset_right = 486.0
+offset_bottom = 336.0
 theme = ExtResource("1_2yo14")
 theme_override_constants/separation = 0
 script = ExtResource("2_codm3")
 transactions = Array[ExtResource("3_rdwny")]([SubResource("Resource_6rihh"), SubResource("Resource_qc414"), SubResource("Resource_c5bqa"), SubResource("Resource_24s3r"), SubResource("Resource_dg2pl")])
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("panel_manager", "scroll_container", "panel_parent", "finished_button")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("panel_manager", "scroll_container", "panel_parent")]
 unique_name_in_owner = true
 script = ExtResource("3_klfdr")
 panel_manager = NodePath("../TransactionPanelManager")
 scroll_container = NodePath("../ScrollContainer")
 panel_parent = NodePath("../ScrollContainer/Ledger")
-finished_button = NodePath("../FinishedButton")
 
 [node name="TransactionPanelManager" type="Node" parent="." node_paths=PackedStringArray("select_panels")]
 unique_name_in_owner = true
@@ -112,13 +106,3 @@ transaction = SubResource("Resource_24s3r")
 [node name="TransactionSelectPanel4" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
 layout_mode = 2
 transaction = SubResource("Resource_dg2pl")
-
-[node name="Underline" type="HSeparator" parent="."]
-layout_mode = 2
-theme_override_constants/separation = 16
-theme_override_styles/separator = SubResource("StyleBoxLine_wq4qt")
-
-[node name="FinishedButton" parent="." instance=ExtResource("4_wq4qt")]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Finished"

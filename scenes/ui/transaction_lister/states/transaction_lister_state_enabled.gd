@@ -30,10 +30,6 @@ func _enter_tree() -> void:
 	)
 
 func _on_move_down() -> void:
-	if _index_tracker.is_last():
-		transition_state(TransactionLister.State.FINISHING)
-		return
-
 	var new_panel := _transaction_panel_manager.highlight(_index_tracker.next())
 	_appearance.scroll_down_to_highlighted_panel(new_panel)
 
@@ -54,4 +50,6 @@ func _process(_delta: float) -> void:
 		_transaction_panel_manager.toggle_current()
 
 func disable() -> void:
+	_transaction_panel_manager.unhighlight()
+
 	transition_state(TransactionLister.State.DISABLED)

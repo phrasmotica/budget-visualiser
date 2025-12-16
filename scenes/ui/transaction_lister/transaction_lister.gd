@@ -2,7 +2,7 @@
 class_name TransactionLister
 extends VBoxContainer
 
-enum State { DISABLED, ENABLED, FINISHING }
+enum State { DISABLED, ENABLED }
 
 @export
 var transactions: Array[BudgetTransaction] = []:
@@ -20,15 +20,10 @@ var appearance: TransactionListerAppearance = %Appearance
 @onready
 var transaction_panel_manager: TransactionPanelManager = %TransactionPanelManager
 
-@onready
-var finished_button: ButtonPanel = %FinishedButton
-
 var _state_factory := TransactionListerStateFactory.new()
 var _current_state: TransactionListerState = null
 
 var _index_tracker: IndexTracker = null
-
-signal finished
 
 func _ready() -> void:
 	_refresh()
@@ -49,7 +44,6 @@ func switch_state(state: State, state_data := TransactionListerStateData.new()) 
 		state_data,
 		appearance,
 		transaction_panel_manager,
-		finished_button,
 		_index_tracker)
 
 	_current_state.state_transition_requested.connect(switch_state)
@@ -64,9 +58,6 @@ func _refresh() -> void:
 
 	if appearance:
 		appearance.refresh_panels(self, transactions)
-
-func emit_finished() -> void:
-	finished.emit()
 
 func enable() -> void:
 	if _current_state:

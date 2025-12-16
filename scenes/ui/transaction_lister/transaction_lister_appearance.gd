@@ -13,9 +13,6 @@ var scroll_container: ScrollContainer
 @export
 var panel_parent: VBoxContainer
 
-@export
-var finished_button: ButtonPanel
-
 func refresh_panels(panel_owner: Control, transactions: Array[BudgetTransaction]) -> void:
 	var transaction_count := transactions.size()
 	var child_count := panel_parent.get_child_count()
@@ -45,10 +42,10 @@ func refresh_panels(panel_owner: Control, transactions: Array[BudgetTransaction]
 		panel_parent.remove_child(child)
 
 func for_enabled() -> void:
-	finished_button.unhighlight()
+	pass
 
 func for_finishing() -> void:
-	finished_button.highlight()
+	pass
 
 func scroll_down_to_highlighted_panel(panel: TransactionSelectPanel) -> void:
 	VScroll.scroll_down_to(scroll_container, panel)
