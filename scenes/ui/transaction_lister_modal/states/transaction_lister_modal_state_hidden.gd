@@ -11,4 +11,4 @@ func enable(transactions: Array[BudgetTransaction]) -> void:
 		.build() \
 		.with_transactions(transactions)
 
-	transition_state(TransactionListerModal.State.SHOWN, state_data)
+	transition_state(TransactionListerModal.State.ACTING, state_data)

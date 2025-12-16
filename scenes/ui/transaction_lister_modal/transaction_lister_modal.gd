@@ -2,7 +2,7 @@
 class_name TransactionListerModal
 extends Control
 
-enum State { HIDDEN, SHOWN, FINISHING }
+enum State { HIDDEN, ACTING, FINISHING }
 
 @onready
 var transaction_lister: TransactionLister = %TransactionLister

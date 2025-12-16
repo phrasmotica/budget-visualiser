@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 			.build() \
 			.with_skip_transactions()
 
-		transition_state(TransactionListerModal.State.SHOWN, state_data)
+		transition_state(TransactionListerModal.State.ACTING, state_data)
 
 	if Input.is_action_just_released("ui_cancel"):
 		print("Cancelled toggling transactions")

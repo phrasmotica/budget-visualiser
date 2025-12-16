@@ -5,7 +5,7 @@ var states: Dictionary
 func _init() -> void:
 	states = {
 		TransactionListerModal.State.HIDDEN: TransactionListerModalStateHidden,
-		TransactionListerModal.State.SHOWN: TransactionListerModalStateShown,
+		TransactionListerModal.State.ACTING: TransactionListerModalStateActing,
 		TransactionListerModal.State.FINISHING: TransactionListerModalStateFinishing,
 	}
 

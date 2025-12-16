@@ -1,8 +1,8 @@
-class_name TransactionListerModalStateShown
+class_name TransactionListerModalStateActing
 extends TransactionListerModalState
 
 func _enter_tree() -> void:
-	print("%s is now shown" % _transaction_lister_modal.name)
+	print("%s is now acting" % _transaction_lister_modal.name)
 
 	_transaction_lister_modal.show()
 
