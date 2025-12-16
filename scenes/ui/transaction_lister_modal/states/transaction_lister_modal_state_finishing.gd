@@ -41,6 +41,8 @@ func _cancel() -> void:
 	_to_hidden()
 
 func _finish() -> void:
+	# TODO: only persist the (un)hidden changes to the transactions here, i.e.
+	# don't persist them if the modal is cancelled
 	print("Finished toggling transactions")
 
 	_transaction_lister.disable()
