@@ -80,6 +80,7 @@ func _show_transaction_lister_modal() -> void:
 		print("No transactions to list!")
 		return
 
+	_transaction_lister_modal.sub_header = "%s - %s" % [category.name, month.name]
 	_transaction_lister_modal.enable(transactions)
 
 	transition_state(SpreadsheetUI.State.DISABLED)

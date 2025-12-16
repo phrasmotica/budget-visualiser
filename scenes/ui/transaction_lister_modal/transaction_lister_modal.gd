@@ -4,6 +4,16 @@ extends Control
 
 enum State { HIDDEN, ACTING, FINISHING }
 
+@export
+var sub_header := "":
+	set(value):
+		sub_header = value
+
+		_refresh()
+
+@onready
+var sub_header_label: Label = %SubHeaderLabel
+
 @onready
 var transaction_lister: TransactionLister = %TransactionLister
 
@@ -39,7 +49,8 @@ func switch_state(state: State, state_data := TransactionListerModalStateData.ne
 	call_deferred("add_child", _current_state)
 
 func _refresh() -> void:
-	pass
+	if sub_header_label:
+		sub_header_label.text = sub_header
 
 func enable(transactions: Array[BudgetTransaction]) -> void:
 	if _current_state:
