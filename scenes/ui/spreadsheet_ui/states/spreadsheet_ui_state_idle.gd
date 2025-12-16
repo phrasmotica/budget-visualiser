@@ -76,6 +76,10 @@ func _show_transaction_lister_modal() -> void:
 		category,
 		month)
 
+	if transactions.size() <= 0:
+		print("No transactions to list!")
+		return
+
 	_transaction_lister_modal.enable(transactions)
 
 	transition_state(SpreadsheetUI.State.DISABLED)
