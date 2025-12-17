@@ -24,14 +24,8 @@ func highlight(index: int) -> TransactionSelectPanel:
 func unhighlight() -> void:
 	select_panels[_highlighted_index].unhighlight()
 
-func toggle_current() -> bool:
-	var new_hidden := not select_panels[_highlighted_index].transaction.hidden
-
-	print("Transaction %d hidden: %s" % [_highlighted_index, new_hidden])
-
-	select_panels[_highlighted_index].transaction.hidden = new_hidden
-
-	return new_hidden
+func set_hidden(index: int, is_hidden: bool) -> void:
+	select_panels[index].show_as_hidden = is_hidden
 
 func count() -> int:
 	return select_panels.size()

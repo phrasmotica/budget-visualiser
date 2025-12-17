@@ -33,6 +33,7 @@ func refresh_panels(panel_owner: Control, transactions: Array[BudgetTransaction]
 			panel = panel_parent.get_child(i)
 
 		panel.transaction = transactions[i]
+		panel.show_as_hidden = transactions[i].hidden
 
 		if panel_manager:
 			panel_manager.select_panels.append(panel)

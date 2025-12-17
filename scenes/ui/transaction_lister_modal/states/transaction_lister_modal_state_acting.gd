@@ -30,7 +30,7 @@ func _cancel() -> void:
 
 	_transaction_lister.disable()
 
-	TransactionListerEvents.emit_entry_cancelled()
+	TransactionListerEvents.emit_cancelled()
 
 	_to_hidden()
 

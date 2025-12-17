@@ -1,6 +1,6 @@
 extends Node
 
-signal entry_cancelled()
+signal cancelled
 
-func emit_entry_cancelled() -> void:
-	entry_cancelled.emit()
+func emit_cancelled() -> void:
+	cancelled.emit()

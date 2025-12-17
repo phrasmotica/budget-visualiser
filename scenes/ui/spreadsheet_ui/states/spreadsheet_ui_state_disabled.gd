@@ -7,7 +7,7 @@ func _enter_tree() -> void:
 	_year_grid.disable()
 
 	SignalHelper.once(
-		TransactionListerEvents.entry_cancelled,
+		TransactionListerEvents.cancelled,
 		_on_entry_cancelled
 	)
 

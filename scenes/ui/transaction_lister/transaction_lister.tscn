@@ -9,30 +9,35 @@
 
 [sub_resource type="Resource" id="Resource_6rihh"]
 script = ExtResource("3_rdwny")
+id = null
 amount = 10.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
 [sub_resource type="Resource" id="Resource_qc414"]
 script = ExtResource("3_rdwny")
+id = null
 amount = 20.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
 [sub_resource type="Resource" id="Resource_c5bqa"]
 script = ExtResource("3_rdwny")
+id = null
 amount = 30.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
 [sub_resource type="Resource" id="Resource_24s3r"]
 script = ExtResource("3_rdwny")
+id = null
 amount = 40.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
 [sub_resource type="Resource" id="Resource_dg2pl"]
 script = ExtResource("3_rdwny")
+id = null
 amount = 50.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"

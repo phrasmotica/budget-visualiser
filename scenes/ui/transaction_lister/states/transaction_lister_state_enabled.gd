@@ -47,7 +47,11 @@ func _on_move_top() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
-		_transaction_panel_manager.toggle_current()
+		var current := _index_tracker.current()
+		var transaction := _transaction_lister.transactions[current]
+
+		var new_hidden := _change_tracker.toggle_hidden(transaction)
+		_transaction_panel_manager.set_hidden(current, new_hidden)
 
 func disable() -> void:
 	_transaction_panel_manager.unhighlight()

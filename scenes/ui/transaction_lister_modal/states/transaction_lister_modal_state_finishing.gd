@@ -34,20 +34,21 @@ func disable() -> void:
 func _cancel() -> void:
 	print("Cancelled toggling transactions")
 
-	_transaction_lister.disable()
+	var change_tracker := _transaction_lister.get_change_tracker()
+	change_tracker.clear_changes()
 
-	TransactionListerEvents.emit_entry_cancelled()
+	TransactionListerEvents.emit_cancelled()
 
 	_to_hidden()
 
 func _finish() -> void:
-	# TODO: only persist the (un)hidden changes to the transactions here, i.e.
-	# don't persist them if the modal is cancelled
 	print("Finished toggling transactions")
 
-	_transaction_lister.disable()
+	var change_tracker := _transaction_lister.get_change_tracker()
+	BudgetProvider.apply_changes(change_tracker)
+	change_tracker.clear_changes()
 
-	TransactionListerEvents.emit_entry_cancelled()
+	TransactionListerEvents.emit_cancelled()
 
 	_to_hidden()
 
