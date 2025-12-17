@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://48si4p6ytwqw"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_7ti26"]
+
+[resource]
+script = ExtResource("1_7ti26")
+name = "Penalty charges"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"

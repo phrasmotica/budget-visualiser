@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://dh7ibuk0yuila"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_v3mgk"]
+
+[resource]
+script = ExtResource("1_v3mgk")
+name = "Rent"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"

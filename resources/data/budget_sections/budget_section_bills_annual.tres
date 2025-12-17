@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="BudgetSection" load_steps=3 format=3 uid="uid://c8o11a6oxpm1j"]
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=10 format=3 uid="uid://c8o11a6oxpm1j"]
 
 [ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="1_hinqc"]
 [ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_pepw1"]
+[ext_resource type="Resource" uid="uid://dysgh4bo0xfou" path="res://resources/data/budget_categories/budget_category_bills_annual_duolingo.tres" id="2_dx3hq"]
+[ext_resource type="Resource" uid="uid://cvkwqkc25ocyr" path="res://resources/data/budget_categories/budget_category_bills_annual_house_insurance.tres" id="3_8sdqu"]
+[ext_resource type="Resource" uid="uid://iqyuarvfiasv" path="res://resources/data/budget_categories/budget_category_bills_annual_car_insurance.tres" id="4_78tbr"]
+[ext_resource type="Resource" uid="uid://dhilu3tqysaqs" path="res://resources/data/budget_categories/budget_category_bills_annual_car_breakdown_cover.tres" id="5_d03vx"]
+[ext_resource type="Resource" uid="uid://cuhb5sfwb5y2k" path="res://resources/data/budget_categories/budget_category_bills_annual_tv.tres" id="6_e62b0"]
+[ext_resource type="Resource" uid="uid://dn4usxnid314p" path="res://resources/data/budget_categories/budget_category_bills_annual_railcard.tres" id="7_nuiuf"]
+[ext_resource type="Resource" uid="uid://btlxy4pkgi00w" path="res://resources/data/budget_categories/budget_category_bills_annual_website_domain.tres" id="8_umwdw"]
 
 [resource]
 script = ExtResource("1_hinqc")
 name = "Bills (annual)"
-categories = Array[ExtResource("1_pepw1")]([])
+categories = Array[ExtResource("1_pepw1")]([ExtResource("2_dx3hq"), ExtResource("3_8sdqu"), ExtResource("4_78tbr"), ExtResource("5_d03vx"), ExtResource("6_e62b0"), ExtResource("7_nuiuf"), ExtResource("8_umwdw")])
 metadata/_custom_type_script = "uid://blg87571j07g6"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://dsgsmby4wk2no"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_kwasu"]
+
+[resource]
+script = ExtResource("1_kwasu")
+name = "Driving licence"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"

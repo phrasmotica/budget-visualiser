@@ -1,10 +1,24 @@
-[gd_resource type="Resource" script_class="BudgetSection" load_steps=3 format=3 uid="uid://cfmd1biu2bwdj"]
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=17 format=3 uid="uid://cfmd1biu2bwdj"]
 
 [ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="1_6pxof"]
 [ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_wk8a0"]
+[ext_resource type="Resource" uid="uid://dh7ibuk0yuila" path="res://resources/data/budget_categories/budget_category_bills_monthly_rent.tres" id="2_lkxoa"]
+[ext_resource type="Resource" uid="uid://c8nhf336n0s5o" path="res://resources/data/budget_categories/budget_category_bills_monthly_savings.tres" id="3_t7cx0"]
+[ext_resource type="Resource" uid="uid://46uohpg4jtuy" path="res://resources/data/budget_categories/budget_category_bills_monthly_council_tax.tres" id="4_exgvb"]
+[ext_resource type="Resource" uid="uid://cama0aaibyrse" path="res://resources/data/budget_categories/budget_category_bills_monthly_water.tres" id="5_m2fb1"]
+[ext_resource type="Resource" uid="uid://bgfqqr86xpbyo" path="res://resources/data/budget_categories/budget_category_bills_monthly_patreon.tres" id="6_gthgt"]
+[ext_resource type="Resource" uid="uid://bgfep5fakqlrg" path="res://resources/data/budget_categories/budget_category_bills_monthly_phone.tres" id="7_x5xia"]
+[ext_resource type="Resource" uid="uid://cn7774wies68m" path="res://resources/data/budget_categories/budget_category_bills_monthly_gas_electric.tres" id="8_8wi74"]
+[ext_resource type="Resource" uid="uid://d03mjb3asjib7" path="res://resources/data/budget_categories/budget_category_bills_monthly_internet.tres" id="9_k3kty"]
+[ext_resource type="Resource" uid="uid://c62yj6t6pkkss" path="res://resources/data/budget_categories/budget_category_bills_monthly_apple.tres" id="10_g4jjm"]
+[ext_resource type="Resource" uid="uid://dhoof4otqtjif" path="res://resources/data/budget_categories/budget_category_bills_monthly_spotify.tres" id="11_x0da6"]
+[ext_resource type="Resource" uid="uid://bcll6k1xce3nu" path="res://resources/data/budget_categories/budget_category_bills_monthly_netflix.tres" id="12_oxdk8"]
+[ext_resource type="Resource" uid="uid://dvinpojvlfsti" path="res://resources/data/budget_categories/budget_category_bills_monthly_credit_card.tres" id="13_wlskf"]
+[ext_resource type="Resource" uid="uid://dp6asdepv8ua1" path="res://resources/data/budget_categories/budget_category_bills_monthly_analysis.tres" id="14_ej6os"]
+[ext_resource type="Resource" uid="uid://cekte1lcwgsj3" path="res://resources/data/budget_categories/budget_category_bills_monthly_medication.tres" id="15_xi7n7"]
 
 [resource]
 script = ExtResource("1_6pxof")
 name = "Bills (monthly)"
-categories = Array[ExtResource("1_wk8a0")]([])
+categories = Array[ExtResource("1_wk8a0")]([ExtResource("2_lkxoa"), ExtResource("3_t7cx0"), ExtResource("4_exgvb"), ExtResource("5_m2fb1"), ExtResource("6_gthgt"), ExtResource("7_x5xia"), ExtResource("8_8wi74"), ExtResource("9_k3kty"), ExtResource("10_g4jjm"), ExtResource("11_x0da6"), ExtResource("12_oxdk8"), ExtResource("13_wlskf"), ExtResource("14_ej6os"), ExtResource("15_xi7n7")])
 metadata/_custom_type_script = "uid://blg87571j07g6"

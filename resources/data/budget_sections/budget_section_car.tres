@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="BudgetSection" load_steps=3 format=3 uid="uid://byqasjoooa7et"]
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=8 format=3 uid="uid://byqasjoooa7et"]
 
 [ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_auu7g"]
 [ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="1_uicxv"]
+[ext_resource type="Resource" uid="uid://cbb4ukks7nem4" path="res://resources/data/budget_categories/budget_category_car_petrol.tres" id="2_1v8q2"]
+[ext_resource type="Resource" uid="uid://ctty3tlnt7jjg" path="res://resources/data/budget_categories/budget_category_car_parking_tolls.tres" id="3_nsjsb"]
+[ext_resource type="Resource" uid="uid://8q1bu3u7kvij" path="res://resources/data/budget_categories/budget_category_car_maintenance.tres" id="4_mwruf"]
+[ext_resource type="Resource" uid="uid://dsgsmby4wk2no" path="res://resources/data/budget_categories/budget_category_car_licence.tres" id="5_k7l0k"]
+[ext_resource type="Resource" uid="uid://48si4p6ytwqw" path="res://resources/data/budget_categories/budget_category_car_penalties.tres" id="6_ucpuk"]
 
 [resource]
 script = ExtResource("1_uicxv")
 name = "Car"
-categories = Array[ExtResource("1_auu7g")]([])
+categories = Array[ExtResource("1_auu7g")]([ExtResource("2_1v8q2"), ExtResource("3_nsjsb"), ExtResource("4_mwruf"), ExtResource("5_k7l0k"), ExtResource("6_ucpuk")])
 metadata/_custom_type_script = "uid://blg87571j07g6"

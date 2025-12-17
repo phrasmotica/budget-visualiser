@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://ctty3tlnt7jjg"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_krstt"]
+
+[resource]
+script = ExtResource("1_krstt")
+name = "Petrol"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
