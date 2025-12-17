@@ -53,3 +53,6 @@ func activate() -> void:
 func deactivate() -> void:
 	if _current_state:
 		_current_state.deactivate()
+
+func reset_highlight() -> void:
+	button_manager.reset_highlight()

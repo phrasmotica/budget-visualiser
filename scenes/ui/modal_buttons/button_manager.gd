@@ -31,6 +31,12 @@ func pause() -> void:
 func resume() -> void:
 	_get_buttons()[_index_tracker.current()].highlight()
 
+func reset_highlight() -> void:
+	_index_tracker.first()
+
+	for b in _get_buttons():
+		b.unhighlight()
+
 func _refresh_highlight(index: int) -> void:
 	var buttons := _get_buttons()
 
