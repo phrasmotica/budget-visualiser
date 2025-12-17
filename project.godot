@@ -41,8 +41,8 @@ TransactionListerEvents="*res://scenes/autoloads/transaction_lister_events.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=800
+window/size/viewport_width=1440
+window/size/viewport_height=900
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
