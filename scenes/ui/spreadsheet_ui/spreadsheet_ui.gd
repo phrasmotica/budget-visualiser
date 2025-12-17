@@ -1,7 +1,20 @@
+@tool
 class_name SpreadsheetUI
-extends Node
+extends PanelContainer
 
 enum State { IDLE, DISABLED }
+
+@export
+var budget_section: BudgetSection:
+	set(value):
+		budget_section = value
+
+		SignalHelper.on_changed(budget_section, _refresh)
+
+		_refresh()
+
+@onready
+var header_panel: HeaderPanel = %HeaderPanel
 
 @onready
 var year_grid: YearGrid = %YearGrid
@@ -16,6 +29,11 @@ var _state_factory := SpreadsheetUIStateFactory.new()
 var _current_state: SpreadsheetUIState = null
 
 func _ready() -> void:
+	_refresh()
+
+	if Engine.is_editor_hint():
+		return
+
 	BudgetManager.load_or_create()
 
 	switch_state(SpreadsheetUI.State.IDLE)
@@ -37,3 +55,7 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 	_current_state.name = "SpreadsheetUIStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
+
+func _refresh() -> void:
+	if header_panel:
+		header_panel.text = budget_section.name if budget_section else "Budget"
