@@ -35,7 +35,8 @@ func _ready() -> void:
 		return
 
 	BudgetManager.load_or_create()
-	BudgetProvider.register_section(budget_section)
+
+	budget_section = BudgetProvider.get_section()
 
 	switch_state(SpreadsheetUI.State.IDLE)
 
