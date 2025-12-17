@@ -9,7 +9,7 @@ func load_latest_budget() -> BudgetData:
 
 	if budget_files.size() <= 0:
 		print("No saved data to load!")
-		return
+		return null
 
 	budget_files.sort_custom(_sort_by_recent)
 

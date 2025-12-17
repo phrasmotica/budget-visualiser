@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7p5a2v2vnked"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_jrnfy"]
+[ext_resource type="Script" uid="uid://deuwixkcmhnfh" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.gd" id="2_ty26g"]
+[ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_gweyu"]
+[ext_resource type="Texture2D" uid="uid://cpq4yajvqkcon" path="res://assets/sprites/sight.png" id="4_dsk0n"]
+[ext_resource type="Texture2D" uid="uid://b68vhwfs3jjox" path="res://assets/sprites/sight-disabled.png" id="4_hukit"]
+
+[sub_resource type="Resource" id="Resource_gweyu"]
+script = ExtResource("3_gweyu")
+id = null
+amount = 10.0
+hidden = false
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="LabelSettings" id="LabelSettings_gweyu"]
+resource_local_to_scene = true
+font_size = 32
+
+[node name="TransactionSelectPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 48)
+offset_right = 300.0
+offset_bottom = 48.0
+theme = ExtResource("1_jrnfy")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("2_ty26g")
+transaction = SubResource("Resource_gweyu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Amount" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/Amount"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Amount"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "£10.00"
+label_settings = SubResource("LabelSettings_gweyu")
+vertical_alignment = 1
+
+[node name="Icons" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="UnhiddenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Icons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("4_dsk0n")
+expand_mode = 1
+
+[node name="HiddenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Icons"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.412, 0.412, 0.412, 1)
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("4_hukit")
+expand_mode = 1

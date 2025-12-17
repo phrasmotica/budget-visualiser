@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://se6hbk6dpl1j"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_u7juv"]
+[ext_resource type="PackedScene" uid="uid://cm2wjwnlao4hi" path="res://scenes/ui/transaction_lister/transaction_lister.tscn" id="2_3pmge"]
+[ext_resource type="Script" uid="uid://ym2dnnvuxdqk" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.gd" id="2_r45r2"]
+[ext_resource type="PackedScene" uid="uid://b6h7rxf6201g2" path="res://scenes/ui/modal_buttons/modal_buttons.tscn" id="4_jbjwa"]
+
+[node name="TransactionListerModal" type="PanelContainer"]
+custom_minimum_size = Vector2(1080, 600)
+theme = ExtResource("1_u7juv")
+theme_type_variation = &"TransactionListerModalContainer"
+script = ExtResource("2_r45r2")
+sub_header = "<category> - <month>"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Transactions"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="SubHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "<category> - <month>"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="TransactionLister" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_3pmge")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModalButtons" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_jbjwa")]
+unique_name_in_owner = true
+layout_mode = 2

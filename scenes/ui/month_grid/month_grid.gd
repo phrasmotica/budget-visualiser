@@ -38,7 +38,11 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	_index_tracker = IndexTracker.new(cell_manager.count() - 1)
+	var index_tracker_name := "%sIndexTracker" % name
+
+	_index_tracker = IndexTracker.new(
+		cell_manager.count() - 1,
+		index_tracker_name)
 
 	switch_state(MonthGrid.State.DISABLED)
 

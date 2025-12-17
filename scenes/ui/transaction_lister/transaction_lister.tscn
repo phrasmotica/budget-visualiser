@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://cm2wjwnlao4hi"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_2yo14"]
+[ext_resource type="Script" uid="uid://cppgc0u1f1wkc" path="res://scenes/ui/transaction_lister/transaction_lister.gd" id="2_codm3"]
+[ext_resource type="PackedScene" uid="uid://b7p5a2v2vnked" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.tscn" id="2_jfgyy"]
+[ext_resource type="Script" uid="uid://cwtns6o3g58pt" path="res://scenes/ui/transaction_lister/transaction_panel_manager.gd" id="3_ahp7n"]
+[ext_resource type="Script" uid="uid://px3yy4c7eu5c" path="res://scenes/ui/transaction_lister/transaction_lister_appearance.gd" id="3_klfdr"]
+[ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_rdwny"]
+
+[sub_resource type="Resource" id="Resource_6rihh"]
+script = ExtResource("3_rdwny")
+id = null
+amount = 10.0
+hidden = false
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_qc414"]
+script = ExtResource("3_rdwny")
+id = null
+amount = 20.0
+hidden = false
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_c5bqa"]
+script = ExtResource("3_rdwny")
+id = null
+amount = 30.0
+hidden = false
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_24s3r"]
+script = ExtResource("3_rdwny")
+id = null
+amount = 40.0
+hidden = false
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[sub_resource type="Resource" id="Resource_dg2pl"]
+script = ExtResource("3_rdwny")
+id = null
+amount = 50.0
+hidden = false
+metadata/_custom_type_script = "uid://bici6q1crcvjm"
+
+[node name="TransactionLister" type="VBoxContainer"]
+offset_right = 486.0
+offset_bottom = 336.0
+theme = ExtResource("1_2yo14")
+theme_override_constants/separation = 0
+script = ExtResource("2_codm3")
+transactions = Array[ExtResource("3_rdwny")]([SubResource("Resource_6rihh"), SubResource("Resource_qc414"), SubResource("Resource_c5bqa"), SubResource("Resource_24s3r"), SubResource("Resource_dg2pl")])
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("panel_manager", "scroll_container", "panel_parent")]
+unique_name_in_owner = true
+script = ExtResource("3_klfdr")
+panel_manager = NodePath("../TransactionPanelManager")
+scroll_container = NodePath("../ScrollContainer")
+panel_parent = NodePath("../ScrollContainer/Ledger")
+
+[node name="TransactionPanelManager" type="Node" parent="." node_paths=PackedStringArray("select_panels")]
+unique_name_in_owner = true
+script = ExtResource("3_ahp7n")
+select_panels = [NodePath("../ScrollContainer/Ledger/TransactionSelectPanel0"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel1"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel2"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel3"), NodePath("../ScrollContainer/Ledger/TransactionSelectPanel4")]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Ledger" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TransactionSelectPanel0" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_6rihh")
+
+[node name="TransactionSelectPanel1" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_qc414")
+
+[node name="TransactionSelectPanel2" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_c5bqa")
+
+[node name="TransactionSelectPanel3" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_24s3r")
+
+[node name="TransactionSelectPanel4" parent="ScrollContainer/Ledger" instance=ExtResource("2_jfgyy")]
+layout_mode = 2
+transaction = SubResource("Resource_dg2pl")

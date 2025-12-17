@@ -45,6 +45,7 @@ func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
 
 		var transaction_total: float = transactions \
 			.filter(func(t: BudgetTransaction): return is_for_category(t, i)) \
+			.filter(func(t: BudgetTransaction): return not t.hidden) \
 			.map(func(t: BudgetTransaction): return t.amount) \
 			.reduce(Math.sum, 0.0)
 
