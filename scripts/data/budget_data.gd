@@ -17,6 +17,7 @@ func add_transaction(
 ) -> BudgetTransaction:
 	var transaction := BudgetTransaction.new()
 
+	transaction.id = randi()
 	transaction.category = category
 	transaction.month = month
 	transaction.amount = amount

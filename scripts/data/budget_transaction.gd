@@ -3,6 +3,9 @@ class_name BudgetTransaction
 extends Resource
 
 @export
+var id := -1
+
+@export
 var category: BudgetCategory
 
 @export
