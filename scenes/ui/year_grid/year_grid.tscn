@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgrdp05co1rny"]
+[gd_scene load_steps=21 format=3 uid="uid://cgrdp05co1rny"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_m770f"]
 [ext_resource type="Script" uid="uid://bkbtpnfcdua17" path="res://scenes/ui/year_grid/year_grid.gd" id="1_ranu4"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://bgy17jfatlgyl" path="res://resources/data/budget_months/budget_month_oct.tres" id="13_syrwd"]
 [ext_resource type="Resource" uid="uid://fe6vu50qqaui" path="res://resources/data/budget_months/budget_month_nov.tres" id="14_5x2wj"]
 [ext_resource type="Resource" uid="uid://2xpy25djlv8s" path="res://resources/data/budget_months/budget_month_dec.tres" id="15_vok08"]
+[ext_resource type="Resource" uid="uid://mnispwhpdspw" path="res://resources/data/budget_sections/budget_section_music.tres" id="16_qvn3s"]
 
 [node name="YearGrid" type="MarginContainer"]
 custom_minimum_size = Vector2(600, 0)
@@ -31,13 +32,15 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_ranu4")
 months = Array[ExtResource("3_he182")]([ExtResource("4_yduip"), ExtResource("5_2j0vn"), ExtResource("6_0q5te"), ExtResource("7_m1uua"), ExtResource("8_m770f"), ExtResource("9_1gj08"), ExtResource("10_pjleq"), ExtResource("11_setqv"), ExtResource("12_qt48i"), ExtResource("13_syrwd"), ExtResource("14_5x2wj"), ExtResource("15_vok08")])
+section = ExtResource("16_qvn3s")
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("h_scroll_container", "v_scroll_container", "category_scroll_container")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("h_scroll_container", "v_scroll_container", "category_scroll_container", "category_labels")]
 unique_name_in_owner = true
 script = ExtResource("2_1gj08")
 h_scroll_container = NodePath("../HBoxContainer/HScrollContainer")
 v_scroll_container = NodePath("../HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer")
 category_scroll_container = NodePath("../HBoxContainer/VBoxContainer/CategoryScrollContainer")
+category_labels = NodePath("../HBoxContainer/VBoxContainer/CategoryScrollContainer/CategoryLabels")
 
 [node name="MonthGridManager" type="Node" parent="." node_paths=PackedStringArray("headers_parent", "grid_parent", "month_grids")]
 unique_name_in_owner = true
@@ -66,6 +69,7 @@ vertical_scroll_mode = 3
 
 [node name="CategoryLabels" parent="HBoxContainer/VBoxContainer/CategoryScrollContainer" instance=ExtResource("5_b6wnc")]
 layout_mode = 2
+section = ExtResource("16_qvn3s")
 
 [node name="HScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -166,47 +170,59 @@ theme_override_constants/separation = 4
 
 [node name="MonthGrid0" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid1" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("5_2j0vn")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid2" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("6_0q5te")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid3" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("7_m1uua")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid4" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("8_m770f")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid5" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("9_1gj08")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid6" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("10_pjleq")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid7" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("11_setqv")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid8" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("12_qt48i")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid9" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("13_syrwd")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid10" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("14_5x2wj")
+section = ExtResource("16_qvn3s")
 
 [node name="MonthGrid11" parent="HBoxContainer/HScrollContainer/VBoxContainer/VScrollContainer/MonthGrids" instance=ExtResource("1_u3l1x")]
 layout_mode = 2
 month = ExtResource("15_vok08")
+section = ExtResource("16_qvn3s")

@@ -44,7 +44,11 @@ func refresh_headers(label_owner: Control, months: Array[BudgetMonth]) -> void:
 		var child := headers_parent.get_child(month_count)
 		headers_parent.remove_child(child)
 
-func refresh_grids(grid_owner: Control, months: Array[BudgetMonth]) -> void:
+func refresh_grids(
+	grid_owner: Control,
+	months: Array[BudgetMonth],
+	section: BudgetSection,
+) -> void:
 	var month_count := months.size()
 	var child_count := grid_parent.get_child_count()
 
@@ -62,6 +66,7 @@ func refresh_grids(grid_owner: Control, months: Array[BudgetMonth]) -> void:
 			grid = grid_parent.get_child(i)
 
 		grid.month = months[i]
+		grid.section = section
 
 		month_grids.append(grid)
 

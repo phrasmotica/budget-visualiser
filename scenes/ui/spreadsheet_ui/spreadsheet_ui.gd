@@ -60,3 +60,6 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 func _refresh() -> void:
 	if header_panel:
 		header_panel.text = budget_section.name if budget_section else "Budget"
+
+	if year_grid:
+		year_grid.section = budget_section

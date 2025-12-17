@@ -14,6 +14,15 @@ var months: Array[BudgetMonth] = []:
 
 		_refresh()
 
+@export
+var section: BudgetSection:
+	set(value):
+		section = value
+
+		SignalHelper.on_changed(section, _refresh)
+
+		_refresh()
+
 @onready
 var appearance: YearGridAppearance = %Appearance
 
@@ -56,9 +65,12 @@ func switch_state(state: State, state_data := YearGridStateData.new()) -> void:
 	call_deferred("add_child", _current_state)
 
 func _refresh() -> void:
+	if appearance:
+		appearance.set_section(section)
+
 	if month_grid_manager:
 		month_grid_manager.refresh_headers(self, months)
-		month_grid_manager.refresh_grids(self, months)
+		month_grid_manager.refresh_grids(self, months, section)
 
 func enable() -> void:
 	if _current_state:

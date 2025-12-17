@@ -11,8 +11,15 @@ var v_scroll_container: ScrollContainer
 @export
 var category_scroll_container: ScrollContainer
 
+@export
+var category_labels: CategoryLabels
+
 func for_idle() -> void:
 	h_scroll_container.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+
+func set_section(section: BudgetSection) -> void:
+	if category_labels:
+		category_labels.section = section
 
 func scroll_down_to_highlighted_cell(cell: CategoryCell) -> void:
 	var new_scroll := VScroll.scroll_down_to(v_scroll_container, cell)

@@ -27,6 +27,7 @@ text = "Outgoings"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+section = ExtResource("3_n6aed")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
