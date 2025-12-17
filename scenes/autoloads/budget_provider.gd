@@ -1,27 +1,5 @@
 extends Node
 
-const BUDGET_CATEGORIES: Array[BudgetCategory] = [
-	preload("res://resources/data/budget_categories/budget_category_groceries.tres"),
-	preload("res://resources/data/budget_categories/budget_category_transport.tres"),
-	preload("res://resources/data/budget_categories/budget_category_drinksout.tres"),
-	preload("res://resources/data/budget_categories/budget_category_mealsout.tres"),
-	preload("res://resources/data/budget_categories/budget_category_pool.tres"),
-	preload("res://resources/data/budget_categories/budget_category_takeawaymeals.tres"),
-	preload("res://resources/data/budget_categories/budget_category_cashwithdrawal.tres"),
-	preload("res://resources/data/budget_categories/budget_category_clothes.tres"),
-	preload("res://resources/data/budget_categories/budget_category_skincare.tres"),
-	preload("res://resources/data/budget_categories/budget_category_mimsy.tres"),
-	preload("res://resources/data/budget_categories/budget_category_decoration.tres"),
-	preload("res://resources/data/budget_categories/budget_category_gifts.tres"),
-	preload("res://resources/data/budget_categories/budget_category_booksstationery.tres"),
-	preload("res://resources/data/budget_categories/budget_category_videogames.tres"),
-	preload("res://resources/data/budget_categories/budget_category_software.tres"),
-	preload("res://resources/data/budget_categories/budget_category_hardware.tres"),
-	preload("res://resources/data/budget_categories/budget_category_magicthegathering.tres"),
-	preload("res://resources/data/budget_categories/budget_category_knex.tres"),
-	preload("res://resources/data/budget_categories/budget_category_ikea.tres"),
-]
-
 const BUDGET_MONTHS: Array[BudgetMonth] = [
 	preload("res://resources/data/budget_months/budget_month_jan.tres"),
 	preload("res://resources/data/budget_months/budget_month_feb.tres"),
@@ -37,10 +15,14 @@ const BUDGET_MONTHS: Array[BudgetMonth] = [
 	preload("res://resources/data/budget_months/budget_month_dec.tres"),
 ]
 
+var _section: BudgetSection = null
 var _data: BudgetData = null
 
 signal budget_changed(data: BudgetData)
 signal transaction_added(transaction: BudgetTransaction)
+
+func register_section(section: BudgetSection) -> void:
+	_section = section
 
 func set_budget_data(data: BudgetData) -> void:
 	_data = data
@@ -88,10 +70,10 @@ func get_month_debug() -> BudgetMonth:
 	return BUDGET_MONTHS[0]
 
 func get_category_index(category: BudgetCategory) -> int:
-	return BUDGET_CATEGORIES.find(category)
+	return _section.get_category_index(category)
 
 func get_category(index: int) -> BudgetCategory:
-	return BUDGET_CATEGORIES[index]
+	return _section.get_category(index)
 
 func get_amount(category: BudgetCategory, month: BudgetMonth) -> float:
 	return _data.compute_category_expenditure_in_month(category, month)

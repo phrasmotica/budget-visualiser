@@ -1,8 +1,29 @@
-[gd_resource type="Resource" script_class="BudgetSection" load_steps=2 format=3 uid="uid://cxrji5d2yrikg"]
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=22 format=3 uid="uid://cxrji5d2yrikg"]
 
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_20qab"]
 [ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="1_psty0"]
+[ext_resource type="Resource" uid="uid://mydbxfrjyixf" path="res://resources/data/budget_categories/budget_category_groceries.tres" id="2_3qavp"]
+[ext_resource type="Resource" uid="uid://dphmgn3glf5f3" path="res://resources/data/budget_categories/budget_category_transport.tres" id="3_r34q5"]
+[ext_resource type="Resource" uid="uid://ntgiryw8yhiq" path="res://resources/data/budget_categories/budget_category_drinksout.tres" id="4_3e1di"]
+[ext_resource type="Resource" uid="uid://b7du18hkdt45" path="res://resources/data/budget_categories/budget_category_mealsout.tres" id="5_x2tmb"]
+[ext_resource type="Resource" uid="uid://tx800w7ep5ms" path="res://resources/data/budget_categories/budget_category_pool.tres" id="6_jcaub"]
+[ext_resource type="Resource" uid="uid://nm8kcso5uy5j" path="res://resources/data/budget_categories/budget_category_takeawaymeals.tres" id="7_23w3k"]
+[ext_resource type="Resource" uid="uid://bq1xyunmdp84o" path="res://resources/data/budget_categories/budget_category_cashwithdrawal.tres" id="8_waxtv"]
+[ext_resource type="Resource" uid="uid://b35dxjr080f02" path="res://resources/data/budget_categories/budget_category_clothes.tres" id="9_7kts3"]
+[ext_resource type="Resource" uid="uid://c1u8kdi2dxm0d" path="res://resources/data/budget_categories/budget_category_skincare.tres" id="10_581yf"]
+[ext_resource type="Resource" uid="uid://h0pf3qif68l4" path="res://resources/data/budget_categories/budget_category_mimsy.tres" id="11_r4r7s"]
+[ext_resource type="Resource" uid="uid://pkireq6eqm5i" path="res://resources/data/budget_categories/budget_category_decoration.tres" id="12_gk2tk"]
+[ext_resource type="Resource" uid="uid://bc2d2u08x80e" path="res://resources/data/budget_categories/budget_category_gifts.tres" id="13_su2rh"]
+[ext_resource type="Resource" uid="uid://fe7ksipv2mpx" path="res://resources/data/budget_categories/budget_category_booksstationery.tres" id="14_t0rvl"]
+[ext_resource type="Resource" uid="uid://da3hke2v5lnta" path="res://resources/data/budget_categories/budget_category_videogames.tres" id="15_24cpe"]
+[ext_resource type="Resource" uid="uid://jfehfoi7xjw1" path="res://resources/data/budget_categories/budget_category_software.tres" id="16_mifm5"]
+[ext_resource type="Resource" uid="uid://b6hmavseqpn8s" path="res://resources/data/budget_categories/budget_category_hardware.tres" id="17_pxaw7"]
+[ext_resource type="Resource" uid="uid://ciblnt1ve5wem" path="res://resources/data/budget_categories/budget_category_magicthegathering.tres" id="18_k6uk1"]
+[ext_resource type="Resource" uid="uid://codjj552j4fbq" path="res://resources/data/budget_categories/budget_category_knex.tres" id="19_7q8mi"]
+[ext_resource type="Resource" uid="uid://b7hv0uybnneau" path="res://resources/data/budget_categories/budget_category_ikea.tres" id="20_2upu5"]
 
 [resource]
 script = ExtResource("1_psty0")
 name = "Outgoings"
+categories = Array[ExtResource("1_20qab")]([ExtResource("2_3qavp"), ExtResource("3_r34q5"), ExtResource("4_3e1di"), ExtResource("5_x2tmb"), ExtResource("6_jcaub"), ExtResource("7_23w3k"), ExtResource("8_waxtv"), ExtResource("9_7kts3"), ExtResource("10_581yf"), ExtResource("11_r4r7s"), ExtResource("12_gk2tk"), ExtResource("13_su2rh"), ExtResource("14_t0rvl"), ExtResource("15_24cpe"), ExtResource("16_mifm5"), ExtResource("17_pxaw7"), ExtResource("18_k6uk1"), ExtResource("19_7q8mi"), ExtResource("20_2upu5")])
 metadata/_custom_type_script = "uid://blg87571j07g6"
