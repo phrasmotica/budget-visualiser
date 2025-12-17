@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="BudgetSection" load_steps=3 format=3 uid="uid://mnispwhpdspw"]
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=8 format=3 uid="uid://mnispwhpdspw"]
 
 [ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="1_82bsk"]
 [ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_n6k60"]
+[ext_resource type="Resource" uid="uid://depnak4ix51p" path="res://resources/data/budget_categories/budget_category_music_records.tres" id="2_2wtfd"]
+[ext_resource type="Resource" uid="uid://dngnufu6s0icr" path="res://resources/data/budget_categories/budget_category_music_tickets.tres" id="3_jwdlo"]
+[ext_resource type="Resource" uid="uid://cwy4c7u2q7ttk" path="res://resources/data/budget_categories/budget_category_music_merch.tres" id="4_cuswy"]
+[ext_resource type="Resource" uid="uid://k6nf2d0pbfne" path="res://resources/data/budget_categories/budget_category_music_festival_spending.tres" id="5_t4ck3"]
+[ext_resource type="Resource" uid="uid://b2ycfr1gcxyhv" path="res://resources/data/budget_categories/budget_category_music_other.tres" id="6_76q4a"]
 
 [resource]
 script = ExtResource("1_82bsk")
 name = "Music"
-categories = Array[ExtResource("1_n6k60")]([])
+categories = Array[ExtResource("1_n6k60")]([ExtResource("2_2wtfd"), ExtResource("3_jwdlo"), ExtResource("4_cuswy"), ExtResource("5_t4ck3"), ExtResource("6_76q4a")])
 metadata/_custom_type_script = "uid://blg87571j07g6"

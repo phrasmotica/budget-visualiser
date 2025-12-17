@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://dngnufu6s0icr"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_54ufo"]
+
+[resource]
+script = ExtResource("1_54ufo")
+name = "Gig tickets"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
