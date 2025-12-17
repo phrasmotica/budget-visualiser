@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=2 format=3 uid="uid://c8o11a6oxpm1j"]
+
+[ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="1_hinqc"]
+
+[resource]
+script = ExtResource("1_hinqc")
+name = "Bills (annual)"
+metadata/_custom_type_script = "uid://blg87571j07g6"
