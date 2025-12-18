@@ -10,6 +10,11 @@ func _enter_tree() -> void:
 		_month_grid_manager.highlight(_index_tracker.current())
 
 	SignalHelper.persist(
+		ModifierInput.primary_modifier_pressed,
+		_on_primary_modifier_pressed
+	)
+
+	SignalHelper.persist(
 		GridInput.move_right,
 		_on_move_right
 	)
@@ -23,6 +28,9 @@ func _enter_tree() -> void:
 		MonthGridEvents.cell_highlighted,
 		_on_highlighted_cell_changed
 	)
+
+func _on_primary_modifier_pressed() -> void:
+	disable()
 
 func disable() -> void:
 	transition_state(YearGrid.State.DISABLED)
