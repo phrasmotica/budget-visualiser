@@ -66,6 +66,7 @@ select_panels = [NodePath("../ScrollContainer/Ledger/TransactionSelectPanel0"), 
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 

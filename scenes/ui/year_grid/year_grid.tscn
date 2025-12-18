@@ -64,6 +64,7 @@ text = "Category"
 custom_minimum_size = Vector2(520, 0)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -74,6 +75,7 @@ section = ExtResource("16_qvn3s")
 [node name="HScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
@@ -161,6 +163,7 @@ text = "December"
 [node name="VScrollContainer" type="ScrollContainer" parent="HBoxContainer/HScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
