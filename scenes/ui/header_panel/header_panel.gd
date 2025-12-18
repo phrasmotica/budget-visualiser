@@ -28,6 +28,9 @@ var right_icon: TextureRect = %RightIcon
 func _ready() -> void:
 	_refresh()
 
+	if Engine.is_editor_hint():
+		return
+
 	SignalHelper.persist(
 		ModifierInput.primary_modifier_pressed,
 		_on_primary_modifier_pressed
