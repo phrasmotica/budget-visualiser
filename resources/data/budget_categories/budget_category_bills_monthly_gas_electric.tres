@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://cn7774wies68m"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_lo3h5"]
+
+[resource]
+script = ExtResource("1_lo3h5")
+name = "Gas & electric"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"

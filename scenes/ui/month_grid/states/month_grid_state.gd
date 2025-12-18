@@ -25,6 +25,9 @@ func transition_state(
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
 
+func highlight_cell() -> void:
+	pass
+
 func enable() -> void:
 	pass
 

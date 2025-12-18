@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BudgetCategory" load_steps=2 format=3 uid="uid://bcll6k1xce3nu"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_j65ti"]
+
+[resource]
+script = ExtResource("1_j65ti")
+name = "Netflix"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"

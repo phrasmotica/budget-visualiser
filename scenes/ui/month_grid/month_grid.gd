@@ -12,12 +12,11 @@ var month: BudgetMonth:
 		_refresh()
 
 @export
-var categories: Array[BudgetCategory] = []:
+var section: BudgetSection:
 	set(value):
-		categories = value
+		section = value
 
-		for c in categories:
-			SignalHelper.on_changed(c, _refresh)
+		SignalHelper.on_changed(section, _refresh)
 
 		call_deferred("_refresh")
 
@@ -39,10 +38,7 @@ func _ready() -> void:
 		return
 
 	var index_tracker_name := "%sIndexTracker" % name
-
-	_index_tracker = IndexTracker.new(
-		cell_manager.count() - 1,
-		index_tracker_name)
+	_index_tracker = IndexTracker.new(_get_max_index(), index_tracker_name)
 
 	switch_state(MonthGrid.State.DISABLED)
 
@@ -64,8 +60,20 @@ func switch_state(state: State, state_data := MonthGridStateData.new()) -> void:
 	call_deferred("add_child", _current_state)
 
 func _refresh() -> void:
+	if _index_tracker:
+		_index_tracker.set_maximum(_get_max_index())
+
 	if appearance:
-		appearance.refresh_cells(self, categories)
+		appearance.refresh_cells(self, section)
+
+	if _current_state:
+		_current_state.highlight_cell()
+
+func _get_max_index() -> int:
+	if not section:
+		return -1
+
+	return section.categories.size() - 1
 
 func enable() -> void:
 	if _current_state:

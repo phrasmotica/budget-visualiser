@@ -38,5 +38,14 @@ func first() -> int:
 func is_last() -> bool:
 	return _current == _maximum
 
+func set_maximum(maximum: int) -> void:
+	_maximum = maximum
+
+	if _current > _maximum:
+		_current = _maximum
+
+	if _maximum > -1 and _current < 0:
+		_current = 0
+
 func _report() -> void:
 	print("%s _current=%d" % [_name, _current])

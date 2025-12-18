@@ -12,6 +12,16 @@ func _enter_tree() -> void:
 	SignalHelper.once_next_frame(_inject_entered_amount)
 
 	SignalHelper.persist(
+		GridInput.move_end,
+		_on_move_end
+	)
+
+	SignalHelper.persist(
+		GridInput.move_start,
+		_on_move_start
+	)
+
+	SignalHelper.persist(
 		BudgetProvider.transaction_added,
 		_on_transaction_added
 	)
@@ -37,6 +47,14 @@ func _inject_entered_amount() -> void:
 		var month := _year_grid.get_highlighted_month()
 
 		BudgetProvider.add_transaction(category, month, entered_amount)
+
+func _on_move_end() -> void:
+	var next_section := BudgetProvider.next_section()
+	_spreadsheet_ui.budget_section = next_section
+
+func _on_move_start() -> void:
+	var previous_section := BudgetProvider.previous_section()
+	_spreadsheet_ui.budget_section = previous_section
 
 func _on_transaction_added(transaction: BudgetTransaction) -> void:
 	print("New transaction: %s %s, %s" % [

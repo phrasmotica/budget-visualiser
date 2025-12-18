@@ -1,21 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpgey7qxb48kd"]
+[gd_scene load_steps=8 format=3 uid="uid://bpgey7qxb48kd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_5jsgs"]
 [ext_resource type="Script" uid="uid://tw42pkh8j46o" path="res://scenes/ui/spreadsheet_ui/spreadsheet_ui.gd" id="2_ic03t"]
 [ext_resource type="PackedScene" uid="uid://cgrdp05co1rny" path="res://scenes/ui/year_grid/year_grid.tscn" id="2_wovv7"]
+[ext_resource type="Resource" uid="uid://cxrji5d2yrikg" path="res://resources/data/budget_sections/budget_section_outgoings.tres" id="3_n6aed"]
+[ext_resource type="PackedScene" uid="uid://dwbl2v27fp5gd" path="res://scenes/ui/header_panel/header_panel.tscn" id="3_qs3te"]
 [ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_ic03t"]
 [ext_resource type="PackedScene" uid="uid://se6hbk6dpl1j" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.tscn" id="5_abri7"]
 
 [node name="SpreadsheetUI" type="PanelContainer"]
-offset_right = 1280.0
-offset_bottom = 800.0
+offset_right = 1440.0
+offset_bottom = 900.0
 theme = ExtResource("1_5jsgs")
 script = ExtResource("2_ic03t")
+budget_section = ExtResource("3_n6aed")
 
-[node name="YearGrid" parent="." instance=ExtResource("2_wovv7")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderPanel" parent="VBoxContainer" instance=ExtResource("3_qs3te")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+text = "Outgoings"
+
+[node name="YearGrid" parent="VBoxContainer" instance=ExtResource("2_wovv7")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+section = ExtResource("3_n6aed")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

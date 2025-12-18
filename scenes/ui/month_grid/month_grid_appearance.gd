@@ -10,8 +10,8 @@ var cell_manager: CellManager
 @export
 var cell_parent: VBoxContainer
 
-func refresh_cells(cell_owner: Control, categories: Array[BudgetCategory]) -> void:
-	var category_count := categories.size()
+func refresh_cells(cell_owner: Control, section: BudgetSection) -> void:
+	var category_count := section.categories.size() if section else 0
 	var child_count := cell_parent.get_child_count()
 
 	if cell_manager:

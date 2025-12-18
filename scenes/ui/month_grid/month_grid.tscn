@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bd4umilpafiy8"]
+[gd_scene load_steps=9 format=3 uid="uid://bd4umilpafiy8"]
 
 [ext_resource type="Script" uid="uid://qrkbfg7khqsf" path="res://scenes/ui/month_grid/month_grid.gd" id="1_dlr66"]
 [ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="1_span3"]
@@ -6,26 +6,8 @@
 [ext_resource type="Script" uid="uid://crklagwp0hrog" path="res://scenes/ui/month_grid/cell_manager.gd" id="2_pii7b"]
 [ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="3_fe2ud"]
 [ext_resource type="Script" uid="uid://fno8s3re3acm" path="res://scenes/ui/month_grid/month_grid_appearance.gd" id="3_k6d5u"]
-[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="4_meyte"]
-[ext_resource type="Resource" uid="uid://mydbxfrjyixf" path="res://resources/data/budget_categories/budget_category_groceries.tres" id="5_egchc"]
-[ext_resource type="Resource" uid="uid://dphmgn3glf5f3" path="res://resources/data/budget_categories/budget_category_transport.tres" id="6_bq2gi"]
-[ext_resource type="Resource" uid="uid://ntgiryw8yhiq" path="res://resources/data/budget_categories/budget_category_drinksout.tres" id="7_gqulj"]
-[ext_resource type="Resource" uid="uid://b7du18hkdt45" path="res://resources/data/budget_categories/budget_category_mealsout.tres" id="8_rudjb"]
-[ext_resource type="Resource" uid="uid://tx800w7ep5ms" path="res://resources/data/budget_categories/budget_category_pool.tres" id="9_nwnon"]
-[ext_resource type="Resource" uid="uid://nm8kcso5uy5j" path="res://resources/data/budget_categories/budget_category_takeawaymeals.tres" id="10_2v7fw"]
-[ext_resource type="Resource" uid="uid://bq1xyunmdp84o" path="res://resources/data/budget_categories/budget_category_cashwithdrawal.tres" id="11_ulnis"]
-[ext_resource type="Resource" uid="uid://b35dxjr080f02" path="res://resources/data/budget_categories/budget_category_clothes.tres" id="12_n2flr"]
-[ext_resource type="Resource" uid="uid://c1u8kdi2dxm0d" path="res://resources/data/budget_categories/budget_category_skincare.tres" id="13_b207c"]
-[ext_resource type="Resource" uid="uid://h0pf3qif68l4" path="res://resources/data/budget_categories/budget_category_mimsy.tres" id="14_amejf"]
-[ext_resource type="Resource" uid="uid://pkireq6eqm5i" path="res://resources/data/budget_categories/budget_category_decoration.tres" id="15_fpd2g"]
-[ext_resource type="Resource" uid="uid://bc2d2u08x80e" path="res://resources/data/budget_categories/budget_category_gifts.tres" id="16_8slnx"]
-[ext_resource type="Resource" uid="uid://fe7ksipv2mpx" path="res://resources/data/budget_categories/budget_category_booksstationery.tres" id="17_juva8"]
-[ext_resource type="Resource" uid="uid://da3hke2v5lnta" path="res://resources/data/budget_categories/budget_category_videogames.tres" id="18_2te10"]
-[ext_resource type="Resource" uid="uid://jfehfoi7xjw1" path="res://resources/data/budget_categories/budget_category_software.tres" id="19_r8svd"]
-[ext_resource type="Resource" uid="uid://b6hmavseqpn8s" path="res://resources/data/budget_categories/budget_category_hardware.tres" id="20_xbtih"]
-[ext_resource type="Resource" uid="uid://ciblnt1ve5wem" path="res://resources/data/budget_categories/budget_category_magicthegathering.tres" id="21_cakie"]
-[ext_resource type="Resource" uid="uid://codjj552j4fbq" path="res://resources/data/budget_categories/budget_category_knex.tres" id="22_yinwx"]
-[ext_resource type="Resource" uid="uid://b7hv0uybnneau" path="res://resources/data/budget_categories/budget_category_ikea.tres" id="23_kwag0"]
+[ext_resource type="Resource" uid="uid://cxrji5d2yrikg" path="res://resources/data/budget_sections/budget_section_outgoings.tres" id="4_gv0wc"]
+[ext_resource type="Script" uid="uid://bwvawsuxn3h6x" path="res://scenes/ui/category_cell/category_cell.gd" id="7_uiv5p"]
 
 [node name="MonthGrid" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -35,7 +17,7 @@ theme = ExtResource("1_uecel")
 theme_type_variation = &"IdleMonthGridContainer"
 script = ExtResource("1_dlr66")
 month = ExtResource("3_fe2ud")
-categories = Array[ExtResource("4_meyte")]([ExtResource("5_egchc"), ExtResource("6_bq2gi"), ExtResource("7_gqulj"), ExtResource("8_rudjb"), ExtResource("9_nwnon"), ExtResource("10_2v7fw"), ExtResource("11_ulnis"), ExtResource("12_n2flr"), ExtResource("13_b207c"), ExtResource("14_amejf"), ExtResource("15_fpd2g"), ExtResource("16_8slnx"), ExtResource("17_juva8"), ExtResource("18_2te10"), ExtResource("19_r8svd"), ExtResource("20_xbtih"), ExtResource("21_cakie"), ExtResource("22_yinwx"), ExtResource("23_kwag0")])
+section = ExtResource("4_gv0wc")
 
 [node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("cell_manager", "cell_parent")]
 unique_name_in_owner = true
@@ -59,59 +41,135 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="CategoryCell0" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell0" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell1" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell1" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell2" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell2" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell3" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell3" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell4" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell4" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell5" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell5" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell6" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell6" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell7" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell7" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell8" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell8" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell9" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell9" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell10" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell10" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell11" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell11" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell12" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell12" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell13" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell13" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell14" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell14" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell15" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell15" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell16" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell16" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell17" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell17" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell18" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="CategoryCell18" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
+theme = ExtResource("1_uecel")
+theme_type_variation = &"IdlePanelContainer"
+script = ExtResource("7_uiv5p")
