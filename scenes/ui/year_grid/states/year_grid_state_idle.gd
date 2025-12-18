@@ -35,9 +35,6 @@ func _on_primary_modifier_pressed() -> void:
 func disable() -> void:
 	transition_state(YearGrid.State.DISABLED)
 
-func inject_amount(amount: float) -> void:
-	_month_grid_manager.inject_amount(amount)
-
 func update_budget(data: BudgetData) -> void:
 	_month_grid_manager.inject_budget(data)
 

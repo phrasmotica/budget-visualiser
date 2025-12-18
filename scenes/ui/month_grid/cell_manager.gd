@@ -29,16 +29,6 @@ func dim(index: int) -> void:
 		else:
 			cells[i].undim()
 
-func inject_amount(amount: float) -> void:
-	var currency := Strings.curr(amount)
-
-	Logger.debug("Injecting %s into cell manager" % currency)
-
-	for c in cells:
-		if c.is_highlighted():
-			Logger.debug("Injecting %s into cell %s" % [currency, c.name])
-			c.inject_amount(amount)
-
 func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
 	for i in cells.size():
 		var cell := cells[i]

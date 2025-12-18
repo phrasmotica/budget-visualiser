@@ -98,11 +98,6 @@ func pause() -> void:
 		month_grids[i].unhighlight()
 		month_grids[i].disable()
 
-func inject_amount(amount: float) -> void:
-	for m in month_grids:
-		if m.is_highlighted():
-			m.inject_amount(amount)
-
 func inject_budget(data: BudgetData) -> void:
 	for m in month_grids:
 		m.inject_budget(data)

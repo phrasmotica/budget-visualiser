@@ -93,10 +93,6 @@ func get_highlighted_category() -> BudgetCategory:
 func get_highlighted_month() -> BudgetMonth:
 	return month_grid_manager.get_highlighted_month()
 
-func inject_amount(amount: float) -> void:
-	if _current_state:
-		_current_state.inject_amount(amount)
-
 func update_budget(data: BudgetData) -> void:
 	if _current_state:
 		_current_state.update_budget(data)

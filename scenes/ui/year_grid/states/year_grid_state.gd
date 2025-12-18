@@ -34,8 +34,5 @@ func enable() -> void:
 func disable() -> void:
 	pass
 
-func inject_amount(_amount: float) -> void:
-	pass
-
 func update_budget(_data: BudgetData) -> void:
 	pass
