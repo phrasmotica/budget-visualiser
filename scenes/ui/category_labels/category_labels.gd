@@ -12,7 +12,7 @@ var section: BudgetSection:
 
 		SignalHelper.on_changed(section, _refresh)
 
-		call_deferred("_refresh")
+		_refresh()
 
 func _refresh() -> void:
 	var categories: Array[BudgetCategory] = []
