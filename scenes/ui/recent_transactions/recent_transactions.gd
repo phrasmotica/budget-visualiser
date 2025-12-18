@@ -52,7 +52,7 @@ func reload() -> void:
 	more_section.visible = more_count > 0
 
 	var hidden_count := transactions \
-		.filter(func(t: BudgetTransaction): return not t.hidden) \
+		.filter(func(t: BudgetTransaction): return t.hidden) \
 		.size()
 
 	hidden_label.text = "+%d hidden" % hidden_count
