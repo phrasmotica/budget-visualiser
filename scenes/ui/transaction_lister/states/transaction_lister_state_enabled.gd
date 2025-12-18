@@ -15,17 +15,17 @@ func _enter_tree() -> void:
 	)
 
 	SignalHelper.persist(
-		GridInput.move_bottom,
-		_on_move_bottom
-	)
-
-	SignalHelper.persist(
 		GridInput.move_up,
 		_on_move_up
 	)
 
 	SignalHelper.persist(
-		GridInput.move_top,
+		PageInput.move_bottom,
+		_on_move_bottom
+	)
+
+	SignalHelper.persist(
+		PageInput.move_top,
 		_on_move_top
 	)
 

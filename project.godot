@@ -43,6 +43,7 @@ Logger="*res://scenes/autoloads/logger.gd"
 ModifierInput="*res://scenes/autoloads/modifier_input.gd"
 GUIDE="*res://addons/guide/guide.gd"
 GuideHelper="*res://scenes/autoloads/guide_helper.gd"
+PageInput="*res://scenes/autoloads/page_input.gd"
 
 [display]
 

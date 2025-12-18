@@ -11,6 +11,10 @@ func persist(sig: Signal, callable: Callable) -> void:
 	if not sig.is_connected(callable):
 		sig.connect(callable)
 
+func remove(sig: Signal, callable: Callable) -> void:
+	if sig.is_connected(callable):
+		sig.disconnect(callable)
+
 func once(sig: Signal, callable: Callable) -> void:
 	if not sig.is_connected(callable):
 		sig.connect(callable, CONNECT_ONE_SHOT)

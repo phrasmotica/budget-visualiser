@@ -49,6 +49,7 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 	_current_state.setup(
 		self,
 		state_data,
+		header_panel,
 		year_grid,
 		amount_entry_modal,
 		transaction_lister_modal)

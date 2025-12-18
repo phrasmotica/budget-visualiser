@@ -7,6 +7,8 @@ func _enter_tree() -> void:
 	GuideHelper.enable_primary_modifier()
 	GuideHelper.enable_grid_movement()
 
+	_header_panel.show_icons = false
+
 	_year_grid.enable()
 
 	_amount_entry_modal.disable()
@@ -15,12 +17,22 @@ func _enter_tree() -> void:
 	SignalHelper.once_next_frame(_inject_entered_amount)
 
 	SignalHelper.persist(
-		GridInput.move_end,
+		ModifierInput.primary_modifier_pressed,
+		_on_primary_modifier_pressed
+	)
+
+	SignalHelper.persist(
+		ModifierInput.primary_modifier_released,
+		_on_primary_modifier_released
+	)
+
+	SignalHelper.persist(
+		PageInput.move_end,
 		_on_move_end
 	)
 
 	SignalHelper.persist(
-		GridInput.move_start,
+		PageInput.move_start,
 		_on_move_start
 	)
 
@@ -35,6 +47,16 @@ func _enter_tree() -> void:
 	)
 
 	_year_grid.update_budget(BudgetProvider.get_budget_data())
+
+func _on_primary_modifier_pressed() -> void:
+	_header_panel.show_icons = true
+
+	_year_grid.disable()
+
+func _on_primary_modifier_released() -> void:
+	_header_panel.show_icons = false
+
+	_year_grid.enable()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
