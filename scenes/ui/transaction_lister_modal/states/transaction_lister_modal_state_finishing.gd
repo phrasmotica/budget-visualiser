@@ -17,16 +17,9 @@ func _enter_tree() -> void:
 		_finish
 	)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_focus_next"):
-		var state_data := TransactionListerModalStateData \
-			.build() \
-			.with_skip_transactions()
+	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
 
-		transition_state(TransactionListerModal.State.ACTING, state_data)
-
-	if Input.is_action_just_released("ui_cancel"):
-		_cancel()
+	SignalHelper.persist(NavigationInput.next_section, _to_acting)
 
 func disable() -> void:
 	_to_hidden()
@@ -51,6 +44,13 @@ func _finish() -> void:
 	TransactionListerEvents.emit_cancelled()
 
 	_to_hidden()
+
+func _to_acting() -> void:
+	var state_data := TransactionListerModalStateData \
+		.build() \
+		.with_skip_transactions()
+
+	transition_state(TransactionListerModal.State.ACTING, state_data)
 
 func _to_hidden() -> void:
 	transition_state(TransactionListerModal.State.HIDDEN)

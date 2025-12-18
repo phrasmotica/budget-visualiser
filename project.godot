@@ -41,6 +41,13 @@ TransactionListerEvents="*res://scenes/autoloads/transaction_lister_events.gd"
 Log="*res://addons/GoLogger/Log.tscn"
 Logger="*res://scenes/autoloads/logger.gd"
 ModifierInput="*res://scenes/autoloads/modifier_input.gd"
+GUIDE="*res://addons/guide/guide.gd"
+GuideHelper="*res://scenes/autoloads/guide_helper.gd"
+PageInput="*res://scenes/autoloads/page_input.gd"
+ConfirmCancelInput="*res://scenes/autoloads/confirm_cancel_input.gd"
+NavigationInput="*res://scenes/autoloads/navigation_input.gd"
+ModalInput="*res://scenes/autoloads/modal_input.gd"
+DebuggingInput="*res://scenes/autoloads/debugging_input.gd"
 
 [display]
 
@@ -50,7 +57,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GoLogger/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/GoLogger/plugin.cfg", "res://addons/guide/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [input]
 

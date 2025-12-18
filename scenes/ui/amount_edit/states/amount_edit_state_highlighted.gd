@@ -18,12 +18,21 @@ func _enter_tree() -> void:
 		_on_move_down
 	)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("bulk_modifier"):
-		_is_bulk = true
+	SignalHelper.persist(
+		ModifierInput.bulk_modifier_pressed,
+		_on_bulk_modifier_pressed
+	)
 
-	if Input.is_action_just_released("bulk_modifier"):
-		_is_bulk = false
+	SignalHelper.persist(
+		ModifierInput.bulk_modifier_released,
+		_on_bulk_modifier_released
+	)
+
+func _on_bulk_modifier_pressed() -> void:
+	_is_bulk = true
+
+func _on_bulk_modifier_released() -> void:
+	_is_bulk = false
 
 func _on_move_up() -> void:
 	var new_amount := _amount_tracker.add(_get_change_amount())

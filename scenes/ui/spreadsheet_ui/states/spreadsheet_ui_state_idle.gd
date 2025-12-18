@@ -4,6 +4,15 @@ extends SpreadsheetUIState
 func _enter_tree() -> void:
 	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
 
+	GuideHelper.enable_confirm_cancel()
+	GuideHelper.enable_grid_movement()
+	GuideHelper.enable_navigation()
+	GuideHelper.enable_modifiers()
+
+	GuideHelper.enable_modals()
+
+	_header_panel.show_icons = false
+
 	_year_grid.enable()
 
 	_amount_entry_modal.disable()
@@ -11,13 +20,29 @@ func _enter_tree() -> void:
 
 	SignalHelper.once_next_frame(_inject_entered_amount)
 
+	SignalHelper.persist(ConfirmCancelInput.confirm, _show_modal)
+
 	SignalHelper.persist(
-		GridInput.move_end,
+		ModalInput.transaction_lister_modal_requested,
+		_show_transaction_lister_modal)
+
+	SignalHelper.persist(
+		ModifierInput.primary_modifier_pressed,
+		_on_primary_modifier_pressed
+	)
+
+	SignalHelper.persist(
+		ModifierInput.primary_modifier_released,
+		_on_primary_modifier_released
+	)
+
+	SignalHelper.persist(
+		PageInput.move_end,
 		_on_move_end
 	)
 
 	SignalHelper.persist(
-		GridInput.move_start,
+		PageInput.move_start,
 		_on_move_start
 	)
 
@@ -33,12 +58,15 @@ func _enter_tree() -> void:
 
 	_year_grid.update_budget(BudgetProvider.get_budget_data())
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_accept"):
-		_show_modal()
+func _on_primary_modifier_pressed() -> void:
+	_header_panel.show_icons = true
 
-	if Input.is_action_just_released("show_transaction_lister"):
-		_show_transaction_lister_modal()
+	_year_grid.disable()
+
+func _on_primary_modifier_released() -> void:
+	_header_panel.show_icons = false
+
+	_year_grid.enable()
 
 func _inject_entered_amount() -> void:
 	var entered_amount := _state_data.get_entered_amount()
