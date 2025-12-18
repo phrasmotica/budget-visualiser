@@ -13,7 +13,6 @@ offset_bottom = 80.0
 theme = ExtResource("1_78sy2")
 script = ExtResource("2_xaukj")
 text = "<text>"
-show_icons = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -31,6 +30,7 @@ layout_mode = 2
 
 [node name="LeftIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/LeftIconContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("3_8vd2i")
@@ -54,6 +54,7 @@ layout_mode = 2
 
 [node name="RightIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/RightIconContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("3_8vd2i")

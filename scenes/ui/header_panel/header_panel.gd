@@ -9,8 +9,6 @@ var text := "":
 
 		_refresh()
 
-# TODO: only show the icons when the Ctrl/Cmd key is held down. Create a new
-# autoload for handling modifier input on a per-OS basis...
 @export
 var show_icons := false:
 	set(value):
@@ -29,6 +27,22 @@ var right_icon: TextureRect = %RightIcon
 
 func _ready() -> void:
 	_refresh()
+
+	SignalHelper.persist(
+		ModifierInput.primary_modifier_pressed,
+		_on_primary_modifier_pressed
+	)
+
+	SignalHelper.persist(
+		ModifierInput.primary_modifier_released,
+		_on_primary_modifier_released
+	)
+
+func _on_primary_modifier_pressed() -> void:
+	show_icons = true
+
+func _on_primary_modifier_released() -> void:
+	show_icons = false
 
 func _refresh() -> void:
 	if label:
