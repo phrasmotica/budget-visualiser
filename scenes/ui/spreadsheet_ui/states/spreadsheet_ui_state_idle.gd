@@ -9,6 +9,8 @@ func _enter_tree() -> void:
 	GuideHelper.enable_navigation()
 	GuideHelper.enable_modifiers()
 
+	GuideHelper.enable_modals()
+
 	_header_panel.show_icons = false
 
 	_year_grid.enable()
@@ -19,6 +21,10 @@ func _enter_tree() -> void:
 	SignalHelper.once_next_frame(_inject_entered_amount)
 
 	SignalHelper.persist(ConfirmCancelInput.confirm, _show_modal)
+
+	SignalHelper.persist(
+		ModalInput.transaction_lister_modal_requested,
+		_show_transaction_lister_modal)
 
 	SignalHelper.persist(
 		ModifierInput.primary_modifier_pressed,
@@ -61,10 +67,6 @@ func _on_primary_modifier_released() -> void:
 	_header_panel.show_icons = false
 
 	_year_grid.enable()
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("show_transaction_lister"):
-		_show_transaction_lister_modal()
 
 func _inject_entered_amount() -> void:
 	var entered_amount := _state_data.get_entered_amount()

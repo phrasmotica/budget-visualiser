@@ -46,6 +46,7 @@ GuideHelper="*res://scenes/autoloads/guide_helper.gd"
 PageInput="*res://scenes/autoloads/page_input.gd"
 ConfirmCancelInput="*res://scenes/autoloads/confirm_cancel_input.gd"
 NavigationInput="*res://scenes/autoloads/navigation_input.gd"
+ModalInput="*res://scenes/autoloads/modal_input.gd"
 
 [display]
 

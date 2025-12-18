@@ -7,6 +7,9 @@ var ctx_confirm_cancel: GUIDEMappingContext = preload("res://resources/input/ctx
 var ctx_grid_movement: GUIDEMappingContext = preload("res://resources/input/ctx_grid_movement.tres")
 
 @onready
+var ctx_modals: GUIDEMappingContext = preload("res://resources/input/ctx_modals.tres")
+
+@onready
 var ctx_navigation: GUIDEMappingContext = preload("res://resources/input/ctx_navigation.tres")
 
 @onready
@@ -17,6 +20,12 @@ func enable_confirm_cancel() -> void:
 
 func enable_grid_movement() -> void:
 	GUIDE.enable_mapping_context(ctx_grid_movement)
+
+func enable_modals() -> void:
+	GUIDE.enable_mapping_context(ctx_modals)
+
+func disable_modals() -> void:
+	GUIDE.disable_mapping_context(ctx_modals)
 
 func enable_navigation() -> void:
 	GUIDE.enable_mapping_context(ctx_navigation)
