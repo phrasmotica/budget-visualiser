@@ -49,6 +49,14 @@ func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
 			.map(func(t: BudgetTransaction): return t.amount) \
 			.reduce(Math.sum, 0.0)
 
+		# BUG: this method is not called on cells that are created after
+		# moving to a new budget section with more categories than the old
+		# budget section, so they just say £0.00 instead of the correct amount
+
+		# var cell_path := cell.get_path()
+		# var relevant_path := cell_path.slice(-4, cell_path.get_name_count())
+		# print("inject_transactions: cell %s" % relevant_path)
+
 		cell.inject_amount(transaction_total)
 
 func is_for_category(transaction: BudgetTransaction, index: int) -> bool:
