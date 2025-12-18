@@ -4,6 +4,9 @@ extends Node
 var ctx_confirm_cancel: GUIDEMappingContext = preload("res://resources/input/ctx_confirm_cancel.tres")
 
 @onready
+var ctx_debugging: GUIDEMappingContext = preload("res://resources/input/ctx_debugging.tres")
+
+@onready
 var ctx_grid_movement: GUIDEMappingContext = preload("res://resources/input/ctx_grid_movement.tres")
 
 @onready
@@ -17,6 +20,9 @@ var ctx_modifiers: GUIDEMappingContext = preload("res://resources/input/ctx_modi
 
 func enable_confirm_cancel() -> void:
 	GUIDE.enable_mapping_context(ctx_confirm_cancel)
+
+func enable_debugging() -> void:
+	GUIDE.enable_mapping_context(ctx_debugging)
 
 func enable_grid_movement() -> void:
 	GUIDE.enable_mapping_context(ctx_grid_movement)

@@ -25,6 +25,9 @@ var amount_entry_modal: AmountEntryModal = %AmountEntryModal
 @onready
 var transaction_lister_modal: TransactionListerModal = %TransactionListerModal
 
+@onready
+var guide_debugger: Control = %GuideDebugger
+
 var _state_factory := SpreadsheetUIStateFactory.new()
 var _current_state: SpreadsheetUIState = null
 
@@ -33,6 +36,13 @@ func _ready() -> void:
 
 	if Engine.is_editor_hint():
 		return
+
+	GuideHelper.enable_debugging()
+
+	SignalHelper.persist(
+		DebuggingInput.toggle_guide_debugger_pressed,
+		_toggle_guide_debugger
+	)
 
 	BudgetManager.load_or_create()
 
@@ -65,3 +75,7 @@ func _refresh() -> void:
 
 	if year_grid:
 		year_grid.section = budget_section
+
+func _toggle_guide_debugger() -> void:
+	if guide_debugger:
+		guide_debugger.visible = not guide_debugger.visible
