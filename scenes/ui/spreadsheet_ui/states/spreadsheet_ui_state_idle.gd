@@ -7,7 +7,7 @@ func _enter_tree() -> void:
 	GuideHelper.enable_confirm_cancel()
 	GuideHelper.enable_grid_movement()
 	GuideHelper.enable_navigation()
-	GuideHelper.enable_primary_modifier()
+	GuideHelper.enable_modifiers()
 
 	_header_panel.show_icons = false
 

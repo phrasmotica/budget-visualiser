@@ -1,6 +1,9 @@
 extends Node
 
 @onready
+var action_bulk_modifier: GUIDEAction = preload("res://resources/input/action_bulk_modifier.tres")
+
+@onready
 var action_primary_modifier_windows: GUIDEAction = preload("res://resources/input/action_primary_modifier_windows.tres")
 
 @onready
@@ -8,6 +11,9 @@ var action_primary_modifier_macos: GUIDEAction = preload("res://resources/input/
 
 signal primary_modifier_pressed
 signal primary_modifier_released
+
+signal bulk_modifier_pressed
+signal bulk_modifier_released
 
 func _ready() -> void:
 	var os_helper := OSHelper.new()
@@ -24,6 +30,11 @@ func _ready() -> void:
 			_on_action_primary_modifier_triggered.bind(action_primary_modifier_macos)
 		)
 
+	SignalHelper.persist(
+		action_bulk_modifier.triggered,
+		_on_action_bulk_modifier_triggered
+	)
+
 func _on_action_primary_modifier_triggered(action: GUIDEAction) -> void:
 	var value_bool := action.value_bool
 
@@ -31,3 +42,11 @@ func _on_action_primary_modifier_triggered(action: GUIDEAction) -> void:
 		primary_modifier_pressed.emit()
 	else:
 		primary_modifier_released.emit()
+
+func _on_action_bulk_modifier_triggered() -> void:
+	var value_bool := action_bulk_modifier.value_bool
+
+	if value_bool:
+		bulk_modifier_pressed.emit()
+	else:
+		bulk_modifier_released.emit()
