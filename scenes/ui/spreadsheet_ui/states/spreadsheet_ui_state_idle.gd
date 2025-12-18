@@ -4,6 +4,9 @@ extends SpreadsheetUIState
 func _enter_tree() -> void:
 	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
 
+	GuideHelper.enable_primary_modifier()
+	GuideHelper.enable_grid_movement()
+
 	_year_grid.enable()
 
 	_amount_entry_modal.disable()

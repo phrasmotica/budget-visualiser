@@ -16,12 +16,15 @@ func _enter_tree() -> void:
 		_modal_buttons.emit_confirmed
 	)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_right"):
-		_button_manager.next()
+	SignalHelper.persist(
+		GridInput.move_right,
+		_button_manager.next
+	)
 
-	if Input.is_action_just_released("ui_left"):
-		_button_manager.previous()
+	SignalHelper.persist(
+		GridInput.move_left,
+		_button_manager.previous
+	)
 
 func deactivate() -> void:
 	transition_state(ModalButtons.State.IDLE)
