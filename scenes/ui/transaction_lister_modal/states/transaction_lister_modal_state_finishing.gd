@@ -2,7 +2,7 @@ class_name TransactionListerModalStateFinishing
 extends TransactionListerModalState
 
 func _enter_tree() -> void:
-	print("%s is now finishing" % _transaction_lister_modal.name)
+	Logger.debug("%s is now finishing" % _transaction_lister_modal.name)
 
 	_transaction_lister.disable()
 	_modal_buttons.activate()
@@ -32,7 +32,7 @@ func disable() -> void:
 	_to_hidden()
 
 func _cancel() -> void:
-	print("Cancelled toggling transactions")
+	Logger.info("Cancelled toggling transactions")
 
 	var change_tracker := _transaction_lister.get_change_tracker()
 	change_tracker.clear_changes()
@@ -42,7 +42,7 @@ func _cancel() -> void:
 	_to_hidden()
 
 func _finish() -> void:
-	print("Finished toggling transactions")
+	Logger.info("Finished toggling transactions")
 
 	var change_tracker := _transaction_lister.get_change_tracker()
 	BudgetProvider.apply_changes(change_tracker)

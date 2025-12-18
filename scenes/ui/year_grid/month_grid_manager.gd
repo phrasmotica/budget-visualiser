@@ -76,7 +76,7 @@ func refresh_grids(
 
 func highlight(index: int) -> MonthGrid:
 	if index < 0 or index > month_grids.size() - 1:
-		print("Cannot highlight MonthGrid at invalid index %d!" % index)
+		Logger.info("Cannot highlight MonthGrid at invalid index %d!" % index)
 		return
 
 	_highlighted_index = index

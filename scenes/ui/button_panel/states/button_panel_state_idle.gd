@@ -2,7 +2,7 @@ class_name ButtonPanelStateIdle
 extends ButtonPanelState
 
 func _enter_tree() -> void:
-	print("%s is now idle" % _button_panel.name)
+	Logger.debug("%s is now idle" % _button_panel.name)
 
 	_button_panel.theme_type_variation = "IdleButtonPanel"
 

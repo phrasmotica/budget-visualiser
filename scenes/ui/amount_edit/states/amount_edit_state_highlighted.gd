@@ -4,7 +4,7 @@ extends AmountEditState
 var _is_bulk := false
 
 func _enter_tree() -> void:
-	print("%s is now highlighted" % _amount_edit.name)
+	Logger.debug("%s is now highlighted" % _amount_edit.name)
 
 	_appearance.for_highlighted()
 

@@ -38,6 +38,8 @@ MonthGridEvents="*res://scenes/autoloads/month_grid_events.gd"
 BudgetManager="*res://scenes/autoloads/budget_manager.gd"
 SaverLoader="*res://scenes/autoloads/saver_loader.gd"
 TransactionListerEvents="*res://scenes/autoloads/transaction_lister_events.gd"
+Log="*res://addons/GoLogger/Log.tscn"
+Logger="*res://scenes/autoloads/logger.gd"
 
 [display]
 
@@ -47,7 +49,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/GoLogger/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [input]
 

@@ -2,7 +2,7 @@ class_name TransactionListerModalStateActing
 extends TransactionListerModalState
 
 func _enter_tree() -> void:
-	print("%s is now acting" % _transaction_lister_modal.name)
+	Logger.debug("%s is now acting" % _transaction_lister_modal.name)
 
 	_transaction_lister_modal.show()
 
@@ -26,7 +26,7 @@ func disable() -> void:
 	_to_hidden()
 
 func _cancel() -> void:
-	print("Cancelled toggling transactions")
+	Logger.info("Cancelled toggling transactions")
 
 	_transaction_lister.disable()
 

@@ -8,7 +8,7 @@ func load_latest_budget() -> BudgetData:
 	var budget_files := _get_existing_budgets()
 
 	if budget_files.size() <= 0:
-		print("No saved data to load!")
+		Logger.info("No saved data to load!")
 		return null
 
 	budget_files.sort_custom(_sort_by_recent)
@@ -18,7 +18,7 @@ func load_latest_budget() -> BudgetData:
 func save_budget_data(data: BudgetData) -> void:
 	var success := _save_data(data)
 	if success:
-		print("Saved data successfully!")
+		Logger.info("Saved data successfully!")
 
 		saved_data.emit(data)
 
@@ -37,7 +37,7 @@ func _save_data(data: BudgetData) -> bool:
 	var file_name = SAVE_FILE_FORMAT % data.id
 	ResourceSaver.save(data, file_name)
 
-	print("Saved budget data to %s" % file_name)
+	Logger.info("Saved budget data to %s" % file_name)
 
 	return true
 
@@ -45,12 +45,12 @@ func _load_data(file_name: String) -> BudgetData:
 	var path := "user://" + file_name
 
 	if not FileAccess.file_exists(path):
-		print("Budget file %s does not exist!" % file_name)
+		Logger.info("Budget file %s does not exist!" % file_name)
 		return null
 
 	var data: BudgetData = ResourceLoader.load(path)
 
-	print("Loaded budget data from %s" % file_name)
+	Logger.info("Loaded budget data from %s" % file_name)
 
 	return data
 

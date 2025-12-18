@@ -9,7 +9,7 @@ var _highlighted_index := -1
 
 func highlight(index: int) -> CategoryCell:
 	if index < 0 or index > cells.size() - 1:
-		print("Cannot highlight CategoryCell at invalid index %d!" % index)
+		Logger.info("Cannot highlight CategoryCell at invalid index %d!" % index)
 		return
 
 	_highlighted_index = index
@@ -32,11 +32,11 @@ func dim(index: int) -> void:
 func inject_amount(amount: float) -> void:
 	var currency := Strings.curr(amount)
 
-	print("Injecting %s into cell manager" % currency)
+	Logger.debug("Injecting %s into cell manager" % currency)
 
 	for c in cells:
 		if c.is_highlighted():
-			print("Injecting %s into cell %s" % [currency, c.name])
+			Logger.debug("Injecting %s into cell %s" % [currency, c.name])
 			c.inject_amount(amount)
 
 func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
@@ -55,7 +55,7 @@ func inject_transactions(transactions: Array[BudgetTransaction]) -> void:
 
 		# var cell_path := cell.get_path()
 		# var relevant_path := cell_path.slice(-4, cell_path.get_name_count())
-		# print("inject_transactions: cell %s" % relevant_path)
+		# Logger.debug("inject_transactions: cell %s" % relevant_path)
 
 		cell.inject_amount(transaction_total)
 

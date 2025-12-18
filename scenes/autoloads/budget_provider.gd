@@ -72,7 +72,7 @@ func apply_changes(change_tracker: TransactionChangeTracker) -> void:
 	var transaction_ids := change_tracker.get_transaction_ids()
 
 	if transaction_ids.is_empty():
-		print("No changes to apply to the budget!")
+		Logger.info("No changes to apply to the budget!")
 		return
 
 	var changed_count := 0
@@ -90,7 +90,7 @@ func apply_changes(change_tracker: TransactionChangeTracker) -> void:
 
 		changed_count += 1
 
-	print("Applied %d change(s) to the budget." % changed_count)
+	Logger.info("Applied %d change(s) to the budget." % changed_count)
 
 	_save_changes()
 

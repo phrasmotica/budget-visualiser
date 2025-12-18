@@ -2,7 +2,7 @@ class_name SpreadsheetUIStateIdle
 extends SpreadsheetUIState
 
 func _enter_tree() -> void:
-	print("%s is now idle" % _spreadsheet_ui.name)
+	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
 
 	_year_grid.enable()
 
@@ -57,7 +57,7 @@ func _on_move_start() -> void:
 	_spreadsheet_ui.budget_section = previous_section
 
 func _on_transaction_added(transaction: BudgetTransaction) -> void:
-	print("New transaction: %s %s, %s" % [
+	Logger.info("New transaction: %s %s, %s" % [
 		transaction.month.name,
 		transaction.category.name,
 		Strings.curr(transaction.amount),
@@ -66,13 +66,13 @@ func _on_transaction_added(transaction: BudgetTransaction) -> void:
 	var month := transaction.month
 	var budget_data := BudgetProvider.get_budget_data()
 
-	print("%s Total: %s" % [
+	Logger.info("%s Total: %s" % [
 		month.name,
 		Strings.curr(budget_data.compute_month_expenditure(month))
 	])
 
 func _on_budget_changed(data: BudgetData) -> void:
-	print("Grand Total: %s" % Strings.curr(data.compute_total_expenditure()))
+	Logger.info("Grand Total: %s" % Strings.curr(data.compute_total_expenditure()))
 
 	_year_grid.update_budget(data)
 
@@ -95,7 +95,7 @@ func _show_transaction_lister_modal() -> void:
 		month)
 
 	if transactions.size() <= 0:
-		print("No transactions to list!")
+		Logger.info("No transactions to list!")
 		return
 
 	_transaction_lister_modal.sub_header = "%s - %s" % [category.name, month.name]

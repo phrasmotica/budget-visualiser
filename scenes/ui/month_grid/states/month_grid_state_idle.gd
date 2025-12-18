@@ -2,7 +2,7 @@ class_name MonthGridStateIdle
 extends MonthGridState
 
 func _enter_tree() -> void:
-	print("%s is now idle" % _month_grid.name)
+	Logger.debug("%s is now idle" % _month_grid.name)
 
 	_month_grid.theme_type_variation = "IdleMonthGridContainer"
 

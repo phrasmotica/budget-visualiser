@@ -8,7 +8,7 @@ func toggle_hidden(transaction: BudgetTransaction) -> bool:
 	if _changes_hidden.has(transaction.id):
 		new_hidden = not _changes_hidden[transaction.id]
 
-	print("Transaction %d hidden: %s->%s" % [transaction.id, transaction.hidden, new_hidden])
+	Logger.debug("Transaction %d hidden: %s->%s" % [transaction.id, transaction.hidden, new_hidden])
 
 	_changes_hidden[transaction.id] = new_hidden
 

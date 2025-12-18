@@ -48,4 +48,4 @@ func set_maximum(maximum: int) -> void:
 		_current = 0
 
 func _report() -> void:
-	print("%s _current=%d" % [_name, _current])
+	Logger.debug("%s _current=%d" % [_name, _current])

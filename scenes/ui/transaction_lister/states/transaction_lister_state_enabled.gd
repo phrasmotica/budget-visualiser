@@ -2,7 +2,7 @@ class_name TransactionListerStateEnabled
 extends TransactionListerState
 
 func _enter_tree() -> void:
-	print("%s is now enabled" % _transaction_lister.name)
+	Logger.debug("%s is now enabled" % _transaction_lister.name)
 
 	if _transaction_panel_manager.count() > 0:
 		_transaction_panel_manager.highlight(_index_tracker.current())

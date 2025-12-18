@@ -8,7 +8,7 @@ var _highlighted_index := -1
 
 func highlight(index: int) -> TransactionSelectPanel:
 	if index < 0 or index > select_panels.size() - 1:
-		print("Cannot highlight TransactionSelectPanel at invalid index %d!" % index)
+		Logger.info("Cannot highlight TransactionSelectPanel at invalid index %d!" % index)
 		return null
 
 	_highlighted_index = index

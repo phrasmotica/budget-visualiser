@@ -2,7 +2,7 @@ class_name AmountEntryModalStateShown
 extends AmountEntryModalState
 
 func _enter_tree() -> void:
-	print("%s is now shown" % _amount_entry_modal.name)
+	Logger.debug("%s is now shown" % _amount_entry_modal.name)
 
 	var category = _state_data.get_category()
 	var month = _state_data.get_month()
@@ -67,7 +67,7 @@ func _set_amount(amount: float) -> void:
 	_totaller.set_minor(minor_amount)
 
 func _cancel() -> void:
-	print("Cancelling amount entry")
+	Logger.info("Cancelling amount entry")
 
 	AmountEvents.emit_entry_cancelled()
 
@@ -76,7 +76,7 @@ func _cancel() -> void:
 func _finish() -> void:
 	var final_amount := _totaller.compute_total()
 
-	print("Final amount: %s" % Strings.curr(final_amount))
+	Logger.info("Final amount: %s" % Strings.curr(final_amount))
 
 	AmountEvents.emit_entry_finished(final_amount)
 
