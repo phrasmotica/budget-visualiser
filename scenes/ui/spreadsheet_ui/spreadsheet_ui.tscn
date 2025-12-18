@@ -22,6 +22,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "Outgoings"
+show_icons = true
 
 [node name="YearGrid" parent="VBoxContainer" instance=ExtResource("2_wovv7")]
 unique_name_in_owner = true
