@@ -29,6 +29,8 @@ func _enter_tree() -> void:
 		_on_move_top
 	)
 
+	SignalHelper.persist(ConfirmCancelInput.confirm, _toggle_current_hidden)
+
 func _on_move_down() -> void:
 	var new_panel := _transaction_panel_manager.highlight(_index_tracker.next())
 	_appearance.scroll_down_to_highlighted_panel(new_panel)
@@ -45,13 +47,12 @@ func _on_move_top() -> void:
 	var new_panel := _transaction_panel_manager.highlight(_index_tracker.first())
 	_appearance.scroll_up_to_highlighted_panel(new_panel)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_accept"):
-		var current := _index_tracker.current()
-		var transaction := _transaction_lister.transactions[current]
+func _toggle_current_hidden() -> void:
+	var current := _index_tracker.current()
+	var transaction := _transaction_lister.transactions[current]
 
-		var new_hidden := _change_tracker.toggle_hidden(transaction)
-		_transaction_panel_manager.set_hidden(current, new_hidden)
+	var new_hidden := _change_tracker.toggle_hidden(transaction)
+	_transaction_panel_manager.set_hidden(current, new_hidden)
 
 func disable() -> void:
 	_transaction_panel_manager.unhighlight()

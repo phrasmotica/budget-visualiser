@@ -21,6 +21,9 @@ func _enter_tree() -> void:
 	SignalHelper.persist(GridInput.move_right, _appearance.switch_amount_edits)
 	SignalHelper.persist(GridInput.move_left, _appearance.switch_amount_edits)
 
+	SignalHelper.persist(ConfirmCancelInput.confirm, _finish)
+	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
+
 	SignalHelper.persist(
 		_totaller.total_changed,
 		_on_total_changed
@@ -44,13 +47,6 @@ func set_amounts_caption(starting_amount: float, preview_amount: float) -> void:
 		[starting_amount, preview_amount])
 
 	_appearance.set_caption(caption)
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_cancel"):
-		_cancel()
-
-	if Input.is_action_just_released("ui_accept"):
-		_finish()
 
 func _set_amount(amount: float) -> void:
 	var major_amount := int(amount)

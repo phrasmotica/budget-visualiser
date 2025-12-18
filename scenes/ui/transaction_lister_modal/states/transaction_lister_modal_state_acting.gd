@@ -13,14 +13,13 @@ func _enter_tree() -> void:
 
 	_transaction_lister.enable()
 
+	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
 		_transaction_lister.disable()
 
 		transition_state(TransactionListerModal.State.FINISHING)
-
-	if Input.is_action_just_released("ui_cancel"):
-		_cancel()
 
 func disable() -> void:
 	_to_hidden()

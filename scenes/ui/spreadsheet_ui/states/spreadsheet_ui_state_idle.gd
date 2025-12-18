@@ -4,8 +4,9 @@ extends SpreadsheetUIState
 func _enter_tree() -> void:
 	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
 
-	GuideHelper.enable_primary_modifier()
+	GuideHelper.enable_confirm_cancel()
 	GuideHelper.enable_grid_movement()
+	GuideHelper.enable_primary_modifier()
 
 	_header_panel.show_icons = false
 
@@ -15,6 +16,8 @@ func _enter_tree() -> void:
 	_transaction_lister_modal.disable()
 
 	SignalHelper.once_next_frame(_inject_entered_amount)
+
+	SignalHelper.persist(ConfirmCancelInput.confirm, _show_modal)
 
 	SignalHelper.persist(
 		ModifierInput.primary_modifier_pressed,
@@ -59,9 +62,6 @@ func _on_primary_modifier_released() -> void:
 	_year_grid.enable()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_accept"):
-		_show_modal()
-
 	if Input.is_action_just_released("show_transaction_lister"):
 		_show_transaction_lister_modal()
 

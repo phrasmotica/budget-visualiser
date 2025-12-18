@@ -17,6 +17,8 @@ func _enter_tree() -> void:
 		_finish
 	)
 
+	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_focus_next"):
 		var state_data := TransactionListerModalStateData \
@@ -24,9 +26,6 @@ func _process(_delta: float) -> void:
 			.with_skip_transactions()
 
 		transition_state(TransactionListerModal.State.ACTING, state_data)
-
-	if Input.is_action_just_released("ui_cancel"):
-		_cancel()
 
 func disable() -> void:
 	_to_hidden()
