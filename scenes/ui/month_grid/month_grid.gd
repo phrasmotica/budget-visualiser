@@ -18,7 +18,7 @@ var section: BudgetSection:
 
 		SignalHelper.on_changed(section, _refresh)
 
-		call_deferred("_refresh")
+		_refresh()
 
 @onready
 var appearance: MonthGridAppearance = %Appearance
