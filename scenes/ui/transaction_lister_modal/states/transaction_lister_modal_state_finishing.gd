@@ -1,11 +1,13 @@
 class_name TransactionListerModalStateFinishing
 extends TransactionListerModalState
 
+const MAPPING_CONTEXT: GUIDEMappingContext = preload(
+	"res://resources/input/ctx_modal_buttons.tres")
+
 func _enter_tree() -> void:
 	Logger.debug("%s is now finishing" % _transaction_lister_modal.name)
 
-	GuideHelper.disable_transaction_lister_modal_acting()
-	GuideHelper.enable_modal_buttons()
+	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
 	_transaction_lister.disable()
 	_modal_buttons.activate()
@@ -23,6 +25,9 @@ func _enter_tree() -> void:
 	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
 
 	SignalHelper.persist(NavigationInput.next_section, _to_acting)
+
+func _exit_tree() -> void:
+	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
 
 func disable() -> void:
 	_to_hidden()

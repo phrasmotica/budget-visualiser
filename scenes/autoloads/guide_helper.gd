@@ -15,14 +15,6 @@ var ctx_modals: GUIDEMappingContext = preload("res://resources/input/ctx_modals.
 @onready
 var ctx_modifiers: GUIDEMappingContext = preload("res://resources/input/ctx_modifiers.tres")
 
-@onready
-var ctx_transaction_lister_modal_acting: GUIDEMappingContext = preload(
-	"res://resources/input/ctx_transaction_lister_modal_acting.tres")
-
-@onready
-var ctx_modal_buttons: GUIDEMappingContext = preload(
-	"res://resources/input/ctx_modal_buttons.tres")
-
 func enable_confirm_cancel() -> void:
 	GUIDE.enable_mapping_context(ctx_confirm_cancel)
 
@@ -43,15 +35,3 @@ func disable_modals() -> void:
 
 func enable_modifiers() -> void:
 	GUIDE.enable_mapping_context(ctx_modifiers)
-
-func enable_transaction_lister_modal_acting() -> void:
-	GUIDE.enable_mapping_context(ctx_transaction_lister_modal_acting)
-
-func disable_transaction_lister_modal_acting() -> void:
-	GUIDE.disable_mapping_context(ctx_transaction_lister_modal_acting)
-
-func enable_modal_buttons() -> void:
-	GUIDE.enable_mapping_context(ctx_modal_buttons)
-
-func disable_modal_buttons() -> void:
-	GUIDE.disable_mapping_context(ctx_modal_buttons)
