@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="GUIDEActionMapping" load_steps=11 format=3 uid="uid://b5lgcs2xbfuch"]
+
+[ext_resource type="Resource" uid="uid://deiusm2nvvvyq" path="res://resources/input/action_next_section.tres" id="1_58hs6"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="2_eu21v"]
+[ext_resource type="Script" uid="uid://cw71o87tvdx3q" path="res://addons/guide/inputs/guide_input_key.gd" id="3_mdamg"]
+[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="4_noemy"]
+[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="5_c4qij"]
+[ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="6_l182q"]
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="7_usrfh"]
+
+[sub_resource type="Resource" id="Resource_odnvi"]
+script = ExtResource("3_mdamg")
+key = 4194306
+shift = false
+control = false
+alt = false
+meta = false
+allow_additional_modifiers = true
+
+[sub_resource type="Resource" id="Resource_xjcwu"]
+script = ExtResource("6_l182q")
+actuation_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_bdstj"]
+script = ExtResource("2_eu21v")
+override_action_settings = false
+is_remappable = false
+display_name = ""
+display_category = ""
+input = SubResource("Resource_odnvi")
+modifiers = Array[ExtResource("4_noemy")]([])
+triggers = Array[ExtResource("5_c4qij")]([SubResource("Resource_xjcwu")])
+
+[resource]
+script = ExtResource("7_usrfh")
+action = ExtResource("1_58hs6")
+input_mappings = Array[ExtResource("2_eu21v")]([SubResource("Resource_bdstj")])
+metadata/_guide_input_mappings_collapsed = false

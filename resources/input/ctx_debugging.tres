@@ -1,45 +1,12 @@
-[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=13 format=3 uid="uid://crb0k3c28vmkh"]
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=4 format=3 uid="uid://crb0k3c28vmkh"]
 
 [ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_l7vvg"]
-[ext_resource type="Resource" uid="uid://7b0mnfbiid5r" path="res://resources/input/action_toggle_guide_debugger.tres" id="2_ro6kk"]
-[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="3_uvo6o"]
-[ext_resource type="Script" uid="uid://cw71o87tvdx3q" path="res://addons/guide/inputs/guide_input_key.gd" id="4_hmu1x"]
-[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="5_33p6s"]
-[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="6_37gou"]
-[ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="7_4t74w"]
+[ext_resource type="Resource" uid="uid://dqckvtwocujk3" path="res://resources/input/mapping_toggle_guide_debugger.tres" id="2_y865d"]
 [ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="8_e7clw"]
-
-[sub_resource type="Resource" id="Resource_l7vvg"]
-script = ExtResource("4_hmu1x")
-key = 47
-shift = false
-control = false
-alt = true
-meta = false
-allow_additional_modifiers = true
-
-[sub_resource type="Resource" id="Resource_t7h1r"]
-script = ExtResource("7_4t74w")
-actuation_threshold = 0.5
-
-[sub_resource type="Resource" id="Resource_ro4lt"]
-script = ExtResource("3_uvo6o")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
-input = SubResource("Resource_l7vvg")
-modifiers = Array[ExtResource("5_33p6s")]([])
-triggers = Array[ExtResource("6_37gou")]([SubResource("Resource_t7h1r")])
-
-[sub_resource type="Resource" id="Resource_0gm1a"]
-script = ExtResource("1_l7vvg")
-action = ExtResource("2_ro6kk")
-input_mappings = Array[ExtResource("3_uvo6o")]([SubResource("Resource_ro4lt")])
 
 [resource]
 script = ExtResource("8_e7clw")
 display_name = "Debugging"
-mappings = Array[ExtResource("1_l7vvg")]([SubResource("Resource_0gm1a")])
+mappings = Array[ExtResource("1_l7vvg")]([ExtResource("2_y865d")])
 metadata/_custom_type_script = "uid://dsa1dnifd6w32"
 metadata/_guide_action_mappings_collapsed = false

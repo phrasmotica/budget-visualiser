@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GUIDEActionMapping" load_steps=4 format=3 uid="uid://bt014uli5cy1a"]
+
+[ext_resource type="Resource" uid="uid://dp48ktwwby8qa" path="res://resources/input/action_grid_input.tres" id="1_nwijc"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="2_8ixei"]
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="8_1311k"]
+
+[resource]
+script = ExtResource("8_1311k")
+action = ExtResource("1_nwijc")
+input_mappings = Array[ExtResource("2_8ixei")]([])
+metadata/_guide_input_mappings_collapsed = false
