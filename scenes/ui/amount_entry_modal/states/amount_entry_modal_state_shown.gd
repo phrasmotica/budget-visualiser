@@ -1,8 +1,13 @@
 class_name AmountEntryModalStateShown
 extends AmountEntryModalState
 
+const MAPPING_CONTEXT: GUIDEMappingContext = preload(
+	"res://resources/input/ctx_new_transaction_modal_acting.tres")
+
 func _enter_tree() -> void:
 	Logger.debug("%s is now shown" % _amount_entry_modal.name)
+
+	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
 	var category = _state_data.get_category()
 	var month = _state_data.get_month()
@@ -34,6 +39,9 @@ func _enter_tree() -> void:
 
 	var starting_amount := _state_data.get_starting_amount()
 	set_amounts_caption(starting_amount, starting_amount)
+
+func _exit_tree() -> void:
+	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
 
 func _on_total_changed(total: float) -> void:
 	var starting_amount := _state_data.get_starting_amount()

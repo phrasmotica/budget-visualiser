@@ -1,11 +1,13 @@
 class_name SpreadsheetUIStateDisabled
 extends SpreadsheetUIState
 
+const MAPPING_CONTEXT: GUIDEMappingContext = preload(
+	"res://resources/input/ctx_spreadsheet_ui_disabled.tres")
+
 func _enter_tree() -> void:
 	Logger.debug("%s is now disabled" % _spreadsheet_ui.name)
 
-	GuideHelper.disable_grid_movement()
-	GuideHelper.disable_modals()
+	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
 	_year_grid.disable()
 
@@ -23,6 +25,9 @@ func _enter_tree() -> void:
 		AmountEvents.entry_finished,
 		_on_entry_finished
 	)
+
+func _exit_tree() -> void:
+	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
 
 func _on_entry_cancelled() -> void:
 	transition_state(SpreadsheetUI.State.IDLE)

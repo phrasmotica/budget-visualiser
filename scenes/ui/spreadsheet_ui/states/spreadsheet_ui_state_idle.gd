@@ -1,17 +1,13 @@
 class_name SpreadsheetUIStateIdle
 extends SpreadsheetUIState
 
+const MAPPING_CONTEXT: GUIDEMappingContext = preload(
+	"res://resources/input/ctx_spreadsheet_ui_idle.tres")
+
 func _enter_tree() -> void:
 	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
 
-	# TODO: create mapping contexts specifically for the various SpreadsheetUI
-	# states, similar to those created for the TransactionListerModal...
-
-	GuideHelper.enable_confirm_cancel()
-	GuideHelper.enable_modifiers()
-
-	GuideHelper.enable_grid_movement()
-	GuideHelper.enable_modals()
+	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
 	_header_panel.show_icons = false
 
@@ -60,7 +56,11 @@ func _enter_tree() -> void:
 
 	_year_grid.update_budget(BudgetProvider.get_budget_data())
 
+func _exit_tree() -> void:
+	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
+
 func _on_primary_modifier_pressed() -> void:
+	# TODO: should we create a new state for this? Maybe called SWITCHING
 	_header_panel.show_icons = true
 
 	_year_grid.disable()
