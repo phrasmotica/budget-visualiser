@@ -4,7 +4,8 @@ extends TransactionListerModalState
 func _enter_tree() -> void:
 	Logger.debug("%s is now finishing" % _transaction_lister_modal.name)
 
-	GuideHelper.enable_navigation()
+	GuideHelper.disable_transaction_lister_modal_acting()
+	GuideHelper.enable_modal_buttons()
 
 	_transaction_lister.disable()
 	_modal_buttons.activate()

@@ -38,7 +38,7 @@ pulse_interval = 0.1
 max_pulses = 0
 actuation_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_w1jxg"]
+[sub_resource type="Resource" id="Resource_3dsim"]
 script = ExtResource("3_430ed")
 override_action_settings = false
 is_remappable = false
@@ -69,7 +69,7 @@ pulse_interval = 0.1
 max_pulses = 0
 actuation_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_cqy14"]
+[sub_resource type="Resource" id="Resource_0q8tm"]
 script = ExtResource("3_430ed")
 override_action_settings = false
 is_remappable = false
@@ -102,7 +102,7 @@ pulse_interval = 0.1
 max_pulses = 0
 actuation_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_4t74n"]
+[sub_resource type="Resource" id="Resource_yncu1"]
 script = ExtResource("3_430ed")
 override_action_settings = false
 is_remappable = false
@@ -129,7 +129,7 @@ pulse_interval = 0.1
 max_pulses = 0
 actuation_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_v7o1q"]
+[sub_resource type="Resource" id="Resource_72a7r"]
 script = ExtResource("3_430ed")
 override_action_settings = false
 is_remappable = false
@@ -138,11 +138,12 @@ display_category = ""
 input = SubResource("Resource_v7i8c")
 modifiers = Array[ExtResource("5_xsx3j")]([])
 triggers = Array[ExtResource("8_72a7r")]([SubResource("Resource_1d53n")])
+metadata/_guide_triggers_collapsed = false
 
 [sub_resource type="Resource" id="Resource_u6u33"]
 script = ExtResource("1_3dsim")
 action = ExtResource("2_0q8tm")
-input_mappings = Array[ExtResource("3_430ed")]([SubResource("Resource_w1jxg"), SubResource("Resource_cqy14"), SubResource("Resource_4t74n"), SubResource("Resource_v7o1q")])
+input_mappings = Array[ExtResource("3_430ed")]([SubResource("Resource_3dsim"), SubResource("Resource_0q8tm"), SubResource("Resource_yncu1"), SubResource("Resource_72a7r")])
 metadata/_guide_input_mappings_collapsed = false
 
 [resource]

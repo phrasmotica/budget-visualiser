@@ -4,10 +4,13 @@ extends SpreadsheetUIState
 func _enter_tree() -> void:
 	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
 
+	# TODO: create mapping contexts specifically for the various SpreadsheetUI
+	# states, similar to those created for the TransactionListerModal...
+
 	GuideHelper.enable_confirm_cancel()
-	GuideHelper.enable_grid_movement()
 	GuideHelper.enable_modifiers()
 
+	GuideHelper.enable_grid_movement()
 	GuideHelper.enable_modals()
 
 	_header_panel.show_icons = false
