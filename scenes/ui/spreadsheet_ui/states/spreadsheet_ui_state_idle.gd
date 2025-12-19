@@ -6,7 +6,6 @@ func _enter_tree() -> void:
 
 	GuideHelper.enable_confirm_cancel()
 	GuideHelper.enable_grid_movement()
-	GuideHelper.enable_navigation()
 	GuideHelper.enable_modifiers()
 
 	GuideHelper.enable_modals()

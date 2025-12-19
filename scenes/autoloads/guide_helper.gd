@@ -36,5 +36,8 @@ func disable_modals() -> void:
 func enable_navigation() -> void:
 	GUIDE.enable_mapping_context(ctx_navigation)
 
+func disable_navigation() -> void:
+	GUIDE.disable_mapping_context(ctx_navigation)
+
 func enable_modifiers() -> void:
 	GUIDE.enable_mapping_context(ctx_modifiers)

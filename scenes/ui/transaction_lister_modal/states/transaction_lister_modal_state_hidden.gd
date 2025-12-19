@@ -4,6 +4,8 @@ extends TransactionListerModalState
 func _enter_tree() -> void:
 	Logger.debug("%s is now hidden" % _transaction_lister_modal.name)
 
+	GuideHelper.disable_navigation()
+
 	_transaction_lister_modal.hide()
 	_modal_buttons.reset_highlight()
 
