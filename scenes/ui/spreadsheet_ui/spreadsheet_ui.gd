@@ -2,7 +2,7 @@
 class_name SpreadsheetUI
 extends PanelContainer
 
-enum State { IDLE, DISABLED }
+enum State { IDLE, DISABLED, SWITCHING }
 
 @export
 var budget_section: BudgetSection:

@@ -30,21 +30,6 @@ func _enter_tree() -> void:
 	)
 
 	SignalHelper.persist(
-		ModifierInput.primary_modifier_released,
-		_on_primary_modifier_released
-	)
-
-	SignalHelper.persist(
-		PageInput.move_end,
-		_on_move_end
-	)
-
-	SignalHelper.persist(
-		PageInput.move_start,
-		_on_move_start
-	)
-
-	SignalHelper.persist(
 		BudgetProvider.transaction_added,
 		_on_transaction_added
 	)
@@ -60,15 +45,7 @@ func _exit_tree() -> void:
 	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
 
 func _on_primary_modifier_pressed() -> void:
-	# TODO: should we create a new state for this? Maybe called SWITCHING
-	_header_panel.show_icons = true
-
-	_year_grid.disable()
-
-func _on_primary_modifier_released() -> void:
-	_header_panel.show_icons = false
-
-	_year_grid.enable()
+	transition_state(SpreadsheetUI.State.SWITCHING)
 
 func _inject_entered_amount() -> void:
 	var entered_amount := _state_data.get_entered_amount()
@@ -77,14 +54,6 @@ func _inject_entered_amount() -> void:
 		var month := _year_grid.get_highlighted_month()
 
 		BudgetProvider.add_transaction(category, month, entered_amount)
-
-func _on_move_end() -> void:
-	var next_section := BudgetProvider.next_section()
-	_spreadsheet_ui.budget_section = next_section
-
-func _on_move_start() -> void:
-	var previous_section := BudgetProvider.previous_section()
-	_spreadsheet_ui.budget_section = previous_section
 
 func _on_transaction_added(transaction: BudgetTransaction) -> void:
 	Logger.info("New transaction: %s %s, %s" % [

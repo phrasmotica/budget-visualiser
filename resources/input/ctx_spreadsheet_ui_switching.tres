@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=6 format=3 uid="uid://b4v48vaxjhnfe"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_k3avq"]
+[ext_resource type="Resource" uid="uid://bt014uli5cy1a" path="res://resources/input/mapping_left_right_pressed.tres" id="2_k3avq"]
+[ext_resource type="Resource" uid="uid://baixpp8cv4dkd" path="res://resources/input/mapping_primary_modifier_windows.tres" id="4_lvddr"]
+[ext_resource type="Resource" uid="uid://7ml0xqayibg3" path="res://resources/input/mapping_primary_modifier_macos.tres" id="5_8gje2"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="7_vpvij"]
+
+[resource]
+script = ExtResource("7_vpvij")
+display_name = "Spreadsheet UI  (Switching)"
+mappings = Array[ExtResource("1_k3avq")]([ExtResource("2_k3avq"), ExtResource("4_lvddr"), ExtResource("5_8gje2")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"
+metadata/_guide_action_mappings_collapsed = false

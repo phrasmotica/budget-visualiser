@@ -6,6 +6,7 @@ func _init() -> void:
 	states = {
 		SpreadsheetUI.State.IDLE: SpreadsheetUIStateIdle,
 		SpreadsheetUI.State.DISABLED: SpreadsheetUIStateDisabled,
+		SpreadsheetUI.State.SWITCHING: SpreadsheetUIStateSwitching,
 	}
 
 func get_fresh_state(state: SpreadsheetUI.State) -> SpreadsheetUIState:
