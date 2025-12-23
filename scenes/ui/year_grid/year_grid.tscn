@@ -57,7 +57,6 @@ layout_mode = 2
 
 [node name="CategoryHeaderLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Category"
 
 [node name="CategoryScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
@@ -91,73 +90,61 @@ theme_override_constants/separation = 4
 [node name="MonthNameLabel0" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "January"
 
 [node name="MonthNameLabel1" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "February"
 
 [node name="MonthNameLabel2" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "March"
 
 [node name="MonthNameLabel3" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "April"
 
 [node name="MonthNameLabel4" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "May"
 
 [node name="MonthNameLabel5" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "June"
 
 [node name="MonthNameLabel6" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "July"
 
 [node name="MonthNameLabel7" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "August"
 
 [node name="MonthNameLabel8" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "September"
 
 [node name="MonthNameLabel9" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "October"
 
 [node name="MonthNameLabel10" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "November"
 
 [node name="MonthNameLabel11" type="Label" parent="HBoxContainer/HScrollContainer/VBoxContainer/HeaderLabels"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "December"
 
 [node name="VScrollContainer" type="ScrollContainer" parent="HBoxContainer/HScrollContainer/VBoxContainer"]

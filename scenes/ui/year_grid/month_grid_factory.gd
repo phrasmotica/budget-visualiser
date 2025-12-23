@@ -10,7 +10,6 @@ static func create_label(index: int) -> Label:
 
 	label.name = "MonthNameLabel%d" % index
 
-	label.add_theme_font_size_override("font_size", LABEL_FONT_SIZE)
 	label.custom_minimum_size = LABEL_MIN_WIDTH * Vector2.RIGHT
 
 	return label

@@ -53,6 +53,7 @@ bg_color = Color(0.638871, 0.356112, 0.465726, 1)
 
 [resource]
 default_font = ExtResource("1_muggs")
+default_font_size = 32
 AmountEntryModalContainer/base_type = &"PanelContainer"
 AmountEntryModalContainer/styles/panel = SubResource("StyleBoxFlat_5twxo")
 DimmedCategoryCellContainer/base_type = &"PanelContainer"

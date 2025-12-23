@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwbl2v27fp5gd"]
+[gd_scene load_steps=4 format=3 uid="uid://dwbl2v27fp5gd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_78sy2"]
 [ext_resource type="Script" uid="uid://deylswhhhbcve" path="res://scenes/ui/header_panel/header_panel.gd" id="2_xaukj"]
 [ext_resource type="Texture2D" uid="uid://cjhmjdchuv2jg" path="res://assets/sprites/plain-arrow.png" id="3_8vd2i"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_abri7"]
-font_size = 64
 
 [node name="HeaderPanel" type="PanelContainer"]
 offset_right = 600.0
@@ -43,8 +40,8 @@ theme_override_constants/separation = 0
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "<text>"
-label_settings = SubResource("LabelSettings_abri7")
 horizontal_alignment = 1
 vertical_alignment = 1
 

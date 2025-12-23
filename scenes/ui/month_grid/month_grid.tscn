@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd4umilpafiy8"]
+[gd_scene load_steps=8 format=3 uid="uid://bd4umilpafiy8"]
 
 [ext_resource type="Script" uid="uid://qrkbfg7khqsf" path="res://scenes/ui/month_grid/month_grid.gd" id="1_dlr66"]
 [ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="1_span3"]
@@ -7,7 +7,6 @@
 [ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="3_fe2ud"]
 [ext_resource type="Script" uid="uid://fno8s3re3acm" path="res://scenes/ui/month_grid/month_grid_appearance.gd" id="3_k6d5u"]
 [ext_resource type="Resource" uid="uid://cxrji5d2yrikg" path="res://resources/data/budget_sections/budget_section_outgoings.tres" id="4_gv0wc"]
-[ext_resource type="Script" uid="uid://bwvawsuxn3h6x" path="res://scenes/ui/category_cell/category_cell.gd" id="7_uiv5p"]
 
 [node name="MonthGrid" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -41,135 +40,59 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="CategoryCell0" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell0" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell1" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell1" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell2" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell2" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell3" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell3" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell4" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell4" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell5" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell5" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell6" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell6" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell7" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell7" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell8" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell8" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell9" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell9" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell10" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell10" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell11" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell11" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell12" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell12" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell13" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell13" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell14" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell14" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell15" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell15" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell16" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell16" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell17" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell17" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")
 
-[node name="CategoryCell18" type="PanelContainer" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
-custom_minimum_size = Vector2(240, 60)
+[node name="CategoryCell18" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
-theme = ExtResource("1_uecel")
-theme_type_variation = &"IdlePanelContainer"
-script = ExtResource("7_uiv5p")

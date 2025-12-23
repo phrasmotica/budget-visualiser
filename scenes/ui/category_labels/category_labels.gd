@@ -2,9 +2,6 @@
 class_name CategoryLabels
 extends VBoxContainer
 
-const LABEL_MIN_HEIGHT := 60.0
-const LABEL_FONT_SIZE := 32
-
 @export
 var section: BudgetSection:
 	set(value):

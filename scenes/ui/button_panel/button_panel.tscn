@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgergefmv235w"]
+[gd_scene load_steps=3 format=3 uid="uid://cgergefmv235w"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_g28xh"]
 [ext_resource type="Script" uid="uid://b1pwa0tem48tt" path="res://scenes/ui/button_panel/button_panel.gd" id="2_yd3dj"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kwmy1"]
-font_size = 32
 
 [node name="ButtonPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 48)
@@ -26,6 +23,5 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "<text>"
-label_settings = SubResource("LabelSettings_kwmy1")
 horizontal_alignment = 1
 vertical_alignment = 1
