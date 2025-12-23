@@ -16,8 +16,6 @@ func _enter_tree() -> void:
 	_amount_entry_modal.disable()
 	_transaction_lister_modal.disable()
 
-	SignalHelper.once_next_frame(_inject_entered_amount)
-
 	SignalHelper.persist(ConfirmCancelInput.confirm, _show_modal)
 
 	SignalHelper.persist(
@@ -29,11 +27,6 @@ func _enter_tree() -> void:
 		_on_primary_modifier_pressed
 	)
 
-	SignalHelper.persist(
-		BudgetProvider.budget_changed,
-		_on_budget_changed
-	)
-
 	_year_grid.update_budget(BudgetProvider.get_budget_data())
 
 func _exit_tree() -> void:
@@ -41,18 +34,6 @@ func _exit_tree() -> void:
 
 func _on_primary_modifier_pressed() -> void:
 	transition_state(SpreadsheetUI.State.SWITCHING)
-
-func _inject_entered_amount() -> void:
-	# TODO: create a new short-lived state for processing this?
-	var entered_amount := _state_data.get_entered_amount()
-	if entered_amount > 0.0:
-		var category := _year_grid.get_highlighted_category()
-		var month := _year_grid.get_highlighted_month()
-
-		BudgetProvider.add_transaction(category, month, entered_amount)
-
-func _on_budget_changed(data: BudgetData) -> void:
-	_year_grid.update_budget(data)
 
 func _show_modal() -> void:
 	var category := _year_grid.get_highlighted_category()

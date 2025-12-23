@@ -28,4 +28,4 @@ func _on_entry_finished(amount: float) -> void:
 	var state_data := SpreadsheetUIStateData.build() \
 		.with_entered_amount(amount)
 
-	transition_state(SpreadsheetUI.State.IDLE, state_data)
+	transition_state(SpreadsheetUI.State.ADDING, state_data)
