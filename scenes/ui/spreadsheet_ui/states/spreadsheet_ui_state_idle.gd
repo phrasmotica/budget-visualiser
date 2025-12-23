@@ -76,7 +76,6 @@ func _inject_entered_amount() -> void:
 		var category := _year_grid.get_highlighted_category()
 		var month := _year_grid.get_highlighted_month()
 
-		# TODO: perform this in a more suitable place...
 		BudgetProvider.add_transaction(category, month, entered_amount)
 
 func _on_move_end() -> void:
