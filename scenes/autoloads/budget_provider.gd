@@ -64,6 +64,20 @@ func add_transaction(
 	amount: float,
 ) -> void:
 	var new_transaction := _data.add_transaction(category, month, amount)
+
+	Logger.info("New transaction: %s %s, %s" % [
+		new_transaction.month.name,
+		new_transaction.category.name,
+		Strings.curr(new_transaction.amount),
+	])
+
+	Logger.info("%s Total: %s" % [
+		month.name,
+		Strings.curr(_data.compute_month_expenditure(month))
+	])
+
+	Logger.info("Grand Total: %s" % Strings.curr(_data.compute_total_expenditure()))
+
 	transaction_added.emit(new_transaction)
 
 	_save_changes()

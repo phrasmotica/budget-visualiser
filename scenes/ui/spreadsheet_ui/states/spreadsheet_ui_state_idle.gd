@@ -30,11 +30,6 @@ func _enter_tree() -> void:
 	)
 
 	SignalHelper.persist(
-		BudgetProvider.transaction_added,
-		_on_transaction_added
-	)
-
-	SignalHelper.persist(
 		BudgetProvider.budget_changed,
 		_on_budget_changed
 	)
@@ -48,6 +43,7 @@ func _on_primary_modifier_pressed() -> void:
 	transition_state(SpreadsheetUI.State.SWITCHING)
 
 func _inject_entered_amount() -> void:
+	# TODO: create a new short-lived state for processing this?
 	var entered_amount := _state_data.get_entered_amount()
 	if entered_amount > 0.0:
 		var category := _year_grid.get_highlighted_category()
@@ -55,24 +51,7 @@ func _inject_entered_amount() -> void:
 
 		BudgetProvider.add_transaction(category, month, entered_amount)
 
-func _on_transaction_added(transaction: BudgetTransaction) -> void:
-	Logger.info("New transaction: %s %s, %s" % [
-		transaction.month.name,
-		transaction.category.name,
-		Strings.curr(transaction.amount),
-	])
-
-	var month := transaction.month
-	var budget_data := BudgetProvider.get_budget_data()
-
-	Logger.info("%s Total: %s" % [
-		month.name,
-		Strings.curr(budget_data.compute_month_expenditure(month))
-	])
-
 func _on_budget_changed(data: BudgetData) -> void:
-	Logger.info("Grand Total: %s" % Strings.curr(data.compute_total_expenditure()))
-
 	_year_grid.update_budget(data)
 
 func _show_modal() -> void:
