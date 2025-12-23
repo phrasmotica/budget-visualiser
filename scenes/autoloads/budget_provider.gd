@@ -1,6 +1,7 @@
 extends Node
 
 const BUDGET_SECTIONS: Array[BudgetSection] = [
+	preload("res://resources/data/budget_sections/budget_section_incomes.tres"),
 	preload("res://resources/data/budget_sections/budget_section_outgoings.tres"),
 	preload("res://resources/data/budget_sections/budget_section_music.tres"),
 	preload("res://resources/data/budget_sections/budget_section_car.tres"),
@@ -36,6 +37,9 @@ func _ready() -> void:
 	_section_index_tracker = IndexTracker.new(
 		BUDGET_SECTIONS.size() - 1,
 		"BudgetSectionIndexTracker")
+
+	# start on the Outgoings section
+	_section_index_tracker.next()
 
 	_section = BUDGET_SECTIONS[_section_index_tracker.current()]
 
