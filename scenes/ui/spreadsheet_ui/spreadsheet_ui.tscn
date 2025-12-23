@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpgey7qxb48kd"]
+[gd_scene load_steps=10 format=3 uid="uid://bpgey7qxb48kd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_5jsgs"]
 [ext_resource type="Script" uid="uid://tw42pkh8j46o" path="res://scenes/ui/spreadsheet_ui/spreadsheet_ui.gd" id="2_ic03t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dwbl2v27fp5gd" path="res://scenes/ui/header_panel/header_panel.tscn" id="3_qs3te"]
 [ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_ic03t"]
 [ext_resource type="PackedScene" uid="uid://se6hbk6dpl1j" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.tscn" id="5_abri7"]
+[ext_resource type="PackedScene" uid="uid://d3k5bvn08h685" path="res://scenes/ui/income_grid/income_grid.tscn" id="6_85l1a"]
 [ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="8_qip70"]
 
 [node name="SpreadsheetUI" type="PanelContainer"]
@@ -29,6 +30,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 section = ExtResource("3_n6aed")
+
+[node name="IncomeGrid" parent="VBoxContainer" instance=ExtResource("6_85l1a")]
+layout_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
