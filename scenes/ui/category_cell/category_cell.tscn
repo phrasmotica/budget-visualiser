@@ -15,24 +15,15 @@ script = ExtResource("2_oxtu4")
 [node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("amount_label")]
 unique_name_in_owner = true
 script = ExtResource("3_03w0u")
-amount_label = NodePath("../MarginContainer/VBoxContainer/AmountLabel")
+amount_label = NodePath("../MarginContainer/AmountLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-
-[node name="AmountLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="AmountLabel" type="Label" parent="MarginContainer"]
 layout_mode = 2
 text = "£0.00"
