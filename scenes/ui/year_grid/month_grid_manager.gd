@@ -106,15 +106,15 @@ func count() -> int:
 	return month_grids.size()
 
 func get_highlighted_category() -> BudgetCategory:
-	for m in month_grids:
-		if m.is_highlighted():
-			return m.get_highlighted_category()
+	if _highlighted_index < 0:
+		return null
 
-	return null
+	var selected_grid := month_grids[_highlighted_index]
+	return selected_grid.get_highlighted_category()
 
 func get_highlighted_month() -> BudgetMonth:
-	for m in month_grids:
-		if m.is_highlighted():
-			return m.month
+	if _highlighted_index < 0:
+		return null
 
-	return null
+	var selected_grid := month_grids[_highlighted_index]
+	return selected_grid.month

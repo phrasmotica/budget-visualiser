@@ -48,8 +48,4 @@ func count() -> int:
 	return cells.size()
 
 func get_highlighted_category() -> BudgetCategory:
-	for i in cells.size():
-		if cells[i].is_highlighted():
-			return BudgetProvider.get_category(i)
-
-	return null
+	return BudgetProvider.get_category(_highlighted_index)
