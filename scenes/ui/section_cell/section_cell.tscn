@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d6koutbf5d1g"]
+
+[ext_resource type="Script" uid="uid://bt74kx8j2uh2w" path="res://scenes/ui/section_cell/section_cell.gd" id="1_4t4ix"]
+[ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="2_n6lhv"]
+
+[node name="SectionCell" type="MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_4t4ix")
+
+[node name="CategoryCell" parent="." instance=ExtResource("2_n6lhv")]
+unique_name_in_owner = true
+layout_mode = 2
