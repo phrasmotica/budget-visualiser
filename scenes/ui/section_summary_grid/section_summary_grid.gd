@@ -1,8 +1,6 @@
 @tool
-class_name IncomeGrid
+class_name SectionSummaryGrid
 extends MarginContainer
-
-# TODO: rename this to SectionSummaryGrid, or similar
 
 enum State { IDLE, DISABLED }
 
@@ -19,8 +17,8 @@ var section_cell_manager: SectionCellManager = %SectionCellManager
 @onready
 var name_label: Label = %NameLabel
 
-var _state_factory := IncomeGridStateFactory.new()
-var _current_state: IncomeGridState = null
+var _state_factory := SectionSummaryGridStateFactory.new()
+var _current_state: SectionSummaryGridState = null
 
 func _ready() -> void:
 	_refresh()
@@ -30,7 +28,7 @@ func _ready() -> void:
 
 	switch_state(State.IDLE)
 
-func switch_state(state: State, state_data := IncomeGridStateData.new()) -> void:
+func switch_state(state: State, state_data := SectionSummaryGridStateData.new()) -> void:
 	if _current_state != null:
 		_current_state.queue_free()
 
@@ -42,7 +40,7 @@ func switch_state(state: State, state_data := IncomeGridStateData.new()) -> void
 		section_cell_manager)
 
 	_current_state.state_transition_requested.connect(switch_state)
-	_current_state.name = "IncomeGridStateMachine: %s" % str(state)
+	_current_state.name = "SectionSummaryGridStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://d3k5bvn08h685"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_m770f"]
-[ext_resource type="Script" uid="uid://xgmvnlasb3n6" path="res://scenes/ui/income_grid/income_grid.gd" id="2_vo5gc"]
+[ext_resource type="Script" uid="uid://xgmvnlasb3n6" path="res://scenes/ui/section_summary_grid/section_summary_grid.gd" id="2_vo5gc"]
 [ext_resource type="Resource" uid="uid://damtge6f2ytir" path="res://resources/data/budget_sections/budget_section_incomes.tres" id="3_6608u"]
 [ext_resource type="PackedScene" uid="uid://d6koutbf5d1g" path="res://scenes/ui/section_cell/section_cell.tscn" id="3_vayhj"]
-[ext_resource type="Script" uid="uid://7ijb7c8otupe" path="res://scenes/ui/income_grid/section_cell_manager.gd" id="4_6608u"]
+[ext_resource type="Script" uid="uid://7ijb7c8otupe" path="res://scenes/ui/section_summary_grid/section_cell_manager.gd" id="4_6608u"]
 [ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="6_nflsa"]
 [ext_resource type="Resource" uid="uid://qvr7cuttu404" path="res://resources/data/budget_months/budget_month_feb.tres" id="7_sqo0w"]
 [ext_resource type="Resource" uid="uid://v5v24koklu5j" path="res://resources/data/budget_months/budget_month_mar.tres" id="8_moife"]
@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://fe6vu50qqaui" path="res://resources/data/budget_months/budget_month_nov.tres" id="16_v01y2"]
 [ext_resource type="Resource" uid="uid://2xpy25djlv8s" path="res://resources/data/budget_months/budget_month_dec.tres" id="17_8r871"]
 
-[node name="IncomeGrid" type="MarginContainer"]
+[node name="SectionSummaryGrid" type="MarginContainer"]
 offset_right = 1440.0
 offset_bottom = 84.0
 theme = ExtResource("1_m770f")
