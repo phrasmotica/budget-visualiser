@@ -20,6 +20,8 @@ var name_label: Label = %NameLabel
 var _state_factory := SectionSummaryGridStateFactory.new()
 var _current_state: SectionSummaryGridState = null
 
+# TODO: for the income section, show income minus all expenditure in a new row
+
 func _ready() -> void:
 	_refresh()
 
