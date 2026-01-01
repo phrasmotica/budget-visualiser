@@ -8,6 +8,9 @@ func _init(
 	_section = section
 
 func compute_total(month: BudgetMonth) -> float:
+	if not month:
+		return 0.0
+
 	return _compute_section_expenditure(_section, month)
 
 func _compute_section_expenditure(

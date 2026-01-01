@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3k5bvn08h685"]
+[gd_scene load_steps=18 format=3 uid="uid://d3k5bvn08h685"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_m770f"]
 [ext_resource type="Script" uid="uid://xgmvnlasb3n6" path="res://scenes/ui/income_grid/income_grid.gd" id="2_vo5gc"]
 [ext_resource type="Resource" uid="uid://damtge6f2ytir" path="res://resources/data/budget_sections/budget_section_incomes.tres" id="3_6608u"]
 [ext_resource type="PackedScene" uid="uid://d6koutbf5d1g" path="res://scenes/ui/section_cell/section_cell.tscn" id="3_vayhj"]
 [ext_resource type="Script" uid="uid://7ijb7c8otupe" path="res://scenes/ui/income_grid/section_cell_manager.gd" id="4_6608u"]
+[ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="6_nflsa"]
+[ext_resource type="Resource" uid="uid://qvr7cuttu404" path="res://resources/data/budget_months/budget_month_feb.tres" id="7_sqo0w"]
+[ext_resource type="Resource" uid="uid://v5v24koklu5j" path="res://resources/data/budget_months/budget_month_mar.tres" id="8_moife"]
+[ext_resource type="Resource" uid="uid://c5h1qd3k6hox6" path="res://resources/data/budget_months/budget_month_apr.tres" id="9_t7kdn"]
+[ext_resource type="Resource" uid="uid://dxsok8u6esmy2" path="res://resources/data/budget_months/budget_month_may.tres" id="10_ibabg"]
+[ext_resource type="Resource" uid="uid://cc4jk6f8cjfeb" path="res://resources/data/budget_months/budget_month_jun.tres" id="11_ddhng"]
+[ext_resource type="Resource" uid="uid://dwjdchwtwsdi6" path="res://resources/data/budget_months/budget_month_jul.tres" id="12_vvttl"]
+[ext_resource type="Resource" uid="uid://dr7qnss7g8t0e" path="res://resources/data/budget_months/budget_month_aug.tres" id="13_sgtxu"]
+[ext_resource type="Resource" uid="uid://b8owodqa2wj8p" path="res://resources/data/budget_months/budget_month_sep.tres" id="14_abvog"]
+[ext_resource type="Resource" uid="uid://bgy17jfatlgyl" path="res://resources/data/budget_months/budget_month_oct.tres" id="15_3oujj"]
+[ext_resource type="Resource" uid="uid://fe6vu50qqaui" path="res://resources/data/budget_months/budget_month_nov.tres" id="16_v01y2"]
+[ext_resource type="Resource" uid="uid://2xpy25djlv8s" path="res://resources/data/budget_months/budget_month_dec.tres" id="17_8r871"]
 
 [node name="IncomeGrid" type="MarginContainer"]
 offset_right = 1440.0
@@ -45,36 +57,48 @@ theme_override_constants/separation = 4
 
 [node name="SectionCell0" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("6_nflsa")
 
 [node name="SectionCell1" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("7_sqo0w")
 
 [node name="SectionCell2" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("8_moife")
 
 [node name="SectionCell3" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("9_t7kdn")
 
 [node name="SectionCell4" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("10_ibabg")
 
 [node name="SectionCell5" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("11_ddhng")
 
 [node name="SectionCell6" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("12_vvttl")
 
 [node name="SectionCell7" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("13_sgtxu")
 
 [node name="SectionCell8" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("14_abvog")
 
 [node name="SectionCell9" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("15_3oujj")
 
 [node name="SectionCell10" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("16_v01y2")
 
 [node name="SectionCell11" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
 layout_mode = 2
+month = ExtResource("17_8r871")

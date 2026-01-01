@@ -1,6 +1,9 @@
 class_name SectionCell
 extends MarginContainer
 
+@export
+var month: BudgetMonth
+
 @onready
 var category_cell: CategoryCell = %CategoryCell
 
