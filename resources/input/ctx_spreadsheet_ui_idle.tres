@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=8 format=3 uid="uid://d2xol57mvsn8u"]
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=9 format=3 uid="uid://d2xol57mvsn8u"]
 
 [ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_45uxj"]
 [ext_resource type="Resource" uid="uid://cestts4b5phte" path="res://resources/input/mapping_grid_pulse.tres" id="2_3vsad"]
 [ext_resource type="Resource" uid="uid://kcewkwastkgg" path="res://resources/input/mapping_show_transaction_lister_modal_keys.tres" id="6_acv31"]
+[ext_resource type="Resource" uid="uid://cmui1ow1nd1m6" path="res://resources/input/mapping_toggle_summary_keys.tres" id="7_w44bf"]
 [ext_resource type="Resource" uid="uid://cdypv2lho8p1q" path="res://resources/input/mapping_confirm_keys.tres" id="10_mbnxj"]
 [ext_resource type="Resource" uid="uid://baixpp8cv4dkd" path="res://resources/input/mapping_primary_modifier_windows.tres" id="11_mbnxj"]
 [ext_resource type="Resource" uid="uid://7ml0xqayibg3" path="res://resources/input/mapping_primary_modifier_macos.tres" id="12_g5wgu"]
@@ -11,6 +12,6 @@
 [resource]
 script = ExtResource("13_vyell")
 display_name = "Spreadsheet UI  (Idle)"
-mappings = Array[ExtResource("1_45uxj")]([ExtResource("2_3vsad"), ExtResource("10_mbnxj"), ExtResource("11_mbnxj"), ExtResource("12_g5wgu"), ExtResource("6_acv31")])
+mappings = Array[ExtResource("1_45uxj")]([ExtResource("2_3vsad"), ExtResource("10_mbnxj"), ExtResource("11_mbnxj"), ExtResource("12_g5wgu"), ExtResource("6_acv31"), ExtResource("7_w44bf")])
 metadata/_custom_type_script = "uid://dsa1dnifd6w32"
 metadata/_guide_action_mappings_collapsed = false

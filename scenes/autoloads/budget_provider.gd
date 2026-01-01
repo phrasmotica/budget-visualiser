@@ -29,6 +29,7 @@ var _section: BudgetSection = null
 var _data: BudgetData = null
 
 var _section_index_tracker: IndexTracker = null
+var _section_cycle_tracker: CycleTracker = null
 
 signal budget_changed(data: BudgetData)
 signal transaction_added(transaction: BudgetTransaction)
@@ -43,6 +44,10 @@ func _ready() -> void:
 
 	_section = BUDGET_SECTIONS[_section_index_tracker.current()]
 
+	_section_cycle_tracker = CycleTracker.new(
+		BUDGET_SECTIONS.size() - 1,
+		"BudgetSectionCycleTracker")
+
 func get_section() -> BudgetSection:
 	return _section
 
@@ -55,6 +60,10 @@ func previous_section() -> BudgetSection:
 	var previous_index := _section_index_tracker.previous()
 	_section = BUDGET_SECTIONS[previous_index]
 	return _section
+
+func cycle_section() -> BudgetSection:
+	var next_index := _section_cycle_tracker.cycle()
+	return BUDGET_SECTIONS[next_index]
 
 func set_budget_data(data: BudgetData) -> void:
 	_data = data

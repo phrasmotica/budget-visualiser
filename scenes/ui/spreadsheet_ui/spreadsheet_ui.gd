@@ -20,6 +20,9 @@ var header_panel: HeaderPanel = %HeaderPanel
 var year_grid: YearGrid = %YearGrid
 
 @onready
+var section_summary_grid: SectionSummaryGrid = %SectionSummaryGrid
+
+@onready
 var amount_entry_modal: AmountEntryModal = %AmountEntryModal
 
 @onready
@@ -61,6 +64,7 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 		state_data,
 		header_panel,
 		year_grid,
+		section_summary_grid,
 		amount_entry_modal,
 		transaction_lister_modal)
 

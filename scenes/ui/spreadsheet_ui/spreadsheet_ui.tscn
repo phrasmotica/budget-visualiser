@@ -32,6 +32,7 @@ size_flags_vertical = 3
 section = ExtResource("3_n6aed")
 
 [node name="SectionSummaryGrid" parent="VBoxContainer" instance=ExtResource("6_85l1a")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
