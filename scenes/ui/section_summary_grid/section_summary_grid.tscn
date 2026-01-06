@@ -20,12 +20,10 @@
 
 [node name="SectionSummaryGrid" type="MarginContainer"]
 offset_right = 1440.0
-offset_bottom = 84.0
+offset_bottom = 68.0
 theme = ExtResource("1_m770f")
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 script = ExtResource("2_vo5gc")
 section = ExtResource("3_6608u")
 
