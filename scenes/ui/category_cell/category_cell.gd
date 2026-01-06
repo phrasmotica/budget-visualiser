@@ -1,3 +1,4 @@
+# TODO: rename this to AmountCell
 class_name CategoryCell
 extends PanelContainer
 

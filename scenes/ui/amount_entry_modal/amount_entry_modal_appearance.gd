@@ -37,6 +37,9 @@ func for_shown() -> void:
 		edit_minor.disable()
 
 func switch_amount_edits() -> void:
+	# TODO: use one AmountEdit instance for each column of the amount
+	# (10,000, 1,000, 100, 10, 1)
+
 	if edit_major.is_enabled():
 		edit_major.disable()
 		edit_minor.enable()
