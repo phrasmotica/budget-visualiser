@@ -7,6 +7,9 @@ static func join(delimiter: String) -> Callable:
 	)
 
 static func curr(amount: float) -> String:
+	if amount < 0:
+		return "-£%.2f" % -amount
+
 	return "£%.2f" % amount
 
 static func curr_map(format: String, amounts: Array[float]) -> String:
