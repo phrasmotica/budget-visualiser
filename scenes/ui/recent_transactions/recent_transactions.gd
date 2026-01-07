@@ -32,7 +32,7 @@ var hidden_section: VBoxContainer = %HiddenSection
 var hidden_label: Label = %HiddenLabel
 
 @onready
-var total_label: Label = %TotalLabel
+var total_label: AmountLabel = %TotalLabel
 
 func _ready() -> void:
 	reload()
@@ -64,7 +64,7 @@ func reload() -> void:
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.reduce(Math.sum, 0.0)
 
-	total_label.text = Strings.curr(total_amount)
+	total_label.amount = total_amount
 
 func _get_transactions() -> Array[BudgetTransaction]:
 	var budget_data := BudgetProvider.get_budget_data()

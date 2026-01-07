@@ -2,8 +2,8 @@ class_name CategoryCellAppearance
 extends Node
 
 @export
-var amount_label: Label
+var amount_label: AmountLabel
 
 func set_amount(amount: float) -> void:
 	if amount_label:
-		amount_label.text = Strings.curr(amount)
+		amount_label.amount = amount

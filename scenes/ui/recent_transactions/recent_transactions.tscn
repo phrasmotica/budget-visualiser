@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgj8ahx4yu8su"]
+[gd_scene load_steps=6 format=3 uid="uid://cgj8ahx4yu8su"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_tfjwn"]
 [ext_resource type="Script" uid="uid://bugjoi5qro4la" path="res://scenes/ui/recent_transactions/recent_transactions.gd" id="2_8farb"]
+[ext_resource type="PackedScene" uid="uid://bjshtisvej832" path="res://scenes/ui/amount_label/amount_label.tscn" id="3_rm5be"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8farb"]
 line_spacing = 8.0
@@ -89,7 +90,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_8farb")
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 
-[node name="TotalLabel" type="Label" parent="Ledger"]
+[node name="TotalLabel" parent="Ledger" instance=ExtResource("3_rm5be")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "150.00"
+amount = 150.0

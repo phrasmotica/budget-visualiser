@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bici6q1crcvjm" path="res://scripts/data/budget_transaction.gd" id="3_gweyu"]
 [ext_resource type="Texture2D" uid="uid://cpq4yajvqkcon" path="res://assets/sprites/sight.png" id="4_dsk0n"]
 [ext_resource type="Texture2D" uid="uid://b68vhwfs3jjox" path="res://assets/sprites/sight-disabled.png" id="4_hukit"]
+[ext_resource type="PackedScene" uid="uid://bjshtisvej832" path="res://scenes/ui/amount_label/amount_label.tscn" id="4_o3obe"]
 
 [sub_resource type="Resource" id="Resource_gweyu"]
 script = ExtResource("3_gweyu")
@@ -12,10 +13,6 @@ id = 1
 amount = 10.0
 hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
-
-[sub_resource type="LabelSettings" id="LabelSettings_gweyu"]
-resource_local_to_scene = true
-font_size = 32
 
 [node name="TransactionSelectPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 48)
@@ -35,22 +32,11 @@ theme_override_constants/margin_right = 4
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Amount" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/Amount"]
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Amount"]
+[node name="AmountLabel" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_o3obe")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-text = "£10.00"
-label_settings = SubResource("LabelSettings_gweyu")
-vertical_alignment = 1
+size_flags_horizontal = 3
+amount = 10.0
 
 [node name="Icons" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
