@@ -16,6 +16,8 @@ var none_label: Label = %NoneLabel
 @onready
 var ledger: VBoxContainer = %Ledger
 
+# TODO: create a scene for rendering multiple amounts as a multiline string.
+# Take inspiration from the AmountLabel scene
 @onready
 var transactions_label: Label = %TransactionsLabel
 
