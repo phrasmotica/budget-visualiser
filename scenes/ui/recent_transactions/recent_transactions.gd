@@ -16,10 +16,8 @@ var none_label: Label = %NoneLabel
 @onready
 var ledger: VBoxContainer = %Ledger
 
-# TODO: create a scene for rendering multiple amounts as a multiline string.
-# Take inspiration from the AmountLabel scene
 @onready
-var transactions_label: Label = %TransactionsLabel
+var transactions_label: AmountMultiLabel = %TransactionsLabel
 
 @onready
 var more_section: VBoxContainer = %MoreSection
@@ -46,7 +44,8 @@ func reload() -> void:
 	none_label.visible = not has_transactions
 	ledger.visible = has_transactions
 
-	transactions_label.text = _compute_transactions_text(transactions)
+	var recent_transactions := _get_recent_transactions(transactions)
+	transactions_label.inject_transactions(recent_transactions)
 
 	var more_count := maxi(0, transactions.size() - visible_count)
 	more_label.text = "+%d more" % more_count
@@ -75,16 +74,8 @@ func _get_transactions() -> Array[BudgetTransaction]:
 
 	return budget_data.get_transactions_for_category_and_month(category, month)
 
-func _compute_transactions_text(transactions: Array[BudgetTransaction]) -> String:
-	if transactions.size() <= 0:
-		return ""
-
+func _get_recent_transactions(transactions: Array[BudgetTransaction]) -> Array[BudgetTransaction]:
 	var recent_transactions := transactions.slice(0)
 	recent_transactions.reverse()
 
-	return recent_transactions \
-		.slice(0, visible_count) \
-		.filter(func(t: BudgetTransaction): return not t.hidden) \
-		.map(func(t: BudgetTransaction): return t.amount) \
-		.map(Strings.curr) \
-		.reduce(Strings.join("\n"))
+	return recent_transactions.slice(0, visible_count)

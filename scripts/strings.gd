@@ -14,3 +14,8 @@ static func curr(amount: float) -> String:
 
 static func curr_map(format: String, amounts: Array[float]) -> String:
 	return format % amounts.map(curr)
+
+static func curr_multi(amounts: Array[float]) -> String:
+	return amounts \
+		.map(curr) \
+		.reduce(join("\n"))
