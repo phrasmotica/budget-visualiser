@@ -2,7 +2,7 @@
 class_name MonthGridAppearance
 extends Node
 
-const CELL_SCENE := preload("res://scenes/ui/category_cell/category_cell.tscn")
+const CELL_SCENE := preload("res://scenes/ui/amount_cell/amount_cell.tscn")
 
 @export
 var cell_manager: CellManager
@@ -18,11 +18,11 @@ func refresh_cells(cell_owner: Control, section: BudgetSection) -> void:
 		cell_manager.cells.clear()
 
 	for i in category_count:
-		var cell: CategoryCell
+		var cell: AmountCell
 
 		if i >= child_count:
 			cell = CELL_SCENE.instantiate()
-			cell.name = "CategoryCell%d" % i
+			cell.name = "AmountCell%d" % i
 
 			cell_parent.add_child(cell)
 			cell.owner = cell_owner

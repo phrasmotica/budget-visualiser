@@ -1,19 +1,18 @@
-# TODO: rename this to AmountCell
-class_name CategoryCell
+class_name AmountCell
 extends PanelContainer
 
 enum State { IDLE, HIGHLIGHTED, DIMMED, EDITING }
 
 @onready
-var appearance: CategoryCellAppearance = %Appearance
+var appearance: AmountCellAppearance = %Appearance
 
-var _state_factory := CategoryCellStateFactory.new()
-var _current_state: CategoryCellState = null
+var _state_factory := AmountCellStateFactory.new()
+var _current_state: AmountCellState = null
 
 func _ready() -> void:
-	switch_state(CategoryCell.State.IDLE)
+	switch_state(AmountCell.State.IDLE)
 
-func switch_state(state: State, state_data := CategoryCellStateData.new()) -> void:
+func switch_state(state: State, state_data := AmountCellStateData.new()) -> void:
 	if _current_state != null:
 		_current_state.queue_free()
 
@@ -25,7 +24,7 @@ func switch_state(state: State, state_data := CategoryCellStateData.new()) -> vo
 		appearance)
 
 	_current_state.state_transition_requested.connect(switch_state)
-	_current_state.name = "CategoryCellStateMachine: %s" % str(state)
+	_current_state.name = "AmountCellStateMachine: %s" % str(state)
 
 	call_deferred("add_child", _current_state)
 

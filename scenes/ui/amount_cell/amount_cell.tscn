@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpby7se4jfjdu"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_oxtu4"]
-[ext_resource type="Script" uid="uid://bwvawsuxn3h6x" path="res://scenes/ui/category_cell/category_cell.gd" id="2_oxtu4"]
-[ext_resource type="Script" uid="uid://c8awvrsvil2m3" path="res://scenes/ui/category_cell/category_cell_appearance.gd" id="3_03w0u"]
+[ext_resource type="Script" uid="uid://bwvawsuxn3h6x" path="res://scenes/ui/amount_cell/amount_cell.gd" id="2_oxtu4"]
+[ext_resource type="Script" uid="uid://c8awvrsvil2m3" path="res://scenes/ui/amount_cell/amount_cell_appearance.gd" id="3_03w0u"]
 [ext_resource type="PackedScene" uid="uid://bjshtisvej832" path="res://scenes/ui/amount_label/amount_label.tscn" id="4_fmagc"]
 
-[node name="CategoryCell" type="PanelContainer"]
+[node name="AmountCell" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 60)
 offset_right = 168.0
 offset_bottom = 56.0

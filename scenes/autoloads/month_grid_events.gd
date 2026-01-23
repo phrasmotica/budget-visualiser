@@ -1,6 +1,6 @@
 extends Node
 
-signal cell_highlighted(cell: CategoryCell, is_up: bool)
+signal cell_highlighted(cell: AmountCell, is_up: bool)
 
-func emit_cell_highlighted(cell: CategoryCell, is_up: bool) -> void:
+func emit_cell_highlighted(cell: AmountCell, is_up: bool) -> void:
 	cell_highlighted.emit(cell, is_up)

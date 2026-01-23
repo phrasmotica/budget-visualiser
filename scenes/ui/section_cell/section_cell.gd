@@ -5,8 +5,8 @@ extends MarginContainer
 var month: BudgetMonth
 
 @onready
-var category_cell: CategoryCell = %CategoryCell
+var amount_cell: AmountCell = %AmountCell
 
 func inject_amount(amount: float) -> void:
-	if category_cell:
-		category_cell.inject_amount(amount)
+	if amount_cell:
+		amount_cell.inject_amount(amount)

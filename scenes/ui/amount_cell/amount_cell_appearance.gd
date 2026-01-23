@@ -1,4 +1,4 @@
-class_name CategoryCellAppearance
+class_name AmountCellAppearance
 extends Node
 
 @export

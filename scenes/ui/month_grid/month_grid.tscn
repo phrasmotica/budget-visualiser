@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bd4umilpafiy8"]
 
 [ext_resource type="Script" uid="uid://qrkbfg7khqsf" path="res://scenes/ui/month_grid/month_grid.gd" id="1_dlr66"]
-[ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/category_cell/category_cell.tscn" id="1_span3"]
+[ext_resource type="PackedScene" uid="uid://bpby7se4jfjdu" path="res://scenes/ui/amount_cell/amount_cell.tscn" id="1_span3"]
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_uecel"]
 [ext_resource type="Script" uid="uid://crklagwp0hrog" path="res://scenes/ui/month_grid/cell_manager.gd" id="2_pii7b"]
 [ext_resource type="Resource" uid="uid://b731gbrkusqtw" path="res://resources/data/budget_months/budget_month_jan.tres" id="3_fe2ud"]
@@ -27,7 +27,7 @@ cell_parent = NodePath("../MarginContainer/CellContainer")
 [node name="CellManager" type="Node" parent="." node_paths=PackedStringArray("cells")]
 unique_name_in_owner = true
 script = ExtResource("2_pii7b")
-cells = [NodePath("../MarginContainer/CellContainer/CategoryCell0"), NodePath("../MarginContainer/CellContainer/CategoryCell1"), NodePath("../MarginContainer/CellContainer/CategoryCell2"), NodePath("../MarginContainer/CellContainer/CategoryCell3"), NodePath("../MarginContainer/CellContainer/CategoryCell4"), NodePath("../MarginContainer/CellContainer/CategoryCell5"), NodePath("../MarginContainer/CellContainer/CategoryCell6"), NodePath("../MarginContainer/CellContainer/CategoryCell7"), NodePath("../MarginContainer/CellContainer/CategoryCell8"), NodePath("../MarginContainer/CellContainer/CategoryCell9"), NodePath("../MarginContainer/CellContainer/CategoryCell10"), NodePath("../MarginContainer/CellContainer/CategoryCell11"), NodePath("../MarginContainer/CellContainer/CategoryCell12"), NodePath("../MarginContainer/CellContainer/CategoryCell13"), NodePath("../MarginContainer/CellContainer/CategoryCell14"), NodePath("../MarginContainer/CellContainer/CategoryCell15"), NodePath("../MarginContainer/CellContainer/CategoryCell16"), NodePath("../MarginContainer/CellContainer/CategoryCell17"), NodePath("../MarginContainer/CellContainer/CategoryCell18")]
+cells = [NodePath("../MarginContainer/CellContainer/AmountCell0"), NodePath("../MarginContainer/CellContainer/AmountCell1"), NodePath("../MarginContainer/CellContainer/AmountCell2"), NodePath("../MarginContainer/CellContainer/AmountCell3"), NodePath("../MarginContainer/CellContainer/AmountCell4"), NodePath("../MarginContainer/CellContainer/AmountCell5"), NodePath("../MarginContainer/CellContainer/AmountCell6"), NodePath("../MarginContainer/CellContainer/AmountCell7"), NodePath("../MarginContainer/CellContainer/AmountCell8"), NodePath("../MarginContainer/CellContainer/AmountCell9"), NodePath("../MarginContainer/CellContainer/AmountCell10"), NodePath("../MarginContainer/CellContainer/AmountCell11"), NodePath("../MarginContainer/CellContainer/AmountCell12"), NodePath("../MarginContainer/CellContainer/AmountCell13"), NodePath("../MarginContainer/CellContainer/AmountCell14"), NodePath("../MarginContainer/CellContainer/AmountCell15"), NodePath("../MarginContainer/CellContainer/AmountCell16"), NodePath("../MarginContainer/CellContainer/AmountCell17"), NodePath("../MarginContainer/CellContainer/AmountCell18")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -40,59 +40,59 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="CategoryCell0" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell0" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell1" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell1" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell2" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell2" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell3" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell3" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell4" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell4" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell5" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell5" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell6" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell6" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell7" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell7" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell8" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell8" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell9" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell9" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell10" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell10" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell11" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell11" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell12" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell12" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell13" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell13" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell14" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell14" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell15" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell15" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell16" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell16" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell17" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell17" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
 
-[node name="CategoryCell18" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
+[node name="AmountCell18" parent="MarginContainer/CellContainer" instance=ExtResource("1_span3")]
 layout_mode = 2
