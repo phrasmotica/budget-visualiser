@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqohm1alyo0y6"]
+
+[ext_resource type="Script" uid="uid://c5e1t1j4l6cq3" path="res://scenes/ui/digit_spinner/digit_spinner.gd" id="1_dlno6"]
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_tguup"]
+[ext_resource type="Script" uid="uid://c7axdaam83eej" path="res://scenes/ui/digit_spinner/digit_spinner_appearance.gd" id="3_mop76"]
+
+[node name="DigitSpinner" type="PanelContainer"]
+offset_right = 112.0
+offset_bottom = 160.0
+theme = ExtResource("1_tguup")
+theme_type_variation = &"EmptyPanelContainer"
+script = ExtResource("1_dlno6")
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("highlight_panel", "amount_label")]
+unique_name_in_owner = true
+script = ExtResource("3_mop76")
+highlight_panel = NodePath("../MarginContainer/HighlightPanel")
+amount_label = NodePath("../MarginContainer/HighlightPanel/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="HighlightPanel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"IdleDigitSpinnerContainer"
+
+[node name="Label" type="Label" parent="MarginContainer/HighlightPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
