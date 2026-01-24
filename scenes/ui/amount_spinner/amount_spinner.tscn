@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuk4c4fx3dyjp"]
+
+[ext_resource type="PackedScene" uid="uid://dtev33c4yaaub" path="res://scenes/ui/amount_edit/amount_edit.tscn" id="1_6rd2d"]
+[ext_resource type="Script" uid="uid://bxrb2xfkp5eae" path="res://scenes/ui/amount_spinner/amount_spinner.gd" id="1_kx54x"]
+
+[node name="AmountSpinner" type="HBoxContainer"]
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_kx54x")
+
+[node name="AmountEditMajor" parent="." instance=ExtResource("1_6rd2d")]
+unique_name_in_owner = true
+layout_mode = 2
+amount_maximum = 999
+currency_symbol = "£"
+
+[node name="SeparatorLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "."
+
+[node name="AmountEditMinor" parent="." instance=ExtResource("1_6rd2d")]
+unique_name_in_owner = true
+layout_mode = 2

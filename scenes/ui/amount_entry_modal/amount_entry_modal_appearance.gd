@@ -12,10 +12,7 @@ var sub_header_label: Label
 var caption_label: Label
 
 @export
-var edit_major: AmountEdit
-
-@export
-var edit_minor: AmountEdit
+var spinner: AmountSpinner
 
 func set_title(title: String) -> void:
 	if header_label:
@@ -30,20 +27,9 @@ func set_caption(caption: String) -> void:
 		caption_label.text = caption
 
 func for_shown() -> void:
-	if edit_major:
-		edit_major.enable()
-
-	if edit_minor:
-		edit_minor.disable()
+	if spinner:
+		spinner.reset_appearance()
 
 func switch_amount_edits() -> void:
-	# TODO: use one AmountEdit instance for each column of the amount
-	# (10,000, 1,000, 100, 10, 1)
-
-	if edit_major.is_enabled():
-		edit_major.disable()
-		edit_minor.enable()
-
-	elif edit_minor.is_enabled():
-		edit_major.enable()
-		edit_minor.disable()
+	if spinner:
+		spinner.switch_amount_edits()
