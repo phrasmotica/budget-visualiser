@@ -1,24 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuk4c4fx3dyjp"]
+[gd_scene load_steps=5 format=3 uid="uid://cuk4c4fx3dyjp"]
 
+[ext_resource type="Script" uid="uid://dhu4qbm52pm3u" path="res://scenes/ui/amount_spinner/digit_spinner_manager.gd" id="1_2j1wg"]
 [ext_resource type="PackedScene" uid="uid://dtev33c4yaaub" path="res://scenes/ui/amount_edit/amount_edit.tscn" id="1_6rd2d"]
 [ext_resource type="Script" uid="uid://bxrb2xfkp5eae" path="res://scenes/ui/amount_spinner/amount_spinner.gd" id="1_kx54x"]
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_nur0y"]
 
-[node name="AmountSpinner" type="HBoxContainer"]
-theme_override_constants/separation = 0
-alignment = 1
+[node name="AmountSpinner" type="PanelContainer"]
+theme = ExtResource("1_nur0y")
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_kx54x")
 
-[node name="AmountEditMajor" parent="." instance=ExtResource("1_6rd2d")]
+[node name="DigitSpinnerManager" type="Node" parent="." node_paths=PackedStringArray("spinner_parent")]
 unique_name_in_owner = true
+script = ExtResource("1_2j1wg")
+spinner_parent = NodePath("../HBoxContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AmountEditMajor" parent="HBoxContainer" instance=ExtResource("1_6rd2d")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 amount_maximum = 999
 currency_symbol = "£"
 
-[node name="SeparatorLabel" type="Label" parent="."]
+[node name="SeparatorLabel" type="Label" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
 text = "."
 
-[node name="AmountEditMinor" parent="." instance=ExtResource("1_6rd2d")]
+[node name="AmountEditMinor" parent="HBoxContainer" instance=ExtResource("1_6rd2d")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
