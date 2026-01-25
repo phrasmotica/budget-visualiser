@@ -62,12 +62,13 @@ layout_mode = 2
 horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
-custom_minimum_size = Vector2(0, 68)
+custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
 
 [node name="AmountSpinner" parent="MarginContainer/HBoxContainer/AmountEntryControls" instance=ExtResource("6_waxe7")]
 unique_name_in_owner = true
 layout_mode = 2
+columns = 5
 
 [node name="Spacer3" type="Control" parent="MarginContainer/HBoxContainer/AmountEntryControls"]
 custom_minimum_size = Vector2(0, 84)

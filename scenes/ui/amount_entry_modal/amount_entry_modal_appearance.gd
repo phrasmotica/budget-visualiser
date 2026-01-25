@@ -30,6 +30,10 @@ func for_shown() -> void:
 	if spinner:
 		spinner.reset_appearance()
 
-func switch_amount_edits() -> void:
+func next_column() -> void:
 	if spinner:
-		spinner.switch_amount_edits()
+		spinner.next_column()
+
+func previous_column() -> void:
+	if spinner:
+		spinner.previous_column()

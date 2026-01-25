@@ -23,8 +23,8 @@ func _enter_tree() -> void:
 
 	_appearance.for_shown()
 
-	SignalHelper.persist(GridInput.move_right, _appearance.switch_amount_edits)
-	SignalHelper.persist(GridInput.move_left, _appearance.switch_amount_edits)
+	SignalHelper.persist(GridInput.move_right, _appearance.next_column)
+	SignalHelper.persist(GridInput.move_left, _appearance.previous_column)
 
 	SignalHelper.persist(ConfirmCancelInput.confirm, _finish)
 	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
@@ -35,7 +35,7 @@ func _enter_tree() -> void:
 	)
 
 	var amount := _state_data.get_amount()
-	_spinner.set_amount(amount)
+	_spinner.amount = amount
 
 	var starting_amount := _state_data.get_starting_amount()
 	set_amounts_caption(starting_amount, starting_amount)

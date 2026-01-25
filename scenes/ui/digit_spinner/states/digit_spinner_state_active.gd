@@ -8,7 +8,7 @@ func _enter_tree() -> void:
 
 	SignalHelper.persist(
 		ConfirmCancelInput.confirm,
-		transition_state.bind(DigitSpinner.State.IDLE)
+		_to_idle
 	)
 
 	SignalHelper.persist(
@@ -21,14 +21,16 @@ func _enter_tree() -> void:
 		_decrement
 	)
 
-func _increment() -> void:
-	var new_amount := _amount_tracker.add(1)
-	_appearance.set_amount(new_amount)
+func _to_idle() -> void:
+	transition_state(DigitSpinner.State.IDLE)
 
-	_digit_spinner.emit_amount_changed(new_amount)
+func _increment() -> void:
+	_digit_spinner.amount += 1
+	_digit_spinner.emit_amount_changed()
 
 func _decrement() -> void:
-	var new_amount := _amount_tracker.subtract(1)
-	_appearance.set_amount(new_amount)
+	_digit_spinner.amount -= 1
+	_digit_spinner.emit_amount_changed()
 
-	_digit_spinner.emit_amount_changed(new_amount)
+func unhighlight() -> void:
+	_to_idle()
