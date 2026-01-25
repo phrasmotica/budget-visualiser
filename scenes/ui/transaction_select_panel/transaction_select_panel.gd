@@ -57,6 +57,7 @@ func switch_state(state: State, state_data := TransactionSelectPanelStateData.ne
 
 func _refresh() -> void:
 	if amount_label:
+		amount_label.amount = transaction.amount if transaction else 0.0
 		amount_label.show_as_unknown = transaction == null
 		amount_label.show_as_hidden = show_as_hidden
 
