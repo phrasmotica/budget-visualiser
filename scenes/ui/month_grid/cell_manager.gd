@@ -3,13 +3,13 @@ class_name CellManager
 extends Node
 
 @export
-var cells: Array[CategoryCell] = []
+var cells: Array[AmountCell] = []
 
 var _highlighted_index := -1
 
-func highlight(index: int) -> CategoryCell:
+func highlight(index: int) -> AmountCell:
 	if index < 0 or index > cells.size() - 1:
-		Logger.info("Cannot highlight CategoryCell at invalid index %d!" % index)
+		Logger.info("Cannot highlight AmountCell at invalid index %d!" % index)
 		return
 
 	_highlighted_index = index

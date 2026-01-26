@@ -19,6 +19,14 @@ var header_panel: HeaderPanel = %HeaderPanel
 @onready
 var year_grid: YearGrid = %YearGrid
 
+# TODO: allow toggling between footer modes:
+# - SectionSummaryGrid for Incomes section
+# - SectionSummaryGrid for current section
+# - new control showing the remaining expenditure for each month
+
+@onready
+var section_summary_grid: SectionSummaryGrid = %SectionSummaryGrid
+
 @onready
 var amount_entry_modal: AmountEntryModal = %AmountEntryModal
 
@@ -61,6 +69,7 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 		state_data,
 		header_panel,
 		year_grid,
+		section_summary_grid,
 		amount_entry_modal,
 		transaction_lister_modal)
 

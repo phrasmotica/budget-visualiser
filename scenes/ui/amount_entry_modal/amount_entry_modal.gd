@@ -29,7 +29,7 @@ var caption := "":
 var appearance: AmountEntryModalAppearance = %Appearance
 
 @onready
-var totaller: AmountTotaller = %Totaller
+var spinner: AmountSpinner = %AmountSpinner
 
 @onready
 var recent_transactions: RecentTransactions = %RecentTransactions
@@ -55,7 +55,7 @@ func switch_state(state: State, state_data := AmountEntryModalStateData.new()) -
 		self,
 		state_data,
 		appearance,
-		totaller,
+		spinner,
 		recent_transactions)
 
 	_current_state.state_transition_requested.connect(switch_state)

@@ -23,19 +23,19 @@ func _enter_tree() -> void:
 
 	_appearance.for_shown()
 
-	SignalHelper.persist(GridInput.move_right, _appearance.switch_amount_edits)
-	SignalHelper.persist(GridInput.move_left, _appearance.switch_amount_edits)
+	SignalHelper.persist(GridInput.move_right, _appearance.next_column)
+	SignalHelper.persist(GridInput.move_left, _appearance.previous_column)
 
 	SignalHelper.persist(ConfirmCancelInput.confirm, _finish)
 	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
 
 	SignalHelper.persist(
-		_totaller.total_changed,
-		_on_total_changed
+		_spinner.amount_changed,
+		_on_amount_changed
 	)
 
 	var amount := _state_data.get_amount()
-	_set_amount(amount)
+	_spinner.amount = amount
 
 	var starting_amount := _state_data.get_starting_amount()
 	set_amounts_caption(starting_amount, starting_amount)
@@ -43,7 +43,7 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
 
-func _on_total_changed(total: float) -> void:
+func _on_amount_changed(total: float) -> void:
 	var starting_amount := _state_data.get_starting_amount()
 	var preview_amount := starting_amount + total
 
@@ -56,13 +56,6 @@ func set_amounts_caption(starting_amount: float, preview_amount: float) -> void:
 
 	_appearance.set_caption(caption)
 
-func _set_amount(amount: float) -> void:
-	var major_amount := int(amount)
-	_totaller.set_major(major_amount)
-
-	var minor_amount := int(100 * (amount - int(amount)))
-	_totaller.set_minor(minor_amount)
-
 func _cancel() -> void:
 	Logger.info("Cancelling amount entry")
 
@@ -71,7 +64,7 @@ func _cancel() -> void:
 	_to_hidden()
 
 func _finish() -> void:
-	var final_amount := _totaller.compute_total()
+	var final_amount := _spinner.compute_amount()
 
 	Logger.info("Final amount: %s" % Strings.curr(final_amount))
 

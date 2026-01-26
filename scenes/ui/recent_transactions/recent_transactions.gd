@@ -17,7 +17,7 @@ var none_label: Label = %NoneLabel
 var ledger: VBoxContainer = %Ledger
 
 @onready
-var transactions_label: Label = %TransactionsLabel
+var transactions_label: AmountMultiLabel = %TransactionsLabel
 
 @onready
 var more_section: VBoxContainer = %MoreSection
@@ -32,7 +32,7 @@ var hidden_section: VBoxContainer = %HiddenSection
 var hidden_label: Label = %HiddenLabel
 
 @onready
-var total_label: Label = %TotalLabel
+var total_label: AmountLabel = %TotalLabel
 
 func _ready() -> void:
 	reload()
@@ -44,7 +44,8 @@ func reload() -> void:
 	none_label.visible = not has_transactions
 	ledger.visible = has_transactions
 
-	transactions_label.text = _compute_transactions_text(transactions)
+	var recent_transactions := _get_recent_transactions(transactions)
+	transactions_label.inject_transactions(recent_transactions)
 
 	var more_count := maxi(0, transactions.size() - visible_count)
 	more_label.text = "+%d more" % more_count
@@ -64,7 +65,7 @@ func reload() -> void:
 		.map(func(t: BudgetTransaction): return t.amount) \
 		.reduce(Math.sum, 0.0)
 
-	total_label.text = Strings.curr(total_amount)
+	total_label.amount = total_amount
 
 func _get_transactions() -> Array[BudgetTransaction]:
 	var budget_data := BudgetProvider.get_budget_data()
@@ -73,16 +74,8 @@ func _get_transactions() -> Array[BudgetTransaction]:
 
 	return budget_data.get_transactions_for_category_and_month(category, month)
 
-func _compute_transactions_text(transactions: Array[BudgetTransaction]) -> String:
-	if transactions.size() <= 0:
-		return ""
-
+func _get_recent_transactions(transactions: Array[BudgetTransaction]) -> Array[BudgetTransaction]:
 	var recent_transactions := transactions.slice(0)
 	recent_transactions.reverse()
 
-	return recent_transactions \
-		.slice(0, visible_count) \
-		.filter(func(t: BudgetTransaction): return not t.hidden) \
-		.map(func(t: BudgetTransaction): return t.amount) \
-		.map(Strings.curr) \
-		.reduce(Strings.join("\n"))
+	return recent_transactions.slice(0, visible_count)

@@ -21,12 +21,12 @@ func set_section(section: BudgetSection) -> void:
 	if category_labels:
 		category_labels.section = section
 
-func scroll_down_to_highlighted_cell(cell: CategoryCell) -> void:
+func scroll_down_to_highlighted_cell(cell: AmountCell) -> void:
 	var new_scroll := VScroll.scroll_down_to(v_scroll_container, cell)
 
 	category_scroll_container.scroll_vertical = new_scroll
 
-func scroll_up_to_highlighted_cell(cell: CategoryCell) -> void:
+func scroll_up_to_highlighted_cell(cell: AmountCell) -> void:
 	var new_scroll := VScroll.scroll_up_to(v_scroll_container, cell)
 
 	category_scroll_container.scroll_vertical = new_scroll

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=4 format=3 uid="uid://damtge6f2ytir"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_qc0ev"]
+[ext_resource type="Resource" uid="uid://u6s41hrh0e0m" path="res://resources/data/budget_categories/budget_category_incomes_salary.tres" id="2_begq1"]
+[ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="9_1owr7"]
+
+[resource]
+script = ExtResource("9_1owr7")
+name = "Incomes"
+categories = Array[ExtResource("1_qc0ev")]([ExtResource("2_begq1")])
+metadata/_custom_type_script = "uid://blg87571j07g6"

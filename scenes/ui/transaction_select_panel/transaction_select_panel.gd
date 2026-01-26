@@ -21,7 +21,7 @@ var show_as_hidden := false:
 		_refresh()
 
 @onready
-var label: Label = %Label
+var amount_label: AmountLabel = %AmountLabel
 
 @onready
 var unhidden_icon: TextureRect = %UnhiddenIcon
@@ -56,16 +56,10 @@ func switch_state(state: State, state_data := TransactionSelectPanelStateData.ne
 	call_deferred("add_child", _current_state)
 
 func _refresh() -> void:
-	if label:
-		if transaction:
-			label.text = Strings.curr(transaction.amount)
-		else:
-			label.text = "???"
-
-		if show_as_hidden:
-			label.label_settings.font_color = Color.DIM_GRAY
-		else:
-			label.label_settings.font_color = Color.WHITE
+	if amount_label:
+		amount_label.amount = transaction.amount if transaction else 0.0
+		amount_label.show_as_unknown = transaction == null
+		amount_label.show_as_hidden = show_as_hidden
 
 	if unhidden_icon:
 		unhidden_icon.visible = not show_as_hidden

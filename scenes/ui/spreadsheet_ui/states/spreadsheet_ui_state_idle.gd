@@ -27,6 +27,10 @@ func _enter_tree() -> void:
 		_on_primary_modifier_pressed
 	)
 
+	SignalHelper.persist(
+		SpreadsheetInput.toggle_summary_requested,
+		_cycle_section_summary)
+
 	_year_grid.update_budget(BudgetProvider.get_budget_data())
 
 func _exit_tree() -> void:
@@ -61,3 +65,8 @@ func _show_transaction_lister_modal() -> void:
 	_transaction_lister_modal.enable(transactions)
 
 	transition_state(SpreadsheetUI.State.DISABLED)
+
+func _cycle_section_summary() -> void:
+	var next_section := BudgetProvider.cycle_section()
+	if next_section:
+		_section_summary_grid.section = next_section

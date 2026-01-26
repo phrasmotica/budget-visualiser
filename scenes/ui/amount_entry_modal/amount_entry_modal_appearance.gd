@@ -12,10 +12,7 @@ var sub_header_label: Label
 var caption_label: Label
 
 @export
-var edit_major: AmountEdit
-
-@export
-var edit_minor: AmountEdit
+var spinner: AmountSpinner
 
 func set_title(title: String) -> void:
 	if header_label:
@@ -30,17 +27,13 @@ func set_caption(caption: String) -> void:
 		caption_label.text = caption
 
 func for_shown() -> void:
-	if edit_major:
-		edit_major.enable()
+	if spinner:
+		spinner.reset_appearance()
 
-	if edit_minor:
-		edit_minor.disable()
+func next_column() -> void:
+	if spinner:
+		spinner.next_column()
 
-func switch_amount_edits() -> void:
-	if edit_major.is_enabled():
-		edit_major.disable()
-		edit_minor.enable()
-
-	elif edit_minor.is_enabled():
-		edit_major.enable()
-		edit_minor.disable()
+func previous_column() -> void:
+	if spinner:
+		spinner.previous_column()

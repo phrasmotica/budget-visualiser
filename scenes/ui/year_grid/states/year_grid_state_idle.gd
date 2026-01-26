@@ -38,7 +38,7 @@ func _on_move_left() -> void:
 	var new_grid := _month_grid_manager.highlight(_index_tracker.previous())
 	_appearance.scroll_left_to_highlighted_grid(new_grid)
 
-func _on_highlighted_cell_changed(cell: CategoryCell, is_up: bool) -> void:
+func _on_highlighted_cell_changed(cell: AmountCell, is_up: bool) -> void:
 	if is_up:
 		_appearance.scroll_up_to_highlighted_cell(cell)
 	else:
