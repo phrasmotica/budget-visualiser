@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://04tgy2s6fjqg"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_q1077"]
+[ext_resource type="Script" uid="uid://b7marpfc5uecv" path="res://scenes/ui/section_config_modal/section_config_modal.gd" id="2_mdk30"]
+[ext_resource type="Script" uid="uid://brtakgdcq8lac" path="res://scenes/ui/section_config_modal/section_config_modal_appearance.gd" id="3_q1077"]
+
+[node name="SectionConfigModal" type="PanelContainer"]
+custom_minimum_size = Vector2(1080, 600)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_q1077")
+theme_type_variation = &"SectionConfigModalContainer"
+script = ExtResource("2_mdk30")
+metadata/_edit_horizontal_guides_ = [300.0]
+
+[node name="Appearance" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_q1077")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
