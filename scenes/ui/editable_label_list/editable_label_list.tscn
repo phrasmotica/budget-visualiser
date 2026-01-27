@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://hslns6d1ukdx"]
+
+[ext_resource type="PackedScene" uid="uid://c5qj8qoxoy8y7" path="res://scenes/ui/editable_label/editable_label.tscn" id="1_h2vif"]
+[ext_resource type="Script" uid="uid://by3k81yyb8rr1" path="res://scenes/ui/editable_label_list/editable_label_list.gd" id="1_lx451"]
+
+[node name="EditableLabelList" type="VBoxContainer"]
+offset_right = 400.0
+offset_bottom = 40.0
+theme_override_constants/separation = 8
+script = ExtResource("1_lx451")
+
+[node name="EditableLabel0" parent="." instance=ExtResource("1_h2vif")]
+layout_mode = 2
+text = "Text0"
+
+[node name="EditableLabel1" parent="." instance=ExtResource("1_h2vif")]
+layout_mode = 2
+text = "Text1"
+
+[node name="EditableLabel2" parent="." instance=ExtResource("1_h2vif")]
+layout_mode = 2
+text = "Text2"
+
+[node name="EditableLabel3" parent="." instance=ExtResource("1_h2vif")]
+layout_mode = 2
+text = "Text3"
+
+[node name="EditableLabel4" parent="." instance=ExtResource("1_h2vif")]
+layout_mode = 2
+text = "Text4"

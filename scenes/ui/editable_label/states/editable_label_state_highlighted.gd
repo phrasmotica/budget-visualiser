@@ -22,3 +22,6 @@ func _to_editing() -> void:
 	_appearance.copy_label_text_to_line_edit()
 
 	transition_state(EditableLabel.State.EDITING)
+
+func unhighlight() -> void:
+	transition_state(EditableLabel.State.IDLE)

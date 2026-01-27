@@ -33,7 +33,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	switch_state(State.HIGHLIGHTED)
+	switch_state(State.IDLE)
 
 func switch_state(state: State, state_data := EditableLabelStateData.new()) -> void:
 	if _current_state != null:
@@ -61,3 +61,11 @@ func _refresh() -> void:
 			appearance.for_editing()
 		else:
 			appearance.for_highlighted()
+
+func highlight() -> void:
+	if _current_state:
+		_current_state.highlight()
+
+func unhighlight() -> void:
+	if _current_state:
+		_current_state.unhighlight()
