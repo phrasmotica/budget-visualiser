@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=4 format=3 uid="uid://bq8sfllgbnfp1"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_tpuv0"]
+[ext_resource type="Resource" uid="uid://cdypv2lho8p1q" path="res://resources/input/mapping_confirm_keys.tres" id="4_mxa6x"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="6_7npdt"]
+
+[resource]
+script = ExtResource("6_7npdt")
+display_name = "Editable Label (Idle)"
+mappings = Array[ExtResource("1_tpuv0")]([ExtResource("4_mxa6x")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"
+metadata/_guide_action_mappings_collapsed = false

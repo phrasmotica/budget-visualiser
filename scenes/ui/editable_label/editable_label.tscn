@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5qj8qoxoy8y7"]
+
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_0wpve"]
+[ext_resource type="Script" uid="uid://c4l42v6yfhugt" path="res://scenes/ui/editable_label/editable_label.gd" id="2_4vxlr"]
+[ext_resource type="Texture2D" uid="uid://paptq66v5d1o" path="res://assets/sprites/pencil.png" id="2_taa3b"]
+[ext_resource type="Script" uid="uid://b75v3crqyl5m6" path="res://scenes/ui/editable_label/editable_label_appearance.gd" id="3_hi6ri"]
+[ext_resource type="Texture2D" uid="uid://c7umj1hsybltp" path="res://assets/sprites/check-mark.png" id="3_tte4u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dm71"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hi6ri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v0ci1"]
+
+[node name="EditableLabel" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 400.0
+offset_bottom = 40.0
+theme = ExtResource("1_0wpve")
+theme_type_variation = &"EmptyPanelContainer"
+script = ExtResource("2_4vxlr")
+text = "Idle"
+
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("idle_container", "label", "editing_container", "line_edit")]
+unique_name_in_owner = true
+script = ExtResource("3_hi6ri")
+idle_container = NodePath("../VBoxContainer/IdleContainer")
+label = NodePath("../VBoxContainer/IdleContainer/HBoxContainer/Label")
+editing_container = NodePath("../VBoxContainer/EditingContainer")
+line_edit = NodePath("../VBoxContainer/EditingContainer/HBoxContainer/LineEdit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IdleContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"EditableLabelPanelContainer"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/IdleContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/IdleContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Idle"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/IdleContainer/HBoxContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_taa3b")
+expand_mode = 2
+
+[node name="EditingContainer" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"EditableLabelPanelContainer"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EditingContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/EditingContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3dm71")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_hi6ri")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v0ci1")
+text = "Idle"
+placeholder_text = "Name"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/EditingContainer/HBoxContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_tte4u")
+expand_mode = 2

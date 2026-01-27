@@ -1,0 +1,54 @@
+@tool
+class_name EditableLabelAppearance
+extends Node
+
+@export
+var idle_container: PanelContainer
+
+@export
+var label: Label
+
+@export
+var editing_container: PanelContainer
+
+@export
+var line_edit: LineEdit
+
+func set_label_text(text: String) -> void:
+	if label:
+		label.text = text
+
+func set_line_edit_text(text: String) -> void:
+	if line_edit:
+		line_edit.text = text
+
+func copy_label_text_to_line_edit() -> void:
+	if label:
+		set_line_edit_text(label.text)
+
+func for_editing() -> void:
+	if idle_container:
+		idle_container.hide()
+
+	if editing_container:
+		editing_container.show()
+
+	if not Engine.is_editor_hint():
+		if line_edit:
+			line_edit.editable = true
+			line_edit.grab_focus()
+
+			line_edit.select_all()
+			line_edit.caret_column = line_edit.text.length()
+
+func for_idle() -> void:
+	if idle_container:
+		idle_container.show()
+
+	if editing_container:
+		editing_container.hide()
+
+	if not Engine.is_editor_hint():
+		if line_edit:
+			line_edit.editable = false
+			line_edit.release_focus()
