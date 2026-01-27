@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BudgetSection" load_steps=8 format=3 uid="uid://cfaa2hujemacs"]
+
+[ext_resource type="Script" uid="uid://pmgx6lpiycua" path="res://scripts/data/budget_category.gd" id="1_kbbw1"]
+[ext_resource type="Script" uid="uid://blg87571j07g6" path="res://scripts/data/budget_section.gd" id="2_t6gip"]
+
+[sub_resource type="Resource" id="Resource_sj1ro"]
+script = ExtResource("1_kbbw1")
+name = "Example category 1"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
+
+[sub_resource type="Resource" id="Resource_d2dk7"]
+script = ExtResource("1_kbbw1")
+name = "Example category 2"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
+
+[sub_resource type="Resource" id="Resource_0xkaf"]
+script = ExtResource("1_kbbw1")
+name = "Example category 3"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
+
+[sub_resource type="Resource" id="Resource_gvjf3"]
+script = ExtResource("1_kbbw1")
+name = "Example category 4"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
+
+[sub_resource type="Resource" id="Resource_pcsp4"]
+script = ExtResource("1_kbbw1")
+name = "Example category 5"
+metadata/_custom_type_script = "uid://pmgx6lpiycua"
+
+[resource]
+script = ExtResource("2_t6gip")
+name = "Example Section"
+categories = Array[ExtResource("1_kbbw1")]([SubResource("Resource_sj1ro"), SubResource("Resource_d2dk7"), SubResource("Resource_0xkaf"), SubResource("Resource_gvjf3"), SubResource("Resource_pcsp4")])
+metadata/_custom_type_script = "uid://blg87571j07g6"
