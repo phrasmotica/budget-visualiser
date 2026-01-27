@@ -37,10 +37,10 @@ function CreateBaseFile([string] $BaseDir) {
 
 	$stateEnumStr = $stateNamesUpper -join ", "
 
-	$templateFile = ".\templates\state_machine_base.gdtemplate"
+	$templateFile = Resolve-Path ".\templates\state_machine_base.gdtemplate" -Relative
 
 	if ($Tool) {
-		$templateFile = ".\templates\state_machine_base_tool.gdtemplate"
+		$templateFile = Resolve-Path ".\templates\state_machine_base_tool.gdtemplate" -Relative
 	}
 
 	$baseLines = [IO.File]::ReadAllLines($templateFile)
@@ -66,7 +66,9 @@ function CreateStateFactory([string] $BaseDir) {
 		return "`t`t$($Name).State.$($_.ToUpper()): $($Name)State$($_),"
 	}) -join "`n"
 
-	$factoryLines = [IO.File]::ReadAllLines(".\templates\state_machine_state_factory.gdtemplate")
+	$factoryTemplate = Resolve-Path ".\templates\state_machine_state_factory.gdtemplate" -Relative
+
+	$factoryLines = [IO.File]::ReadAllLines($factoryTemplate)
 
 	$transformedFactoryLines = $factoryLines | % {
 		$_ `
@@ -83,7 +85,9 @@ function CreateStateData([string] $BaseDir, [string] $StatesDir) {
 
 	Write-Host "Writing state data file '$stateDataFileName'..."
 
-	$dataLines = [IO.File]::ReadAllLines(".\templates\state_machine_data.gdtemplate")
+	$dataTemplate = Resolve-Path ".\templates\state_machine_data.gdtemplate" -Relative
+
+	$dataLines = [IO.File]::ReadAllLines($dataTemplate)
 
 	$transformedDataLines = $dataLines | % {
 		$_ -replace ("%%ClassName%%", $Name)
@@ -100,7 +104,9 @@ function CreateBaseStateFile([string] $BaseDir, [string] $StatesDir) {
 
 	$fieldName = PascalToSnake -Value $Name
 
-	$stateBaseLines = [IO.File]::ReadAllLines(".\templates\state_machine_state_base.gdtemplate")
+	$baseStateTemplate = Resolve-Path ".\templates\state_machine_state_base.gdtemplate" -Relative
+
+	$stateBaseLines = [IO.File]::ReadAllLines($baseStateTemplate)
 
 	$transformedStateBaseLines = $stateBaseLines | % {
 		$_ `
@@ -122,7 +128,9 @@ function CreateStateFile([string] $BaseDir, [string] $StatesDir, [string] $State
 
 	$fieldName = PascalToSnake -Value $Name
 
-	$stateLines = [IO.File]::ReadAllLines(".\templates\state_machine_state.gdtemplate")
+	$stateTemplate = Resolve-Path ".\templates\state_machine_state.gdtemplate" -Relative
+
+	$stateLines = [IO.File]::ReadAllLines($stateTemplate)
 
 	$transformedStateLines = $stateLines | % {
 		$_ `
