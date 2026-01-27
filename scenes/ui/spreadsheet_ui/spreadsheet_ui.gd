@@ -34,6 +34,9 @@ var amount_entry_modal: AmountEntryModal = %AmountEntryModal
 var transaction_lister_modal: TransactionListerModal = %TransactionListerModal
 
 @onready
+var section_config_modal: SectionConfigModal = %SectionConfigModal
+
+@onready
 var guide_debugger: Control = %GuideDebugger
 
 var _state_factory := SpreadsheetUIStateFactory.new()
@@ -71,7 +74,8 @@ func switch_state(state: State, state_data := SpreadsheetUIStateData.new()) -> v
 		year_grid,
 		section_summary_grid,
 		amount_entry_modal,
-		transaction_lister_modal)
+		transaction_lister_modal,
+		section_config_modal)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "SpreadsheetUIStateMachine: %s" % str(state)

@@ -12,6 +12,11 @@ func _enter_tree() -> void:
 	)
 
 	SignalHelper.once(
+		SectionConfigEvents.cancelled,
+		_on_entry_cancelled
+	)
+
+	SignalHelper.once(
 		AmountEvents.entry_cancelled,
 		_on_entry_cancelled
 	)

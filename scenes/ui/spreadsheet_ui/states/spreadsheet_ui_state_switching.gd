@@ -15,6 +15,7 @@ func _enter_tree() -> void:
 
 	_amount_entry_modal.disable()
 	_transaction_lister_modal.disable()
+	_section_config_modal.disable()
 
 	SignalHelper.persist(
 		ModifierInput.primary_modifier_released,

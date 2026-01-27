@@ -10,6 +10,7 @@ var _year_grid: YearGrid = null
 var _section_summary_grid: SectionSummaryGrid = null
 var _amount_entry_modal: AmountEntryModal = null
 var _transaction_lister_modal: TransactionListerModal = null
+var _section_config_modal: SectionConfigModal = null
 
 func setup(
 	spreadsheet_ui: SpreadsheetUI,
@@ -19,6 +20,7 @@ func setup(
 	section_summary_grid: SectionSummaryGrid,
 	amount_entry_modal: AmountEntryModal,
 	transaction_lister_modal: TransactionListerModal,
+	section_config_modal: SectionConfigModal,
 ) -> void:
 	_spreadsheet_ui = spreadsheet_ui
 	_state_data = state_data
@@ -27,6 +29,7 @@ func setup(
 	_section_summary_grid = section_summary_grid
 	_amount_entry_modal = amount_entry_modal
 	_transaction_lister_modal = transaction_lister_modal
+	_section_config_modal = section_config_modal
 
 func transition_state(
 	new_state: SpreadsheetUI.State,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpgey7qxb48kd"]
+[gd_scene load_steps=11 format=3 uid="uid://bpgey7qxb48kd"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_5jsgs"]
 [ext_resource type="Script" uid="uid://tw42pkh8j46o" path="res://scenes/ui/spreadsheet_ui/spreadsheet_ui.gd" id="2_ic03t"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dw7xjnqey7y0y" path="res://scenes/ui/amount_entry_modal/amount_entry_modal.tscn" id="4_ic03t"]
 [ext_resource type="PackedScene" uid="uid://se6hbk6dpl1j" path="res://scenes/ui/transaction_lister_modal/transaction_lister_modal.tscn" id="5_abri7"]
 [ext_resource type="PackedScene" uid="uid://d3k5bvn08h685" path="res://scenes/ui/section_summary_grid/section_summary_grid.tscn" id="6_85l1a"]
+[ext_resource type="PackedScene" uid="uid://04tgy2s6fjqg" path="res://scenes/ui/section_config_modal/section_config_modal.tscn" id="8_etabb"]
 [ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="8_qip70"]
 
 [node name="SpreadsheetUI" type="PanelContainer"]
@@ -55,6 +56,10 @@ sub_header = "<category> - <month>"
 caption = "<old amount> -> <new amount>"
 
 [node name="TransactionListerModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("5_abri7")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SectionConfigModal" parent="CanvasLayer/CenterContainer" instance=ExtResource("8_etabb")]
 unique_name_in_owner = true
 layout_mode = 2
 

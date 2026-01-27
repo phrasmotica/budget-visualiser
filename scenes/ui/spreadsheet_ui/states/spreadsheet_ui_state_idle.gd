@@ -15,12 +15,17 @@ func _enter_tree() -> void:
 
 	_amount_entry_modal.disable()
 	_transaction_lister_modal.disable()
+	_section_config_modal.disable()
 
 	SignalHelper.persist(ConfirmCancelInput.confirm, _show_modal)
 
 	SignalHelper.persist(
 		ModalInput.transaction_lister_modal_requested,
 		_show_transaction_lister_modal)
+
+	SignalHelper.persist(
+		ModalInput.section_config_modal_requested,
+		_show_section_config_modal)
 
 	SignalHelper.persist(
 		ModifierInput.primary_modifier_pressed,
@@ -63,6 +68,12 @@ func _show_transaction_lister_modal() -> void:
 
 	_transaction_lister_modal.sub_header = "%s - %s" % [category.name, month.name]
 	_transaction_lister_modal.enable(transactions)
+
+	transition_state(SpreadsheetUI.State.DISABLED)
+
+func _show_section_config_modal() -> void:
+	_section_config_modal.section = _year_grid.section
+	_section_config_modal.enable()
 
 	transition_state(SpreadsheetUI.State.DISABLED)
 

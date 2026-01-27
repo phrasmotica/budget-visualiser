@@ -9,6 +9,7 @@ func _enter_tree() -> void:
 	_year_grid.disable()
 	_amount_entry_modal.disable()
 	_transaction_lister_modal.disable()
+	_section_config_modal.disable()
 
 	_inject_entered_amount()
 

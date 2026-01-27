@@ -30,12 +30,19 @@ func _exit_tree() -> void:
 func _cancel() -> void:
 	Logger.info("Cancelled section config")
 
+	SectionConfigEvents.emit_cancelled()
+
 	_to_hidden()
 
 func _finish() -> void:
 	Logger.info("Finished section config")
 
+	SectionConfigEvents.emit_cancelled()
+
 	_to_hidden()
 
 func _to_hidden() -> void:
 	transition_state(SectionConfigModal.State.HIDDEN)
+
+func disable() -> void:
+	_to_hidden()

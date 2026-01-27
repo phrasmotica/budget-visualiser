@@ -48,3 +48,11 @@ func switch_state(state: State, state_data := SectionConfigModalStateData.new())
 func _refresh() -> void:
 	if appearance:
 		appearance.set_section(section)
+
+func enable() -> void:
+	if _current_state:
+		_current_state.enable()
+
+func disable() -> void:
+	if _current_state:
+		_current_state.disable()
