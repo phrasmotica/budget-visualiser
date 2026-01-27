@@ -2,7 +2,7 @@
 class_name EditableLabel
 extends PanelContainer
 
-enum State { IDLE, EDITING }
+enum State { IDLE, HIGHLIGHTED, EDITING }
 
 @export
 var is_editing := false:
@@ -33,7 +33,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	switch_state(State.IDLE)
+	switch_state(State.HIGHLIGHTED)
 
 func switch_state(state: State, state_data := EditableLabelStateData.new()) -> void:
 	if _current_state != null:
@@ -60,4 +60,4 @@ func _refresh() -> void:
 		if is_editing:
 			appearance.for_editing()
 		else:
-			appearance.for_idle()
+			appearance.for_highlighted()

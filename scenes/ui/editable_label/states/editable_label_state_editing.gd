@@ -15,4 +15,4 @@ func _on_text_submitted(text: String) -> void:
 
 	# TODO: emit the new text in a signal, so a parent node can use it...
 
-	transition_state(EditableLabel.State.IDLE)
+	transition_state(EditableLabel.State.HIGHLIGHTED)

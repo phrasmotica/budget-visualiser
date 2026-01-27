@@ -5,6 +5,7 @@ var states: Dictionary
 func _init() -> void:
 	states = {
 		EditableLabel.State.IDLE: EditableLabelStateIdle,
+		EditableLabel.State.HIGHLIGHTED: EditableLabelStateHighlighted,
 		EditableLabel.State.EDITING: EditableLabelStateEditing,
 	}
 

@@ -10,11 +10,6 @@ bg_color = Color(0.2, 0, 0.2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ci1"]
 bg_color = Color(0.754962, 0.541764, 0.476109, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.754962, 0.541764, 0.476109, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muggs"]
 
