@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://hslns6d1ukdx"]
+[gd_scene load_steps=4 format=3 uid="uid://hslns6d1ukdx"]
 
 [ext_resource type="PackedScene" uid="uid://c5qj8qoxoy8y7" path="res://scenes/ui/editable_label/editable_label.tscn" id="1_h2vif"]
 [ext_resource type="Script" uid="uid://by3k81yyb8rr1" path="res://scenes/ui/editable_label_list/editable_label_list.gd" id="1_lx451"]
+[ext_resource type="Script" uid="uid://dinyqfy4m70lb" path="res://scenes/ui/editable_label_list/editable_label_manager.gd" id="2_1kaga"]
 
 [node name="EditableLabelList" type="VBoxContainer"]
 offset_right = 400.0
 offset_bottom = 40.0
 theme_override_constants/separation = 8
 script = ExtResource("1_lx451")
+
+[node name="LabelManager" type="Node" parent="." node_paths=PackedStringArray("labels")]
+unique_name_in_owner = true
+script = ExtResource("2_1kaga")
+labels = [NodePath("../EditableLabel0"), NodePath("../EditableLabel1"), NodePath("../EditableLabel2"), NodePath("../EditableLabel3"), NodePath("../EditableLabel4")]
 
 [node name="EditableLabel0" parent="." instance=ExtResource("1_h2vif")]
 layout_mode = 2

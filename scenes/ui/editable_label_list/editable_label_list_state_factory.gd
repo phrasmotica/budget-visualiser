@@ -6,6 +6,7 @@ func _init() -> void:
 	states = {
 		EditableLabelList.State.IDLE: EditableLabelListStateIdle,
 		EditableLabelList.State.ACTIVE: EditableLabelListStateActive,
+		EditableLabelList.State.DISABLED: EditableLabelListStateDisabled,
 	}
 
 func get_fresh_state(state: EditableLabelList.State) -> EditableLabelListState:

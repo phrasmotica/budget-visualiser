@@ -27,6 +27,9 @@ var line_edit: LineEdit = %LineEdit
 var _state_factory := EditableLabelStateFactory.new()
 var _current_state: EditableLabelState = null
 
+signal activated
+signal deactivated
+
 func _ready() -> void:
 	_refresh()
 
@@ -61,6 +64,12 @@ func _refresh() -> void:
 			appearance.for_editing()
 		else:
 			appearance.for_highlighted()
+
+func emit_activated() -> void:
+	activated.emit()
+
+func emit_deactivated() -> void:
+	deactivated.emit()
 
 func highlight() -> void:
 	if _current_state:

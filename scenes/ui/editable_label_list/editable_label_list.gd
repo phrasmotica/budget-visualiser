@@ -2,9 +2,10 @@
 class_name EditableLabelList
 extends VBoxContainer
 
-# TODO: use up/down arrows to change which child label is highlighted...
+enum State { IDLE, ACTIVE, DISABLED }
 
-enum State { IDLE, ACTIVE }
+@onready
+var label_manager: EditableLabelManager = %LabelManager
 
 var _state_factory := EditableLabelListStateFactory.new()
 var _current_state: EditableLabelListState = null
@@ -15,7 +16,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	switch_state(State.IDLE)
+	switch_state(State.ACTIVE)
 
 func switch_state(state: State, state_data := EditableLabelListStateData.new()) -> void:
 	if _current_state != null:
@@ -25,7 +26,8 @@ func switch_state(state: State, state_data := EditableLabelListStateData.new()) 
 
 	_current_state.setup(
 		self,
-		state_data)
+		state_data,
+		label_manager)
 
 	_current_state.state_transition_requested.connect(switch_state)
 	_current_state.name = "EditableLabelListStateMachine: %s" % str(state)
