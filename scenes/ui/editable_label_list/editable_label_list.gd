@@ -3,3 +3,34 @@ class_name EditableLabelList
 extends VBoxContainer
 
 # TODO: use up/down arrows to change which child label is highlighted...
+
+enum State { IDLE, ACTIVE }
+
+var _state_factory := EditableLabelListStateFactory.new()
+var _current_state: EditableLabelListState = null
+
+func _ready() -> void:
+	_refresh()
+
+	if Engine.is_editor_hint():
+		return
+
+	switch_state(State.IDLE)
+
+func switch_state(state: State, state_data := EditableLabelListStateData.new()) -> void:
+	if _current_state != null:
+		_current_state.queue_free()
+
+	_current_state = _state_factory.get_fresh_state(state)
+
+	_current_state.setup(
+		self,
+		state_data)
+
+	_current_state.state_transition_requested.connect(switch_state)
+	_current_state.name = "EditableLabelListStateMachine: %s" % str(state)
+
+	call_deferred("add_child", _current_state)
+
+func _refresh() -> void:
+	pass
