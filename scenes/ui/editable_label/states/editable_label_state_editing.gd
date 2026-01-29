@@ -15,7 +15,7 @@ func _enter_tree() -> void:
 func _on_text_submitted(text: String) -> void:
 	_appearance.set_label_text(text)
 
-	# TODO: emit the new text, so a parent node can use it...
+	_editable_label.emit_text_changed(text)
 	_editable_label.emit_deactivated()
 
 	transition_state(EditableLabel.State.HIGHLIGHTED)

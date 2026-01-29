@@ -16,6 +16,8 @@ var text := "":
 	set(value):
 		text = value
 
+		emit_text_changed(text)
+
 		_refresh()
 
 @onready
@@ -27,6 +29,7 @@ var line_edit: LineEdit = %LineEdit
 var _state_factory := EditableLabelStateFactory.new()
 var _current_state: EditableLabelState = null
 
+signal text_changed(text: String)
 signal activated
 signal deactivated
 
@@ -70,6 +73,9 @@ func emit_activated() -> void:
 
 func emit_deactivated() -> void:
 	deactivated.emit()
+
+func emit_text_changed(new_text: String) -> void:
+	text_changed.emit(new_text)
 
 func highlight() -> void:
 	if _current_state:
