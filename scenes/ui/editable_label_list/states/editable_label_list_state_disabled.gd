@@ -10,4 +10,6 @@ func _enter_tree() -> void:
 	)
 
 func _on_label_deactivated() -> void:
+	_editable_label_list.emit_enabled()
+
 	transition_state(EditableLabelList.State.ACTIVE)

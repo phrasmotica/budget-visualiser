@@ -13,6 +13,8 @@ func _enter_tree() -> void:
 
 	_category_list.activate()
 
+	SignalHelper.persist(_category_list.disabled, _to_paused)
+
 	SignalHelper.persist(ConfirmCancelInput.cancel, _cancel)
 
 	SignalHelper.persist(NavigationInput.next_section, _to_finishing)
@@ -26,6 +28,9 @@ func _cancel() -> void:
 	SectionConfigEvents.emit_cancelled()
 
 	_to_hidden()
+
+func _to_paused() -> void:
+	transition_state(SectionConfigModal.State.PAUSED)
 
 func _to_finishing() -> void:
 	_category_list.deactivate()

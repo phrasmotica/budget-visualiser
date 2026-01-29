@@ -36,6 +36,8 @@ func _on_move_up() -> void:
 	_label_manager.highlight_previous()
 
 func _on_label_activated() -> void:
+	_editable_label_list.emit_disabled()
+
 	transition_state(EditableLabelList.State.DISABLED)
 
 func deactivate() -> void:

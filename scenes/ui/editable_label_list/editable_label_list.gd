@@ -10,6 +10,9 @@ var label_manager: EditableLabelManager = %LabelManager
 var _state_factory := EditableLabelListStateFactory.new()
 var _current_state: EditableLabelListState = null
 
+signal enabled
+signal disabled
+
 func _ready() -> void:
 	_refresh()
 
@@ -36,6 +39,12 @@ func switch_state(state: State, state_data := EditableLabelListStateData.new()) 
 
 func _refresh() -> void:
 	pass
+
+func emit_enabled() -> void:
+	enabled.emit()
+
+func emit_disabled() -> void:
+	disabled.emit()
 
 func activate() -> void:
 	if _current_state:
