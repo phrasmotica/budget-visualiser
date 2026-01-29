@@ -3,8 +3,8 @@
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_q1077"]
 [ext_resource type="Script" uid="uid://b7marpfc5uecv" path="res://scenes/ui/section_config_modal/section_config_modal.gd" id="2_mdk30"]
 [ext_resource type="Script" uid="uid://brtakgdcq8lac" path="res://scenes/ui/section_config_modal/section_config_modal_appearance.gd" id="3_q1077"]
-[ext_resource type="PackedScene" uid="uid://b8hyfp1xf5k3r" path="res://scenes/ui/category_labels/category_labels.tscn" id="4_yy8y1"]
 [ext_resource type="Resource" uid="uid://cfaa2hujemacs" path="res://resources/data/budget_sections/budget_section_example.tres" id="5_pyu7k"]
+[ext_resource type="PackedScene" uid="uid://hslns6d1ukdx" path="res://scenes/ui/editable_label_list/editable_label_list.tscn" id="5_u6d3n"]
 [ext_resource type="PackedScene" uid="uid://b6h7rxf6201g2" path="res://scenes/ui/modal_buttons/modal_buttons.tscn" id="6_pyu7k"]
 
 [node name="SectionConfigModal" type="PanelContainer"]
@@ -21,7 +21,7 @@ metadata/_edit_horizontal_guides_ = [300.0]
 unique_name_in_owner = true
 script = ExtResource("3_q1077")
 header_label = NodePath("../MarginContainer/VBoxContainer/HeaderLabel")
-category_labels = NodePath("../MarginContainer/VBoxContainer/CategoryLabels")
+category_labels = NodePath("")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -41,10 +41,10 @@ text = "Example Section"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CategoryLabels" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_yy8y1")]
+[node name="CategoryList" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_u6d3n")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-section = ExtResource("5_pyu7k")
 
 [node name="ModalButtons" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_pyu7k")]
 unique_name_in_owner = true

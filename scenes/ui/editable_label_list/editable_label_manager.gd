@@ -11,14 +11,23 @@ var labels: Array[EditableLabel] = []:
 			SignalHelper.chain(l.activated, label_activated)
 			SignalHelper.chain(l.deactivated, label_deactivated)
 
-		_index_tracker = IndexTracker.new(
-			labels.size() - 1,
-			"EditableLabelManagerIndexTracker")
+		_refresh()
 
 var _index_tracker: IndexTracker = null
 
 signal label_activated
 signal label_deactivated
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
+	_refresh()
+
+func _refresh() -> void:
+	_index_tracker = IndexTracker.new(
+		labels.size() - 1,
+		"EditableLabelManagerIndexTracker")
 
 func highlight_current() -> void:
 	_update_highlight(_index_tracker.current())

@@ -15,6 +15,9 @@ var section: BudgetSection:
 var appearance: SectionConfigModalAppearance = %Appearance
 
 @onready
+var category_list: EditableLabelList = %CategoryList
+
+@onready
 var modal_buttons: ModalButtons = %ModalButtons
 
 var _state_factory := SectionConfigModalStateFactory.new()
@@ -26,7 +29,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	switch_state(State.HIDDEN)
+	switch_state(State.SHOWN)
 
 func switch_state(state: State, state_data := SectionConfigModalStateData.new()) -> void:
 	if _current_state != null:
@@ -38,6 +41,7 @@ func switch_state(state: State, state_data := SectionConfigModalStateData.new())
 		self,
 		state_data,
 		appearance,
+		category_list,
 		modal_buttons)
 
 	_current_state.state_transition_requested.connect(switch_state)

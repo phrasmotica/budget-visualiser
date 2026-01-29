@@ -21,3 +21,6 @@ func transition_state(
 	state_data := EditableLabelListStateData.new(),
 ) -> void:
 	state_transition_requested.emit(new_state, state_data)
+
+func activate() -> void:
+	pass

@@ -16,7 +16,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	switch_state(State.ACTIVE)
+	switch_state(State.IDLE)
 
 func switch_state(state: State, state_data := EditableLabelListStateData.new()) -> void:
 	if _current_state != null:
@@ -36,3 +36,7 @@ func switch_state(state: State, state_data := EditableLabelListStateData.new()) 
 
 func _refresh() -> void:
 	pass
+
+func activate() -> void:
+	if _current_state:
+		_current_state.activate()
