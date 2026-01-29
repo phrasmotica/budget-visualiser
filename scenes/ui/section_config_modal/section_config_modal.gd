@@ -2,7 +2,7 @@
 class_name SectionConfigModal
 extends PanelContainer
 
-enum State { HIDDEN, SHOWN }
+enum State { HIDDEN, SHOWN, FINISHING }
 
 @export
 var section: BudgetSection:

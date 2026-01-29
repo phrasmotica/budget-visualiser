@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=5 format=3 uid="uid://25wphovbljfg"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_otsiv"]
+[ext_resource type="Resource" uid="uid://b5lgcs2xbfuch" path="res://resources/input/mapping_next_section_keys.tres" id="3_he3i4"]
+[ext_resource type="Resource" uid="uid://dadehwh0qv3ah" path="res://resources/input/mapping_cancel_keys.tres" id="5_utgpw"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="6_jpc5a"]
+
+[resource]
+script = ExtResource("6_jpc5a")
+display_name = "Section Config Modal (Acting)"
+mappings = Array[ExtResource("1_otsiv")]([ExtResource("3_he3i4"), ExtResource("5_utgpw")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"
+metadata/_guide_action_mappings_collapsed = false

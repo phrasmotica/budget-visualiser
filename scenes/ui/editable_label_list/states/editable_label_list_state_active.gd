@@ -37,3 +37,6 @@ func _on_move_up() -> void:
 
 func _on_label_activated() -> void:
 	transition_state(EditableLabelList.State.DISABLED)
+
+func deactivate() -> void:
+	transition_state(EditableLabelList.State.IDLE)

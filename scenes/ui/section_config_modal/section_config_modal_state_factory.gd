@@ -6,6 +6,7 @@ func _init() -> void:
 	states = {
 		SectionConfigModal.State.HIDDEN: SectionConfigModalStateHidden,
 		SectionConfigModal.State.SHOWN: SectionConfigModalStateShown,
+		SectionConfigModal.State.FINISHING: SectionConfigModalStateFinishing,
 	}
 
 func get_fresh_state(state: SectionConfigModal.State) -> SectionConfigModalState:

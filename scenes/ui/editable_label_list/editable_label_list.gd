@@ -40,3 +40,7 @@ func _refresh() -> void:
 func activate() -> void:
 	if _current_state:
 		_current_state.activate()
+
+func deactivate() -> void:
+	if _current_state:
+		_current_state.deactivate()

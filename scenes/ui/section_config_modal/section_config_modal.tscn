@@ -17,11 +17,10 @@ script = ExtResource("2_mdk30")
 section = ExtResource("5_pyu7k")
 metadata/_edit_horizontal_guides_ = [300.0]
 
-[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("header_label", "category_labels")]
+[node name="Appearance" type="Node" parent="." node_paths=PackedStringArray("header_label")]
 unique_name_in_owner = true
 script = ExtResource("3_q1077")
 header_label = NodePath("../MarginContainer/VBoxContainer/HeaderLabel")
-category_labels = NodePath("")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
