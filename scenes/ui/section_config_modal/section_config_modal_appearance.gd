@@ -2,11 +2,20 @@
 class_name SectionConfigModalAppearance
 extends Node
 
+const MODULATE_COLOUR_ACTIVE := Color.WHITE
+const MODULATE_COLOUR_PAUSE := Color.LIGHT_GRAY
+
+@export
+var modal: SectionConfigModal
+
 @export
 var header_label: Label
 
 @export
 var category_labels: CategoryLabels
+
+@export
+var buttons: ModalButtons
 
 func set_section(section: BudgetSection) -> void:
 	if header_label:
@@ -14,3 +23,23 @@ func set_section(section: BudgetSection) -> void:
 
 	if category_labels:
 		category_labels.section = section
+
+func for_active() -> void:
+	if modal:
+		modal.self_modulate = MODULATE_COLOUR_ACTIVE
+
+	if header_label:
+		header_label.self_modulate = MODULATE_COLOUR_ACTIVE
+
+	if buttons:
+		buttons.self_modulate = MODULATE_COLOUR_ACTIVE
+
+func for_paused() -> void:
+	if modal:
+		modal.self_modulate = MODULATE_COLOUR_PAUSE
+
+	if header_label:
+		header_label.self_modulate = MODULATE_COLOUR_PAUSE
+
+	if buttons:
+		buttons.self_modulate = MODULATE_COLOUR_PAUSE
