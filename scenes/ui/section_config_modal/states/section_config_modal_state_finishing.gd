@@ -9,6 +9,8 @@ func _enter_tree() -> void:
 
 	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
+	_appearance.for_finishing()
+
 	_modal_buttons.activate()
 
 	SignalHelper.persist(

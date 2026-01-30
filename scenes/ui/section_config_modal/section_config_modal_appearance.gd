@@ -12,7 +12,7 @@ var modal: SectionConfigModal
 var header_label: Label
 
 @export
-var category_labels: CategoryLabels
+var category_list: EditableLabelList
 
 @export
 var buttons: ModalButtons
@@ -21,8 +21,7 @@ func set_section(section: BudgetSection) -> void:
 	if header_label:
 		header_label.text = section.name if section else "<unknown>"
 
-	if category_labels:
-		category_labels.section = section
+	# TODO: inject the category names into the label list
 
 func for_active() -> void:
 	if modal:
@@ -30,6 +29,9 @@ func for_active() -> void:
 
 	if header_label:
 		header_label.self_modulate = MODULATE_COLOUR_ACTIVE
+
+	if category_list:
+		category_list.modulate = MODULATE_COLOUR_ACTIVE
 
 	if buttons:
 		buttons.self_modulate = MODULATE_COLOUR_ACTIVE
@@ -43,3 +45,7 @@ func for_paused() -> void:
 
 	if buttons:
 		buttons.self_modulate = MODULATE_COLOUR_PAUSE
+
+func for_finishing() -> void:
+	if category_list:
+		category_list.modulate = MODULATE_COLOUR_PAUSE
