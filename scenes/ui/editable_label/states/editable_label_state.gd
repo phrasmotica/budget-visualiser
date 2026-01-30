@@ -30,3 +30,9 @@ func highlight() -> void:
 
 func unhighlight() -> void:
 	pass
+
+func disable() -> void:
+	pass
+
+func enable() -> void:
+	pass

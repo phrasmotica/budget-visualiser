@@ -8,8 +8,8 @@ var labels: Array[EditableLabel] = []:
 		labels = value
 
 		for l in labels:
-			SignalHelper.chain(l.activated, label_activated)
-			SignalHelper.chain(l.deactivated, label_deactivated)
+			SignalHelper.persist(l.activated, _on_label_activated.bind(l))
+			SignalHelper.persist(l.deactivated, _on_label_deactivated.bind(l))
 
 		_refresh()
 
@@ -46,6 +46,20 @@ func _update_highlight(index: int) -> void:
 			label.highlight()
 		else:
 			label.unhighlight()
+
+func _on_label_activated(label: EditableLabel) -> void:
+	for l in labels:
+		if l != label:
+			l.disable()
+
+	label_activated.emit()
+
+func _on_label_deactivated(label: EditableLabel) -> void:
+	for l in labels:
+		if l != label:
+			l.enable()
+
+	label_deactivated.emit()
 
 func get_label_count() -> int:
 	return labels.size()

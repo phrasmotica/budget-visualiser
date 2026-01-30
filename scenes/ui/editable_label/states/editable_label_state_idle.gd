@@ -8,3 +8,6 @@ func _enter_tree() -> void:
 
 func highlight() -> void:
 	transition_state(EditableLabel.State.HIGHLIGHTED)
+
+func disable() -> void:
+	transition_state(EditableLabel.State.DISABLED)

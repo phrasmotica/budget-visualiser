@@ -2,6 +2,9 @@
 class_name EditableLabelAppearance
 extends Node
 
+const MODULATE_COLOUR_IDLE := Color.WHITE
+const MODULATE_COLOUR_DISABLED := Color.LIGHT_GRAY
+
 @export
 var idle_container: PanelContainer
 
@@ -30,6 +33,8 @@ func for_idle() -> void:
 	if idle_container:
 		idle_container.show()
 		idle_container.theme_type_variation = "EmptyPanelContainer"
+
+		idle_container.modulate = MODULATE_COLOUR_IDLE
 
 	if editing_container:
 		editing_container.hide()
@@ -66,3 +71,13 @@ func for_editing() -> void:
 
 			line_edit.select_all()
 			line_edit.caret_column = line_edit.text.length()
+
+func for_disabled() -> void:
+	if idle_container:
+		idle_container.show()
+		idle_container.theme_type_variation = "EmptyPanelContainer"
+
+		idle_container.modulate = MODULATE_COLOUR_DISABLED
+
+	if editing_container:
+		editing_container.hide()

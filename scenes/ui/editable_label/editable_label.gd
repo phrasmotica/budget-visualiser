@@ -2,7 +2,7 @@
 class_name EditableLabel
 extends PanelContainer
 
-enum State { IDLE, HIGHLIGHTED, EDITING }
+enum State { IDLE, HIGHLIGHTED, EDITING, DISABLED }
 
 @export
 var is_editing := false:
@@ -84,3 +84,11 @@ func highlight() -> void:
 func unhighlight() -> void:
 	if _current_state:
 		_current_state.unhighlight()
+
+func enable() -> void:
+	if _current_state:
+		_current_state.enable()
+
+func disable() -> void:
+	if _current_state:
+		_current_state.disable()
