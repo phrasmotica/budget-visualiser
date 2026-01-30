@@ -63,3 +63,11 @@ func _on_label_deactivated(label: EditableLabel) -> void:
 
 func get_label_count() -> int:
 	return labels.size()
+
+func get_text_list() -> Array[String]:
+	var text_list: Array[String] = []
+
+	for l in labels:
+		text_list.append(l.text)
+
+	return text_list

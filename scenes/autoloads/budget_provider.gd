@@ -121,6 +121,18 @@ func apply_changes(change_tracker: TransactionChangeTracker) -> void:
 
 	_save_changes()
 
+# TODO: create a change tracker class...
+func apply_section_changes(
+	section: BudgetSection,
+	new_category_names: Array[String],
+) -> void:
+	Logger.info(
+		"New category names for section %s: %s" % [
+			section.name,
+			new_category_names.reduce(Strings.join(", ")),
+		]
+	)
+
 func get_month_debug() -> BudgetMonth:
 	return BUDGET_MONTHS[0]
 

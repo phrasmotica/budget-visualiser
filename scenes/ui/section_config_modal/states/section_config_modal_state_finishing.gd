@@ -40,6 +40,10 @@ func _cancel() -> void:
 func _finish() -> void:
 	Logger.info("Finished section config")
 
+	BudgetProvider.apply_section_changes(
+		_section_config_modal.section,
+		_category_list.get_text_list())
+
 	SectionConfigEvents.emit_cancelled()
 
 	_to_hidden()

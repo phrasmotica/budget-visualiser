@@ -13,9 +13,8 @@ func _enter_tree() -> void:
 		_on_text_submitted)
 
 func _on_text_submitted(text: String) -> void:
-	_appearance.set_label_text(text)
+	_editable_label.text = text
 
-	_editable_label.emit_text_changed(text)
 	_editable_label.emit_deactivated()
 
 	transition_state(EditableLabel.State.HIGHLIGHTED)
