@@ -64,6 +64,16 @@ func _on_label_deactivated(label: EditableLabel) -> void:
 func get_label_count() -> int:
 	return labels.size()
 
+func set_text_list(text_list: Array[String]) -> void:
+	var label_count := labels.size()
+	var text_count := text_list.size()
+
+	for i in label_count:
+		if i < text_count:
+			labels[i].text = text_list[i]
+		else:
+			labels[i].text = ""
+
 func get_text_list() -> Array[String]:
 	var text_list: Array[String] = []
 

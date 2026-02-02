@@ -24,3 +24,11 @@ func get_category_index(category: BudgetCategory) -> int:
 
 func get_category(index: int) -> BudgetCategory:
 	return categories[index]
+
+func get_category_names() -> Array[String]:
+	var names: Array[String] = []
+
+	for c in categories:
+		names.append(c.name)
+
+	return names

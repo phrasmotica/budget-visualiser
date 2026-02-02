@@ -21,7 +21,9 @@ func set_section(section: BudgetSection) -> void:
 	if header_label:
 		header_label.text = section.name if section else "<unknown>"
 
-	# TODO: inject the category names into the label list
+	if category_list:
+		var text_list := section.get_category_names()
+		category_list.set_text_list(text_list)
 
 func for_active() -> void:
 	if modal:

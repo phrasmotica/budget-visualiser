@@ -54,5 +54,8 @@ func deactivate() -> void:
 	if _current_state:
 		_current_state.deactivate()
 
+func set_text_list(text_list: Array[String]) -> void:
+	label_manager.set_text_list(text_list)
+
 func get_text_list() -> Array[String]:
 	return label_manager.get_text_list()
