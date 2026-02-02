@@ -1,6 +1,6 @@
 @tool
 class_name EditableLabelList
-extends VBoxContainer
+extends PanelContainer
 
 enum State { IDLE, ACTIVE, DISABLED }
 

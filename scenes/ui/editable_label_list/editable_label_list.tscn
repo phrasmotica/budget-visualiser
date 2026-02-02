@@ -1,36 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://hslns6d1ukdx"]
+[gd_scene load_steps=5 format=3 uid="uid://hslns6d1ukdx"]
 
 [ext_resource type="PackedScene" uid="uid://c5qj8qoxoy8y7" path="res://scenes/ui/editable_label/editable_label.tscn" id="1_h2vif"]
+[ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_inr5c"]
 [ext_resource type="Script" uid="uid://by3k81yyb8rr1" path="res://scenes/ui/editable_label_list/editable_label_list.gd" id="1_lx451"]
 [ext_resource type="Script" uid="uid://dinyqfy4m70lb" path="res://scenes/ui/editable_label_list/editable_label_manager.gd" id="2_1kaga"]
 
-[node name="EditableLabelList" type="VBoxContainer"]
+[node name="EditableLabelList" type="PanelContainer"]
 offset_right = 400.0
-offset_bottom = 40.0
-theme_override_constants/separation = 8
+offset_bottom = 272.0
+theme = ExtResource("1_inr5c")
+theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_lx451")
 
 [node name="LabelManager" type="Node" parent="." node_paths=PackedStringArray("labels")]
 unique_name_in_owner = true
 script = ExtResource("2_1kaga")
-labels = [NodePath("../EditableLabel0"), NodePath("../EditableLabel1"), NodePath("../EditableLabel2"), NodePath("../EditableLabel3"), NodePath("../EditableLabel4")]
+labels = [NodePath("../VBoxContainer/EditableLabel0"), NodePath("../VBoxContainer/EditableLabel1"), NodePath("../VBoxContainer/EditableLabel2"), NodePath("../VBoxContainer/EditableLabel3"), NodePath("../VBoxContainer/EditableLabel4")]
 
-[node name="EditableLabel0" parent="." instance=ExtResource("1_h2vif")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EditableLabel0" parent="VBoxContainer" instance=ExtResource("1_h2vif")]
 layout_mode = 2
 text = "Text0"
 
-[node name="EditableLabel1" parent="." instance=ExtResource("1_h2vif")]
+[node name="EditableLabel1" parent="VBoxContainer" instance=ExtResource("1_h2vif")]
 layout_mode = 2
 text = "Text1"
 
-[node name="EditableLabel2" parent="." instance=ExtResource("1_h2vif")]
+[node name="EditableLabel2" parent="VBoxContainer" instance=ExtResource("1_h2vif")]
 layout_mode = 2
 text = "Text2"
 
-[node name="EditableLabel3" parent="." instance=ExtResource("1_h2vif")]
+[node name="EditableLabel3" parent="VBoxContainer" instance=ExtResource("1_h2vif")]
 layout_mode = 2
 text = "Text3"
 
-[node name="EditableLabel4" parent="." instance=ExtResource("1_h2vif")]
+[node name="EditableLabel4" parent="VBoxContainer" instance=ExtResource("1_h2vif")]
 layout_mode = 2
 text = "Text4"
