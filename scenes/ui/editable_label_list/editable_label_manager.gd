@@ -13,6 +13,9 @@ var labels: Array[EditableLabel] = []:
 
 		_refresh()
 
+@export
+var label_parent: Container
+
 var _index_tracker: IndexTracker = null
 
 signal label_activated
@@ -65,14 +68,33 @@ func get_label_count() -> int:
 	return labels.size()
 
 func set_text_list(text_list: Array[String]) -> void:
-	var label_count := labels.size()
-	var text_count := text_list.size()
+	_ensure_labels(text_list.size())
 
-	for i in label_count:
-		if i < text_count:
-			labels[i].text = text_list[i]
+	for i in labels.size():
+		labels[i].text = text_list[i]
+
+func _ensure_labels(count: int) -> void:
+	var label_count := labels.size()
+
+	labels.clear()
+
+	for i in count:
+		var label: EditableLabel
+
+		if i >= label_count:
+			label = EditableLabelFactory.create_label(i)
+
+			label_parent.add_child(label)
+			label.owner = label_parent
 		else:
-			labels[i].text = ""
+			label = label_parent.get_child(i) as EditableLabel
+
+		labels.append(label)
+
+	while label_parent.get_child_count() > count:
+		var child_to_remove := label_parent.get_child(-1)
+		label_parent.remove_child(child_to_remove)
+		child_to_remove.queue_free()
 
 func get_text_list() -> Array[String]:
 	var text_list: Array[String] = []

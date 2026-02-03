@@ -12,10 +12,11 @@ theme = ExtResource("1_inr5c")
 theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_lx451")
 
-[node name="LabelManager" type="Node" parent="." node_paths=PackedStringArray("labels")]
+[node name="LabelManager" type="Node" parent="." node_paths=PackedStringArray("labels", "label_parent")]
 unique_name_in_owner = true
 script = ExtResource("2_1kaga")
 labels = [NodePath("../VBoxContainer/EditableLabel0"), NodePath("../VBoxContainer/EditableLabel1"), NodePath("../VBoxContainer/EditableLabel2"), NodePath("../VBoxContainer/EditableLabel3"), NodePath("../VBoxContainer/EditableLabel4")]
+label_parent = NodePath("../VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
