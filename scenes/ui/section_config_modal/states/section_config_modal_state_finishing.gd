@@ -40,9 +40,20 @@ func _cancel() -> void:
 func _finish() -> void:
 	Logger.info("Finished section config")
 
-	BudgetProvider.apply_section_changes(
-		_section_config_modal.section,
-		_category_list.get_text_list())
+	var change_tracker := SectionChangeTracker.new(
+		_section_config_modal.section)
+
+	var text_list := _category_list.get_text_list()
+
+	# assumes the amount of categories has not changed
+	for i in _section_config_modal.section.categories.size():
+		var category := _section_config_modal.section.categories[i]
+		var new_name := text_list[i]
+
+		if category.name != new_name:
+			change_tracker.change_category_name(category.name, new_name)
+
+	BudgetProvider.apply_section_changes(change_tracker)
 
 	SectionConfigEvents.emit_cancelled()
 
