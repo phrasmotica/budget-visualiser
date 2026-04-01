@@ -23,6 +23,8 @@ func _enter_tree() -> void:
 
 	_appearance.for_shown()
 
+	# TODO: create a handler in this class, so that we don't have to remove
+	# these connections in _exit_tree()
 	SignalHelper.persist(GridInput.move_right, _appearance.next_column)
 	SignalHelper.persist(GridInput.move_left, _appearance.previous_column)
 
@@ -42,6 +44,9 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	GUIDE.disable_mapping_context(MAPPING_CONTEXT)
+
+	SignalHelper.remove(GridInput.move_right, _appearance.next_column)
+	SignalHelper.remove(GridInput.move_left, _appearance.previous_column)
 
 func _on_amount_changed(total: float) -> void:
 	var starting_amount := _state_data.get_starting_amount()
