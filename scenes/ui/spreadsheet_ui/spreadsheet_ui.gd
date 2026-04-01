@@ -19,6 +19,11 @@ var header_panel: HeaderPanel = %HeaderPanel
 @onready
 var year_grid: YearGrid = %YearGrid
 
+# TODO: allow toggling between footer modes:
+# - SectionSummaryGrid for Incomes section
+# - SectionSummaryGrid for current section
+# - new control showing the remaining expenditure for each month
+
 @onready
 var section_summary_grid: SectionSummaryGrid = %SectionSummaryGrid
 
