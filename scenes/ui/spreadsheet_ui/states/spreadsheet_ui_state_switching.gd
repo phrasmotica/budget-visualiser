@@ -5,7 +5,7 @@ const MAPPING_CONTEXT: GUIDEMappingContext = preload(
 	"res://resources/input/ctx_spreadsheet_ui_switching.tres")
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now switching" % _spreadsheet_ui.name)
+	CustomLogger.debug("%s is now switching" % _spreadsheet_ui.name)
 
 	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 

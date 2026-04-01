@@ -2,7 +2,7 @@ class_name DigitSpinnerStateActive
 extends DigitSpinnerState
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now active" % _digit_spinner.name)
+	CustomLogger.debug("%s is now active" % _digit_spinner.name)
 
 	_appearance.for_active()
 

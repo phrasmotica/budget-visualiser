@@ -5,13 +5,13 @@ var _is_macos := false
 
 func _init() -> void:
 	var os_name := OS.get_name()
-	Logger.info("OS: %s" % os_name)
+	CustomLogger.info("OS: %s" % os_name)
 
 	_is_windows = os_name.contains("Windows")
-	Logger.info("OS is Windows: %s" % _is_windows)
+	CustomLogger.info("OS is Windows: %s" % _is_windows)
 
 	_is_macos = os_name.contains("macOS")
-	Logger.info("OS is macOS: %s" % _is_macos)
+	CustomLogger.info("OS is macOS: %s" % _is_macos)
 
 	assert(_is_windows != _is_macos)
 

@@ -78,18 +78,18 @@ func add_transaction(
 ) -> void:
 	var new_transaction := _data.add_transaction(category, month, amount)
 
-	Logger.info("New transaction: %s %s, %s" % [
+	CustomLogger.info("New transaction: %s %s, %s" % [
 		new_transaction.month.name,
 		new_transaction.category.name,
 		Strings.curr(new_transaction.amount),
 	])
 
-	Logger.info("%s Total: %s" % [
+	CustomLogger.info("%s Total: %s" % [
 		month.name,
 		Strings.curr(_data.compute_month_expenditure(month))
 	])
 
-	Logger.info("Grand Total: %s" % Strings.curr(_data.compute_total_expenditure()))
+	CustomLogger.info("Grand Total: %s" % Strings.curr(_data.compute_total_expenditure()))
 
 	transaction_added.emit(new_transaction)
 
@@ -99,7 +99,7 @@ func apply_changes(change_tracker: TransactionChangeTracker) -> void:
 	var transaction_ids := change_tracker.get_transaction_ids()
 
 	if transaction_ids.is_empty():
-		Logger.info("No changes to apply to the budget!")
+		CustomLogger.info("No changes to apply to the budget!")
 		return
 
 	var changed_count := 0
@@ -117,7 +117,7 @@ func apply_changes(change_tracker: TransactionChangeTracker) -> void:
 
 		changed_count += 1
 
-	Logger.info("Applied %d change(s) to the budget." % changed_count)
+	CustomLogger.info("Applied %d change(s) to the budget." % changed_count)
 
 	_save_changes()
 

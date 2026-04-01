@@ -2,7 +2,7 @@ class_name TransactionListerModalStateHidden
 extends TransactionListerModalState
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now hidden" % _transaction_lister_modal.name)
+	CustomLogger.debug("%s is now hidden" % _transaction_lister_modal.name)
 
 	_transaction_lister_modal.hide()
 	_modal_buttons.reset_highlight()

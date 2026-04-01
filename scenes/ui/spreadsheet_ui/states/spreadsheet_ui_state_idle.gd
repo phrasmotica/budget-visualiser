@@ -5,7 +5,7 @@ const MAPPING_CONTEXT: GUIDEMappingContext = preload(
 	"res://resources/input/ctx_spreadsheet_ui_idle.tres")
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now idle" % _spreadsheet_ui.name)
+	CustomLogger.debug("%s is now idle" % _spreadsheet_ui.name)
 
 	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
@@ -58,7 +58,7 @@ func _show_transaction_lister_modal() -> void:
 		month)
 
 	if transactions.size() <= 0:
-		Logger.info("No transactions to list!")
+		CustomLogger.info("No transactions to list!")
 		return
 
 	_transaction_lister_modal.sub_header = "%s - %s" % [category.name, month.name]

@@ -2,7 +2,7 @@ class_name AmountCellStateHighlighted
 extends AmountCellState
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now highlighted" % _amount_cell.name)
+	CustomLogger.debug("%s is now highlighted" % _amount_cell.name)
 
 	_amount_cell.theme_type_variation = "HighlightedPanelContainer"
 

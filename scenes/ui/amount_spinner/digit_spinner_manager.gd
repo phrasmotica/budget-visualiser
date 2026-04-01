@@ -60,7 +60,7 @@ func _on_spinner_amount_changed() -> void:
 
 func highlight(index: int) -> DigitSpinner:
 	if index < 0 or index > digit_spinners.size() - 1:
-		Logger.info("Cannot highlight DigitSpinner at invalid index %d!" % index)
+		CustomLogger.info("Cannot highlight DigitSpinner at invalid index %d!" % index)
 		return
 
 	_highlighted_index = index

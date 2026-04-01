@@ -2,4 +2,4 @@ class_name %%ClassName%%State%%StateName%%
 extends %%ClassName%%State
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now %%StateNameLower%%" % _%%FieldName%%.name)
+	CustomLogger.debug("%s is now %%StateNameLower%%" % _%%FieldName%%.name)

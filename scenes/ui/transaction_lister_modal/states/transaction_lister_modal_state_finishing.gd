@@ -5,7 +5,7 @@ const MAPPING_CONTEXT: GUIDEMappingContext = preload(
 	"res://resources/input/ctx_modal_buttons.tres")
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now finishing" % _transaction_lister_modal.name)
+	CustomLogger.debug("%s is now finishing" % _transaction_lister_modal.name)
 
 	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
@@ -33,7 +33,7 @@ func disable() -> void:
 	_to_hidden()
 
 func _cancel() -> void:
-	Logger.info("Cancelled toggling transactions")
+	CustomLogger.info("Cancelled toggling transactions")
 
 	var change_tracker := _transaction_lister.get_change_tracker()
 	change_tracker.clear_changes()
@@ -43,7 +43,7 @@ func _cancel() -> void:
 	_to_hidden()
 
 func _finish() -> void:
-	Logger.info("Finished toggling transactions")
+	CustomLogger.info("Finished toggling transactions")
 
 	var change_tracker := _transaction_lister.get_change_tracker()
 	BudgetProvider.apply_changes(change_tracker)

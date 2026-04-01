@@ -2,7 +2,7 @@ class_name SectionSummaryGridStateIdle
 extends SectionSummaryGridState
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now idle" % _section_summary_grid.name)
+	CustomLogger.debug("%s is now idle" % _section_summary_grid.name)
 
 	SignalHelper.persist(
 		BudgetProvider.budget_changed,

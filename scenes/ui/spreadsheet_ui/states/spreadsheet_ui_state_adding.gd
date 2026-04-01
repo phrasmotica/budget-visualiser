@@ -2,7 +2,7 @@ class_name SpreadsheetUIStateAdding
 extends SpreadsheetUIState
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now adding" % _spreadsheet_ui.name)
+	CustomLogger.debug("%s is now adding" % _spreadsheet_ui.name)
 
 	_header_panel.show_icons = false
 

@@ -9,7 +9,7 @@ var _highlighted_index := -1
 
 func highlight(index: int) -> AmountCell:
 	if index < 0 or index > cells.size() - 1:
-		Logger.info("Cannot highlight AmountCell at invalid index %d!" % index)
+		CustomLogger.info("Cannot highlight AmountCell at invalid index %d!" % index)
 		return
 
 	_highlighted_index = index

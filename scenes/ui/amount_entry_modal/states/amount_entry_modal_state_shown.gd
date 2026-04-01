@@ -5,7 +5,7 @@ const MAPPING_CONTEXT: GUIDEMappingContext = preload(
 	"res://resources/input/ctx_new_transaction_modal_acting.tres")
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now shown" % _amount_entry_modal.name)
+	CustomLogger.debug("%s is now shown" % _amount_entry_modal.name)
 
 	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
@@ -62,7 +62,7 @@ func set_amounts_caption(starting_amount: float, preview_amount: float) -> void:
 	_appearance.set_caption(caption)
 
 func _cancel() -> void:
-	Logger.info("Cancelling amount entry")
+	CustomLogger.info("Cancelling amount entry")
 
 	AmountEvents.emit_entry_cancelled()
 
@@ -71,7 +71,7 @@ func _cancel() -> void:
 func _finish() -> void:
 	var final_amount := _spinner.compute_amount()
 
-	Logger.info("Final amount: %s" % Strings.curr(final_amount))
+	CustomLogger.info("Final amount: %s" % Strings.curr(final_amount))
 
 	AmountEvents.emit_entry_finished(final_amount)
 

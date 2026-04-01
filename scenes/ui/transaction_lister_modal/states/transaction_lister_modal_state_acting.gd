@@ -5,7 +5,7 @@ const MAPPING_CONTEXT: GUIDEMappingContext = preload(
 	"res://resources/input/ctx_transaction_lister_modal_acting.tres")
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now acting" % _transaction_lister_modal.name)
+	CustomLogger.debug("%s is now acting" % _transaction_lister_modal.name)
 
 	GUIDE.enable_mapping_context(MAPPING_CONTEXT)
 
@@ -29,7 +29,7 @@ func disable() -> void:
 	_to_hidden()
 
 func _cancel() -> void:
-	Logger.info("Cancelled toggling transactions")
+	CustomLogger.info("Cancelled toggling transactions")
 
 	_transaction_lister.disable()
 

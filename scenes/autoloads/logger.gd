@@ -1,6 +1,8 @@
 @tool
 extends Node
 
+# TODO: extend Logger instead, and override _log_message and _log_error
+
 enum Level { FATAL, ERROR, WARNING, INFO, DEBUG }
 
 const ENABLE_FILE_LOGGING := false

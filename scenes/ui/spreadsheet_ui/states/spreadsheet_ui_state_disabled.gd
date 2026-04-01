@@ -2,7 +2,7 @@ class_name SpreadsheetUIStateDisabled
 extends SpreadsheetUIState
 
 func _enter_tree() -> void:
-	Logger.debug("%s is now disabled" % _spreadsheet_ui.name)
+	CustomLogger.debug("%s is now disabled" % _spreadsheet_ui.name)
 
 	_year_grid.disable()
 

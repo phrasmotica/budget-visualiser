@@ -25,4 +25,4 @@ func current() -> int:
 	return _current
 
 func _report() -> void:
-	Logger.debug("%s _current=%d" % [_name, _current])
+	CustomLogger.debug("%s _current=%d" % [_name, _current])

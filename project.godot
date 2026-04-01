@@ -21,11 +21,15 @@ resources_spreadsheet_view/fold_docks=true
 resources_spreadsheet_view/resource_cell_label_mode=1
 resources_spreadsheet_view/freeze_first_column=true
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="budget-visualiser"
 run/main_scene="uid://bpgey7qxb48kd"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -39,7 +43,7 @@ BudgetManager="*res://scenes/autoloads/budget_manager.gd"
 SaverLoader="*res://scenes/autoloads/saver_loader.gd"
 TransactionListerEvents="*res://scenes/autoloads/transaction_lister_events.gd"
 Log="*res://addons/GoLogger/Log.tscn"
-Logger="*res://scenes/autoloads/logger.gd"
+CustomLogger="*res://scenes/autoloads/logger.gd"
 ModifierInput="*res://scenes/autoloads/modifier_input.gd"
 GUIDE="*res://addons/guide/guide.gd"
 GuideHelper="*res://scenes/autoloads/guide_helper.gd"
