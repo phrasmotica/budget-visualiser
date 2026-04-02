@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEActionMapping" load_steps=16 format=3 uid="uid://bt014uli5cy1a"]
+[gd_resource type="Resource" script_class="GUIDEActionMapping" format=3 uid="uid://bt014uli5cy1a"]
 
 [ext_resource type="Resource" uid="uid://dp48ktwwby8qa" path="res://resources/input/action_grid_input.tres" id="1_nwijc"]
 [ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="2_8ixei"]
@@ -12,28 +12,15 @@
 [sub_resource type="Resource" id="Resource_bu8hb"]
 script = ExtResource("3_nwijc")
 key = 4194319
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_dk5qq"]
 script = ExtResource("5_lhyxa")
-x = true
-y = true
-z = true
 
 [sub_resource type="Resource" id="Resource_s6cfr"]
 script = ExtResource("7_auwp3")
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_8jxou"]
 script = ExtResource("2_8ixei")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_bu8hb")
 modifiers = Array[ExtResource("4_8ixei")]([SubResource("Resource_dk5qq")])
 triggers = Array[ExtResource("6_6b6uv")]([SubResource("Resource_s6cfr")])
@@ -41,24 +28,13 @@ triggers = Array[ExtResource("6_6b6uv")]([SubResource("Resource_s6cfr")])
 [sub_resource type="Resource" id="Resource_v7i8c"]
 script = ExtResource("3_nwijc")
 key = 4194321
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_1311k"]
 script = ExtResource("7_auwp3")
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_ltsvt"]
 script = ExtResource("2_8ixei")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_v7i8c")
-modifiers = Array[ExtResource("4_8ixei")]([])
 triggers = Array[ExtResource("6_6b6uv")]([SubResource("Resource_1311k")])
 metadata/_guide_triggers_collapsed = false
 

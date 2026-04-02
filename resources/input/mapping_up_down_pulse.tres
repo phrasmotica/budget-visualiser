@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEActionMapping" load_steps=19 format=3 uid="uid://bkuk5uu1ckl0j"]
+[gd_resource type="Resource" script_class="GUIDEActionMapping" format=3 uid="uid://bkuk5uu1ckl0j"]
 
 [ext_resource type="Resource" uid="uid://dp48ktwwby8qa" path="res://resources/input/action_grid_input.tres" id="1_uv4jh"]
 [ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="2_dgul7"]
@@ -13,36 +13,18 @@
 [sub_resource type="Resource" id="Resource_npg6x"]
 script = ExtResource("3_0lf4q")
 key = 4194320
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_d3o7b"]
 script = ExtResource("5_52ush")
-x = true
-y = true
-z = true
 
 [sub_resource type="Resource" id="Resource_3h4bq"]
 script = ExtResource("6_vtc04")
-order = 0
 
 [sub_resource type="Resource" id="Resource_430ed"]
 script = ExtResource("8_gyl5h")
-trigger_on_start = true
-initial_delay = 0.3
-pulse_interval = 0.1
-max_pulses = 0
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_w1jxg"]
 script = ExtResource("2_dgul7")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_npg6x")
 modifiers = Array[ExtResource("4_riyyk")]([SubResource("Resource_d3o7b"), SubResource("Resource_3h4bq")])
 triggers = Array[ExtResource("7_n8xk0")]([SubResource("Resource_430ed")])
@@ -50,30 +32,15 @@ triggers = Array[ExtResource("7_n8xk0")]([SubResource("Resource_430ed")])
 [sub_resource type="Resource" id="Resource_nl8pq"]
 script = ExtResource("3_0lf4q")
 key = 4194322
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_1qm5y"]
 script = ExtResource("6_vtc04")
-order = 0
 
 [sub_resource type="Resource" id="Resource_8yand"]
 script = ExtResource("8_gyl5h")
-trigger_on_start = true
-initial_delay = 0.3
-pulse_interval = 0.1
-max_pulses = 0
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_cqy14"]
 script = ExtResource("2_dgul7")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_nl8pq")
 modifiers = Array[ExtResource("4_riyyk")]([SubResource("Resource_1qm5y")])
 triggers = Array[ExtResource("7_n8xk0")]([SubResource("Resource_8yand")])

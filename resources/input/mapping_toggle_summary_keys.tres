@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEActionMapping" load_steps=11 format=3 uid="uid://cmui1ow1nd1m6"]
+[gd_resource type="Resource" script_class="GUIDEActionMapping" format=3 uid="uid://cmui1ow1nd1m6"]
 
 [ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="1_he5fk"]
 [ext_resource type="Resource" uid="uid://blvfk4n8koplc" path="res://resources/input/action_toggle_summary.tres" id="1_m2v0h"]
@@ -11,24 +11,13 @@
 [sub_resource type="Resource" id="Resource_w1r10"]
 script = ExtResource("3_eyu1i")
 key = 66
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_0huj5"]
 script = ExtResource("6_2jsi0")
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_yci1x"]
 script = ExtResource("1_he5fk")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_w1r10")
-modifiers = Array[ExtResource("4_w0rkt")]([])
 triggers = Array[ExtResource("5_q6r2c")]([SubResource("Resource_0huj5")])
 
 [resource]

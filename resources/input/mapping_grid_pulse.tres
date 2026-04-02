@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEActionMapping" load_steps=26 format=3 uid="uid://cestts4b5phte"]
+[gd_resource type="Resource" script_class="GUIDEActionMapping" format=3 uid="uid://cestts4b5phte"]
 
 [ext_resource type="Resource" uid="uid://dp48ktwwby8qa" path="res://resources/input/action_grid_input.tres" id="1_m7rkh"]
 [ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="2_ic482"]
@@ -13,36 +13,18 @@
 [sub_resource type="Resource" id="Resource_npg6x"]
 script = ExtResource("3_ot2il")
 key = 4194320
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_d3o7b"]
 script = ExtResource("5_uptnm")
-x = true
-y = true
-z = true
 
 [sub_resource type="Resource" id="Resource_3h4bq"]
 script = ExtResource("6_kidy6")
-order = 0
 
 [sub_resource type="Resource" id="Resource_430ed"]
 script = ExtResource("8_yf671")
-trigger_on_start = true
-initial_delay = 0.3
-pulse_interval = 0.1
-max_pulses = 0
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_3dsim"]
 script = ExtResource("2_ic482")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_npg6x")
 modifiers = Array[ExtResource("4_ef5g0")]([SubResource("Resource_d3o7b"), SubResource("Resource_3h4bq")])
 triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_430ed")])
@@ -50,30 +32,15 @@ triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_430ed")])
 [sub_resource type="Resource" id="Resource_nl8pq"]
 script = ExtResource("3_ot2il")
 key = 4194322
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_1qm5y"]
 script = ExtResource("6_kidy6")
-order = 0
 
 [sub_resource type="Resource" id="Resource_8yand"]
 script = ExtResource("8_yf671")
-trigger_on_start = true
-initial_delay = 0.3
-pulse_interval = 0.1
-max_pulses = 0
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_0q8tm"]
 script = ExtResource("2_ic482")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_nl8pq")
 modifiers = Array[ExtResource("4_ef5g0")]([SubResource("Resource_1qm5y")])
 triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_8yand")])
@@ -81,32 +48,15 @@ triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_8yand")])
 [sub_resource type="Resource" id="Resource_bu8hb"]
 script = ExtResource("3_ot2il")
 key = 4194319
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_dk5qq"]
 script = ExtResource("5_uptnm")
-x = true
-y = true
-z = true
 
 [sub_resource type="Resource" id="Resource_xsx3j"]
 script = ExtResource("8_yf671")
-trigger_on_start = true
-initial_delay = 0.3
-pulse_interval = 0.1
-max_pulses = 0
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_yncu1"]
 script = ExtResource("2_ic482")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_bu8hb")
 modifiers = Array[ExtResource("4_ef5g0")]([SubResource("Resource_dk5qq")])
 triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_xsx3j")])
@@ -114,28 +64,13 @@ triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_xsx3j")])
 [sub_resource type="Resource" id="Resource_v7i8c"]
 script = ExtResource("3_ot2il")
 key = 4194321
-shift = false
-control = false
-alt = false
-meta = false
-allow_additional_modifiers = true
 
 [sub_resource type="Resource" id="Resource_1d53n"]
 script = ExtResource("8_yf671")
-trigger_on_start = true
-initial_delay = 0.3
-pulse_interval = 0.1
-max_pulses = 0
-actuation_threshold = 0.5
 
 [sub_resource type="Resource" id="Resource_72a7r"]
 script = ExtResource("2_ic482")
-override_action_settings = false
-is_remappable = false
-display_name = ""
-display_category = ""
 input = SubResource("Resource_v7i8c")
-modifiers = Array[ExtResource("4_ef5g0")]([])
 triggers = Array[ExtResource("7_bhbwt")]([SubResource("Resource_1d53n")])
 metadata/_guide_triggers_collapsed = false
 
