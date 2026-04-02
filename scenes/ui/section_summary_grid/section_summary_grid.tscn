@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3k5bvn08h685"]
+[gd_scene format=3 uid="uid://d3k5bvn08h685"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_m770f"]
 [ext_resource type="Script" uid="uid://xgmvnlasb3n6" path="res://scenes/ui/section_summary_grid/section_summary_grid.gd" id="2_vo5gc"]
@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://fe6vu50qqaui" path="res://resources/data/budget_months/budget_month_nov.tres" id="16_v01y2"]
 [ext_resource type="Resource" uid="uid://2xpy25djlv8s" path="res://resources/data/budget_months/budget_month_dec.tres" id="17_8r871"]
 
-[node name="SectionSummaryGrid" type="MarginContainer"]
+[node name="SectionSummaryGrid" type="MarginContainer" unique_id=2130829169]
 offset_right = 1440.0
 offset_bottom = 68.0
 theme = ExtResource("1_m770f")
@@ -27,21 +27,21 @@ theme_override_constants/margin_right = 8
 script = ExtResource("2_vo5gc")
 section = ExtResource("3_6608u")
 
-[node name="SectionCellManager" type="Node" parent="." node_paths=PackedStringArray("cells")]
+[node name="SectionCellManager" type="Node" parent="." unique_id=858183503 node_paths=PackedStringArray("cells")]
 unique_name_in_owner = true
 script = ExtResource("4_6608u")
 cells = [NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell0"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell1"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell2"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell3"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell4"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell5"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell6"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell7"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell8"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell9"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell10"), NodePath("../HBoxContainer/HScrollContainer/SectionCells/SectionCell11")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1305930122]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="HBoxContainer"]
+[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=544112112]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(520, 0)
 layout_mode = 2
 text = "Incomes total"
 
-[node name="HScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+[node name="HScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1254184712]
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -49,54 +49,54 @@ mouse_filter = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
-[node name="SectionCells" type="HBoxContainer" parent="HBoxContainer/HScrollContainer"]
+[node name="SectionCells" type="HBoxContainer" parent="HBoxContainer/HScrollContainer" unique_id=494058568]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SectionCell0" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell0" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=1989155483 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("6_nflsa")
 
-[node name="SectionCell1" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell1" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=1329341602 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("7_sqo0w")
 
-[node name="SectionCell2" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell2" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=271806607 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("8_moife")
 
-[node name="SectionCell3" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell3" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=1965202042 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("9_t7kdn")
 
-[node name="SectionCell4" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell4" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=59970233 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("10_ibabg")
 
-[node name="SectionCell5" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell5" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=1627142357 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("11_ddhng")
 
-[node name="SectionCell6" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell6" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=38806419 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("12_vvttl")
 
-[node name="SectionCell7" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell7" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=584302787 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("13_sgtxu")
 
-[node name="SectionCell8" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell8" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=548987862 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("14_abvog")
 
-[node name="SectionCell9" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell9" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=108673675 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("15_3oujj")
 
-[node name="SectionCell10" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell10" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=1834232049 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("16_v01y2")
 
-[node name="SectionCell11" parent="HBoxContainer/HScrollContainer/SectionCells" instance=ExtResource("3_vayhj")]
+[node name="SectionCell11" parent="HBoxContainer/HScrollContainer/SectionCells" unique_id=2050033965 instance=ExtResource("3_vayhj")]
 layout_mode = 2
 month = ExtResource("17_8r871")

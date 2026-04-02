@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6h7rxf6201g2"]
+[gd_scene format=3 uid="uid://b6h7rxf6201g2"]
 
 [ext_resource type="PackedScene" uid="uid://cgergefmv235w" path="res://scenes/ui/button_panel/button_panel.tscn" id="1_byhr5"]
 [ext_resource type="Script" uid="uid://dv350gpo6ed61" path="res://scenes/ui/modal_buttons/modal_buttons.gd" id="1_moy06"]
@@ -10,34 +10,34 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 4
 
-[node name="ModalButtons" type="VBoxContainer"]
+[node name="ModalButtons" type="VBoxContainer" unique_id=652194383]
 offset_right = 300.0
 offset_bottom = 48.0
 theme_override_constants/separation = 0
 script = ExtResource("1_moy06")
 
-[node name="ButtonManager" type="Node" parent="." node_paths=PackedStringArray("cancel", "confirm")]
+[node name="ButtonManager" type="Node" parent="." unique_id=1304239071 node_paths=PackedStringArray("cancel", "confirm")]
 unique_name_in_owner = true
 script = ExtResource("2_hqw8y")
 cancel = NodePath("../HBoxContainer/CancelButton")
 confirm = NodePath("../HBoxContainer/FinishedButton")
 
-[node name="Underline" type="HSeparator" parent="."]
+[node name="Underline" type="HSeparator" parent="." unique_id=1371351567]
 layout_mode = 2
 theme_override_constants/separation = 16
 theme_override_styles/separator = SubResource("StyleBoxLine_byhr5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1435340270]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="CancelButton" parent="HBoxContainer" instance=ExtResource("1_byhr5")]
+[node name="CancelButton" parent="HBoxContainer" unique_id=1901743756 instance=ExtResource("1_byhr5")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
 
-[node name="FinishedButton" parent="HBoxContainer" instance=ExtResource("1_byhr5")]
+[node name="FinishedButton" parent="HBoxContainer" unique_id=286953263 instance=ExtResource("1_byhr5")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgj8ahx4yu8su"]
+[gd_scene format=3 uid="uid://cgj8ahx4yu8su"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_tfjwn"]
 [ext_resource type="Script" uid="uid://bugjoi5qro4la" path="res://scenes/ui/recent_transactions/recent_transactions.gd" id="2_8farb"]
@@ -11,77 +11,77 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 4
 
-[node name="RecentTransactions" type="VBoxContainer"]
+[node name="RecentTransactions" type="VBoxContainer" unique_id=1818232931]
 size_flags_horizontal = 3
 theme = ExtResource("1_tfjwn")
 theme_override_constants/separation = 0
 script = ExtResource("2_8farb")
 
-[node name="HeaderLabel" type="Label" parent="."]
+[node name="HeaderLabel" type="Label" parent="." unique_id=459989004]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Recents"
 
-[node name="Spacer" type="Control" parent="."]
+[node name="Spacer" type="Control" parent="." unique_id=1291837356]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="NoneLabel" type="Label" parent="."]
+[node name="NoneLabel" type="Label" parent="." unique_id=1878131279]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 text = "None!"
 
-[node name="Ledger" type="VBoxContainer" parent="."]
+[node name="Ledger" type="VBoxContainer" parent="." unique_id=794052439]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TransactionsLabel" parent="Ledger" instance=ExtResource("3_glbe7")]
+[node name="TransactionsLabel" parent="Ledger" unique_id=1521023104 instance=ExtResource("3_glbe7")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MoreSection" type="VBoxContainer" parent="Ledger"]
+[node name="MoreSection" type="VBoxContainer" parent="Ledger" unique_id=1520202506]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Spacer" type="Control" parent="Ledger/MoreSection"]
+[node name="Spacer" type="Control" parent="Ledger/MoreSection" unique_id=1932670963]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="MoreLabel" type="Label" parent="Ledger/MoreSection"]
+[node name="MoreLabel" type="Label" parent="Ledger/MoreSection" unique_id=1985225964]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 text = "+6 more"
 
-[node name="HiddenSection" type="VBoxContainer" parent="Ledger"]
+[node name="HiddenSection" type="VBoxContainer" parent="Ledger" unique_id=96773849]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Spacer" type="Control" parent="Ledger/HiddenSection"]
+[node name="Spacer" type="Control" parent="Ledger/HiddenSection" unique_id=527713560]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="HiddenLabel" type="Label" parent="Ledger/HiddenSection"]
+[node name="HiddenLabel" type="Label" parent="Ledger/HiddenSection" unique_id=31697620]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 text = "+2 hidden"
 
-[node name="Underline" type="HSeparator" parent="Ledger"]
+[node name="Underline" type="HSeparator" parent="Ledger" unique_id=1603813689]
 layout_mode = 2
 theme_override_constants/separation = 16
 theme_override_styles/separator = SubResource("StyleBoxLine_8farb")
 
-[node name="Spacer" type="Control" parent="Ledger"]
+[node name="Spacer" type="Control" parent="Ledger" unique_id=1238126161]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 
-[node name="TotalLabel" parent="Ledger" instance=ExtResource("3_rm5be")]
+[node name="TotalLabel" parent="Ledger" unique_id=1560906348 instance=ExtResource("3_rm5be")]
 unique_name_in_owner = true
 layout_mode = 2
 amount = 150.0

@@ -1,31 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuk4c4fx3dyjp"]
+[gd_scene format=3 uid="uid://cuk4c4fx3dyjp"]
 
 [ext_resource type="Script" uid="uid://dhu4qbm52pm3u" path="res://scenes/ui/amount_spinner/digit_spinner_manager.gd" id="1_2j1wg"]
 [ext_resource type="Script" uid="uid://bxrb2xfkp5eae" path="res://scenes/ui/amount_spinner/amount_spinner.gd" id="1_kx54x"]
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_nur0y"]
-[ext_resource type="Script" uid="uid://c5e1t1j4l6cq3" path="res://scenes/ui/digit_spinner/digit_spinner.gd" id="5_bky5f"]
 [ext_resource type="PackedScene" uid="uid://cqohm1alyo0y6" path="res://scenes/ui/digit_spinner/digit_spinner.tscn" id="5_nur0y"]
 
-[node name="AmountSpinner" type="PanelContainer"]
+[node name="AmountSpinner" type="PanelContainer" unique_id=1830526616]
 offset_right = 544.0
 offset_bottom = 160.0
 theme = ExtResource("1_nur0y")
 theme_type_variation = &"EmptyPanelContainer"
 script = ExtResource("1_kx54x")
 
-[node name="DigitSpinnerManager" type="Node" parent="." node_paths=PackedStringArray("major_spinner_parent", "minor_spinner_parent", "digit_spinners")]
+[node name="DigitSpinnerManager" type="Node" parent="." unique_id=1451931600 node_paths=PackedStringArray("major_spinner_parent", "minor_spinner_parent", "digit_spinners")]
 unique_name_in_owner = true
 script = ExtResource("1_2j1wg")
 major_spinner_parent = NodePath("../HBoxContainer/MajorSpinners")
 minor_spinner_parent = NodePath("../HBoxContainer/MinorSpinners")
 digit_spinners = [NodePath("../HBoxContainer/MajorSpinners/DigitSpinner0"), NodePath("../HBoxContainer/MajorSpinners/DigitSpinner1"), NodePath("../HBoxContainer/MinorSpinners/DigitSpinner0"), NodePath("../HBoxContainer/MinorSpinners/DigitSpinner1")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1189084025]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="SymbolLabel" type="Label" parent="HBoxContainer"]
+[node name="SymbolLabel" type="Label" parent="HBoxContainer" unique_id=1667035780]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 128
@@ -33,32 +32,29 @@ text = "£"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MajorSpinners" type="HBoxContainer" parent="HBoxContainer"]
+[node name="MajorSpinners" type="HBoxContainer" parent="HBoxContainer" unique_id=2672894]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="DigitSpinner0" parent="HBoxContainer/MajorSpinners" instance=ExtResource("5_nur0y")]
+[node name="DigitSpinner0" parent="HBoxContainer/MajorSpinners" unique_id=956980978 instance=ExtResource("5_nur0y")]
 layout_mode = 2
 
-[node name="DigitSpinner1" type="PanelContainer" parent="HBoxContainer/MajorSpinners" instance=ExtResource("5_nur0y")]
+[node name="DigitSpinner1" parent="HBoxContainer/MajorSpinners" unique_id=32508504 instance=ExtResource("5_nur0y")]
 layout_mode = 2
-theme = ExtResource("1_nur0y")
-theme_type_variation = &"EmptyPanelContainer"
-script = ExtResource("5_bky5f")
 
-[node name="SeparatorLabel" type="Label" parent="HBoxContainer"]
+[node name="SeparatorLabel" type="Label" parent="HBoxContainer" unique_id=986295474]
 layout_mode = 2
 theme_override_font_sizes/font_size = 128
 text = "."
 
-[node name="MinorSpinners" type="HBoxContainer" parent="HBoxContainer"]
+[node name="MinorSpinners" type="HBoxContainer" parent="HBoxContainer" unique_id=1882279515]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="DigitSpinner0" parent="HBoxContainer/MinorSpinners" instance=ExtResource("5_nur0y")]
+[node name="DigitSpinner0" parent="HBoxContainer/MinorSpinners" unique_id=111712992 instance=ExtResource("5_nur0y")]
 layout_mode = 2
 
-[node name="DigitSpinner1" parent="HBoxContainer/MinorSpinners" instance=ExtResource("5_nur0y")]
+[node name="DigitSpinner1" parent="HBoxContainer/MinorSpinners" unique_id=437437210 instance=ExtResource("5_nur0y")]
 layout_mode = 2

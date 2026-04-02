@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7p5a2v2vnked"]
+[gd_scene format=3 uid="uid://b7p5a2v2vnked"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_jrnfy"]
 [ext_resource type="Script" uid="uid://deuwixkcmhnfh" path="res://scenes/ui/transaction_select_panel/transaction_select_panel.gd" id="2_ty26g"]
@@ -11,10 +11,9 @@
 script = ExtResource("3_gweyu")
 id = 1
 amount = 10.0
-hidden = false
 metadata/_custom_type_script = "uid://bici6q1crcvjm"
 
-[node name="TransactionSelectPanel" type="PanelContainer"]
+[node name="TransactionSelectPanel" type="PanelContainer" unique_id=73686802]
 custom_minimum_size = Vector2(300, 48)
 offset_right = 300.0
 offset_bottom = 48.0
@@ -23,33 +22,33 @@ theme_type_variation = &"IdlePanelContainer"
 script = ExtResource("2_ty26g")
 transaction = SubResource("Resource_gweyu")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2114800763]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1691164943]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AmountLabel" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_o3obe")]
+[node name="AmountLabel" parent="MarginContainer/HBoxContainer" unique_id=1699104940 instance=ExtResource("4_o3obe")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 amount = 10.0
 
-[node name="Icons" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Icons" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1883244113]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="UnhiddenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Icons"]
+[node name="UnhiddenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Icons" unique_id=887795990]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 texture = ExtResource("4_dsk0n")
 expand_mode = 1
 
-[node name="HiddenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Icons"]
+[node name="HiddenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Icons" unique_id=826148473]
 unique_name_in_owner = true
 visible = false
 modulate = Color(0.412, 0.412, 0.412, 1)

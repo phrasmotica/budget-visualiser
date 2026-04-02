@@ -1,124 +1,124 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8hyfp1xf5k3r"]
+[gd_scene format=3 uid="uid://b8hyfp1xf5k3r"]
 
 [ext_resource type="Theme" uid="uid://c1ktlawkckrai" path="res://themes/theme_pixel.tres" id="1_edbqv"]
 [ext_resource type="Script" uid="uid://bjidctukxq5lj" path="res://scenes/ui/category_labels/category_labels.gd" id="1_rdhsv"]
 
-[node name="CategoryLabels" type="VBoxContainer"]
+[node name="CategoryLabels" type="VBoxContainer" unique_id=547933662]
 offset_right = 492.0
 offset_bottom = 1212.0
 theme = ExtResource("1_edbqv")
 theme_override_constants/separation = 4
 script = ExtResource("1_rdhsv")
 
-[node name="CategoryLabel0" type="Label" parent="."]
+[node name="CategoryLabel0" type="Label" parent="." unique_id=565773538]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Groceries"
 vertical_alignment = 1
 
-[node name="CategoryLabel1" type="Label" parent="."]
+[node name="CategoryLabel1" type="Label" parent="." unique_id=1473935015]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Transport"
 vertical_alignment = 1
 
-[node name="CategoryLabel2" type="Label" parent="."]
+[node name="CategoryLabel2" type="Label" parent="." unique_id=1737768891]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Drinks out"
 vertical_alignment = 1
 
-[node name="CategoryLabel3" type="Label" parent="."]
+[node name="CategoryLabel3" type="Label" parent="." unique_id=1978056136]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Meals out"
 vertical_alignment = 1
 
-[node name="CategoryLabel4" type="Label" parent="."]
+[node name="CategoryLabel4" type="Label" parent="." unique_id=1588463095]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Pool"
 vertical_alignment = 1
 
-[node name="CategoryLabel5" type="Label" parent="."]
+[node name="CategoryLabel5" type="Label" parent="." unique_id=1163796769]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Takeaway meals"
 vertical_alignment = 1
 
-[node name="CategoryLabel6" type="Label" parent="."]
+[node name="CategoryLabel6" type="Label" parent="." unique_id=1189152663]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Cash withdrawal"
 vertical_alignment = 1
 
-[node name="CategoryLabel7" type="Label" parent="."]
+[node name="CategoryLabel7" type="Label" parent="." unique_id=1946728752]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Clothes"
 vertical_alignment = 1
 
-[node name="CategoryLabel8" type="Label" parent="."]
+[node name="CategoryLabel8" type="Label" parent="." unique_id=59075999]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Skincare"
 vertical_alignment = 1
 
-[node name="CategoryLabel9" type="Label" parent="."]
+[node name="CategoryLabel9" type="Label" parent="." unique_id=875009979]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Mimsy"
 vertical_alignment = 1
 
-[node name="CategoryLabel10" type="Label" parent="."]
+[node name="CategoryLabel10" type="Label" parent="." unique_id=1595632664]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Decoration"
 vertical_alignment = 1
 
-[node name="CategoryLabel11" type="Label" parent="."]
+[node name="CategoryLabel11" type="Label" parent="." unique_id=1215616546]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Gifts"
 vertical_alignment = 1
 
-[node name="CategoryLabel12" type="Label" parent="."]
+[node name="CategoryLabel12" type="Label" parent="." unique_id=1443548308]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Books & stationery"
 vertical_alignment = 1
 
-[node name="CategoryLabel13" type="Label" parent="."]
+[node name="CategoryLabel13" type="Label" parent="." unique_id=1126848306]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Video games"
 vertical_alignment = 1
 
-[node name="CategoryLabel14" type="Label" parent="."]
+[node name="CategoryLabel14" type="Label" parent="." unique_id=1781654335]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Software"
 vertical_alignment = 1
 
-[node name="CategoryLabel15" type="Label" parent="."]
+[node name="CategoryLabel15" type="Label" parent="." unique_id=1810125502]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Hardware"
 vertical_alignment = 1
 
-[node name="CategoryLabel16" type="Label" parent="."]
+[node name="CategoryLabel16" type="Label" parent="." unique_id=334113263]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Magic the Gathering"
 vertical_alignment = 1
 
-[node name="CategoryLabel17" type="Label" parent="."]
+[node name="CategoryLabel17" type="Label" parent="." unique_id=469842180]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Knex"
 vertical_alignment = 1
 
-[node name="CategoryLabel18" type="Label" parent="."]
+[node name="CategoryLabel18" type="Label" parent="." unique_id=1585318872]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "IKEA"
