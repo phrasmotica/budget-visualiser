@@ -30,6 +30,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="budget-visualiser"
 run/main_scene="uid://bpgey7qxb48kd"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [autoload]
@@ -123,4 +124,5 @@ primary_modifier_macos={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
